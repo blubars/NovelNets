@@ -352,6 +352,10 @@ son!'
      'I am not what you see and hear.'
      Distant sirens. A crude half nelson. Forms at the door. A young Hispanic woman holds her palm against her mouth, looking.
      'I'm not,' I say.
+
+
+
+
      You have to love old-fashioned men's rooms: the citrus scent of deodorant disks in the long porcelain trough; the stalls with
 wooden doors in frames of cool marble; these thin sinks in rows, basins supported by rickety alphabets of exposed plumbing;
 mirrors over metal shelves; behind all the voices the slight sound of a ceaseless trickle, inflated by echo against wet porcelain and
@@ -1455,6 +1459,10 @@ when high: this No-One-Must-Know thing. It's not fear per se, fear of discovery.
 to lead to anything, Hal's brooding. Like most North Americans of his generation, Hal tends to know way less about why he feels
 certain ways about the objects and pursuits he's devoted to than he does about the objects and pursuits themselves. It's hard to say
 for sure whether this is even exceptionally bad, this tendency.
+
+
+
+
      At 0015h., 2 April, the medical attache's wife is just leaving the Mount Auburn Total Fitness Center, having played five six-
 game pro-sets in her little Mideast-diplomatic-wife-tennis-circle's weekly round-robin, then hung around the special Silver-Key-
 Members' Lounge with the other ladies, unwrapping her face and hair and playing Narjees1111 and all smoking kif and making
@@ -1640,6 +1648,10 @@ dreams you do have seem ragged at the edges, gnawed on, incomplete.
 sit upright, convinced there's someone unauthorized in the dorm room with you. Falling back sick on his circle-stained pillow,
 staring straight up into the prolix folds of the Turkish blanketish thing Pemulis and Schacht had Krazy-Glued to the ceiling's
 corners, which billows, hanging, so its folds form a terrain, like with valleys and shadows.
+
+
+
+
       I am coming to see that the sensation of the worst nightmares, a sensation that can be felt asleep or awake, is identical to those
 worst dreams' form itself: the sudden intra-dream realization that the nightmares' very essence and center has been with you all
 along, even awake: it's just been . .. overlooked; and then that horrific interval between realizing what you've overlooked and
@@ -25465,6 +25477,10 @@ but seemed stilted, as if composed. She reclines against four pillows, at an ang
 motionless and pale. Wayne, slim and brown-limbed, smoothly muscled, also completely motionless, lies over her, his untanned
 bottom in the air, his blank narrow face between her breasts, his eyes unblinking and his thin tongue outthrust like a stunned
 lizard's. They stay just like that.
+
+
+
+
       She wasn't dumb -- she figured it was likely that they'd let her loose just to see where she'd go.
       She went home. She went to the House. She got one of the last trains before they closed the T, probably. It took forever to get
 from Comm. Ave. down to Enfield Marine in her clogs and skirt in the snow, and melt soaked the veil and made it adhere to the
@@ -27582,10 +27598,6 @@ freeze. It's hard to know what to assume v. what to explain. I'm trying to be as
 digressing. Why don't you just pass that certain item back on over here, Inculator. But so we've got / and we've got [a, bj. And let r and R be the
 smallest and biggest values of the function /(x) on the interval [a, b]. So now check out the rectangles of height r and height R over the interval [a,
 b] in the diagram marked let's go ahead and mark it say PEEMSTER:
-
-
-
-
   PEEMSTER
    The Mean Value we're after, A, can now be expressed integrally as the Area of some intermediate-type rectangle whose height is taller [sic] than
 r but shorter [sic] than R. From here on it's just tit. We need a constant. You always need a constant. Inc's nodding his head sarcastically like I
