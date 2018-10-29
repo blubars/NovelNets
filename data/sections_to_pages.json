@@ -4,7 +4,7 @@
     { 'chapter' : 1, 'ch' : 1.2, 'section' : 2, 'start_page' : 10, 'endpage' : 11, 'notes' : [], 'starts_with' : ["It's funny what you don't recall."]},
     { 'chapter' : 1, 'ch' : 1.3, 'section' : 3, 'start_page' : 11, 'endpage' : 13, 'notes' : [], 'starts_with' : ["'My application's not bought,' I am telling them, calling into the darkness of the red cave that opens out before closed eyes."]},
     { 'chapter' : 1, 'ch' : 1.4, 'section' : 4, 'start_page' : 13, 'endpage' : 15, 'notes' : [], 'starts_with' : ["You have to love old-fashioned men's rooms: the citrus scent of deodorant disks in the long porcelain trough; the stalls with wooden doors in frames of cool marble; these thin sins in rows, basins supported by rickety alphabets exposed of plumbing; mirrors over metal shelves; behind all the voices the slight sound of a ceaseless trickle, inflated by echo against wet porcelain and a cold tile floor whose mosaic pattern looks almost Islamic at this close range."]},
-    { 'chapter' : 1, 'ch' : 1.5, 'section' : 5, 'start_page' : 15, 'endpage' : 17, 'notes' : [], 'starts_with' : ['Not for nothing did Orin say that people outdoors down here just scuttle in vectors from air conditioning to air conditioning.']},
+    { 'chapter' : 1, 'ch' : 1.5, 'section' : 5, 'start_page' : 15, 'endpage' : 17, 'notes' : [], 'starts_with' : ["'Not for nothing did Orin say that people outdoors down here just scuttle in vectors from air conditioning to air conditioning.'"]},
     x
     { 'chapter' : 2, 'ch' : 2.1, 'section' : 6, 'start_page' : 17, 'endpage' : 27, 'notes' : [1], 'starts_with' : ["Where was the woman who said she'd come."]},
     x
@@ -62,7 +62,7 @@
     30 APRIL -- YEAR OF THE DEPEND ADULT UNDERGARMENT
     { 'chapter' : 11, 'ch' : 11.11, 'section' : 41, 'start_page' : 127, 'endpage' : 127, 'notes' : [], 'starts_with' : ["Several times also Marathe called U.S.U. to Steeply 'Your walled nation'"]},
     { 'chapter' : 12, 'ch' : 12.1, 'section' : 42, 'start_page' : 127, 'endpage' : 128, 'notes' : [], 'starts_with' : ["An oiled guru sits in yogic full lotus in Spandex and tank top."]},
-    { 'chapter' : 12, 'ch' : 12.2, 'section' : 43, 'start_page' : 128, 'endpage' : 135, 'notes' : [], 'starts_with' : ["It was yrtruly and C and Poor Tony that crewed that day and everything"]},
+    { 'chapter' : 12, 'ch' : 12.2, 'section' : 43, 'start_page' : 128, 'endpage' : 135, 'notes' : [], 'starts_with' : ["It was yrstruly and C and Poor Tony that crewed that day and everything"]},
     3 NOVEMBER Y.D.A.U.
     { 'chapter' : 13, 'ch' : 13.1, 'section' : 44, 'start_page' : 135, 'endpage' : 137, 'notes' : [], 'starts_with' : ["Hal could hear the phone console ringing as he dropped his gear bag"]},
     { 'chapter' : 13, 'ch' : 13.2, 'section' : 45, 'start_page' : 137, 'endpage' : 138, 'notes' : [49, 50, 51], 'starts_with' : ["Ennet House Drug and Alcohol Recovery House"]},
@@ -106,7 +106,7 @@
     { 'chapter' : 20, 'ch' : 20.1, 'section' : 71, 'start_page' : 283, 'endpage' : 299, 'notes' : [93, 94, 95, 96, 97, 98, 99, 100, 101], 'starts_with' : ["Hal's eldest brother Orin Incandenza got out of competitive tennis when"]},
     14 NOVEMBER
     YEAR OF THE DEPEND ADULT UNDERGARMENT
-    { 'chapter' : 20, 'ch' : 20.2, 'section' : 72, 'start_page' : 299, 'endpage' : 306, 'notes' : [102, 103], 'starts_with' : ["Poor Tony KKrause had a seizure on the T. It happened on a Gray Line train"]},
+    { 'chapter' : 20, 'ch' : 20.2, 'section' : 72, 'start_page' : 299, 'endpage' : 306, 'notes' : [102, 103], 'starts_with' : ["Poor Tony Krause had a seizure on the T. It happened on a Gray Line train"]},
     7 NOVEMBER -- YEAR OF THE DEPEND ADULT UNDERGARMENT
     { 'chapter' : 21, 'ch' : 21.1, 'section' : 73, 'start_page' : 306, 'endpage' : 312, 'notes' : [104, 105, 106, 107, 108, 109, 110, 111, 112], 'starts_with' : ["Each of the eight to ten prorectors at the Enfield Tennis Academy teaches"]},
     { 'chapter' : 21, 'ch' : 21.2, 'section' : 74, 'start_page' : 312, 'endpage' : 317, 'notes' : [113, 114, 115, 116, 117, 118, 119], 'starts_with' : ["The first birth of the Incandenzas' second son was a surprise. The tall and"]},
@@ -223,7 +223,7 @@
     14 NOVEMBER
     YEAR OF THE DEPEND ADULT UNDERGARMENT
     { 'chapter' : 27, 'ch' : 27.11, 'section' : 134, 'start_page' : 689, 'endpage' : 691, 'notes' : [], 'starts_with' : ["P. T. Krause: N. Cambridge: that infamous deceptive post-seizure feeling"]},
-    { 'chapter' : 27, 'ch' : 27.12, 'section' : 135, 'start_page' : 692, 'endpage' : 692, 'notes' : [], 'starts_with' : ["Geoffry Day's noted the way most of the male residents of Ennet House"]},
+    { 'chapter' : 27, 'ch' : 27.12, 'section' : 135, 'start_page' : 692, 'endpage' : 692, 'notes' : [], 'starts_with' : ["Geoffrey Day's noted the way most of the male residents of Ennet House"]},
     { 'chapter' : 27, 'ch' : 27.13, 'section' : 136, 'start_page' : 692, 'endpage' : 698, 'notes' : [280, 281, 282, 283], 'starts_with' : ["And re Ennet House resident Kate Gompert and this depression issue:"]},
     14 NOVEMBER
     YEAR OF THE DEPEND ADULT UNDERGARMENT
@@ -248,7 +248,7 @@
     14 NOVEMBER
     YEAR OF THE DEPEND ADULT UNDERGARMENT
     { 'chapter' : 27, 'ch' : 27.28, 'section' : 151, 'start_page' : 723, 'endpage' : 724, 'notes' : [], 'starts_with' : ["After so long not caring, and then now the caring crashes back in and turns"]},
-    { 'chapter' : 27, 'ch' : 27.29, 'section' : 152, 'start_page' : 724, 'endpage' : 728, 'notes' : [303], 'starts_with' : ["Then, by th time Fourier was able to return to the dismantled shop, they"]},
+    { 'chapter' : 27, 'ch' : 27.29, 'section' : 152, 'start_page' : 724, 'endpage' : 728, 'notes' : [303], 'starts_with' : ["Then, by the time Fortier was able to return to the dismantled shop, they"]},
     { 'chapter' : 27, 'ch' : 27.30, 'section' : 153, 'start_page' : 728, 'endpage' : 729, 'notes' : [], 'starts_with' : ["Sure enough the Chinkette woman had been strengthless and lightweight"]},
     { 'chapter' : 27, 'ch' : 27.31, 'section' : 154, 'start_page' : 729, 'endpage' : 735, 'notes' : [304], 'starts_with' : ["'Our cult burned money for fuel.'"]},
     { 'chapter' : 27, 'ch' : 27.32, 'section' : 155, 'start_page' : 736, 'endpage' : 747, 'notes' : [305, 306, 307, 308, 309, 310], 'starts_with' : ["Joelle used to like to get really high and then clean. Now she was finding"]},
@@ -302,4 +302,4 @@
     { 'chapter' : 28, 'ch' : 28.23, 'section' : 190, 'start_page' : 964, 'endpage' : 971, 'notes' : [384], 'starts_with' : ["Usually, part of the experience of having the place you live in throw a gala is"]},
     { 'chapter' : 28, 'ch' : 28.24, 'section' : 191, 'start_page' : 971, 'endpage' : 972, 'notes' : [], 'starts_with' : ["The inverted glass was the size of a cage or small jail cell, but it was still"]},
     { 'chapter' : 28, 'ch' : 28.25, 'section' : 192, 'start_page' : 972, 'endpage' : 981, 'notes' : [385, 386, 387, 388], 'starts_with' : ["Human beings came and went. An R.N. felt his forehead and yanked her"]},
-]                                
+]
