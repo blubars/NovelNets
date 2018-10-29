@@ -28,14 +28,28 @@ states = {
         "ENTITY END": 7         # p end   **
 }
 
-def entity_to_json(e):
-    d = {
-            "name": e.name,
-            "description": e.description,
-            "pages": e.pages,
-            "notes": e.notes
-        }
-    return json.dumps(d)
+def save_to_json(entities, filename):
+    with open(filename, 'w') as fout:
+        out_d = {"entities": []}
+        for e in entities:
+            d = { "name": e.name,
+                  "description": e.description,
+                  "pages": e.pages,
+                  "notes": e.notes }
+            out_d["entities"].append(d)
+        fout.write(json.dumps(out_d, indent=2))
+
+def load_from_json(filename):
+    es = []
+    with open(filename, 'r') as f:
+        s = f.read()
+        data = json.loads(s)
+        for entry in data["entities"]:
+            e = NamedEntity(entry["name"], 
+                    entry["description"], entry["pages"], 
+                    entry["notes"], entry["description"])
+            es.append(e)
+    return es
 
 def print_entities(es):
     for i,e in enumerate(es):
@@ -138,14 +152,7 @@ if __name__ == "__main__":
             parser.feed(line)
         print("Num entities: {}".format(len(entities)))
         print_entities(entities)
-        with open("entities.json", 'w') as fout:
-            out_d = {"entities": []}
-            for e in entities:
-                d = { "name": e.name,
-                      "description": e.description,
-                      "pages": e.pages,
-                      "notes": e.notes }
-                out_d["entities"].append(d)
-            fout.write(json.dumps(out_d, indent=2))
-
+        save_to_json(entities, "entities.json")
+        test_load = load_from_json("entities.json")
+        print_entities(test_load)
 
