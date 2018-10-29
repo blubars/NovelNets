@@ -6,6 +6,8 @@ from pdfminer.layout import LAParams
 import io
 import os
 import re
+import glob
+import errno
 
 
 def path_leaf(path):
@@ -55,6 +57,20 @@ def split_sections(filepath, output_path, filename_leader="infinite-jest"):
     for i, section in enumerate(sections):
         with open(output_path + '/' + filename_leader + "-section-{}.txt".format(i), "wb") as f:
             f.write(section.encode())
+
+
+def get_section_text(path):
+    sections = {}
+    files = glob.glob(path)
+    for file in files:
+        try:
+            with open(file, "r") as f:
+                key = int(re.sub('[^0-9]', '', file))
+                sections[key] = f.read()
+        except IOError as exc:
+            if exc.errno != errno.EISDIR:
+                raise  # Propagate other kinds of IOError.
+    return sections
 
 
 if __name__ == "__main__":
