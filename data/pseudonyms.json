@@ -7,11 +7,13 @@
         "Tony Krause",
         "P. T. Krause",
         "P.T.",
-        "P. TOM VEALS",
-        "P. Tom Veals",
         "P.",
         "T.",
         "Poor Tony",
+    ],
+    "P. Tom Veals" : [
+        "P. TOM VEALS",
+        "P. Tom Veals"
     ],
     "Tiny Ewell" : [
         "Ewell",
@@ -64,7 +66,6 @@
     "Rodney Tine" : [
         "Rod the God",
         "God Tine's",
-        "God",
         "M. Tine",
         "M. Tine's",
         "M. Rodney '",
