@@ -16,6 +16,13 @@ def run_ner(text_data):
 
     return doc.ents
 
+def get_people(text_data):
+    people = set()
+    for key, value in section_text.items():
+        entities = run_ner(value)
+        person_ents = [re.sub('[\s+|\n+|]', ' ', ent.text.strip()) for ent in entities if ent.label_ == 'PERSON']
+        people.add(person_ents)
+    return people
 
 if __name__ == "__main__":
     section_text = get_section_text('./data/txt/sections/*.txt')
