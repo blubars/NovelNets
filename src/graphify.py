@@ -18,8 +18,7 @@
 #########################################################
 import networkx as nx
 
-from ner import run_ner
-from utils import get_section_text, get_people
+from ner import run_ner, get_people
 
 #########################################################
 # Globals
@@ -37,15 +36,12 @@ class Graphify:
 
     def process_section(self, section_num):
         path = self.section_path + str(section_num) + '.txt'
-        section_text = get_section_text(path)
-        for key, value in section_text.items():
-            print(key)
-            print(value)
-            return
+        with open(path, 'r') as f:
+            section_text = f.read(path)
             # 1. recognize entities
-            self.make_edges(section)
+            self.make_edges(section_text)
             # 2. link entities. (rule?)
-            self.make_nodes(section)
+            self.make_nodes(section_text)
             # 3. graph.
             self.display_graph(str(section_num))
 
