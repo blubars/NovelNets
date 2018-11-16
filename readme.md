@@ -14,5 +14,6 @@
 - get a Named Entity Parser up and running
 - fix footnotes...
     - eg footnote 322 appears as 322312
+- fix page breaks
 
 [data](https://raisuman123.files.wordpress.com/2013/05/david-foster-wallace-infinite-jest-v2-0.pdf)
