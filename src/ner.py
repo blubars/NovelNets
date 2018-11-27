@@ -18,10 +18,14 @@ def run_ner(text_data):
 
 def get_people(text_data):
     people = set()
-    for key, value in section_text.items():
-        entities = run_ner(value)
-        person_ents = [re.sub('[\s+|\n+|]', ' ', ent.text.strip()) for ent in entities if ent.label_ == 'PERSON']
-        people.add(person_ents)
+    entities = run_ner(text_data)
+    #person_ents = [re.sub('[\s+|\n+|]', ' ', ent.text.strip()) for ent in entities if ent.label_ == 'PERSON']
+    for ent in entities:
+        if ent.label_ == 'PERSON':
+            name = re.sub('[\s+|\n+|]', ' ', ent.text.strip())
+            print(ent)
+            people.add(name)
+    print(people)
     return people
 
 if __name__ == "__main__":
