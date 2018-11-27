@@ -140,13 +140,13 @@ if __name__ == "__main__":
     # build a graph per section.
     gg = Graphify(SECTION_PATH)
 
-    gg.process_section(1)
-    gg.add_graph_frame()
+    # gg.process_section(1)
+    # gg.add_graph_frame()
     # gg.process_section(10)
     # gg.add_graph_frame()
-    # for i in range(1, 5):
-    #     gg.process_section(i)
-    #     gg.add_graph_frame()
+    for i in range(1, 20):
+        gg.process_section(i)
+        gg.add_graph_frame()
 
     gg.web.draw()
 
