@@ -8,7 +8,7 @@ import entities
 
 nlp = spacy.load('en_core_web_md')
 
-def match_people():
+def match_people(doc):
     # use spacy Matcher to find known patterns
     matcher = entities.get_matcher()
     matches = matcher(doc)
@@ -17,9 +17,11 @@ def match_people():
     #    print("'{}', start:{}, end:{}".format(span.text, start, end))
     return matches
 
-def run_ner(text_data):
+def tokenize(raw_text):
+    return nlp(raw_text)
 
-    doc = nlp(text_data)
+def run_ner(raw_text):
+    doc = tokenize(raw_text)
 
     # matcher = Matcher(nlp.vocab)
     # nlp.add_pipe(matcher, before='ner')
