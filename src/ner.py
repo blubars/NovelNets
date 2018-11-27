@@ -8,17 +8,39 @@ import entities
 
 nlp = spacy.load('en_core_web_md')
 
+def tokenize(raw_text):
+    return nlp(raw_text)
+
 def match_people(doc):
     # use spacy Matcher to find known patterns
-    matcher = entities.get_matcher()
+    matcher = entities.get_matcher(nlp)
     matches = matcher(doc)
     #for match_id, start, end in matches:
     #    span = doc[start:end]
     #    print("'{}', start:{}, end:{}".format(span.text, start, end))
-    return matches
+    return matcher, matches
 
-def tokenize(raw_text):
-    return nlp(raw_text)
+def find_missing_entities(doc):
+    overlap = set()
+    missing = set()
+    # get hand-labeled matches
+    hand_matcher, hand_matches = match_people(doc)
+    # get auto-entity matches
+    auto_entities = doc.ents
+    auto_people = set()
+    for ent in auto_entities:
+        if ent.label_ == 'PERSON':
+            name = re.sub('[\s+|\n+|]', ' ', ent.text.strip())
+            auto_people.add(name)
+    for token in auto_people:
+        ms = hand_matcher(nlp(token))
+        if len(ms) == 0:
+            # auto token doesn't match any known hand-labeled entity
+            missing.add(token)
+        else:
+            overlap.add(token)
+    return missing, overlap
+
 
 def run_ner(raw_text):
     doc = tokenize(raw_text)
@@ -35,9 +57,7 @@ def get_people(text_data):
     for ent in entities:
         if ent.label_ == 'PERSON':
             name = re.sub('[\s+|\n+|]', ' ', ent.text.strip())
-            print(ent)
             people.add(name)
-    print(people)
     return people
 
 if __name__ == "__main__":

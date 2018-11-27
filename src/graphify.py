@@ -20,7 +20,7 @@ import networkx as nx
 import matplotlib
 import matplotlib.pyplot as plt
 
-from ner import run_ner, get_people, match_people, tokenize
+import ner
 
 #########################################################
 # Globals
@@ -41,8 +41,16 @@ class Graphify:
         path = "{}infinite-jest-section-{:03d}.txt".format(self.section_path, section_num)
         with open(path, 'r') as f:
             section_text = f.read()
-            doc = tokenize(section_text)
-            matches = match_people(doc)
+            doc = ner.tokenize(section_text)
+            self.matcher, matches = ner.match_people(doc)
+            if DEBUG:
+                print("MATCHES:")
+                for m in matches:
+                    print("  '{}': ({}, {})".format(
+                        self.matcher.vocab.strings[m[0]], m[1], m[2]))
+                missing, overlap = ner.find_missing_entities(doc)
+                print("MISSING ENTITIES:\n{}".format(missing))
+                print("FOUND ENTITIES:\n{}".format(overlap))
             # 1. recognize entities
             self.make_nodes(doc, matches)
             # 2. link entities. (rule?)
@@ -51,11 +59,12 @@ class Graphify:
             self.display_graph(str(section_num))
 
     def make_nodes(self, doc, matches):
-        #self.people = get_people(text)
+        #self.people = ner.get_people(text)
         #self.G.add_nodes_from(self.people)
         self.people = set()
         for match_id, start, end in matches:
-            self.people.add(match_id)
+            key = self.matcher.vocab.strings[match_id] # this is dumb.
+            self.people.add(key)
             #span = doc[start:end]
         print("NODES:\n{}".format(self.people))
 
@@ -66,19 +75,24 @@ class Graphify:
             for m2 in matches:
                 #match_id, start, end
                 #span = doc[start:end]
-                if m1.match_id == m2.match_id:
+                if m1[0] == m2[0]:
                     continue
-                if m2.start - m1.start < 100:
-                    edgelist.append(m1, m2)
-                print("'{}', start:{}, end:{}".format(span.text, start, end))
-        print("Add edge:'{}', pos:({},{})".format(span.text, start, end))
-        for edge in edgelist:
-            n1 = m1.match_id
-            n2 = m2.match_id
-            print("Add edge:'{}, {}, pos=({},{})".format(
-                doc[m1.start:m1.end], doc[m2.start:m2.end],
-                m1.start, m2.start))
-            G.add_edge(n1, n2)
+                if m2[1] - m1[1] < 100:
+                    edgelist.append((m1, m2))
+        for m1,m2 in edgelist:
+            n1 = self.matcher.vocab.strings[m1[0]]
+            n2 = self.matcher.vocab.strings[m2[0]]
+            #print("Add edge:'{}, {}, pos=({},{})".format(
+            #    doc[m1[1]:m1[2]], doc[m2[1]:m2[2]],
+            #    m1[1], m2[1]))
+            self.G.add_edge(n1, n2)
+        if DEBUG:
+            print("EDGES:")
+            for m1,m2 in edgelist:
+                print("  '{} <--> {}, pos=({},{})".format(
+                    doc[m1[1]:m1[2]], doc[m2[1]:m2[2]],
+                    m1[1], m2[1]))
+
 
     def display_graph(self, name):
         fig = plt.figure(1)
