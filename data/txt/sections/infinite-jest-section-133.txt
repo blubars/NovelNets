@@ -57,7 +57,7 @@ leaps from the seventh-to-the-bottom step and lunges toward the train's open doo
 an earnest-faced little kid with thick glasses and a bow-tie and those nerdy little schoolboy-shorts who's tottering along the
 platform under a tall armful of carefully wrapped packages. Kerwham, they collide. Bureaucrat and kid both stagger back from the
 impact. The kid's packages go flying all over the place. The kid recovers his balance and stands there stunned, glasses and bow-tie
-askew.279269 The bureaucrat looks frantically from the kid to the litter of packages to the kid to the train's doors, which are still
+askew. <footnote>279</footnote> The bureaucrat looks frantically from the kid to the litter of packages to the kid to the train's doors, which are still
 open. The train thrums. Its interior is fluorescent-lit and filled with employed, ontologically secure bureaucrats. You can hear the
 station's PA announcer saying something tinny and garbled about departure. The stream of platform foot-traffic opens around the
 bureaucrat and the stunned boy and the litter of packages. Ogilvie'd once lectured for a whole period on this kid's character as an

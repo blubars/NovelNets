@@ -17,13 +17,15 @@
 # Imports
 #########################################################
 import networkx as nx
+import matplotlib
+import matplotlib.pyplot as plt
 
 from ner import run_ner, get_people
 
 #########################################################
 # Globals
 #########################################################
-SECTION_PATH = './data/txt/sections/'
+SECTION_PATH = '../data/txt/sections/'
 
 #########################################################
 # Function definitions
@@ -35,13 +37,13 @@ class Graphify:
         self.G = nx.Graph()
 
     def process_section(self, section_num):
-        path = self.section_path + str(section_num) + '.txt'
+        path = "{}infinite-jest-section-{:03d}.txt".format(self.section_path, section_num)
         with open(path, 'r') as f:
-            section_text = f.read(path)
+            section_text = f.read()
             # 1. recognize entities
-            self.make_edges(section_text)
-            # 2. link entities. (rule?)
             self.make_nodes(section_text)
+            # 2. link entities. (rule?)
+            self.make_edges(section_text)
             # 3. graph.
             self.display_graph(str(section_num))
 
@@ -51,17 +53,16 @@ class Graphify:
 
     def make_edges(self, text):
         edgelist = []
-        tokenize
         for edge in edgelist:
             G.add_edge(n1, n2)
 
     def display_graph(self, name):
         fig = plt.figure(1)
         ax = plt.gca()
-        nx.draw(G, ax=ax, node_color=C, labels=labels)
+        nx.draw(self.G, ax=ax) #labels=labels)
         plt.title("Section " + name)
         plt.tight_layout()
-        plt.show()
+        #plt.show()
         plt.savefig("section_" + name + ".pdf")
         plt.close(fig)
 
