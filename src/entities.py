@@ -14,7 +14,9 @@ people = [
 #    ],
     {'id':'HalIncandenza', 'patterns': [
         [{'LOWER': 'hal'}, {'LOWER': 'incandenza'}],
-        [{'LOWER': 'hal'}]
+        [{'LOWER': 'hal'}],
+        [{'LOWER': 'harold'}, {'LOWER': 'incandenza'}],
+        [{'LOWER': 'harold'}]
     ]},
     {'id':'OrinIncandenza', 'patterns': [
         [{'LOWER': 'orin'}, {'LOWER': 'incandenza'}],
@@ -23,10 +25,6 @@ people = [
     {'id':'MarioIncandenza', 'patterns': [
         [{'LOWER': 'mario'}, {'LOWER': 'incandenza'}],
         [{'LOWER': 'mario'}]
-    ]},
-    {'id':'HaroldIncandenza', 'patterns': [
-        [{'LOWER': 'harold'}, {'LOWER': 'incandenza'}],
-        [{'LOWER': 'harold'}]
     ]},
     {'id':'MauryKlamkin', 'patterns': [
         [{'LOWER': 'maury'}, {'LOWER': 'klamkin'}],
@@ -53,6 +51,12 @@ people = [
         [{'LOWER': 'randy'}],
         [{'LOWER': 'lenz'}]
     ]},
+    {'id': 'Wardine', 'patterns': [
+        [{'LOWER': 'wardine'}],
+    ]},
+    {'id': 'DoloresEpps', 'patterns': [
+        [{'LOWER': 'dolores'}, {'LOWER': 'epps'}],
+    ]},
 ]
 
 def get_matcher(nlp):
@@ -78,3 +82,5 @@ def load_patterns(matcher):
     # load from above hand-made patterns
     for p in people:
         matcher.add(p['id'], None, *p['patterns'])
+
+
