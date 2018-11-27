@@ -81,9 +81,7 @@ class Graphify:
         print("NODES:\n{}".format(self.people))
 
     def get_entity_id(self, entity_string):
-        if not self.name_id_map.get(entity_string):
-            print(entity_string)
-            print(len(entity_string))
+        if self.name_id_map.get(entity_string, None) == None:
             self.name_id_map[entity_string] = self.unused_id
             self.unused_id += 1
 
@@ -95,50 +93,48 @@ class Graphify:
     def get_entity_id_from_match(self, match):
         return self.get_entity_id(self.get_entity_from_match(match))
 
+    def add_edge_from_matches(self, first, second):
+        first_id, first_start, first_end = first
+        second_id, second_start, second_end = second
+
+        if first_id == second_id:
+            return
+
+        if first_start > second_start:
+            self.add_edge_from_matches(second, first)
+
+        if second_start - first_start > self.threshold:
+            return
+
+        first_entity_id = self.get_entity_id_from_match(first)
+        second_entity_id = self.get_entity_id_from_match(second)
+
+        if self.G.has_edge(first_entity_id, second_entity_id):
+            self.G[first_entity_id][second_entity_id]['weight'] += 1
+        else:
+            self.G.add_edge(first_entity_id, second_entity_id, weight=1)
+
     def make_edges(self, doc, matches):
         edgelist = []
         # dumbest way possible: link if within THRESHOLD tokens of eachother.
-        for m1 in matches:
-            for m2 in matches:
-                #match_id, start, end
-                #span = doc[start:end]
-                if m1[0] == m2[0]:
-                    continue
+        for first in matches:
+            for second in matches:
+                self.add_edge_from_matches(first, second)
 
-                if m1[0] > m2[0]:
-                    m1, m2 = m2, m1
 
-                if abs(m2[1] - m1[1]) < self.threshold:
-                    edgelist.append((m1, m2))
 
-        for m1, m2 in edgelist:
-            entity_1_id = self.get_entity_id_from_match(m1)
-            entity_2_id = self.get_entity_id_from_match(m2)
-
-            if self.G.has_edge(entity_1_id, entity_2_id):
-                self.G[entity_1_id][entity_2_id]['weight'] += 1
-            else:
-                self.G.add_edge(entity_1_id, entity_2_id, weight=1)
-
-        if DEBUG:
-            print("EDGES:")
-            for m1,m2 in edgelist:
-                print("  '{} <--> {}, pos=({},{})".format(
-                    doc[m1[1]:m1[2]], doc[m2[1]:m2[2]],
-                    m1[1], m2[1]))
-
+        # if DEBUG:
+        #     print("EDGES:")
+        #     for m1, m2 in edgelist:
+        #         print("  '{} <--> {}, pos=({},{})".format(
+        #             doc[m1[1]:m1[2]], doc[m2[1]:m2[2]],
+        #             m1[1], m2[1]))
 
     def add_graph_frame(self):
+        for n in self.G.nodes():
+            print(n)
         self.web.networks.infinite_jest.add_frame_from_networkx_graph(self.G)
         
-        #fig = plt.figure(1)
-        #ax = plt.gca()
-        #nx.draw(self.G, ax=ax) #labels=labels)
-        #plt.title("Section " + name)
-        #plt.tight_layout()
-        ##plt.show()
-        #plt.show()
-        #plt.close(fig)
 
 if __name__ == "__main__":
     # build a graph per section.
@@ -146,8 +142,8 @@ if __name__ == "__main__":
 
     gg.process_section(1)
     gg.add_graph_frame()
-    gg.process_section(10)
-    gg.add_graph_frame()
+    # gg.process_section(10)
+    # gg.add_graph_frame()
     # for i in range(1, 5):
     #     gg.process_section(i)
     #     gg.add_graph_frame()
