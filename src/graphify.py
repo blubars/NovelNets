@@ -50,6 +50,8 @@ class Graphify:
         self.G.add_nodes_from(self.people)
 
     def make_edges(self, text):
+        edgelist = []
+        tokenize
         for edge in edgelist:
             G.add_edge(n1, n2)
 

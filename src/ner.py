@@ -1,11 +1,21 @@
 import spacy
-from utils import get_section_text
+#from utils import get_section_text
 import json
 import re
 import io
 
+import entities
+
 nlp = spacy.load('en_core_web_md')
 
+def match_people():
+    # use spacy Matcher to find known patterns
+    matcher = entities.get_matcher()
+    matches = matcher(doc)
+    #for match_id, start, end in matches:
+    #    span = doc[start:end]
+    #    print("'{}', start:{}, end:{}".format(span.text, start, end))
+    return matches
 
 def run_ner(text_data):
 
@@ -25,7 +35,7 @@ def get_people(text_data):
     return people
 
 if __name__ == "__main__":
-    section_text = get_section_text('./data/txt/sections/*.txt')
+    section_text = ""#""get_section_text('./data/txt/sections/*.txt')
     data = {}
     people = set()
     orgs = set()
