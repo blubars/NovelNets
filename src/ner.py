@@ -22,10 +22,15 @@ def match_people(doc):
     return matcher, matches
 
 def find_missing_entities(doc):
+    found = set()
     overlap = set()
     missing = set()
     # get hand-labeled matches
     hand_matcher, hand_matches = match_people(doc)
+    for match_id, start, end in hand_matches:
+        key = hand_matcher.vocab.strings[match_id] # this is dumb.
+        span = str(doc[start:end])
+        found.add(span + " (" + key + ")")
     # get auto-entity matches
     auto_entities = doc.ents
     auto_people = set()
@@ -41,7 +46,7 @@ def find_missing_entities(doc):
         else:
             key = hand_matcher.vocab.strings[ms[0][0]] # this is dumb.
             overlap.add(token + " (" + key + ")")
-    return missing, overlap
+    return missing, overlap, found
 
 
 def run_ner(raw_text):

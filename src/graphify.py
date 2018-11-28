@@ -13,6 +13,17 @@
 #    b. link entities. (rule?)
 #    c. graph.
 
+# Problems & ideas to improve:
+# 1. smooth weights over sections, don't count edges
+#    too many times within one interaction
+# 2. minimum threshold: don't include edges if only 
+#    mentioned once? could just be talking about someone.
+#     -- how do we know if someone's there vs. being
+#        talked about?
+# 3. it seems to be matching multiple times, 
+#    if multiple patterns even within one entity apply
+# 4. doesn't match across '.', e.g. 'Comp. Director'
+
 #########################################################
 # Imports
 #########################################################
@@ -67,12 +78,12 @@ class Graphify:
                 for m in matches:
                     print("  '{}': ({}, {})".format(
                         self.get_entity_from_match(m), m[1], m[2]))
-            if DEBUG:
-                missing, overlap = ner.find_missing_entities(doc)
-                print("MISSING ENTITIES:")
-                print_list(missing)
-                print("FOUND ENTITIES:")
-                print_list(overlap)
+            #if DEBUG:
+            missing, overlap, found = ner.find_missing_entities(doc)
+            print("MISSING ENTITIES:")
+            print_list(missing)
+            print("FOUND ENTITIES:")
+            print_list(found)
             # 1. recognize entities
             self.make_nodes(doc, matches)
             # 2. link entities. (rule?)
@@ -160,15 +171,15 @@ class Graphify:
                     print("  {} <--> {}, weight:+{}".format(key1, key2, weight))
 
     def print_graph_edgelist(self):
-        print("Graph edges & weights"):
+        print("Graph edges & weights")
         for n, nbrsdict in self.G.adjacency():
             for nbr,eattr in nbrsdict.items():
                 print((n,nbr,eattr['weight']))
         #print(self.G.edges(data='weight'))
 
     def add_graph_frame(self):
-        for n in self.G.nodes():
-            print(n)
+        #for n in self.G.nodes():
+        #    print(n)
         self.web.networks.infinite_jest.add_frame_from_networkx_graph(self.G)
 
     def display_graph(self, section_num):
@@ -188,11 +199,31 @@ if __name__ == "__main__":
     # build a graph per section.
     gg = Graphify(SECTION_PATH, 1000)
 
-    for section in range(1,10):
+    for section in range(1,16):
         gg.process_section(section)
-        #gg.add_graph_frame()
+        gg.add_graph_frame()
         gg.display_graph(section)
 
-    #gg.web.draw()
+    gg.web.draw()
+
+    # PROGRESS: 
+    #   sections 1-15 done. slow going.
+    # SECTION NOTES:
+    # 3: * Hal is 1st person, 'I', but never picked up by NER. 
+    #      Is hal the only 1st person?
+    # 5: * aren't actually any characters except Hal, doctors, C.T.
+    #      But he's thinking of some; 'John N. R. Wayne', 'Dymphna', 
+    #      'Petropolis Kahn', 'Stice', 'Polep', 'Donald Gately'
+    # 6: * Only one character (Erdedy), but mentions Randi in passing
+    #      and some woman bringing pot repeatedly but no name. both in
+    #      thought only, not in person.
+    # 7: * Confusing A.F. Just Hal talking with a 'professional 
+    #      conversationalist' who turns out to be his dad. only 
+    #      the 2 characters are present.
+    # 9: * what. 'medical attache' and his 'wife'. 
+    #      Mentions 'Prince Q---------'  ?
+    # 12:  Still Mario & Hal talking at night, mention the Moms & Himself
+    # 14:  Just Orin by himself being depressed, scattered thoughts.
+    # 15:  Really just Hal thinking/background
 
 
