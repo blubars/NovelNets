@@ -71,27 +71,28 @@ class Graphify:
         path = "{}infinite-jest-section-{:03d}.txt".format(self.section_path, section_num)
         with open(path, 'r') as f:
             section_text = f.read()
-            doc = ner.tokenize(section_text)
-            self.matcher, matches = ner.match_people(doc)
-            if DEBUG > 1:
-                print("MATCHES:")
-                for m in matches:
-                    print("  '{}': ({}, {})".format(
-                        self.get_entity_from_match(m), m[1], m[2]))
-            #if DEBUG:
-            missing, overlap, found = ner.find_missing_entities(doc)
-            print("MISSING ENTITIES:")
-            print_list(missing)
-            print("FOUND ENTITIES:")
-            print_list(found)
-            # 1. recognize entities
-            self.make_nodes(doc, matches)
-            # 2. link entities. (rule?)
-            self.make_edges(doc, matches)
-            # 3. graph.
-            # self.display_graph(str(section_num))
-            if DEBUG > 1:
-                self.print_graph_edgelist()
+
+        doc = ner.tokenize(section_text)
+        self.matcher, matches = ner.match_people(doc)
+        if DEBUG > 1:
+            print("MATCHES:")
+            for m in matches:
+                print("  '{}': ({}, {})".format(
+                    self.get_entity_from_match(m), m[1], m[2]))
+        #if DEBUG:
+        missing, overlap, found = ner.find_missing_entities(doc)
+        print("MISSING ENTITIES:")
+        print_list(missing)
+        print("FOUND ENTITIES:")
+        print_list(found)
+        # 1. recognize entities
+        self.make_nodes(doc, matches)
+        # 2. link entities. (rule?)
+        self.make_edges(doc, matches)
+        # 3. graph.
+        # self.display_graph(str(section_num))
+        if DEBUG > 1:
+            self.print_graph_edgelist()
 
     def make_nodes(self, doc, matches):
         if DEBUG:
@@ -169,6 +170,7 @@ class Graphify:
             for key1, inner_dict in new_edges.items():
                 for key2, weight in inner_dict.items():
                     print("  {} <--> {}, weight:+{}".format(key1, key2, weight))
+                    print("\t  {} <--> {}, weight:+{}".format(self.get_entity_id(key1), self.get_entity_id(key2), weight))
 
     def print_graph_edgelist(self):
         print("Graph edges & weights")
@@ -197,7 +199,7 @@ class Graphify:
 
 if __name__ == "__main__":
     # build a graph per section.
-    gg = Graphify(SECTION_PATH, 1000)
+    gg = Graphify(SECTION_PATH, 500)
 
     for section in range(1,16):
         gg.process_section(section)
