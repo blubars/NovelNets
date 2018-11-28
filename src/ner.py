@@ -6,6 +6,7 @@ import io
 
 import entities
 
+print("Loading spacy lang model...")
 nlp = spacy.load('en_core_web_md')
 
 def tokenize(raw_text):
@@ -38,7 +39,8 @@ def find_missing_entities(doc):
             # auto token doesn't match any known hand-labeled entity
             missing.add(token)
         else:
-            overlap.add(token)
+            key = hand_matcher.vocab.strings[ms[0][0]] # this is dumb.
+            overlap.add(token + " (" + key + ")")
     return missing, overlap
 
 
