@@ -79,6 +79,8 @@ class Graphify:
             self.make_edges(doc, matches)
             # 3. graph.
             # self.display_graph(str(section_num))
+            if DEBUG > 1:
+                self.print_graph_edgelist()
 
     def make_nodes(self, doc, matches):
         if DEBUG:
@@ -89,7 +91,8 @@ class Graphify:
             section_people.add(key)
             #if key not in self.people:
         new_people = section_people - self.people
-        for key in new_people:
+        # keep node ids in same order each run by sorting here.
+        for key in sorted(list(new_people)):
             self.people.add(key)
             entity_id = self.get_entity_id(key)
             if DEBUG:
@@ -100,7 +103,7 @@ class Graphify:
         #print("NEW NODES:\n{}".format(new_people))
 
     def get_entity_id(self, entity_string):
-        if self.name_id_map.get(entity_string) is None:
+        if self.name_id_map.get(entity_string, None) == None:
             self.name_id_map[entity_string] = self.unused_id
             self.unused_id += 1
 
@@ -112,47 +115,60 @@ class Graphify:
     def get_entity_id_from_match(self, match):
         return self.get_entity_id(self.get_entity_from_match(match))
 
+    def add_edge_from_matches(self, first, second):
+        first_id, first_start, first_end = first
+        second_id, second_start, second_end = second
+        if first_id == second_id:
+            return None
+        if first_start > second_start:
+            return self.add_edge_from_matches(second, first)
+        if second_start - first_start > self.threshold:
+            return None
+
+        key1 = self.get_entity_from_match(first)
+        key2 = self.get_entity_from_match(second)
+        first_entity_id = self.get_entity_id(key1)
+        second_entity_id = self.get_entity_id(key2)
+        if self.G.has_edge(first_entity_id, second_entity_id):
+            self.G[first_entity_id][second_entity_id]['weight'] += 1
+        else:
+            self.G.add_edge(first_entity_id, second_entity_id, weight=1)
+        if DEBUG > 1:
+            print("  - Incr weight ({}({}),{}({})), pos=({},{})".format(
+                key1, first_entity_id, key2, second_entity_id,
+                first_start, second_start))
+        return (key1, key2)
+
     def make_edges(self, doc, matches):
+        new_edges = defaultdict(lambda: defaultdict(int))
+        # dumbest way possible: link if within THRESHOLD tokens of eachother.
+        # note: this adds 1 edges per match pair, only in one direction.
+        for i in range(len(matches)-1):
+            for j in range(i+1, len(matches)):
+                first = matches[i]
+                second = matches[j]
+                new_edge = self.add_edge_from_matches(first, second)
+                if new_edge:
+                    key1, key2 = new_edge
+                    if key1 > key2:
+                        key1, key2 = key2, key1
+                    new_edges[key1][key2] += 1
         if DEBUG:
             print("EDGES:")
-        new_edges = defaultdict(lambda: defaultdict(int))
-        edgelist = []
-        # dumbest way possible: link if within THRESHOLD tokens of eachother.
-        for m1 in matches:
-            for m2 in matches:
-                #match_id, start, end
-                #span = doc[start:end]
-                if m1[0] == m2[0]:
-                    continue
-
-                if m1[0] > m2[0]:
-                    m1, m2 = m2, m1
-
-                if abs(m2[1] - m1[1]) < self.threshold:
-                    key1 = self.get_entity_from_match(m1)
-                    key2 = self.get_entity_from_match(m2)
-                    new_edges[key1][key2] += 1
-                    edgelist.append((m1, m2))
-                    if DEBUG > 1:
-                        print("  {} <--> {}, pos=({},{})".format(
-                            doc[m1[1]:m1[2]], doc[m2[1]:m2[2]],
-                            m1[1], m2[1]))
-
-        for m1, m2 in edgelist:
-            entity_1_id = self.get_entity_id_from_match(m1)
-            entity_2_id = self.get_entity_id_from_match(m2)
-
-            if self.G.has_edge(entity_1_id, entity_2_id):
-                self.G[entity_1_id][entity_2_id]['weight'] += 1
-            else:
-                self.G.add_edge(entity_1_id, entity_2_id, weight=1)
-
-        if DEBUG:
             for key1, inner_dict in new_edges.items():
                 for key2, weight in inner_dict.items():
                     print("  {} <--> {}, weight:+{}".format(key1, key2, weight))
 
+    def print_graph_edgelist(self):
+        print("Graph edges & weights"):
+        for n, nbrsdict in self.G.adjacency():
+            for nbr,eattr in nbrsdict.items():
+                print((n,nbr,eattr['weight']))
+        #print(self.G.edges(data='weight'))
+
     def add_graph_frame(self):
+        for n in self.G.nodes():
+            print(n)
         self.web.networks.infinite_jest.add_frame_from_networkx_graph(self.G)
 
     def display_graph(self, section_num):
