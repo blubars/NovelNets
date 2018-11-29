@@ -1,5 +1,9 @@
 # Infinite Jest Nets
 
+# WebWeb Install
+Please follow the instructions for installing webweb locally via a git repo:
+https://github.com/hneutr/webweb
+
 # Todo:
 - find entities by section:
     - run graphify for a given section (1-192)
