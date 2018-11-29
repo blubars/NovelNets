@@ -53,10 +53,28 @@ def split_pdf_into_pages(input_path, output_path, filename_leader="infinite-jest
 def split_sections(filepath, output_path, filename_leader="infinite-jest"):
     with open(filepath, 'r', encoding="ISO-8859-1") as f:
         data = f.read()
-        sections = re.compile("[\r\n]{3,}").split(data)
+        sections = re.compile("<section></section>").split(data)
+        print(len(sections))
     for i, section in enumerate(sections):
-        with open(output_path + '/' + filename_leader + "-section-{}.txt".format(i), "wb") as f:
+        with open(output_path + '/' + filename_leader + "-section-{0:0=3d}.txt".format(i + 1), "wb") as f:
             f.write(section.encode())
+
+
+def merge_txt_sections(directory_path, output_path, filename_leader="infinite-jest"):
+    files = glob.glob(directory_path + '/*.txt')
+    files.sort()
+    print(files)
+    with open(output_path + '/' + filename_leader + ".txt", 'w') as outfile:
+        for fname in files:
+            with open(fname) as infile:
+                outfile.write('\n\n' + infile.read())
+
+
+def append_section_breaks_to_sections(directory_path):
+    files = glob.glob(directory_path + '/*.txt')
+    for file in files:
+        with open(file, "a") as f:
+            f.write("\n\n<section></section>\n\n")
 
 
 def get_section_text(path):
@@ -74,6 +92,4 @@ def get_section_text(path):
 
 
 if __name__ == "__main__":
-    # split_pdf_into_pages("./data/pdf/infinite-jest.pdf", "./data/pdf")
-    # pdfparser("./data/pdf/infinite-jest-page-1.pdf", './data/txt')
-    split_sections("./data/txt/infinite-jest.txt", './data/txt', filename_leader="infinite-jest")
+    split_sections("../data/txt/infinite-jest-v2-0.txt", "../data/txt/split_sections/", filename_leader="infinite-jest")
