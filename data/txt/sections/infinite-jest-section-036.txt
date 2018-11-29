@@ -1,3 +1,5 @@
+
+
       Everyone in the locker room's got a towel around his waist like a kilt. Everyone except Stice has a white E.T.A. towel; Stice
 uses his own sort of trademark towels, black ones. After a silence Stice shoots some air out through his nose. Jim Struck picks
 liberally at his face and neck. There are one or two sighs. Peter Beak and Evan Ingersoll and Kent Blott, twelve, eleven, ten, are
@@ -143,7 +145,7 @@ of waiting, almost religious. Luther's shoes on the floor beneath the chamber po
 century shoes, awaiting epiphany. The mute quiescent suffering of generations of salesmen in the stalls of train-station Johns,
 heads down, fingers laced, shined shoes inert, awaiting the acid gush. Women's slippers, centurions' dusty sandals, dock-workers'
 hobnailed boots, Popes' slippers. All waiting, pointing straight ahead, slightly tapping. Huge shaggy-browed men in skins hunched
-just past the firelight's circle with wadded leaves in one hand, waiting. Schacht suffered from Crohn's Disease, <footnote>43</footnote> a bequest
+just past the firelight's circle with wadded leaves in one hand, waiting. Schacht suffered from Crohn's Disease, <endnote>43</endnote> a bequest
 from his ulcerative-colitic dad, and had to take carminative medication with every meal, and took a lot of guff about his digestive
 troubles, and had developed of all things arthritic gout, too, somehow, because of the Crohn's Disease, which had settled in his
 right knee and caused him terrible pain on the court.
@@ -195,3 +197,4 @@ helpful, but Slice's eyes are on Freer's in the glass, and the towel hits him on
 emotions seem to be inverting themselves every couple seconds. There's half-cruel laughter at Stice as Hal struggles to his feet,
 rising in careful stages, putting most of his weight on the good ankle. Hal's towel falls off as he does his combination. Struck says
 something that's lost in the roar of a high-pressure toilet.
+

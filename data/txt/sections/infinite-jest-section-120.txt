@@ -1,3 +1,5 @@
+
+
       Mario Incandenza's nineteenth birthday will be Wednesday 25 November, the day before Thanksgiving. His insomnia
 worsens as Madame Psychosis's hiatus enters its third week and WYYY tries bringing back poor Miss Diagnosis again, who's
 started in on a Pig-Latin reading of the Revelation of John that makes you so embarrassed for her it's uncomfortable. For a couple
@@ -30,12 +32,12 @@ changes.
       He hadn't told the Moms he was going to walk around after he left her office after their interface: Avril usually tries in a
 nonintrusive way to discourage Mario from taking walks at night, because he doesn't see well at night, and the areas around the
 E.T.A. hill are not the best neighborhood, and there's no skirting the fact that Mario would be easy prey for just about anybody,
-physically. And, though one perk of Familial Dysautonomia is a relative physical fearlessness, <footnote>242</footnote> Mario keeps to a pretty
-limited area during insomniacal strolls, out of deference to Avril's worry. <footnote>243</footnote> He'll sometimes walk around the grounds of the
+physically. And, though one perk of Familial Dysautonomia is a relative physical fearlessness, <endnote>242</endnote> Mario keeps to a pretty
+limited area during insomniacal strolls, out of deference to Avril's worry. <endnote>243</endnote> He'll sometimes walk around the grounds of the
 Enfield Marine P.H.H. at the bottom of the hill's east side because they're pretty much enclosed, the grounds are, and he knows a
 couple of the E.M. Security officers from when his father got them to portray Boston police in his whimsical Dial C for
 Concupiscence; and he likes the E.M. grounds at night because the different brick houses' window-light is yellow
-lamplight <footnote>244</footnote> and he can see people on the ground floors all together playing cards or talking or watching TP. He also likes
+lamplight <endnote>244</endnote> and he can see people on the ground floors all together playing cards or talking or watching TP. He also likes
 whitewashed brick regardless of its state of upkeep. And a lot of the people in the different brick houses are damaged or askew
 and lean hard to one side or are twisted into themselves, through the windows, and he can feel his heart going out into the world
 through them, which is good for insomnia. A woman's voice, calling for help without any real urgency -- not like the screams that
@@ -59,7 +61,7 @@ is arrested by the quiet but unmistakable sound of a recording of a broadcast of
 Psychosis,' which Mario has never taped a show of because he feels it wouldn't be right for him but is strangely thrilled to hear
 someone in Ennet's thinking enough of to tape and replay. What's coming from behind the open window with a billowing flag for
 a curtain is one of the old ones, from the Year of the Wonderchicken, Madame's inaugural year, when she'd sometimes talk all
-hour and had an accent. A hard east wind blows Mario's thin hair straight back off his head. His standing angle is 50°. A female
+hour and had an accent. A hard east wind blows Mario's thin hair straight back off his head. His standing angle is 50Â°. A female
 girl in a little fur coat and uncomfortable-looking bluejeans and tall shoes clicks past on the sidewalk and goes up the ramp into
 Ennet's back door without indicating she saw somebody with a really big head standing braced by a police lock on the lawn
 outside the kitchen window. The lady had had on so much makeup she'd looked unwell but the wake of her passage smells very
@@ -95,3 +97,4 @@ Mario can see, before the hillside's trees close behind him and reduce the Ennet
 square-headed boy bent over something he's writing at the Headmistress's black desk, licking a pencil-end and hunched all
 uncomfortably with one arm curled out around what he's writing in, like a slow boy over a class theme at Rindge and Latin
 Special.
+

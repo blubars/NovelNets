@@ -1,3 +1,5 @@
+
+
      The man's pants' crease was gone at the knee and his Cardin topcoat looked slept in.
      'It was good of you to grant me an easement.'
      Pat M. tried to recross her legs and shrugged. 'You said you weren't here professionally.'
@@ -16,7 +18,7 @@ Perhaps I need simply to share this, to work up the nerve. My sponsor's no help.
 hope of things getting better.'
      Anything less than a combination thoroughgoing professional and AA-longtimer would have at least hiked an eyebrow at one
 of the most powerful and remorseless constables in three counties saying sponsor.
-     'It's Phob-Comp-Anon,' the A.D.A. said. 'I went through Choices <footnote>383</footnote> last winter and have been working a program of
+     'It's Phob-Comp-Anon,' the A.D.A. said. 'I went through Choices <endnote>383</endnote> last winter and have been working a program of
 recovery in Phob-Comp-Anon a day at a time to the best of my ability ever since then.'
      'I see.'
      'It's Tooty,' the A.D.A. said. He did a pause with his eyes closed and then smiled, still with his eyes closed. 'It is, rather, me,
@@ -100,3 +102,4 @@ cleaned house.'
 But I can't do it. I haven't been able to do it.'
      'Willing, maybe.'
      'Haven't yet been willing. Yet. I wish to emphasize yet.'
+

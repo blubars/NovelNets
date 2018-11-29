@@ -1,11 +1,13 @@
-     Technical interviewers under Chief of Unspecified Services R. ('the G.') Tine <footnote>325</footnote> really do do this, bring a portable high-
+
+
+     Technical interviewers under Chief of Unspecified Services R. ('the G.') Tine <endnote>325</endnote> really do do this, bring a portable high-
 watt lamp and plug it in and adjust its neck so the light shines down directly on the face of the interview's subject, whose homburg
 and shade-affording eyebrows had been removed by polite but emphatic request. And it was this, the harsh light on her fully
 exposed post-Marxist face, more than any kind of tough noir-informed grilling from R. Tine Jr. and the other technical
 interviewer, that prompted M.I.T. A.B.D.-Ph.D. Molly Notkin, fresh off the N.N.Y.C. high-speed rail, seated in the Sidney
 Peterson-shaped directorial chair amid dropped luggage in her co-op's darkened and lock-dickied living room, to spill her guts,
-roll over, eat cheese, sing like a canary, tell everything she believed she knew: <footnote>326</footnote>
-     -- Molly Notkin tells the U.S.O.U.S. operatives that her understanding of the après-garde Auteur J. O. Incandenza's lethally
+roll over, eat cheese, sing like a canary, tell everything she believed she knew: <endnote>326</endnote>
+     -- Molly Notkin tells the U.S.O.U.S. operatives that her understanding of the aprÃ¨s-garde Auteur J. O. Incandenza's lethally
 entertaining Infinite Jest (V or VI) is that it features Madame Psychosis as some kind of maternal instantiation of the archetypal
 figure Death, sitting naked, corporeally gorgeous, ravishing, hugely pregnant, her hideously deformed face either veiled or
 blanked out by undulating computer-generated squares of color or ana-morphosized into unrecognizability as any kind of face by
@@ -15,9 +17,9 @@ is always your next life's mother. This, which Molly Notkin said didn't make too
 the alleged substance of the Death-cosmology Madame Psychosis was supposed to deliver in a lalating monologue to the viewer,
 mediated by the very special lens. She may or may not have been holding a knife during this monologue, and the film's big
 technical hook (the Auteur's films always involved some sort of technical hook) involved some very unusual kind of single lens on
-the Bolex H32's turret, <footnote>327</footnote> and it was unquestionably an f/x that Madame Psychosis looked pregnant, because the real Madame
-Psychosis had never been visibly pregnant, Molly Notkin had seen her naked, <footnote>328</footnote> and you can always tell if a woman's ever
-carried anything past the first trimester if you look at her naked. <footnote>329</footnote>
+the Bolex H32's turret, <endnote>327</endnote> and it was unquestionably an f/x that Madame Psychosis looked pregnant, because the real Madame
+Psychosis had never been visibly pregnant, Molly Notkin had seen her naked, <endnote>328</endnote> and you can always tell if a woman's ever
+carried anything past the first trimester if you look at her naked. <endnote>329</endnote>
      -- Molly Notkin tells them that Madame Psychosis's own mother had killed herself in a truly ghastly way with an ordinary
 kitchen garbage disposal on the evening of Thanksgiving Day in the Year of the Tucks Medicated Pad, four-odd months before
 the film's Auteur himself had killed himself, also with a kitchen appliance, also ghastlyly, which she says though any Lincoln-
@@ -66,7 +68,7 @@ instantiations of Death when he had the real thing right under his nose, and emi
 ently a real restaurant-silencer-type beauty even in her late forties.
       -- That the Auteur had stopped ingesting distilled spirits as Madame Psy-chosis's personal condition for consenting to appear
 in what she knew to be her but did not know to be the J.O.I.'s final film-cartridge, and that the Auteur had, apparently,
-incredibly, <footnote>330</footnote> kept his side of the bargain -- possibly because he'd been so deeply moved at M.P.'s consent to appear before
+incredibly, <endnote>330</endnote> kept his side of the bargain -- possibly because he'd been so deeply moved at M.P.'s consent to appear before
 the camera again even after her terrible accident and deformation and the little rotter of a son's despicable abandonment of the
 relationship under the excuse of accusing Madame Psychosis of being sexually enmeshed with their -- here Molly Notkin said
 that she of course had meant to say his -- father, the Auteur. And that the Auteur had apparently remained alcohol-free for the
@@ -98,14 +100,14 @@ organization was no kind of metaphor or ruse.
       -- That the intolerable stresses leading to the Auteur's self-erasure had probably way less to do with film or digital art -- this
 Auteur's anti-confluential approach to the medium having always struck Molly Notkin as being rather aloof and cerebrally
 technical, to say nothing of naively post-Marxist in its self-congratulatory combination of anamorphic fragmentation and anti-
-Picaresque <footnote>331</footnote> narrative stasis -- or with having allegedly spawned some angelic monster of audience-gratification -- anyone
+Picaresque <endnote>331</endnote> narrative stasis -- or with having allegedly spawned some angelic monster of audience-gratification -- anyone
 with a nervous system who watched much of his oeuvre could see that fun or entertainment was pretty low on the late filmmaker's
 list of priorities -- but rather much more likely to do with the fact that his widow-to-be was engaging in sexual enmeshments with
 just about everything with a Y-chromo-some, and had been for what sounded like many years, including possibly with the
 Auteur's son and Madame's craven lover, as a child, seeing as it sounded like the little rotter had enough malcathected issues with
 his mother to keep all of Vienna humming briskly for quite some time.
       -- That thus -- with the Promethean-guilt angle on the Auteur's suicide cast into serious doubt -- there was little question in
-A.B.D.-Dr. Notkin's mind that the entire perfect-entertainment-as-Lzez>esíoíí myth surrounding the purportedly lethal final
+A.B.D.-Dr. Notkin's mind that the entire perfect-entertainment-as-Lzez>esÃ­oÃ­Ã­ myth surrounding the purportedly lethal final
 cartridge was nothing more than a classic illustration of the antinomically schizoid function of the post-industrial capitalist
 mechanism, whose logic presented commodity as the escape-from-anxieties-of-mortality-which-escape-is-itself-psychologically-
 fatal, as detailed in perspicuous detail in M. Gilles Deleuze's posthumous Incest and the Life of Death in Capitalist Entertainment,
@@ -201,3 +203,4 @@ sudden venting of so many high-pressure repressive family systems -- open for a 
 formity. And that it had been everyone's failure to press any charges that had liberated the mother from Southeast-KY custody and
 allowed her access once again to her home's kitchen, where, apparently despondent, she committed suicide by putting her
 extremities down the garbage disposal -- first one arm and then, kind of miraculously if you think about it, the other arm.
+
