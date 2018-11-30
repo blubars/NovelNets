@@ -6,13 +6,11 @@
         - brian: 1-50
         - hunter: 51-100
         - carl: 101-150
-- chronology
-    - this is actually a pain in the ass:
-        - we have a text file (obviously)
-        - `Elegant Complexity` has this by page # (no other real way to do it)
-        - going to go through and write up the first sentence of every section
-            - use this as breakpoints
-- get a Named Entity Parser up and running
-- fix page breaks
+    - entity tool:
+        - for unfound entities, ask if it's in list
+            - if yes, use #
+            - if not, type name
+    - Coreference resolution
+    - start adding entity attributes
 
 [data](https://raisuman123.files.wordpress.com/2013/05/david-foster-wallace-infinite-jest-v2-0.pdf)
