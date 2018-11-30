@@ -1,3 +1,5 @@
+
+
      'Hoompf.'
      'Herrmmp.'
      'Well in excess of a thousand pardons for my collision.'
@@ -29,7 +31,7 @@ necessary location well before the opponent player's ball, through anticipation.
        'Thorp tells to me that this excellence in anticipation in the blind is because of hearing and sounds, because sounds are merely
 . . . here. Please read the comment I have carefully notated upon this folded piece of paper.'
        ' "Sound Merely 'Variations In Intensity' -- Throp." Throp?'
-       'It was meaning Thorp, in excitement. He tells that one may, perforce, judge the opponent player's VAPS <footnote>236</footnote> in more
+       'It was meaning Thorp, in excitement. He tells that one may, perforce, judge the opponent player's VAPS <endnote>236</endnote> in more
 detail by the ear than the eye. This is experimental theory of Thorp. This is explaining why the highly ranked Dymphna appears to
 always have floated by magic to the necessary spot where a ball is soon to land. Thorp tells this in a convincing manner.'
        'Perforce?'
@@ -116,7 +118,7 @@ annulation thing in toto you can imagine as nothing but a huge right triangle.'
 and up into Optics, which is where the abstracto-conceptual fur really flies, kid, let me tell you.'
      'I am one of the seldom of my home nation whose talents are weak in science, unhappily.'
      'This is why God also gave you quick hands and a wicked lob off the backhand, though. Just picture a kind of massive
-pseudocartographic right triangle. <footnote>237</footnote> You've got your central, impregnately-guarded O.N.A.N.- Sun-strand waste-intensive
+pseudocartographic right triangle. <endnote>237</endnote> You've got your central, impregnately-guarded O.N.A.N.- Sun-strand waste-intensive
 fusion facility up in what used to be Montpelier in what used to be Vermont, in the Concavity. From Montpelier the process's
 waste's piped to two sites, one of which is that blue glow at night up by the Methuen Fan-Complex, just south of the Concavity,
 right flush up against the Wall and Checkpoint Pongo --'
@@ -163,7 +165,7 @@ cancer by giving the cancer cells themselves cancer was anathematic just a coupl
 treatment was to like poison the whole body and see what was left. Though annular chemotherapy did start out kind of wacko.
 You can see these early microphotos Schacht's got that poster of that he won't take down even after you're sick of it, the early
 microphotos of cancer cells getting force-fed micromassive quantities of overdone beef and diet soda, forced to chain-smoke
-microsized Marlboros near tiny little cellular phones --'<footnote>238</footnote>
+microsized Marlboros near tiny little cellular phones --'<endnote>238</endnote>
      'I am standing first upon one foot then upon another foot.'
      '-- except and corollarying out of the micromedical model was this equally radical idea that maybe you could achieve a high-
 waste annulating fusion by bombarding highly toxic radioactive particles with massive doses of stuff even more toxic than the
@@ -215,3 +217,4 @@ thousand-four-hundred-and-four forms and guises.'
      'I'm wondering if you had any specific plans for this urine you're so anxious to get rid of, Ars, then.' 'I am not following.'
      'What say we hash it all out over some porcelain, then, brother.' 'Mike Pemulis, you are in motion a prince and in repose a
 sage.' 'Brother, it'll be a cold day in a warm climate when this kid right here's in repose.'
+

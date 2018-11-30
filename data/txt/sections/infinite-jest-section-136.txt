@@ -1,7 +1,9 @@
+
+
       And re Ennet House resident Kate Gompert and this depression issue: Some psychiatric patients -- plus a certain percentage
 of people who've gotten so dependent on chemicals for feelings of well-being that when the chemicals have to be abandoned they
 undergo a loss-trauma that reaches way down deep into the soul's core systems -- these persons know firsthand that there's more
-than one kind of so-called 'depression.' One kind is low-grade and sometimes gets called anhedonia <footnote>280</footnote> or simple melancholy.
+than one kind of so-called 'depression.' One kind is low-grade and sometimes gets called anhedonia <endnote>280</endnote> or simple melancholy.
 It's a kind of spiritual torpor in which one loses the ability to feel pleasure or attachment to things formerly important. The avid
 bowler drops out of his league and stays home at night staring dully at kick-boxing cartridges. The gourmand is off his feed. The
 sensualist finds his beloved Unit all of a sudden to be so much feelingless gristle, just hanging there. The devoted wife and mother
@@ -50,17 +52,17 @@ peer-hunger. No? We enter a spiritual puberty where we snap to the fact that the
 encagement in the self. Once we've hit this age, we will now give or take anything, wear any mask, to fit, be part-of, not be Alone,
 we young. The U.S. arts are our guide to inclusion. A how-to. We are shown how to fashion masks of ennui and jaded irony at a
 young age where the face is fictile enough to assume the shape of whatever it wears. And then it's stuck there, the weary cynicism
-that saves us from gooey sentiment and unsophisticated naïveté. Sentiment equals na-ïveté on this continent (at least since the
+that saves us from gooey sentiment and unsophisticated naÃ¯vetÃ©. Sentiment equals na-Ã¯vetÃ© on this continent (at least since the
 Reconfiguration). One of the things sophisticated viewers have always liked about J. O. Incandenza's The American Century as
-Seen Through a Brick is its unsubtle thesis that naïveté is the last true terrible sin in the theology of millennial America. And since
+Seen Through a Brick is its unsubtle thesis that naÃ¯vetÃ© is the last true terrible sin in the theology of millennial America. And since
 sin is the sort of thing that can be talked about only figuratively, it's natural that Himself's dark little cartridge was mostly about a
-myth, viz. that queerly persistent U.S. myth that cynicism and naïveté are mutually exclusive. Hal, who's empty but not dumb,
+myth, viz. that queerly persistent U.S. myth that cynicism and naÃ¯vetÃ© are mutually exclusive. Hal, who's empty but not dumb,
 theorizes privately that what passes for hip cynical transcendence of sentiment is really some kind of fear of being really human,
 since to be really human fat least as he conceptualizes it) is probably to be unavoidably sentimental and naive and goo-prone and
 generally pathetic, is to be in some basic interior way forever infantile, some sort of not-quite-right-looking infant dragging itself
 anaclitically around the map, with big wet eyes and froggy-soft skin, huge skull, gooey drool. One of the really American things
 about Hal, probably, is the way he despises what it is he's really lonely for: this hideous internal self, incontinent of sentiment and
-need, that pules and writhes just under the hip empty mask, anhedonia.
+need, that pules and writhes just under the hip empty mask, anhedonia. <endnote>281</endnote>
       The American Century as Seen Through a Brick's main and famous key-image is of a piano-string vibrating -- a high D, it
 looks like -- vibrating, and making a very sweet unadorned solo sound indeed, and then a little thumb comes into the frame, a
 blunt moist pale and yet dingy thumb, with disreputable stuff crusted in one of the nail-corners, small and unlined, clearly an
@@ -88,7 +90,7 @@ or standing, doing or resting, speaking or keeping silent, living or dying -- ar
       It is also lonely on a level that cannot be conveyed. There is no way Kate Gompert could ever even begin to make someone
 else understand what clinical depression feels like, not even another person who is herself clinically depressed, because a person
 in such a state is incapable of empathy with any other living thing. This anhedonic Inability To Identify is also an integral part of
-It. If a person in physical pain has a hard time attending to anything except that pain, <footnote>282</footnote> a clinically depressed person cannot
+It. If a person in physical pain has a hard time attending to anything except that pain, <endnote>282</endnote> a clinically depressed person cannot
 even perceive any other person or thing as independent of the universal pain that is digesting her cell by cell. Everything is part of
 the problem, and there is no solution. It is a hell for one.
       The authoritative term psychotic depression makes Kate Gompert feel especially lonely. Specifically the psychotic part.
@@ -125,7 +127,7 @@ She went to Catholic Mass every day. She was very devout. The psychotically depr
 was not institutionalized. He prayed for relief. He still had his job and his hobby. He went to work regularly, taking medical leaves
 only when the invisible torment got too bad for him to trust himself, or when there was some radical new treatment the
 psychiatrists wanted him to try. They'd tried Tricyciics, M.A.O.I.s, insulin-comas, Selective-Serotonin-Reuptake
-Inhibitors, <footnote>283</footnote> the new and side-effect-laden Quadracyclics. They'd scanned his lobes and affective matrices for lesions and
+Inhibitors, <endnote>283</endnote> the new and side-effect-laden Quadracyclics. They'd scanned his lobes and affective matrices for lesions and
 scars. Nothing worked. Not even high-amperage E.C.T. relieved It. This happens sometimes. Some cases of depression are
 beyond human aid. The man's case gave Kate Gompert the howling fantods. The idea of this man going to work and to Mass and
 building miniaturized railroad networks day after day after day while feeling anything like what Kate Gompert felt in that ward
@@ -146,3 +148,4 @@ Ernest Feaster of Wellesley Hills MA, stating that she was in their prayers and 
 know whether Mr. Ernest Feaster's limbic system got yanked out or not. Whether he achieved anhedonia. The Xmas cards had had
 excruciating little watercolor pictures of locomotives on them. She could barely stand to think about them, even at the best of
 times, which the present was not.
+

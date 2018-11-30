@@ -1,3 +1,5 @@
+
+
      Gerhardt Schtitt, Head Coach and Athletic Director at the Enfield Tennis Academy, Enfield MA, was wooed fiercely by
 E.T.A. Headmaster Dr. James Incandenza, just about begged to come on board the moment the Academy's hilltop was shaved flat
 and the place was up and running. Incandenza had decided he was going to bring Schtitt on board or bust -- this even though
@@ -9,7 +11,7 @@ boots, and yes the epaulets, still, and now a weatherman's telescoping pointer t
 riding crop, he has, Schtitt, at near what must be seventy, mellowed to the sort of elder-statesman point where he's become mostly
 a dispenser of abstractions rather than discipline, a philosopher instead of a king. His felt presence is here mostly verbal; the
 weatherman's pointer has not made corrective contact with even one athletic bottom in Schtitt's whole nine years at E.T.A.
-     Still, although he now has all these Lebensgefährtins <footnote>31</footnote> and prorectors to administer most of the necessary little character-
+     Still, although he now has all these LebensgefÃ¤hrtins <endnote>31</endnote> and prorectors to administer most of the necessary little character-
 building cruelties, Schtitt does like his occasional bit of fun, still.
      So but when Schtitt dons the leather helmet and goggles and revs up the old F.R.G.-era BMW cycle and trails the sweating
 E.T.A. squads up the Comm. Ave. hills into East Newton on their P.M. conditioning runs, making judicious use of his pea-shooter
@@ -59,7 +61,7 @@ academy has its own special traditional motto on the wall in the locker rooms, s
 describe and inform what the academy's philosophy's all about. After Mario's father Dr. Incandenza passed away, the new
 Headmaster, Dr. Charles Tavis, a Canadian citizen, either Mrs. Incandenza's half-brother or adoptive brother, depending on the
 version, C.T. had taken down Incandenza's founding motto -- TE OCCIDERE POSSUNT SED TE EDERE NON POSSUNT
-NEFAS EST <footnote>32</footnote> -- and had replaced it with the rather more upbeat THE MAN WHO KNOWS HIS LIMITATIONS HAS
+NEFAS EST <endnote>32</endnote> -- and had replaced it with the rather more upbeat THE MAN WHO KNOWS HIS LIMITATIONS HAS
 NONE.
      Mario is an enormous fan of Gerhardt Schtitt, whom most of the other E.T.A. kids regard as probably bats, and as w/o doubt
 mind-looseningly discursive, and show the old pundit even token respect mostly because Schtitt still personally oversees the daily
@@ -70,7 +72,7 @@ founder himself (who'd come back to tennis, and later film, from a background in
 Schtitt approached competitive tennis more like a pure mathematician than a technician. Most jr.-tennis coaches are basically
 technicians, hands-on practical straight-ahead problem-solving statistical-data wonks, with maybe added knacks for short-haul
 psychology and motivational speaking. The point about not crunching serious stats is that Schtitt had clued Incandenza in, all the
-way back at a B.S. 1989 <footnote>33</footnote> U.S.T.A. convention on photoelectric line-judging, that he, Schtitt, knew real tennis was really about
+way back at a B.S. 1989 <endnote>33</endnote> U.S.T.A. convention on photoelectric line-judging, that he, Schtitt, knew real tennis was really about
 not the blend of statistical order and expansive potential that the game's technicians revered, but in fact the opposite -- not-order,
 limit, the places where things broke down, fragmented into beauty. That real tennis was no more reducible to delimited factors or
 probability curves than chess or boxing, the two games of which it's a hybrid. In short, Schtitt and the tall A.E.G.-optics man (i.e.
@@ -78,12 +80,12 @@ Incandenza), whose fierce flat serve-and-haul-ass-to-the-net approach to the gam
 stipend, and whose consulting report on high-speed photoelectric tracking the U.S.T.A. mucky-mucks found dense past all
 comprehending, found themselves totally simpatico on tennis's exemption from stats-tracking regression. Were he now still
 among the living, Dr. Incandenza would now describe tennis in the paradoxical terms of what's now called 'Extra-Linear
-Dynamics.'<footnote>34</footnote> And Schtitt, whose knowledge of formal math is probably about equivalent to that of a Taiwanese kindergartner,
+Dynamics.'<endnote>34</endnote> And Schtitt, whose knowledge of formal math is probably about equivalent to that of a Taiwanese kindergartner,
 nevertheless seemed to know what Hopman and van der Meer and Bollettieri seemed not to know: that locating beauty and art and
 magic and improvement and keys to excellence and victory in the prolix flux of match play is not a fractal matter of reducing
 chaos to pattern. Seemed intuitively to sense that it was a matter not of reduction at all, but -- perversely -- of expansion, the
 aleatory flutter of uncontrolled, metastatic growth -- each well-shot ball admitting of n possible responses, n2 possible responses
-to those responses, and on into what Incandenza would articulate to anyone who shared both his backgrounds as a Cantorian <footnote>35</footnote>
+to those responses, and on into what Incandenza would articulate to anyone who shared both his backgrounds as a Cantorian <endnote>35</endnote>
 continuum of infinities of possible move and response, Cantorian and beautiful because wfoliating, contained, this diagnate
 infinity of infinities of choice and execution, mathematically uncontrolled but humanly contained, bounded by the talent and
 imagination of self and opponent, bent in on itself by the containing boundaries of skill and imagination that brought one player
@@ -108,8 +110,8 @@ the discipline which hardship teaches by requiring? A U.S. of modern A. where th
 sloppy intersection of desires and fears, where the only public consensus a boy must surrender to is the acknowledged primacy of
 straight-line pursuing this flat and short-sighted idea of personal happiness:
      The happy pleasure of the person alone, yes?'
-     'Except why do you let deLint tie Pemulís and Shaw's shoes to the lines, if the lines aren't boundaries?'
-     'Without there is something bigger. Nothing to contain and give the meaning. Lonely. Verstiegenheit.' <footnote>36</footnote>
+     'Except why do you let deLint tie PemulÃ­s and Shaw's shoes to the lines, if the lines aren't boundaries?'
+     'Without there is something bigger. Nothing to contain and give the meaning. Lonely. Verstiegenheit.' <endnote>36</endnote>
      'Bless you.'
       'Any something. The what: this is more unimportant than that there is something.'
       Schtitt one time was telling Mario, as they respectively walked and tottered down Comm. Ave. eastward into Allston to see
@@ -155,3 +157,4 @@ different' -- looking out into the Ave.'s raised median at the Green Line train 
 He brightens in preparation to laugh in his startling German roar, saying 'No? Yes? The chance to play, yes?' And Mario loses a
 dollop of chocolate down his chin, because he has this involuntary thing where he laughs whenever anyone else does, and Schtitt
 is finding what he has just said very amusing indeed.
+

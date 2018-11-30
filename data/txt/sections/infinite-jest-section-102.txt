@@ -1,5 +1,7 @@
+
+
      WINTER, B.S. 1963, SEPULVEDA CA
-     I remember <footnote>208</footnote> I was eating lunch and reading something dull by Bazin when my father came into the kitchen and made
+     I remember <endnote>208</endnote> I was eating lunch and reading something dull by Bazin when my father came into the kitchen and made
 himself a tomato juice beverage and said that as soon as I was finished he and my mother needed my help in their bedroom. My
 father had spent the morning at the commercial studio and was still all in white, with his wig with its rigid white parted hair, and
 hadn't yet removed the television makeup that gave his real face an orange cast in daylight. I hurried up and finished and rinsed
@@ -60,7 +62,7 @@ bolts.'
      I wasn't sure where to put my father's empty glass, which had juice residue and grains of pepper along the inside's sides. I
 poked at the mattress and box spring a little bit with my foot. 'Are you sure it isn't just the mattress?' I said. The bed's frame's bolts
 struck me as a rather exotic first-order explanation for the squeaking.
-     My father gestured broadly. 'Synchronícity surrounds me. Concord,' he said. 'Because that's what your mother thinks it is,
+     My father gestured broadly. 'SynchronÃ­city surrounds me. Concord,' he said. 'Because that's what your mother thinks it is,
 also.' My mother was using both hands to take the blue pillowcases off all five of their pillows, again using her chin as a clamp.
 The pillows were all the overplump polyester fiberfill kind, because of my father's allergies.
      'Great minds think alike,' my father said.
@@ -79,7 +81,7 @@ bought a new box spring for this sad excuse for a bed not five years ago.' He wa
 if he wanted to confirm that she was listening. My mother had crossed her legs and was looking with a certain concentration either
 at or out the master bedroom window. Our home's whole subdivision was spread along a severe hillside, which meant that the
 view from my parents' bedroom on the first floor was of just sky and sun and a foreshortened declivity of lawn. The lawn sloped
-at an average angle of 55° and had to be mowed horizontally. None of the subdivision's lawns had trees yet. 'Of course that was
+at an average angle of 55Â° and had to be mowed horizontally. None of the subdivision's lawns had trees yet. 'Of course that was
 during a seldom-discussed point in time when your mother had to assume the burden of assuming responsibility for finances in the
 household,' my father said. He was now perspiring very heavily, but still had his white professional toupee on, and still looked at
 my mother.
@@ -109,7 +111,7 @@ get it the hell out of here and give us some room to maneuver.'
 hands between the mattress and box spring and began to lift the mattress up from his side of the bed. When his side of the mattress
 had risen to the height of his shoulders, he somehow inverted his hands and began pushing his side up rather than lifting it. The
 top of his wig disappeared behind the rising mattress, and his side rose in an arc to almost the height of the white ceiling, exceeded
-90°, toppled over, and began to fall over down toward me. The mattress's overall movement was like the crest of a breaking wave,
+90Â°, toppled over, and began to fall over down toward me. The mattress's overall movement was like the crest of a breaking wave,
 I remember. I spread my arms and took the impact of the mattress with my chest and face, supporting the angled mattress with my
 chest, outspread arms, and face. All I could see was an extreme close-up of the woodland floral pattern of the mattress protector.
      The mattress, a Simmons Beauty Rest whose tag said that it could not by law be removed, now formed the hypotenuse of a
@@ -117,7 +119,7 @@ right dihedral triangle whose legs were myself and the bed's box spring. I remem
 legs were trembling under the mattress's canted weight. My father exhorted me to hold and support the mattress. The respectively
 sharp plastic and meaty human smells of the mattress and protector were very distinct because my nose was mashed up against
 them.
-     My father came around to my side of the bed, and together we pushed the mattress back up until it stood up at 90° again. We
+     My father came around to my side of the bed, and together we pushed the mattress back up until it stood up at 90Â° again. We
 edged carefully apart and each took one end of the upright mattress and began jockeying it off the bed and out the bedroom door
 into the uncarpeted hallway.
      This was a King-Size Simmons Beauty Rest mattress. It was massive but had very little structural integrity. It kept curving
@@ -155,7 +157,7 @@ faint smeared prints on the wall's white paint.
 gave the box spring structural integrity, and it didn't flop or alter its shape, and after another bit of difficulty for my father -- who
 was too thick through the middle, even with the professional girdle beneath his Glad costume -- after another bit of difficulty for
 my father squeezing with his end of the box spring through the bedroom doorway, we were able to get it into the hall and lean it
-vertically at something just over 70° against the wall, where it stayed upright with no problem.
+vertically at something just over 70Â° against the wall, where it stayed upright with no problem.
      'That's the way she wants doing, Jim,' my father said, clapping me on the back in exactly the ebullient way that had prompted
 me to have my mother buy an elastic athletic cranial strap for my glasses. I had told my mother I needed the strap for tennis
 purposes, and she had not asked any questions.
@@ -164,7 +166,7 @@ elevated. There was a brief second of confusion at the doorway as each of us tri
      There was now nothing but the suspect frame left where the bed had been. There was something exoskeletal and frail-looking
 about the bed frame, a plain low-ratio rectangle of black steel. At each corner of the rectangle was a caster. The casters' wheels
 had sunk into the pile carpet under the weight of the bed and my parents and were almost completely submerged in the carpet's
-fibers. Each of the frame's sides had a narrow steel shelf welded at 90° to its interior's base, so that a single rectangular narrow
+fibers. Each of the frame's sides had a narrow steel shelf welded at 90Â° to its interior's base, so that a single rectangular narrow
 shelf perpendicular to the frame's rectangle ran all around the frame's interior. This shelf was obviously there to support the bed's
 occupants and King-Size box spring and mattress.
      My father seemed frozen in place. I cannot remember what my mother was doing. There seemed to be a long silent interval of
@@ -302,7 +304,7 @@ its circumference, circling it in a spherical orbit, describing two perfectly ci
 figure on a planar surface, i.e., a cycloid on a sphere:
      x,v
      x,y
-     The closest conventional analogue I could derive for this figure was a cycloid, L'Hôpital's solution to Bernoulli's famous
+     The closest conventional analogue I could derive for this figure was a cycloid, L'HÃ´pital's solution to Bernoulli's famous
 Brachistochrone Problem, the curve traced by a fixed point on the circumference of a circle rolling along a continuous plane. But
 since here, on the bedroom's floor, a circle was rolling around what was itself the circumference of a circle, the cycloid's standard
 parametric equations were no longer apposite, those equations' trigonometric expressions here becoming themselves first-order
@@ -311,3 +313,4 @@ differential equations.
 the edge of the comforter and mattress, holding my glasses in place, completely distracted from the minor-D shriek of the vacuum
 below. It occurred to me that the movement of the amputated knob perfectly schematized what it would look like for someone to
 try to turn somersaults with one hand nailed to the floor. This was how I first became interested in the possibilities of annula-tion.
+
