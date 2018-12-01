@@ -42,7 +42,9 @@ def find_missing_entities(doc):
         ms = hand_matcher(nlp(token))
         if len(ms) == 0:
             # auto token doesn't match any known hand-labeled entity
-            missing.add(token)
+            if len(token):
+                # only add it if it's got length
+                missing.add(token)
         else:
             key = hand_matcher.vocab.strings[ms[0][0]] # this is dumb.
             overlap.add(token + " (" + key + ")")

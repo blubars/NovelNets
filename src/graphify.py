@@ -257,18 +257,18 @@ class Graphify:
             labels[n] = self.G.node[n]['name']
         fig = plt.figure(1)
         ax = plt.gca()
-        nx.draw(self.G, ax=ax, labels=labels)
-        plt.title("Section " + str(section_num))
-        plt.tight_layout()
+        # nx.draw(self.G, ax=ax, labels=labels)
+        # plt.title("Section " + str(section_num))
+        # plt.tight_layout()
         #plt.show()
-        plt.savefig("section_" + str(section_num) + ".pdf")
-        plt.close(fig)
+        # plt.savefig("section_" + str(section_num) + ".pdf")
+        # plt.close(fig)
 
 if __name__ == "__main__":
     # build a graph per section.
     gg = Graphify(SECTION_PATH, 500, 50)
 
-    for section in range(1,5):
+    for section in range(1,36):
         gg.process_section(section)
         gg.add_graph_frame()
 
