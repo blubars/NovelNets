@@ -118,6 +118,11 @@ class Graphify:
         self.web = webweb()
         self.graph_sequence = [] # list of snapshots
 
+    def process_book(self, section_seq):
+        for section_num in section_seq:
+            self.process_section(section_num)
+            self.add_graph_frame()
+
     def process_section(self, section_num):
         print("+-------------------------------------")
         print("| Processing section " + str(section_num))
@@ -267,15 +272,12 @@ class Graphify:
 if __name__ == "__main__":
     # build a graph per section.
     gg = Graphify(SECTION_PATH, 500, 50)
-
-    for section in range(1,36):
-        gg.process_section(section)
-        gg.add_graph_frame()
+    gg.process_book(range(1,36))
+    gg.web.draw()
 
     #for snapshot in gg.graph_sequence:
     #    print(snapshot)
 
-    gg.web.draw()
 
     # PROGRESS: 
     #   sections 1-15 done. slow going.
