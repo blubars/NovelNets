@@ -10,18 +10,20 @@
 # TODO:
 # section 25.15 in chronology doesn't exist, currently skipping.
 
-
 #########################################################
 # Imports
 #########################################################
-#from graphify import Graphify
+from graphify import Graphify
 import json
+import networkx as nx
 
 #########################################################
 # Globals
 #########################################################
 SECTION_PATH = '../data/txt/sections/'
-TOTAL_NUM_SECTIONS = 192
+SAVE_GRAPH_PATH = '../data/graph/'
+#TOTAL_NUM_SECTIONS = 192
+TOTAL_NUM_SECTIONS = 10
 
 #########################################################
 # Function definitions
@@ -56,15 +58,46 @@ def get_chronological_order():
         print("Num set(sections):{}".format(len(set(order))))
     return sections
 
-def graphify_whole_book(chronological=False):
+def analyze_centralities(G):
+    # centrality measures
+    centralities = [
+        (nx.degree_centrality, "Degree"), 
+        (nx.betweenness_centrality, "Betweenness"),
+        (nx.eigenvector_centrality, "Eigenvector")
+    ]
+    for cent_f, name in centralities:
+        print("Top 10 {} Centrality:".format(name))
+        result = cent_f(G)
+        #result = cent_f(G, weight="weight") # deg. cent. doesn't take weight
+        res_list = sorted(list(result.items()), key=lambda x:x[1], reverse=True)
+        for i in range(10):
+            node_id, cent = res_list[i]
+            node_name = G.nodes[node_id]['name']
+            print(" [{}] {}({}): {}".format(i, node_name, node_id, cent))
+        print()
+
+def graphify_whole_book(chronological=False, load_from_file=False):
     # build a graph per section.
     gg = Graphify(SECTION_PATH, 500, 50)
     sections = get_chronological_order() if chronological else range(1,TOTAL_NUM_SECTIONS+1)
-    gg.process_book(sections)
+    if load_from_file:
+        gg.load(SAVE_GRAPH_PATH, range(1,5))
+    else:
+        gg.process_book(sections)
+
     return gg
 
 if __name__ == "__main__":
+    print("Creating graphs")
+    # first run: need to build graph from book text
+    gg = graphify_whole_book(load_from_file=False)
+    g.save(SAVE_GRAPH_PATH)
+
+    # second run: can load from saved graph files
+    #gg = graphify_whole_book(load_from_file=True)
+
     print("Analyzing book!")
-    gg = graphify_whole_book()
+    analyze_centralities(gg.G)
+    gg.web.draw()
 
 

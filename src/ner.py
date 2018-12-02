@@ -6,10 +6,17 @@ import io
 
 import entities
 
-print("Loading spacy lang model...")
-nlp = spacy.load('en_core_web_md')
+nlp = None
+
+def load_language_model():
+    global nlp
+    if not nlp:
+        print("Loading spacy lang model...")
+        nlp = spacy.load('en_core_web_md')
+        print("Done!")
 
 def tokenize(raw_text):
+    load_language_model()
     return nlp(raw_text)
 
 def match_people(doc):

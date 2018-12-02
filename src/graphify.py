@@ -27,13 +27,14 @@
 #########################################################
 # Imports
 #########################################################
+import os
+import math
 from collections import defaultdict, namedtuple
 from copy import deepcopy
 import networkx as nx
 import matplotlib
 import matplotlib.pyplot as plt
 from webweb.webweb import webweb
-import math
 
 import ner
 
@@ -41,6 +42,7 @@ import ner
 # Globals
 #########################################################
 SECTION_PATH = '../data/txt/sections/'
+SAVE_GRAPH_PATH = '../data/graph/'
 DEBUG = 1
 
 #########################################################
@@ -66,14 +68,20 @@ def match_to_string(match, doc):
 # store a snapshot of the graph in time.
 # just a collection of vertices & edges right now.
 class GraphSnapshot:
-    def __init__(self, V, E, section=None):
+    def __init__(self, V=None, E=None, section=None):
         self.sections = []
         if section:
             self.sections.append(section)
-        self.V = V
+        if V:
+            self.V = V
+        else:
+            self.V = set()
         # edgelist is dict of dicts of weights.
         #   E[key1][key2] = weight
-        self.E = E
+        if E:
+            self.E = E
+        else:
+            self.E = defaultdict(lambda: defaultdict(int))
 
     def __str__(self):
         s_str = "** SECTIONS {} **\n".format(self.sections)
@@ -105,6 +113,47 @@ class GraphSnapshot:
             for k2,v in innerdict.items():
                 delta_E[k1][k2] -= v
         return GraphSnapshot(delta_V, delta_E)
+
+    def save(self, path, name_id_map):
+        section_num = self.sections[0]
+        edge_path = "{}/{}-edgelist.txt".format(path, section_num)
+        self.save_edgelist(edge_path, name_id_map)
+        node_path = "{}/{}-nodelist.txt".format(path, section_num)
+        self.save_nodelist(node_path, name_id_map)
+
+    def load(self, path, name_id_map):
+        section_num = self.sections[0]
+        edge_path = "{}/{}-edgelist.txt".format(path, section_num)
+        self.load_edgelist(edge_path, name_id_map)
+        node_path = "{}/{}-nodelist.txt".format(path, section_num)
+        self.load_nodelist(node_path, name_id_map)
+
+    def save_nodelist(self, fname, name_id_map):
+        with open(fname, 'w') as f:
+            for key in self.V:
+                node_id = name_id_map[key]
+                f.write("{}\t{}\n".format(node_id, key))
+
+    def save_edgelist(self, fname, name_id_map):
+        with open(fname, 'w') as f:
+            for k1,innerdict in self.E.items():
+                for k2,v in innerdict.items():
+                    node1 = name_id_map[k1]
+                    node2 = name_id_map[k2]
+                    f.write("{}\t{}\t{}\n".format(node1, node2, v))
+
+    def load_nodelist(self, fname, name_id_map):
+        with open(fname, 'r') as f:
+            for line in f:
+                node_id, key = line.split()
+                self.V.add(key)
+
+    def load_edgelist(self, fname, name_id_map):
+        with open(fname, 'r') as f:
+            for line in f:
+                node1, node2, weight = line.split()
+                self.E[int(node1)][int(node2)] = int(weight)
+
 
 class Graphify:
     def __init__(self, path, edge_thresh, edge_repeat_thresh):
@@ -246,6 +295,51 @@ class Graphify:
                             self.get_entity_id(key2), weight))
         return new_edges
 
+    def save(self, path):
+        # write each snapshot to a file. also write the aggregate.
+        try:
+            os.mkdir(path)
+        except FileExistsError:
+            pass
+        # write aggregate list of vertices (keys + ids) to file
+        with open(path + '/aggregate_nodes.txt', 'w') as f:
+            for key in self.people:
+                node_id = self.get_entity_id(key)
+                f.write("{}\t{}\n".format(node_id, key))
+        # write complete graph
+        nx.write_weighted_edgelist(self.G, path + '/aggregate_edgelist.txt')
+        # write each section snapshot to file
+        sect_path = path + '/sections'
+        try:
+            os.mkdir(path + '/sections')
+        except FileExistsError:
+            pass
+        for snap in self.graph_sequence:
+            snap.save(sect_path, self.name_id_map)
+
+    def load(self, path, section_seq):
+        # load graph from edgelist
+        # load vertices
+        self.people = set()
+        self.G = nx.read_edgelist(path + '/aggregate_edgelist.txt', nodetype=int, data=(('weight', int),))
+        with open(path + '/aggregate_nodes.txt', 'r') as f:
+            for line in f:
+                node_id, key = line.split()
+                node_id = int(node_id)
+                self.name_id_map[key] = node_id
+                try:
+                    self.G.nodes[node_id]['name'] = key
+                except KeyError:
+                    self.G.add_node(node_id, attr_dict={'name':key})
+                self.people.add(key)
+        self.graph_sequence = []
+        sect_path = path + '/sections'
+        for i in section_seq:
+            snap = GraphSnapshot(section=i)
+            snap.load(sect_path, self.name_id_map)
+            self.graph_sequence.append(snap)
+
+
     def print_graph_edgelist(self):
         print("Graph edges & weights")
         for n, nbrsdict in self.G.adjacency():
@@ -272,8 +366,10 @@ class Graphify:
 if __name__ == "__main__":
     # build a graph per section.
     gg = Graphify(SECTION_PATH, 500, 50)
-    gg.process_book(range(1,36))
-    gg.web.draw()
+    gg.process_book(range(1,10))
+    gg.save(SAVE_GRAPH_PATH)
+    #gg.load(SAVE_GRAPH_PATH, range(1,5))
+    #gg.web.draw()
 
     #for snapshot in gg.graph_sequence:
     #    print(snapshot)
