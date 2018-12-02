@@ -21,6 +21,7 @@ import networkx as nx
 # Globals
 #########################################################
 SECTION_PATH = '../data/txt/sections/'
+SAVE_GRAPH_PATH = '../data/graph/'
 #TOTAL_NUM_SECTIONS = 192
 TOTAL_NUM_SECTIONS = 10
 
@@ -75,17 +76,28 @@ def analyze_centralities(G):
             print(" [{}] {}({}): {}".format(i, node_name, node_id, cent))
         print()
 
-def graphify_whole_book(chronological=False):
+def graphify_whole_book(chronological=False, load_from_file=False):
     # build a graph per section.
     gg = Graphify(SECTION_PATH, 500, 50)
     sections = get_chronological_order() if chronological else range(1,TOTAL_NUM_SECTIONS+1)
-    gg.process_book(sections)
+    if load_from_file:
+        gg.load(SAVE_GRAPH_PATH, range(1,5))
+    else:
+        gg.process_book(sections)
+
     return gg
 
 if __name__ == "__main__":
-    print("Analyzing book!")
-    gg = graphify_whole_book()
-    analyze_centralities(gg.G)
+    print("Creating graphs")
+    # first run: need to build graph from book text
+    gg = graphify_whole_book(load_from_file=False)
+    g.save(SAVE_GRAPH_PATH)
 
+    # second run: can load from saved graph files
+    #gg = graphify_whole_book(load_from_file=True)
+
+    print("Analyzing book!")
+    analyze_centralities(gg.G)
+    gg.web.draw()
 
 
