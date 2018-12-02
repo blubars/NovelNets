@@ -50,13 +50,14 @@ def split_pdf_into_pages(input_path, output_path, filename_leader="infinite-jest
             output.write(outputStream)
 
 
-def split_sections(filepath, output_path, filename_leader="infinite-jest"):
-    with open(filepath, 'r', encoding="ISO-8859-1") as f:
+def split_sections(filepath, output_path, split_on_string, filename_leader="infinite-jest"):
+    with open(filepath, 'r') as f:
         data = f.read()
-        sections = re.compile("<section></section>").split(data)
+        sections = re.compile(split_on_string).split(data)
         print(len(sections))
     for i, section in enumerate(sections):
         with open(output_path + '/' + filename_leader + "-section-{0:0=3d}.txt".format(i + 1), "wb") as f:
+            section = section.strip()
             f.write(section.encode())
 
 
@@ -91,5 +92,56 @@ def get_section_text(path):
     return sections
 
 
+def get_all_regex_matches(text, regex_pattern):
+    # pattern = re.compile(r'.{0,20}(?=(\s<font(.*?)<a href="#[0-9]{1,3}))')
+    pattern = re.compile(regex_pattern)
+    matches = re.findall(pattern, text)
+    cleanr = re.compile('<.*?>|>|<')
+    matches = [re.sub(cleanr, '', m) for m in matches]
+    return matches
+
+
+def find_and_replace_endnotes():
+    with open('../data/output.html') as f:
+        data = f.read()
+        f.close()
+    matches = get_all_regex_matches(data, r'[\S\s]{1,30}(?=<font color(?:.*?)(?:<a href="#)(?:.*?)>(?:[0-9]{1,3})<)')
+    matches = [m for m in matches if len(m) > 0]
+    with open('../data/txt/Infinite Jest - Wallace, David Foster.txt') as f:
+        text = f.read()
+        f.close()
+    for match in matches:
+        index = text.find(match.replace('\n', ' '))
+        if index != -1:
+            start = index + len(match)
+            chunk = text[start:start + 3]
+            value = re.match(r'[0-9]{1,3}', chunk).group()
+            new_chunk = re.sub(r'[0-9]{1,3}', '<endnote>' + value + '</endnote>', chunk)
+            text = text[:start] + new_chunk + text[start + 3:]
+    with open('infinite-jest-new.txt', 'w') as f:
+        f.write(text)
+
+
+def find_and_replace_sections():
+    with open('../data/txt/infinite-jest-v2-0.txt') as f:
+        data = f.read()
+        f.close()
+    matches = get_all_regex_matches(data, r'[\S\s]{1,30}(?=<section></section)')
+    with open('./infinite-jest-new-endnotes.txt') as f:
+        text = f.read()
+        f.close()
+    for match in matches:
+        newmatch = re.sub(r'\n{1,3}', ' ', match).strip()
+        newmatch = re.sub(r'[0-9]{1,3}', ' ', newmatch).strip()
+        index = text.find(newmatch)
+        if index != -1 and len(newmatch) > 10:
+            idx = index + len(newmatch)
+            text = text[:idx] + "\n\n<section></section>" + text[idx:]
+        else:
+            print(newmatch)
+    with open('infinite-jest-new-sectioned-1.txt', 'w') as f:
+        f.write(text)
+
+
 if __name__ == "__main__":
-    split_sections("../data/txt/infinite-jest-v2-0.txt", "../data/txt/split_sections/", filename_leader="infinite-jest")
+    split_sections('../data/new_txt/Infinite Jest-Body.txt', '../data/new_txt/sections/', '<section></section>', filename_leader="infinite-jest")
