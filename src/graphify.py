@@ -41,7 +41,7 @@ import ner
 #########################################################
 # Globals
 #########################################################
-SECTION_PATH = '../data/txt/sections/'
+SECTION_PATH = '../data/current/sections/'
 SAVE_GRAPH_PATH = '../data/graph/'
 DEBUG = 1
 
@@ -164,7 +164,13 @@ class Graphify:
         self.unused_id = 0
         self.edge_threshold = edge_thresh
         self.edge_repeat_threshold = edge_repeat_thresh
+
         self.web = webweb()
+        self.web.display.colorBy = 'degree'
+        self.web.display.sizeBy = 'degree'
+        self.web.display.l = 60
+        self.web.display.c = 120
+
         self.graph_sequence = [] # list of snapshots
 
     def process_book(self, section_seq):
@@ -365,8 +371,8 @@ class Graphify:
 
 if __name__ == "__main__":
     # build a graph per section.
-    gg = Graphify(SECTION_PATH, 500, 50)
-    gg.process_book(range(1,10))
+    gg = Graphify(SECTION_PATH, 300, 50)
+    gg.process_book(range(1,193))
     gg.save(SAVE_GRAPH_PATH)
     #gg.load(SAVE_GRAPH_PATH, range(1,5))
     #gg.web.draw()

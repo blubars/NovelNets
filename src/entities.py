@@ -4,7 +4,7 @@ import json
 from spacy.matcher import Matcher
 import ner
 
-SECTION_PATH = '../data/txt/sections/'
+SECTION_PATH = '../data/current/sections/'
 ENTITIES_PATH = 'entities.json'
 
 # hand-made patterns and maybe future methods to make patterns 
@@ -91,6 +91,8 @@ def process_section(section_num):
         if answer == 'y':
             handle_missed_entity(missing_entity)
 
+    return missing
+
 
 def handle_missed_entity(psuedonym):
     entities = get_saved_entities()
@@ -129,8 +131,18 @@ if __name__ == '__main__':
 
     sections_to_process = [i for i in sections if i not in processed_sections]
 
+    missing = set()
     for section_to_process in sections_to_process:
-        process_section(section_to_process)
+        for missed in process_section(section_to_process):
+            missing.add(missed)
 
+    # for m in missing:
+    #     print(m)
 
+    # TODO:
+    # - add ignore list
+    # - autopopulate the processed sections list
 
+    # - delete unused entities
+    # - rerun on new entities
+    #   - with scopes? 
