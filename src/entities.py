@@ -1,215 +1,16 @@
 import spacy
+import os
+import json
 from spacy.matcher import Matcher
+import ner
+
+SECTION_PATH = '../data/txt/sections/'
+ENTITIES_PATH = 'entities.json'
 
 # hand-made patterns and maybe future methods to make patterns 
 # automatically
 
 # docs: https://spacy.io/usage/linguistic-features#rule-based-matching
-
-# format: id, list of patterns (each pattern is a list of dicts)
-people = [
-#    id:'HelloWorld', patterns: [
-#        [{'LOWER': 'hello'}, {'IS_PUNCT': True}, {'LOWER': 'world'}],
-#        [{'LOWER': 'hello'}, {'LOWER': 'world'}])
-#    ],
-    {'id':'HalIncandenza', 'patterns': [
-        [{'LOWER': 'hal'}, {'LOWER': 'incandenza'}],
-        [{'LOWER': 'hal'}],
-        [{'LOWER': 'harold'}, {'LOWER': 'incandenza'}],
-        [{'LOWER': 'harold'}]
-    ]},
-    {'id':'OrinIncandenza', 'patterns': [
-        [{'LOWER': 'orin'}, {'LOWER': 'incandenza'}],
-        [{'LOWER': 'orin'}]
-    ]},
-    {'id':'AvrilIncandenza', 'patterns': [
-        [{'LOWER': 'avril'}, {'LOWER': 'incandenza'}],
-        [{'LOWER': 'avril'}, {'ORTH': 'I.'}],
-        [{'LOWER': 'the'}, {'ORTH': 'Moms'}],
-    ]},
-    {'id':'JamesIncandenza', 'patterns': [ #Hal's father
-        [{'ORTH': 'Himself'}],
-        [{'ORTH': 'James'}, {'LOWER': 'incandenza'}],
-        [{'ORTH': 'James'}, {'ORTH': 'O.'}, {'LOWER': 'incandenza'}],
-    ]},
-    {'id':'MarioIncandenza', 'patterns': [
-        [{'LOWER': 'mario'}, {'LOWER': 'incandenza'}],
-        [{'LOWER': 'mario'}],
-        [{'ORTH': 'Booboo'}]
-    ]},
-    {'id':'MauryKlamkin', 'patterns': [
-        [{'LOWER': 'maury'}, {'LOWER': 'klamkin'}],
-        [{'LOWER': 'maury'}],
-        [{'LOWER': 'klamkin'}]
-    ]},
-    {'id':'Schtitt', 'patterns': [
-        [{'LOWER': 'gerhardt'}, {'LOWER': 'schtitt'}],
-        [{'LOWER': 'schtitt'}],
-    ]},
-    {'id':'JoelleVanDyne', 'patterns': [
-        [{'LOWER': 'joelle'}, {'LOWER': 'van'}, {'LOWER': 'dyne'}],
-        [{'LOWER': 'joelle'}],
-    ]},
-    {'id':'DonaldGately', 'patterns': [
-        [{'LOWER': 'donald'}, {'LOWER': 'gately'}],
-        [{'LOWER': 'donald'}], 
-    ]},
-    {'id':'RandyLenz', 'patterns': [
-        [{'LOWER': 'randy'}, {'LOWER': 'lenz'}],
-        [{'LOWER': 'randy'}],
-        [{'LOWER': 'lenz'}]
-    ]},
-    {'id': 'Wardine', 'patterns': [
-        [{'LOWER': 'wardine'}],
-    ]},
-    {'id': 'DoloresEpps', 'patterns': [
-        [{'LOWER': 'dolores'}, {'LOWER': 'epps'}],
-    ]},
-    {'id': 'CharlesTavis', 'patterns': [
-        [{'LOWER': 'uncle'}, {'LOWER': 'charles'}],
-        [{'LOWER': 'charles'}, {'LOWER': 'tavis'}],
-        [{'LOWER': 'tavis'}],
-        [{'ORTH': 'C.T.'}],
-        #[{'ORTH': 'Chuck'}], # too broad?
-    ]},
-    {'id': 'CoachWhite', 'patterns': [
-        [{'LOWER': 'coach'}, {'LOWER': 'white'}],
-        [{'LOWER': 'kirk'}, {'LOWER': 'white'}],
-        [{'LOWER': 'kirk'}],
-        [{'ORTH': 'White'}], # for section 4. too broad?
-    ]},
-    {'id': 'DoloresEpps', 'patterns': [
-        [{'LOWER': 'dolores'}, {'LOWER': 'epps'}],
-    ]},
-    {'id': 'DirectorOfComposition', 'patterns': [
-        [{'ORTH': 'Director'}, {'LOWER': 'of'}, {'ORTH': 'Composition'}],
-        [{'ORTH': 'Dir'}, {'LOWER': 'of'}, {'ORTH': 'Comp'}],
-        [{'ORTH': 'Director'}, {'LOWER': 'of'}, {'ORTH': 'Comp'}],
-        [{'ORTH': 'Comp'}, {'ORTH': 'Director'}],
-    ]},
-    {'id': 'DeanOfAthleticAffairs', 'patterns': [
-        [{'ORTH': 'Dean of Athletic Affairs'}],
-        [{'ORTH': 'Athletic'}, {'ORTH': 'Affairs'}],
-        [{'ORTH': 'Athletics'}]
-        #[{'ORTH': 'bill'}], # too broad to use
-    ]},
-    {'id': 'DeanOfAcademicAffairs', 'patterns': [
-        [{'ORTH': 'Dean of Academic Affairs'}],
-        [{'ORTH': 'Academic'}, {'ORTH': 'Affairs'}],
-        [{'ORTH': 'Dean'}, {'LOWER': 'at'}, {'LOWER': 'center'}],
-        [{'LOWER': 'middle'}, {'ORTH': 'Dean'}],
-        #[{'ORTH': 'bill'}], # too broad to use
-    ]},
-    {'id': 'DeanOfAdmissions', 'patterns': [
-        [{'ORTH': 'Dean'}, {'LOWER': 'at'}, {'LOWER': 'left'}],
-        [{'LOWER': 'yellow'}, {'LOWER': 'dean'}],
-        [{'LOWER': 'dean'}, {'LOWER': 'sawyer'}],
-    ]},
-    {'id': 'AubreyDeLint', 'patterns': [
-        [{'LOWER': 'mr'}, {'LOWER': 'a'}, {'ORTH': 'deLint'}], # Mr. A. deLint
-        [{'LOWER': 'mr'}, {'ORTH': 'deLint'}], # Mr. deLint
-        [{'LOWER': 'aubrey'}, {'LOWER': 'f'}, {'LOWER': 'delint'}],
-        [{'LOWER': 'aubrey'}, {'LOWER': 'delint'}],
-        [{'ORTH': 'Aubrey'}],
-        [{'ORTH': 'deLint'}],
-    ]},
-    {'id': 'JohnWayne', 'patterns': [
-        #[{'LOWER': 'john n. r. wayne'}],
-        [{'ORTH': 'Wayne'}],
-    ]},
-    {'id': 'Stice', 'patterns': [
-        [{'ORTH': 'Stice'}],
-    ]},
-    {'id': 'PetropolisKahn', 'patterns': [
-        [{'ORTH': 'Petropolis'}, {'ORTH': 'Kahn'}],
-    ]},
-    {'id': 'Dymphna', 'patterns': [
-        [{'ORTH': 'Dymphna'}],
-    ]},
-    {'id': 'CosgroveWatt', 'patterns': [
-        [{'ORTH': 'Cosgrove'}, {'ORTH': 'Watt'}],
-    ]},
-    {'id': 'KenErdedy', 'patterns': [
-        [{'ORTH': 'Erdedy'}],
-    ]},
-    {'id': 'MedicalAttache', 'patterns': [
-        [{'LOWER': 'medical'}, {'LOWER': 'attache'}],
-    ]},
-    {'id': 'PrinceQ---------', 'patterns': [
-        [{'ORTH': 'Prince'}, {'ORTH': 'Q---------'}],
-        [{'LOWER': 'minister'}, {'LOWER': 'of'}, {'LOWER': 'home'}, {'LOWER': 'entertainment'}],
-    ]},
-    {'id': 'Reginald', 'patterns': [
-        [{'ORTH': 'Reginald'}],
-    ]},
-    {'id': 'RoyTony', 'patterns': [
-        [{'ORTH': 'Roy'}, {'ORTH': 'Tony'}],
-    ]},
-    {'id': 'ColumbusEpps', 'patterns': [# S10, killed 4 yrs ago by Roy Tony?
-        [{'ORTH': 'Columbus'}, {'ORTH': 'Epps'}],
-    ]},
-    {'id': 'Clenette', 'patterns': [ #S10, 1st person narrator?
-        [{'ORTH': 'Clenette'}],
-    ]},
-    {'id': 'BruceGreen', 'patterns': [ #S11
-        [{'ORTH': 'Bruce'}, {'ORTH': 'Green'}],
-    ]},
-    {'id': 'MildredBonk', 'patterns': [ #S11
-        [{'ORTH': 'Mildred'}, {'ORTH': 'Bonk'}],
-        [{'ORTH': 'Mildred'}, {'ORTH': 'L.'}, {'ORTH': 'Bonk'}],
-    ]},
-    {'id': 'TommyDoocey', 'patterns': [ #S11 harelipped pot dealer
-        [{'ORTH': 'Tommy'}, {'ORTH': 'Doocey'}],
-    ]},
-    {'id': 'DoloresRusk', 'patterns': [
-        [{'ORTH': 'Dolores'}, {'ORTH': 'Rusk'}],
-        [{'ORTH': 'Dr.'}, {'ORTH': 'Rusk'}],
-    ]},
-    {'id': 'MichaelPemulis', 'patterns': [
-        [{'ORTH': 'Michael'}, {'ORTH': 'Pemulis'}],
-        [{'ORTH': 'Pemulis'}],
-    ]},
-    {'id': 'JimStruck', 'patterns': [
-        [{'ORTH': 'Jim'}, {'ORTH': 'Struck'}],
-        [{'ORTH': 'James'}, {'ORTH': 'Struck'}],
-        [{'ORTH': 'Struck'}],
-    ]},
-    {'id': 'BridgetBoone', 'patterns': [
-        [{'ORTH': 'Bridget'}, {'ORTH': 'C.'}, {'ORTH': 'Boone'}],
-        [{'ORTH': 'Boone'}],
-    ]},
-    {'id': 'JimTroeltsch', 'patterns': [
-        [{'ORTH': 'Jim'}, {'ORTH': 'Troeltsch'}],
-        [{'ORTH': 'Troeltsch'}],
-    ]},
-    {'id': 'TedSchacht', 'patterns': [
-        [{'ORTH': 'Ted'}, {'ORTH': 'Schacht'}],
-        [{'ORTH': 'Schacht'}],
-    ]},
-    {'id': 'TrevorAxford', 'patterns': [
-        [{'ORTH': 'Trevor'}, {'ORTH': 'Axford'}],
-        [{'ORTH': 'Axford'}],
-    ]},
-    {'id': 'KyleCoyle', 'patterns': [
-        [{'ORTH': 'Kyle'}, {'ORTH': 'D.'}, {'ORTH': 'Coyle'}],
-    ]},
-    {'id': 'PaulShaw', 'patterns': [
-        [{'ORTH': 'Paul'}, {'ORTH': 'Shaw'}],
-    ]},
-    {'id': 'FrannieUnwin', 'patterns': [
-        [{'ORTH': 'Frannie'}, {'ORTH': 'Unwin'}],
-    ]},
-    {'id': 'BernadetteLongley', 'patterns': [
-        [{'ORTH': 'Bernadette'}, {'ORTH': 'Longley'}],
-    ]},
-    {'id': 'KeithFreer', 'patterns': [
-        [{'ORTH': 'Keith'}, {'ORTH': 'Freer'}],
-        [{'ORTH': 'K.'}, {'ORTH': 'Freer'}],
-    ]},
-    {'id': 'OrthoStice', 'patterns': [
-        [{'ORTH': 'Ortho'}, {'LOWER': "('the"}, {'LOWER': "darkness')"}],
-    ]},
-]
 
 def get_matcher(nlp):
     matcher = Matcher(nlp.vocab)
@@ -220,9 +21,25 @@ def get_matcher(nlp):
 
 def on_match(matcher, doc, i, matches):
     # callback when entity pattern matched
-    # unused.
     pass
 
+def get_saved_entities():
+    with open(get_entities_file_path(), 'r') as f:
+        return json.load(f)
+
+def get_entities_file_path():
+    return os.path.join(os.getcwd(), ENTITIES_PATH)
+
+def add_entity_psuedonym(entity, psuedonym):
+    entities = get_saved_entities()
+    if not entities.get(entity):
+        entities[entity] = []
+
+    entities[entity].append([{"ORTH" : part } for part in psuedonym.split()])
+
+    with open(get_entities_file_path(), 'w') as f:
+        json.dump(entities, f)
+    
 def load_patterns(matcher):
     # possible automated method:
     #nlp = spacy.load('en_core_web_sm')
@@ -230,9 +47,90 @@ def load_patterns(matcher):
     #terminology_list = ['Barack Obama', 'Angela Merkel', 'Washington, D.C.']
     #patterns = [nlp(text) for text in terminology_list]
     #matcher.add('TerminologyList', None, *patterns)
+    entities = get_saved_entities()
 
     # load from above hand-made patterns
-    for p in people:
-        matcher.add(p['id'], None, *p['patterns'])
+    for _id, patterns in entities.items():
+        matcher.add(_id, None, *patterns)
+
+
+def print_list(lst, indent=2):
+    indstr = ""
+    for i in range(indent):
+        indstr += ' '
+    for item in lst:
+        print("{}{}".format(indstr, item))
+
+def process_section(section_num):
+    print("+-------------------------------------")
+    print("| Processing section " + str(section_num))
+    print("+-------------------------------------")
+    path = "{}infinite-jest-section-{:03d}.txt".format(SECTION_PATH, section_num)
+
+    with open(path, 'r') as f:
+        section_text = f.read()
+
+    doc = ner.tokenize(section_text)
+
+    matcher, matches = ner.match_people(doc)
+
+    missing, overlap, found = ner.find_missing_entities(doc)
+    found_entities = sorted(list({ matcher.vocab.strings[m[0]] for m in matches })) 
+    missing = sorted(list(missing))
+
+    print("MATCHED ENTITIES:")
+    print_list(found_entities)
+    print("MISSING ENTITIES:")
+    print_list(missing)
+
+    for missing_entity in missing:
+        print(f"missed entity: '{missing_entity}'. is this an entity? y/n")
+
+        answer = input()
+
+        if answer == 'y':
+            handle_missed_entity(missing_entity)
+
+
+def handle_missed_entity(psuedonym):
+    entities = get_saved_entities()
+    entity_names = sorted(list(entities.keys()))
+    for i, entity in enumerate(entity_names):
+        print(f"- {i}\t{entity}")
+
+    print(f"if {psuedonym} is a psuedonym of someone in the list, enter their number. Else an id to use.")
+    answer = input()
+
+    prompt_string = ""
+    if answer.isalpha():
+        entity = answer
+        prompt_string = f"add entity [{entity}] with psuedonym [{psuedonym}]? ('n' to skip)"
+    else:
+        entity = entity_names[int(answer)]
+        prompt_string = f"add to entity [{entity}] psuedomyn [{psuedonym}]? ('n' to skip)"
+    
+    print(prompt_string)
+    answer = input()
+    if answer != 'n':
+        add_entity_psuedonym(entity, psuedonym)
+
+
+if __name__ == '__main__':
+    sections = [i for i in range(1, 193)]
+    processed_sections = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192]
+
+    # section 21 is POV (Hal)
+    # section 36 we're missing 2 ingersolls for possibly a hyphen?
+    # remove 'John' from john wayne
+    # 89 will require close reading. (which I haven't done)
+    # ditto on 94
+
+    # fackelman -->  fackelmann
+
+    sections_to_process = [i for i in sections if i not in processed_sections]
+
+    for section_to_process in sections_to_process:
+        process_section(section_to_process)
+
 
 
