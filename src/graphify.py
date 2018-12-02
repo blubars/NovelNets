@@ -27,7 +27,8 @@
 #########################################################
 # Imports
 #########################################################
-from collections import defaultdict
+from collections import defaultdict, namedtuple
+from copy import deepcopy
 import networkx as nx
 import matplotlib
 import matplotlib.pyplot as plt
@@ -53,16 +54,74 @@ def print_list(lst, indent=2):
     for item in lst:
         print("{}{}".format(indstr, item))
 
+def print_debug(level, s):
+    if DEBUG >= level:
+        print(s)
+
+def match_to_string(match, doc):
+    mid, start, end = match
+    span = doc[start:end]
+    return "'{}': {}, {}".format(span.text, start, end)
+
+# store a snapshot of the graph in time.
+# just a collection of vertices & edges right now.
+class GraphSnapshot:
+    def __init__(self, V, E, section=None):
+        self.sections = []
+        if section:
+            self.sections.append(section)
+        self.V = V
+        # edgelist is dict of dicts of weights.
+        #   E[key1][key2] = weight
+        self.E = E
+
+    def __str__(self):
+        s_str = "** SECTIONS {} **\n".format(self.sections)
+        v_str = "  Nodes:\n"
+        for v in self.V:
+            v_str += "    {}\n".format(v)
+        e_str = "  Edges:\n"
+        for k1,innerdict in self.E.items():
+            for k2,v in innerdict.items():
+                e_str += "    ({}<->{}: {})\n".format(k1, k2, v)
+        return s_str + v_str + e_str
+
+    def merge(self, other):
+        merged_V = self.V + other.V
+        merged_E = deepcopy(self.E)
+        for k1,innerdict in other.E.items():
+            for k2,v in innerdict.items():
+                merged_E[k1][k2] += v
+        g = GraphSnapshot(merged_V, merged_E)
+        g.sections = self.sections + other.sections
+
+    def delta(self, other):
+        delta_V = self.V - other.V
+        # TODO: how to handle difference btw edges?
+        # might want to treat edges as binary rather than weighted 
+        # for this purpose.
+        delta_E = deepcopy(self.E)
+        for k1,innerdict in other.E.items():
+            for k2,v in innerdict.items():
+                delta_E[k1][k2] -= v
+        return GraphSnapshot(delta_V, delta_E)
+
 class Graphify:
-    def __init__(self, path, edge_threshold):
+    def __init__(self, path, edge_thresh, edge_repeat_thresh):
         self.section_path = path
         self.G = nx.Graph()
         self.people = set()
-
         self.name_id_map = {}
         self.unused_id = 0
-        self.threshold = edge_threshold
+        self.edge_threshold = edge_thresh
+        self.edge_repeat_threshold = edge_repeat_thresh
         self.web = webweb()
+        self.graph_sequence = [] # list of snapshots
+
+    def process_book(self, section_seq):
+        for section_num in section_seq:
+            self.process_section(section_num)
+            self.add_graph_frame()
 
     def process_section(self, section_num):
         print("+-------------------------------------")
@@ -79,24 +138,23 @@ class Graphify:
             for m in matches:
                 print("  '{}': ({}, {})".format(
                     self.get_entity_from_match(m), m[1], m[2]))
-        #if DEBUG:
         missing, overlap, found = ner.find_missing_entities(doc)
         print("MISSING ENTITIES:")
         print_list(missing)
         print("FOUND ENTITIES:")
         print_list(found)
         # 1. recognize entities
-        self.make_nodes(doc, matches)
+        added_V = self.make_nodes(doc, matches)
         # 2. link entities. (rule?)
-        self.make_edges(doc, matches)
+        added_E = self.make_edges(doc, matches)
         # 3. graph.
         # self.display_graph(str(section_num))
-        if DEBUG > 1:
-            self.print_graph_edgelist()
+        snapshot = GraphSnapshot(added_V, added_E, section_num)
+        self.graph_sequence.append(snapshot)
+        return snapshot
 
     def make_nodes(self, doc, matches):
-        if DEBUG:
-            print("NODES:")
+        print_debug(1, "NODES:")
         section_people = set() # ppl in this section
         for match_id, start, end in matches:
             key = self.matcher.vocab.strings[match_id] # this is dumb.
@@ -107,18 +165,15 @@ class Graphify:
         for key in sorted(list(new_people)):
             self.people.add(key)
             entity_id = self.get_entity_id(key)
-            if DEBUG:
-                print("  New node: ({}, {})".format(key, entity_id))
+            print_debug(1, "  New node: ({}, {})".format(key, entity_id))
             self.G.add_node(entity_id)
             self.G.nodes[entity_id]['name'] = key
-
-        #print("NEW NODES:\n{}".format(new_people))
+        return section_people
 
     def get_entity_id(self, entity_string):
         if self.name_id_map.get(entity_string, None) == None:
             self.name_id_map[entity_string] = self.unused_id
             self.unused_id += 1
-
         return self.name_id_map.get(entity_string)
 
     def get_entity_from_match(self, match):
@@ -131,11 +186,13 @@ class Graphify:
         first_id, first_start, first_end = first
         second_id, second_start, second_end = second
         if first_id == second_id:
-            return None
+            print_debug(3, "  - Skipped match b/c same entity")
+            return False
         if first_start > second_start:
             return self.add_edge_from_matches(second, first)
-        if second_start - first_start > self.threshold:
-            return None
+        if second_start - first_start > self.edge_threshold:
+            print_debug(3, "  - Skipped match b/c outside edge thresh")
+            return False
 
         key1 = self.get_entity_from_match(first)
         key2 = self.get_entity_from_match(second)
@@ -149,28 +206,45 @@ class Graphify:
             print("  - Incr weight ({}({}),{}({})), pos=({},{})".format(
                 key1, first_entity_id, key2, second_entity_id,
                 first_start, second_start))
-        return (key1, key2)
+        return True
 
     def make_edges(self, doc, matches):
+        # dict for counting weights
         new_edges = defaultdict(lambda: defaultdict(int))
+        # dict for tracking edge thresholds for smoothing.
+        # heuristic to avoid multi-counting
+        edge_block_threshs = defaultdict(lambda: defaultdict(int))
         # dumbest way possible: link if within THRESHOLD tokens of eachother.
         # note: this adds 1 edges per match pair, only in one direction.
         for i in range(len(matches)-1):
             for j in range(i+1, len(matches)):
                 first = matches[i]
                 second = matches[j]
-                new_edge = self.add_edge_from_matches(first, second)
-                if new_edge:
-                    key1, key2 = new_edge
-                    if key1 > key2:
-                        key1, key2 = key2, key1
-                    new_edges[key1][key2] += 1
-        if DEBUG:
-            print("EDGES:")
-            for key1, inner_dict in new_edges.items():
-                for key2, weight in inner_dict.items():
-                    print("  {} <--> {}, weight:+{}".format(key1, key2, weight))
-                    print("\t  {} <--> {}, weight:+{}".format(self.get_entity_id(key1), self.get_entity_id(key2), weight))
+                print_debug(3, "[Process match:{}, {}]"
+                   .format(match_to_string(first, doc), match_to_string(second, doc)))
+                key1 = self.get_entity_from_match(first)
+                key2 = self.get_entity_from_match(second)
+                if key1 > key2:
+                    key1, key2 = key2, key1
+                match_start = min(first[1], second[1])
+                match_end = max(first[2], second[2])
+                if match_start > edge_block_threshs[key1][key2]:
+                    # don't add a new edge if we're within the blocking 
+                    # threshold from the previous edge.
+                    new_edge = self.add_edge_from_matches(first, second)
+                    if new_edge:
+                        new_edges[key1][key2] += 1
+                        edge_block_threshs[key1][key2] = match_end + self.edge_repeat_threshold
+                else:
+                    print_debug(3, "  - Skipped match b/c within thresh ({})"
+                        .format(edge_block_threshs[key1][key2]))
+        print_debug(1, "EDGES:")
+        for key1, inner_dict in new_edges.items():
+            for key2, weight in inner_dict.items():
+                print_debug(1, "  {} <--> {} ({} <--> {}), weight:+{}"
+                    .format(key1, key2, self.get_entity_id(key1), \
+                            self.get_entity_id(key2), weight))
+        return new_edges
 
     def print_graph_edgelist(self):
         print("Graph edges & weights")
@@ -180,8 +254,6 @@ class Graphify:
         #print(self.G.edges(data='weight'))
 
     def add_graph_frame(self):
-        #for n in self.G.nodes():
-        #    print(n)
         self.web.networks.infinite_jest.add_frame_from_networkx_graph(self.G)
 
     def display_graph(self, section_num):
@@ -199,14 +271,13 @@ class Graphify:
 
 if __name__ == "__main__":
     # build a graph per section.
-    gg = Graphify(SECTION_PATH, 500)
-
-    for section in range(1,36):
-        gg.process_section(section)
-        gg.add_graph_frame()
-        gg.display_graph(section)
-
+    gg = Graphify(SECTION_PATH, 500, 50)
+    gg.process_book(range(1,36))
     gg.web.draw()
+
+    #for snapshot in gg.graph_sequence:
+    #    print(snapshot)
+
 
     # PROGRESS: 
     #   sections 1-15 done. slow going.
