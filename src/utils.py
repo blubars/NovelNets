@@ -143,5 +143,16 @@ def find_and_replace_sections():
         f.write(text)
 
 
+def split_endnotes(filepath, output_path, regex, filename_leader="infinite-jest"):
+    with open('../data/current/Infinite Jest-Notes.txt') as f:
+        data = f.read()
+        f.close()
+    pattern = re.compile(regex, re.MULTILINE)
+    matches = re.findall(pattern, data)
+    for i, section in enumerate(matches):
+        with open(output_path + '/' + filename_leader + "-endnote-{0:0=3d}.txt".format(i + 1), "wb") as f:
+            section = section.strip()
+            f.write(section.encode())
+
 if __name__ == "__main__":
-    split_sections('../data/new_txt/Infinite Jest-Body.txt', '../data/new_txt/sections/', '<section></section>', filename_leader="infinite-jest")
+    split_endnotes('../data/current/Infinite Jest-Notes.txt', '../data/current/endnotes/', r'(?:^[0-9]{1,3}\.)([\s\S]*?)(?=^[0-9]{1,3}\.)')
