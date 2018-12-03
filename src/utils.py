@@ -154,5 +154,19 @@ def split_endnotes(filepath, output_path, regex, filename_leader="infinite-jest"
             section = section.strip()
             f.write(section.encode())
 
+
+def interpolate_endnotes(section_txt):
+    pattern = re.compile(r'<endnote>[0-9]{1,3}</endnote>', re.MULTILINE)
+    matches = re.findall(pattern, section_txt)
+    for match in matches:
+        search = re.search(re.compile(r'[0-9]{1,3}'), match)
+        value = search.group()
+        value
+        with open('../data/current/endnotes/infinite-jest-{0:0=3d}.txt'.format(value)) as f:
+
+
 if __name__ == "__main__":
-    split_endnotes('../data/current/Infinite Jest-Notes.txt', '../data/current/endnotes/', r'(?:^[0-9]{1,3}\.)([\s\S]*?)(?=^[0-9]{1,3}\.)')
+    with open('../data/current/sections/infinite-jest-section-038.txt') as f:
+        text = f.read()
+
+    interpolate_endnotes(text)
