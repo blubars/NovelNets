@@ -31,5 +31,11 @@ https://github.com/hneutr/webweb
         - for unfound entities, ask if it's in list
             - if yes, use #
             - if not, type name
+- text_io,py:
+    - import section by id with option to remove endnote tags
+    - function to interpolate endnote text into section text with option to exclude endnotes by ID.
+      - this will remove endnote tags for any exlcuded endnotes not interpolated into text.
+    - function to retrieve endnotes as a dictionary of ID:endnote_text key values. Option to exclude 
+      if so desired.
 
 [data](https://raisuman123.files.wordpress.com/2013/05/david-foster-wallace-infinite-jest-v2-0.pdf)
