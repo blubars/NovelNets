@@ -71,6 +71,8 @@ def process_section(section_num):
 
     print("MATCHED ENTITIES:")
     print_list(found_entities)
+    print("FOUND ENTITIES:")
+    print_list(found)
     print("MISSING ENTITIES:")
     print_list(missing)
 
