@@ -36,12 +36,12 @@ import matplotlib
 import matplotlib.pyplot as plt
 from webweb.webweb import webweb
 
+from utils import get_sections_path
 import ner
 
 #########################################################
 # Globals
 #########################################################
-SECTION_PATH = '../data/current/sections/'
 SAVE_GRAPH_PATH = '../data/graph/'
 DEBUG = 1
 
@@ -371,7 +371,7 @@ class Graphify:
 
 if __name__ == "__main__":
     # build a graph per section.
-    gg = Graphify(SECTION_PATH, 300, 50)
+    gg = Graphify(get_sections_path(), 300, 50)
     gg.process_book(range(1,193))
     gg.save(SAVE_GRAPH_PATH)
     #gg.load(SAVE_GRAPH_PATH, range(1,5))

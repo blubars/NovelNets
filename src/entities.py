@@ -1,16 +1,10 @@
+import sys
 import spacy
 import os
 import json
 from spacy.matcher import Matcher
 import ner
-
-SECTION_PATH = '../data/current/sections/'
-ENTITIES_PATH = 'entities.json'
-
-# hand-made patterns and maybe future methods to make patterns 
-# automatically
-
-# docs: https://spacy.io/usage/linguistic-features#rule-based-matching
+from utils import get_sections_path, get_entities_path
 
 def get_matcher(nlp):
     matcher = Matcher(nlp.vocab)
@@ -24,11 +18,8 @@ def on_match(matcher, doc, i, matches):
     pass
 
 def get_saved_entities():
-    with open(get_entities_file_path(), 'r') as f:
+    with open(get_entities_path(), 'r') as f:
         return json.load(f)
-
-def get_entities_file_path():
-    return os.path.join(os.getcwd(), ENTITIES_PATH)
 
 def add_entity_psuedonym(entity, psuedonym):
     entities = get_saved_entities()
@@ -37,7 +28,7 @@ def add_entity_psuedonym(entity, psuedonym):
 
     entities[entity].append([{"ORTH" : part } for part in psuedonym.split()])
 
-    with open(get_entities_file_path(), 'w') as f:
+    with open(get_entities_path(), 'w') as f:
         json.dump(entities, f)
     
 def load_patterns(matcher):
@@ -65,7 +56,7 @@ def process_section(section_num):
     print("+-------------------------------------")
     print("| Processing section " + str(section_num))
     print("+-------------------------------------")
-    path = "{}infinite-jest-section-{:03d}.txt".format(SECTION_PATH, section_num)
+    path = "{}infinite-jest-section-{:03d}.txt".format(get_sections_path(), section_num)
 
     with open(path, 'r') as f:
         section_text = f.read()
@@ -130,6 +121,11 @@ if __name__ == '__main__':
     # fackelman -->  fackelmann
 
     sections_to_process = [i for i in sections if i not in processed_sections]
+
+    if len(sys.argv) > 1:
+        sections_to_process.append(int(sys.argv[1]))
+
+    print(sections_to_process)
 
     missing = set()
     for section_to_process in sections_to_process:
