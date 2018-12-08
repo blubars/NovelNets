@@ -65,6 +65,12 @@ def match_to_string(match, doc):
     span = doc[start:end]
     return "'{}': {}, {}".format(span.text, start, end)
 
+def print_graph(G):
+    #print(list(G.nodes(data=True)))
+    print(len(list(G.nodes)))
+    print(len(G.edges()))
+    print()
+
 # store a snapshot of the graph in time.
 # just a collection of vertices & edges right now.
 class GraphSnapshot:
@@ -158,7 +164,9 @@ class GraphSnapshot:
     def getNXGraph(self, name_id_map):
         G = nx.Graph()
         for key in self.V:
-            G.add_node(name_id_map[key])
+            entity_id = name_id_map[key]
+            G.add_node(entity_id)
+            G.nodes[entity_id]['name'] = key
         for node1,innerdict in self.E.items():
             for node2,v in innerdict.items():
                 G.add_edge(node1, node2, weight=v)
@@ -186,6 +194,7 @@ class Graphify:
         for section_num in section_seq:
             self.process_section(section_num)
             self.add_graph_frame()
+        print_graph(self.G)
 
     def process_section(self, section_num):
         print("+-------------------------------------")
@@ -346,23 +355,31 @@ class Graphify:
         # load graph from edgelist
         # load vertices
         self.people = set()
-        self.G = nx.read_edgelist(path + '/aggregate_edgelist.txt', nodetype=int, data=(('weight', int),))
+        final_G = nx.read_edgelist(path + '/aggregate_edgelist.txt', nodetype=int, data=(('weight', int),))
         with open(path + '/aggregate_nodes.txt', 'r') as f:
             for line in f:
                 node_id, key = line.split()
                 node_id = int(node_id)
                 self.name_id_map[key] = node_id
                 try:
-                    self.G.nodes[node_id]['name'] = key
+                    final_G.nodes[node_id]['name'] = key
                 except KeyError:
-                    self.G.add_node(node_id, attr_dict={'name':key})
+                    final_G.add_node(node_id, attr_dict={'name':key})
                 self.people.add(key)
         self.graph_sequence = []
         sect_path = path + '/sections'
+        aggregate_G = GraphSnapshot()
         for i in section_seq:
             snap = GraphSnapshot(section=i)
             snap.load(sect_path)
             self.graph_sequence.append(snap)
+            # need aggregate graph for saving snapshot
+            aggregate_G = aggregate_G.merge(snap)
+            self.G = aggregate_G.getNXGraph(self.name_id_map)
+            self.add_graph_frame()
+        print_graph(self.G)
+        print_graph(final_G)
+        self.G = final_G # TODO: confirm; these should be the same.
 
     def print_graph_edgelist(self):
         print("Graph edges & weights")
