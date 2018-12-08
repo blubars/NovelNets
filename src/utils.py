@@ -1,8 +1,3 @@
-from PyPDF2 import PdfFileWriter, PdfFileReader
-from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
-from pdfminer.pdfpage import PDFPage
-from pdfminer.converter import TextConverter
-from pdfminer.layout import LAParams
 import io
 import os
 import re
@@ -10,10 +5,15 @@ import glob
 import errno
 
 
+def get_sections_path():
+    return '../data/current/sections/'
+
+def get_entities_path():
+    return '../data/entities.json'
+
+
 def path_leaf(path):
-    """
-    Get the file name from path (no extensions, just the name)
-    """
+    """ Get the file name from path (no extensions, just the name) """
     return os.path.splitext(os.path.basename(path))[0]
 
 
@@ -21,6 +21,10 @@ def pdfparser(input_path, output_path):
     """
     Convert .pdf file to text and save as .txt file
     """
+    from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+    from pdfminer.pdfpage import PDFPage
+    from pdfminer.converter import TextConverter
+    from pdfminer.layout import LAParams
     file_name = path_leaf(input_path)
     fp = open(input_path, 'rb')
     rsrcmgr = PDFResourceManager()
@@ -41,6 +45,7 @@ def pdfparser(input_path, output_path):
 
 
 def split_pdf_into_pages(input_path, output_path, filename_leader="infinite-jest"):
+    from PyPDF2 import PdfFileWriter, PdfFileReader
     inputpdf = PdfFileReader(open(input_path, "rb"))
 
     for i in range(inputpdf.numPages):
