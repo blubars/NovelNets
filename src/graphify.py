@@ -95,13 +95,14 @@ class GraphSnapshot:
         return s_str + v_str + e_str
 
     def merge(self, other):
-        merged_V = self.V + other.V
+        merged_V = self.V | other.V
         merged_E = deepcopy(self.E)
         for k1,innerdict in other.E.items():
             for k2,v in innerdict.items():
                 merged_E[k1][k2] += v
         g = GraphSnapshot(merged_V, merged_E)
         g.sections = self.sections + other.sections
+        return g
 
     def delta(self, other):
         delta_V = self.V - other.V
@@ -121,12 +122,12 @@ class GraphSnapshot:
         node_path = "{}/{}-nodelist.txt".format(path, section_num)
         self.save_nodelist(node_path, name_id_map)
 
-    def load(self, path, name_id_map):
+    def load(self, path):
         section_num = self.sections[0]
         edge_path = "{}/{}-edgelist.txt".format(path, section_num)
-        self.load_edgelist(edge_path, name_id_map)
+        self.load_edgelist(edge_path)
         node_path = "{}/{}-nodelist.txt".format(path, section_num)
-        self.load_nodelist(node_path, name_id_map)
+        self.load_nodelist(node_path)
 
     def save_nodelist(self, fname, name_id_map):
         with open(fname, 'w') as f:
@@ -142,18 +143,26 @@ class GraphSnapshot:
                     node2 = name_id_map[k2]
                     f.write("{}\t{}\t{}\n".format(node1, node2, v))
 
-    def load_nodelist(self, fname, name_id_map):
+    def load_nodelist(self, fname):
         with open(fname, 'r') as f:
             for line in f:
                 node_id, key = line.split()
                 self.V.add(key)
 
-    def load_edgelist(self, fname, name_id_map):
+    def load_edgelist(self, fname):
         with open(fname, 'r') as f:
             for line in f:
                 node1, node2, weight = line.split()
                 self.E[int(node1)][int(node2)] = int(weight)
 
+    def getNXGraph(self, name_id_map):
+        G = nx.Graph()
+        for key in self.V:
+            G.add_node(name_id_map[key])
+        for node1,innerdict in self.E.items():
+            for node2,v in innerdict.items():
+                G.add_edge(node1, node2, weight=v)
+        return G
 
 class Graphify:
     def __init__(self, path, edge_thresh, edge_repeat_thresh):
@@ -224,6 +233,16 @@ class Graphify:
             self.G.add_node(entity_id)
             self.G.nodes[entity_id]['name'] = key
         return section_people
+
+    def graph_by_sections(self, sequence, aggregate=False):
+        g0 = GraphSnapshot()
+        for section_num in sequence:
+            section_snapshot = self.graph_sequence[section_num-1]
+            if aggregate:
+                g0 = g0.merge(section_snapshot)
+                yield g0.getNXGraph(self.name_id_map)
+            else:
+                yield section_snapshot
 
     def get_entity_id(self, entity_string):
         if self.name_id_map.get(entity_string, None) == None:
@@ -342,9 +361,8 @@ class Graphify:
         sect_path = path + '/sections'
         for i in section_seq:
             snap = GraphSnapshot(section=i)
-            snap.load(sect_path, self.name_id_map)
+            snap.load(sect_path)
             self.graph_sequence.append(snap)
-
 
     def print_graph_edgelist(self):
         print("Graph edges & weights")
