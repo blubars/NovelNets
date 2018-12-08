@@ -1,1 +1,5756 @@
-{"HalIncandenza": [[{"LOWER": "hal"}, {"LOWER": "incandenza"}], [{"LOWER": "hal"}], [{"LOWER": "harold"}, {"LOWER": "incandenza"}], [{"LOWER": "harold"}], [{"ORTH": "Halorama"}], [{"ORTH": "Halster"}], [{"ORTH": "Hallie"}], [{"ORTH": "Hal\u00c3\u00adie"}], [{"ORTH": "Hal'd"}]], "OrinIncandenza": [[{"LOWER": "orin"}, {"LOWER": "incandenza"}], [{"LOWER": "orin"}]], "AvrilIncandenza": [[{"LOWER": "avril"}, {"LOWER": "incandenza"}], [{"LOWER": "avril"}, {"ORTH": "I."}], [{"LOWER": "avril"}], [{"LOWER": "the"}, {"ORTH": "Moms"}], [{"ORTH": "Moms"}]], "JamesIncandenza": [[{"ORTH": "Himself"}], [{"ORTH": "James"}, {"LOWER": "incandenza"}], [{"ORTH": "James"}], [{"ORTH": "James"}, {"ORTH": "O."}, {"LOWER": "incandenza"}], [{"ORTH": "JAMES"}, {"ORTH": "O."}], [{"ORTH": "Jimbo"}], [{"ORTH": "Jim"}, {"ORTH": "Incandenza"}], [{"ORTH": "el"}, {"ORTH": "Storko's"}], [{"ORTH": "J."}, {"ORTH": "O."}, {"ORTH": "Incandenza"}]], "MarioIncandenza": [[{"LOWER": "mario"}, {"LOWER": "incandenza"}], [{"LOWER": "mario"}], [{"ORTH": "Booboo"}], [{"ORTH": "M."}, {"ORTH": "Incandenza"}]], "MauryKlamkin": [[{"LOWER": "maury"}, {"LOWER": "klamkin"}], [{"LOWER": "maury"}], [{"LOWER": "klamkin"}]], "Schtitt": [[{"LOWER": "gerhardt"}, {"LOWER": "schtitt"}], [{"LOWER": "schtitt"}], [{"ORTH": "Gerhardt"}]], "JoelleVanDyne": [[{"LOWER": "joelle"}, {"LOWER": "van"}, {"LOWER": "dyne"}], [{"LOWER": "joelle"}], [{"ORTH": "Madame"}, {"ORTH": "Psychosis"}], [{"ORTH": "Madame"}, {"ORTH": "Psy-chosis's"}], [{"ORTH": "Madame"}, {"ORTH": "P."}], [{"ORTH": "J."}, {"ORTH": "van"}, {"ORTH": "Dyne"}], [{"ORTH": "Madame"}, {"ORTH": "P.G.O.A.T."}], [{"ORTH": "Joel"}], [{"ORTH": "Joelle'd"}], [{"ORTH": "Madame"}, {"ORTH": "Psy-chosis's"}]], "DonaldGately": [[{"ORTH": "Don"}], [{"LOWER": "donald"}, {"LOWER": "gately"}], [{"LOWER": "donald"}], [{"ORTH": "D. W. Gately"}], [{"ORTH": "Don Gately"}], [{"ORTH": "Don Gately's"}], [{"ORTH": "D."}, {"ORTH": "W."}, {"ORTH": "Gately"}], [{"ORTH": "Don"}, {"ORTH": "Gately"}], [{"ORTH": "Don"}, {"ORTH": "Gately's"}], [{"ORTH": "Gately"}], [{"ORTH": "Gately'd"}], [{"ORTH": "Gately'll"}], [{"ORTH": "Bim"}], [{"ORTH": "Don"}, {"ORTH": "G."}], [{"ORTH": "Don'd"}], [{"ORTH": "D."}, {"ORTH": "W."}, {"ORTH": "GATELY"}], [{"ORTH": "Bimmy"}], [{"ORTH": "D."}, {"ORTH": "W."}], [{"ORTH": "G.'d"}], [{"ORTH": "Bimster"}], [{"ORTH": "the"}, {"ORTH": "G-Man's"}], [{"ORTH": "Donny"}]], "RandyLenz": [[{"LOWER": "randy"}, {"LOWER": "lenz"}], [{"LOWER": "randy"}], [{"LOWER": "lenz"}], [{"ORTH": "Randall"}, {"ORTH": "L.'s"}]], "Wardine": [[{"LOWER": "wardine"}]], "DoloresEpps": [[{"LOWER": "dolores"}, {"LOWER": "epps"}]], "CharlesTavis": [[{"LOWER": "uncle"}, {"LOWER": "charles"}], [{"LOWER": "charles"}, {"LOWER": "tavis"}], [{"LOWER": "tavis"}], [{"ORTH": "C.T."}], [{"ORTH": "C. T."}], [{"ORTH": "C.T"}], [{"ORTH": "Charles"}, {"ORTH": "Tavises"}]], "CoachWhite": [[{"LOWER": "coach"}, {"LOWER": "white"}], [{"LOWER": "kirk"}, {"LOWER": "white"}], [{"LOWER": "kirk"}]], "DirectorOfComposition": [[{"ORTH": "Director"}, {"LOWER": "of"}, {"ORTH": "Composition"}], [{"ORTH": "Dir"}, {"LOWER": "of"}, {"ORTH": "Comp"}], [{"ORTH": "Director"}, {"LOWER": "of"}, {"ORTH": "Comp"}], [{"ORTH": "Comp"}, {"ORTH": "Director"}]], "DeanOfAthleticAffairs": [[{"ORTH": "Dean of Athletic Affairs"}], [{"ORTH": "Athletic"}, {"ORTH": "Affairs"}], [{"ORTH": "Athletics"}]], "DeanOfAcademicAffairs": [[{"ORTH": "Dean of Academic Affairs"}], [{"ORTH": "Academic"}, {"ORTH": "Affairs"}], [{"ORTH": "Dean"}, {"LOWER": "at"}, {"LOWER": "center"}], [{"LOWER": "middle"}, {"ORTH": "Dean"}]], "DeanOfAdmissions": [[{"ORTH": "Dean"}, {"LOWER": "at"}, {"LOWER": "left"}], [{"LOWER": "yellow"}, {"LOWER": "dean"}], [{"LOWER": "dean"}, {"LOWER": "sawyer"}]], "AubreyDeLint": [[{"LOWER": "mr"}, {"LOWER": "a"}, {"ORTH": "deLint"}], [{"LOWER": "mr"}, {"ORTH": "deLint"}], [{"LOWER": "aubrey"}, {"LOWER": "f"}, {"LOWER": "delint"}], [{"LOWER": "aubrey"}, {"LOWER": "delint"}], [{"ORTH": "Aubrey"}], [{"ORTH": "deLint"}]], "JohnWayne": [[{"ORTH": "Wayne"}], [{"ORTH": "John"}, {"ORTH": "('N.R.')"}, {"ORTH": "Wayne"}], [{"ORTH": "J.W."}], [{"ORTH": "John"}]], "PetropolisKahn": [[{"ORTH": "Petropolis"}, {"ORTH": "Kahn"}], [{"ORTH": "Kahn"}], [{"ORTH": "Pe-tropolis"}, {"ORTH": "Kahn"}], [{"ORTH": "W.M."}], [{"ORTH": "Petropolis"}]], "Dymphna": [[{"ORTH": "Dymphna"}]], "CosgroveWatt": [[{"ORTH": "Cosgrove"}, {"ORTH": "Watt"}], [{"ORTH": "Watt"}]], "KenErdedy": [[{"ORTH": "Erdedy"}], [{"ORTH": "Erdedy'd"}], [{"ORTH": "Ken"}, {"ORTH": "E."}], [{"ORTH": "Airdaddy"}]], "MedicalAttache": [[{"LOWER": "medical"}, {"LOWER": "attach\u00e9"}]], "PrinceQ---------": [[{"ORTH": "Prince"}, {"ORTH": "Q---------"}], [{"LOWER": "minister"}, {"LOWER": "of"}, {"LOWER": "home"}, {"LOWER": "entertainment"}]], "Reginald": [[{"ORTH": "Reginald"}]], "RoyTony": [[{"ORTH": "Roy"}, {"ORTH": "Tony"}], [{"ORTH": "Roy"}, {"ORTH": "Tonys'"}], [{"ORTH": "Roy"}], [{"ORTH": "Roy-Tony"}], [{"ORTH": "Yo"}, {"ORTH": "Roy"}, {"ORTH": "T."}]], "ColumbusEpps": [[{"ORTH": "Columbus"}, {"ORTH": "Epps"}]], "Clenette": [[{"ORTH": "Clenette"}]], "BruceGreen": [[{"ORTH": "Bruce"}, {"ORTH": "Green"}], [{"ORTH": "Bruce"}, {"ORTH": "G."}], [{"ORTH": "Brucie"}, {"ORTH": "Green"}], [{"ORTH": "Brucie"}, {"ORTH": "Green's"}], [{"ORTH": "Brucie"}, {"ORTH": "G."}]], "MildredBonk": [[{"ORTH": "Mildred"}, {"ORTH": "Bonk"}], [{"ORTH": "Mildred"}, {"ORTH": "L."}, {"ORTH": "Bonk"}], [{"ORTH": "Mildred"}], [{"ORTH": "Bonkesque"}], [{"ORTH": "M."}, {"ORTH": "Bonk"}]], "TommyDoocey": [[{"ORTH": "Tommy"}, {"ORTH": "Doocey"}], [{"ORTH": "T."}, {"ORTH": "Doocy"}], [{"ORTH": "Tommy"}, {"ORTH": "D.'s"}], [{"ORTH": "Tommy"}, {"ORTH": "Doocy'd"}]], "DoloresRusk": [[{"ORTH": "Dolores"}, {"ORTH": "Rusk"}], [{"ORTH": "Dr."}, {"ORTH": "Rusk"}], [{"ORTH": "Rusk"}]], "MichaelPemulis": [[{"ORTH": "Michael"}, {"ORTH": "Pemulis"}], [{"ORTH": "Pemulis"}], [{"ORTH": "Peemster"}], [{"ORTH": "Michael"}, {"ORTH": "Penisless"}], [{"ORTH": "M.M.P."}], [{"ORTH": "Mickey"}], [{"ORTH": "Micky"}]], "JimStruck": [[{"ORTH": "Jim"}, {"ORTH": "Struck"}], [{"ORTH": "James"}, {"ORTH": "Struck"}], [{"ORTH": "Struck"}]], "BridgetBoone": [[{"ORTH": "Bridget"}, {"ORTH": "C."}, {"ORTH": "Boone"}], [{"ORTH": "Boone"}], [{"ORTH": "Bridget"}]], "JimTroeltsch": [[{"ORTH": "Jim"}, {"ORTH": "Troeltsch"}], [{"ORTH": "Troeltsch"}]], "TedSchacht": [[{"ORTH": "Ted"}, {"ORTH": "Schacht"}], [{"ORTH": "Schacht"}], [{"ORTH": "Teddy"}]], "TrevorAxford": [[{"ORTH": "Trevor"}, {"ORTH": "Axford"}], [{"ORTH": "Axford"}], [{"ORTH": "Axhandle"}], [{"ORTH": "A-4"}, {"ORTH": "Trevor"}], [{"ORTH": "Trevor"}], [{"ORTH": "Ax-ford"}]], "KyleCoyle": [[{"ORTH": "Kyle"}, {"ORTH": "D."}, {"ORTH": "Coyle"}], [{"ORTH": "Coyle"}], [{"ORTH": "K.D.C."}]], "PaulShaw": [[{"ORTH": "Paul"}, {"ORTH": "Shaw"}], [{"ORTH": "Shaw"}], [{"ORTH": "Tall"}, {"ORTH": "Paul"}, {"ORTH": "Shaw"}], [{"ORTH": "Tall"}, {"ORTH": "Paul"}]], "FrannieUnwin": [[{"ORTH": "Frannie"}, {"ORTH": "Unwin"}], [{"ORTH": "Fran"}, {"ORTH": "Unwin"}], [{"ORTH": "Fran"}, {"ORTH": "Unwin's"}], [{"ORTH": "Frances"}, {"ORTH": "L."}, {"ORTH": "Unwin"}], [{"ORTH": "Unwin"}]], "BernadetteLongley": [[{"ORTH": "Bernadette"}, {"ORTH": "Longley"}], [{"ORTH": "Longley"}], [{"ORTH": "Bernadette"}, {"ORTH": "Long-ley"}]], "KeithFreer": [[{"ORTH": "Keith"}, {"ORTH": "Freer"}], [{"ORTH": "K."}, {"ORTH": "Freer"}], [{"ORTH": "K."}, {"ORTH": "B."}, {"ORTH": "Freer"}]], "OrthoStice": [[{"ORTH": "Stice"}], [{"ORTH": "Ortho"}, {"LOWER": "('the"}, {"LOWER": "darkness')"}], [{"ORTH": "Slice"}], [{"ORTH": "STICE"}], [{"ORTH": "The"}, {"ORTH": "Darkness"}], [{"ORTH": "Orth"}], [{"ORTH": "The"}, {"ORTH": "Dark's"}]], "GuillaumeDuPlessis": [[{"ORTH": "DuPlessis"}]], "GrahamRader": [[{"ORTH": "Graham"}, {"ORTH": "Rader"}], [{"ORTH": "Rader"}], [{"ORTH": "Graham"}, {"ORTH": "('Yard-guard')"}, {"ORTH": "Rader"}], [{"ORTH": "Graham"}], [{"ORTH": "Yardguard"}]], "GeorgeBush": [[{"ORTH": "G."}, {"ORTH": "Bush"}]], "GeraldFord": [[{"ORTH": "G."}, {"ORTH": "Ford"}]], "JohnnyGentle": [[{"ORTH": "J."}, {"ORTH": "Gentle"}], [{"ORTH": "Gentle"}], [{"ORTH": "J.G."}], [{"ORTH": "Johnny"}], [{"ORTH": "J.G.F.C."}], [{"ORTH": "GENTLE"}]], "KateGompert": [[{"ORTH": "Gompert"}], [{"ORTH": "Kate"}], [{"ORTH": "Kate"}, {"ORTH": "Gom-pert"}], [{"ORTH": "Kate"}, {"ORTH": "Gompert"}], [{"ORTH": "Kate"}, {"ORTH": "Gompert's"}], [{"ORTH": "Katherine"}], [{"ORTH": "Katherine"}, {"ORTH": "A."}], [{"ORTH": "Katherine"}, {"ORTH": "Ann"}, {"ORTH": "Gompert"}], [{"ORTH": "Katherine"}, {"ORTH": "Gompert"}], [{"ORTH": "Katharine"}]], "Hopman": [[{"ORTH": "Hopman"}], [{"ORTH": "Jenny"}, {"ORTH": "B."}]], "MaryEstherThode": [[{"ORTH": "Mary"}, {"ORTH": "Esther"}, {"ORTH": "Thode"}], [{"ORTH": "Thode"}], [{"ORTH": "Mary"}, {"ORTH": "Esther's"}], [{"ORTH": "THODE"}], [{"ORTH": "Mary"}, {"ORTH": "Esther"}]], "NickBollettieri": [[{"ORTH": "Nick"}, {"ORTH": "Bollettieri"}]], "TinyEwell": [[{"ORTH": "Ewell"}], [{"ORTH": "Tiny"}, {"ORTH": "E."}], [{"ORTH": "Tiny"}, {"ORTH": "E.'s"}], [{"ORTH": "Eldred"}]], "HughSteeply": [[{"ORTH": "Hugh"}, {"ORTH": "Steeply"}], [{"ORTH": "M."}, {"ORTH": "Hugh"}, {"ORTH": "Steeply"}], [{"ORTH": "Steeply"}], [{"ORTH": "Helen"}], [{"ORTH": "HELEN"}], [{"ORTH": "Hugh"}], [{"ORTH": "Steepley"}]], "LuriaPerec": [[{"ORTH": "Luria"}], [{"ORTH": "Luria"}, {"ORTH": "Perec"}], [{"ORTH": "Lur\u00c3\u00ada"}]], "MFortier": [[{"ORTH": "M."}, {"ORTH": "Fortier"}], [{"ORTH": "Fortier"}]], "RodneyTineSr": [[{"ORTH": "M."}, {"ORTH": "Tine"}], [{"ORTH": "Rod"}], [{"ORTH": "Rodney"}, {"ORTH": "Tine"}], [{"ORTH": "Tine"}], [{"ORTH": "M."}, {"ORTH": "Rodney"}, {"ORTH": "'"}]], "RemyMarathe": [[{"ORTH": "Marathe"}], [{"ORTH": "M."}, {"ORTH": "Mar-athe's"}], [{"ORTH": "Ramy"}], [{"ORTH": "R\u00e9my"}]], "DisneyRLeith": [[{"ORTH": "Disney"}, {"ORTH": "R."}, {"ORTH": "Leith"}], [{"ORTH": "Leith"}]], "AliceMoore": [[{"ORTH": "Alice"}, {"ORTH": "Moore"}], [{"ORTH": "Lateral"}, {"ORTH": "Alice's"}], [{"ORTH": "L."}, {"ORTH": "A."}, {"ORTH": "Moore"}], [{"ORTH": "Lateral"}, {"ORTH": "Alice"}]], "KentBlott": [[{"ORTH": "Blott"}], [{"ORTH": "Kent"}], [{"ORTH": "Kent"}, {"ORTH": "Blott"}], [{"ORTH": "K.B."}]], "EvanIngersoll": [[{"ORTH": "Evan"}, {"ORTH": "Ingersoll"}], [{"ORTH": "Inger-soll"}], [{"ORTH": "Inger-soll's"}], [{"ORTH": "IngersolPs"}], [{"ORTH": "Inger-soll"}], [{"ORTH": "Inger-soll's"}], [{"ORTH": "Evan"}], [{"ORTH": "Ingersoll"}]], "IdrisArslanian": [[{"ORTH": "Idris"}, {"ORTH": "Arslanian"}], [{"ORTH": "Idris"}, {"ORTH": "Arslanian's"}], [{"ORTH": "Idris"}], [{"ORTH": "Ars"}]], "BarryLoach": [[{"ORTH": "Loach"}], [{"ORTH": "Barry"}]], "PeterBeak": [[{"ORTH": "Peter"}, {"ORTH": "Beak"}], [{"ORTH": "Peter"}, {"ORTH": "Beak"}]], "ToddPossalthwaite": [[{"ORTH": "Possalthwaite"}], [{"ORTH": "Todd"}, {"ORTH": "('Postal-Weight')"}, {"ORTH": "Possalthwaite"}], [{"ORTH": "Todd"}], [{"ORTH": "Todder"}]], "CarolSpodek": [[{"ORTH": "Spodek"}]], "TexWatson": [[{"ORTH": "Tex"}, {"ORTH": "Watson"}], [{"ORTH": "Watson"}]], "TonyNwangi": [[{"ORTH": "Tony"}, {"ORTH": "Nwangi"}], [{"ORTH": "Nwangi"}]], "Yardley": [[{"ORTH": "Yardley"}]], "ZoltanCsikzentmihalyi": [[{"ORTH": "Zoltan"}, {"ORTH": "Csikzentmihalyi"}]], "BrianvanVleck": [[{"ORTH": "Brian"}, {"ORTH": "van"}, {"ORTH": "Vleck"}], [{"ORTH": "Van"}, {"ORTH": "Vleck"}], [{"ORTH": "van"}, {"ORTH": "Vleck"}]], "CarlWhale": [[{"ORTH": "Carl"}], [{"ORTH": "Carl"}, {"ORTH": "Whale"}], [{"ORTH": "Mobes"}]], "LaMontChu": [[{"ORTH": "Chu"}], [{"ORTH": "La-Mont"}], [{"ORTH": "LaMont"}]], "MrsClarke": [[{"ORTH": "Clarke"}]], "JoshGopnik": [[{"ORTH": "Gopnik"}], [{"ORTH": "Josh"}, {"ORTH": "Gopnik"}], [{"ORTH": "Gop"}]], "JennieBash": [[{"ORTH": "Jennie"}, {"ORTH": "Bash"}], [{"ORTH": "Bash"}]], "KieranMcKenna": [[{"ORTH": "Kieran"}, {"ORTH": "McKenna"}], [{"ORTH": "K."}, {"ORTH": "McKenna"}], [{"ORTH": "McKenna"}]], "Lyle": [[{"ORTH": "Lyle"}], [{"ORTH": "Lyles"}]], "OtisPLord": [[{"ORTH": "Otis"}, {"ORTH": "P."}, {"ORTH": "Lord"}], [{"ORTH": "Lord"}], [{"ORTH": "O."}, {"ORTH": "Lord"}], [{"ORTH": "O."}, {"ORTH": "P."}, {"ORTH": "Lord"}], [{"ORTH": "Otis"}, {"ORTH": "Lord"}], [{"ORTH": "Petropulator"}]], "Peterson": [[{"ORTH": "Peterson"}], [{"ORTH": "Sleepy"}, {"ORTH": "T.P."}], [{"ORTH": "T."}, {"ORTH": "P."}, {"ORTH": "Peterson"}], [{"ORTH": "Sleepster"}], [{"ORTH": "Timmy"}], [{"ORTH": "Sleepy"}, {"ORTH": "T."}, {"ORTH": "P."}]], "PhilipTraub": [[{"ORTH": "Philip"}, {"ORTH": "Traub"}], [{"ORTH": "Traub"}], [{"ORTH": "Phil"}]], "StanSmith": [[{"ORTH": "Stan"}, {"ORTH": "Smith"}], [{"ORTH": "Stan"}, {"ORTH": "Smith's"}]], "StephenWagenknecht": [[{"ORTH": "Wagen-knecht"}], [{"ORTH": "Stephan"}, {"ORTH": "Wagenknecht"}], [{"ORTH": "Wagen-knecht"}], [{"ORTH": "Wagenknecht"}]], "DonnieStott": [[{"ORTH": "Donnie"}, {"ORTH": "Stott"}], [{"ORTH": "Donni"}]], "USSMillicentKent": [[{"ORTH": "Millicent"}], [{"ORTH": "U.S.S.M.K."}]], "StokelyMcNair": [[{"ORTH": "Darkstar"}], [{"ORTH": "Kely"}], [{"ORTH": "Stokely"}], [{"ORTH": "McNair"}]], "LadyDelphina": [[{"ORTH": "Delphinas"}], [{"ORTH": "Lady"}, {"ORTH": "Delphina"}], [{"ORTH": "Delphina"}]], "ReeseEquus": [[{"ORTH": "Eckwus"}], [{"ORTH": "Equus"}, {"ORTH": "Reese"}], [{"ORTH": "Equus"}]], "Lolasister": [[{"ORTH": "Lolasister"}]], "PoorTonyKrause": [[{"ORTH": "Poor"}, {"ORTH": "Tony"}], [{"ORTH": "Tony"}, {"ORTH": "Krause"}], [{"ORTH": "P."}, {"ORTH": "T."}, {"ORTH": "Krause"}], [{"ORTH": "Krause"}], [{"ORTH": "P.T."}]], "SusanTCheese": [[{"ORTH": "Susan"}, {"ORTH": "T."}, {"ORTH": "Cheese"}], [{"ORTH": "S."}, {"ORTH": "T."}, {"ORTH": "Cheese"}]], "WhitySorkin": [[{"ORTH": "Whity"}, {"ORTH": "Sorkin"}], [{"ORTH": "Sorkin"}], [{"ORTH": "Whitey"}, {"ORTH": "Sorkin"}], [{"ORTH": "Whitey"}], [{"ORTH": "Whitey"}, {"ORTH": "Sor-kin"}]], "EmilMinty": [[{"ORTH": "Yrstruly"}], [{"ORTH": "yrstrulys"}], [{"ORTH": "Emil"}, {"ORTH": "Minty"}], [{"ORTH": "Minty"}], [{"ORTH": "Emil"}]], "UrquhartOgilvie": [[{"ORTH": "OGILVIE"}], [{"ORTH": "OGILVIE"}, {"ORTH": "POINTED"}], [{"ORTH": "Ogilvie"}]], "OttoBrandt": [[{"ORTH": "Brandt"}]], "DaveHarde": [[{"ORTH": "Harde"}], [{"ORTH": "F."}, {"ORTH": "D."}, {"ORTH": "V.'"}], [{"ORTH": "F."}, {"ORTH": "D."}, {"ORTH": "V."}]], "Kenkle": [[{"ORTH": "Kenkle"}]], "GavinDiehl": [[{"ORTH": "Diehl"}]], "WadeMcDade": [[{"ORTH": "McDade"}], [{"ORTH": "Wade"}]], "GNell": [[{"ORTH": "Nell"}]], "PatriciaMontesian": [[{"ORTH": "PATRICIA"}, {"ORTH": "MONTESIAN"}], [{"ORTH": "Pat"}]], "MiriamPricket": [[{"ORTH": "Pricket"}], [{"ORTH": "Miriam"}, {"ORTH": "Prickett"}], [{"ORTH": "Prickett"}]], "CalvinThrust": [[{"ORTH": "Calvin"}, {"ORTH": "Thrust"}], [{"ORTH": "Calvin"}, {"ORTH": "T."}], [{"ORTH": "Calvin"}]], "EugenioMartinez": [[{"ORTH": "Gene"}, {"ORTH": "M."}], [{"ORTH": "Eugenio"}, {"ORTH": "M."}], [{"ORTH": "Eugenio"}, {"ORTH": "Martinez"}], [{"ORTH": "Eugenio'd"}]], "EliotKornspan": [[{"ORTH": "Eliot"}], [{"ORTH": "Eliot"}, {"ORTH": "Kornspan"}]], "JenniferBelbin": [[{"ORTH": "Belbin"}], [{"ORTH": "Jennifer"}]], "ChandlerFoss": [[{"ORTH": "Chandler"}, {"ORTH": "Foss"}], [{"ORTH": "Chandler"}, {"ORTH": "F."}]], "ChartlotteTreat": [[{"ORTH": "Charlotte"}, {"ORTH": "Treat"}], [{"ORTH": "Charlotte"}], [{"ORTH": "Charlotte"}, {"ORTH": "T."}]], "CharltonHeston": [[{"ORTH": "Charlton"}, {"ORTH": "Heston"}]], "AprilCortelyu": [[{"ORTH": "Cortelyu"}]], "DanielleSteenbok": [[{"ORTH": "Danielle"}, {"ORTH": "Steenbok"}], [{"ORTH": "Danielle"}, {"ORTH": "Steen"}], [{"ORTH": "Danielle"}, {"ORTH": "S."}], [{"ORTH": "Danielle"}, {"ORTH": "S.'d"}]], "DidiNeaves": [[{"ORTH": "Didi"}, {"ORTH": "N."}], [{"ORTH": "Didi"}, {"ORTH": "Neaves"}], [{"ORTH": "Didi"}]], "DwayneGlynn": [[{"ORTH": "Doony"}, {"ORTH": "Glynn"}], [{"ORTH": "Glynn"}], [{"ORTH": "Doonster"}], [{"ORTH": "Doony"}], [{"ORTH": "Doon"}], [{"ORTH": "Doonulater"}]], "FrancisGehaney": [[{"ORTH": "Francis"}], [{"ORTH": "Gehaney"}], [{"ORTH": "F.F."}]], "GeoffreyDay": [[{"ORTH": "G."}, {"ORTH": "Day"}], [{"ORTH": "Geoffrey"}, {"ORTH": "D."}], [{"ORTH": "Geoffrey"}, {"ORTH": "Day"}], [{"ORTH": "Geoff"}], [{"ORTH": "Geoffrey"}]], "HesterThrale": [[{"ORTH": "Hester"}], [{"ORTH": "Hester"}, {"ORTH": "Thrale"}], [{"ORTH": "Thrale"}]], "JohnetteFoltz": [[{"ORTH": "Johnette"}, {"ORTH": "Foltz"}], [{"ORTH": "Foltz"}], [{"ORTH": "Johnette"}]], "MorrisHanley": [[{"ORTH": "Morris"}, {"ORTH": "H.'s"}], [{"ORTH": "Morris"}, {"ORTH": "H.'s"}], [{"ORTH": "Morris"}, {"ORTH": "Hanley"}], [{"ORTH": "Morris"}, {"ORTH": "H."}]], "CarynVaught": [[{"ORTH": "Caryn"}]], "SharynVaught": [[{"ORTH": "Sharyn"}, {"ORTH": "Vaught"}], [{"ORTH": "Sharyn"}]], "MollyNotkin": [[{"ORTH": "Molly"}], [{"ORTH": "Molly"}, {"ORTH": "Notkin"}], [{"ORTH": "Molly"}, {"ORTH": "Notkin's"}], [{"ORTH": "Notkin"}], [{"ORTH": "Cantrell"}]], "CrosbyBaum": [[{"ORTH": "Baum"}], [{"ORTH": "Crosby"}, {"ORTH": "Baum"}]], "RutherfordKeck": [[{"ORTH": "Keck"}], [{"ORTH": "Rutherford"}, {"ORTH": "Keck"}]], "Melinda": [[{"ORTH": "Melinda"}]], "ReevesMainwaring": [[{"ORTH": "Reeves"}, {"ORTH": "Mainwaring"}], [{"ORTH": "Reeves"}, {"ORTH": "Mainwaring's"}]], "PhillipTSmothergill": [[{"ORTH": "Smothergill"}]], "MarlonBain": [[{"ORTH": "Marlon"}, {"ORTH": "Bain"}]], "Flottman": [[{"ORTH": "Flottman"}]], "AudernTallatKelpsa": [[{"ORTH": "A.T.P."}], [{"ORTH": "Audern"}, {"ORTH": "Tallat-Kelpsa's"}, {"ORTH": "E.T.A."}]], "Lendl": [[{"ORTH": "Lendl"}]], "AnnieParrot": [[{"ORTH": "Annie"}, {"ORTH": "Parrot"}], [{"ORTH": "Annie"}, {"ORTH": "P."}]], "BurtSmith": [[{"ORTH": "Burt"}, {"ORTH": "F."}, {"ORTH": "Smith"}], [{"ORTH": "Burt"}, {"ORTH": "F."}, {"ORTH": "Smith's"}], [{"ORTH": "Burt"}, {"ORTH": "F.S."}], [{"ORTH": "Burt"}, {"ORTH": "F.S.'s"}], [{"ORTH": "Burt"}, {"ORTH": "Smith"}], [{"ORTH": "Burt"}]], "JoeLonVanDyne": [[{"ORTH": "Joe"}, {"ORTH": "Lon"}, {"ORTH": "van"}, {"ORTH": "Dyne"}], [{"ORTH": "Joe"}, {"ORTH": "Lon's"}]], "RossReat": [[{"ORTH": "Reat"}]], "BobbyC": [[{"ORTH": "Bobby"}], [{"ORTH": "Bobby"}, {"ORTH": "C"}]], "GregChubb": [[{"ORTH": "5-man"}, {"ORTH": "R."}, {"ORTH": "Greg"}, {"ORTH": "Chubb"}]], "FelicityZweig": [[{"ORTH": "A-3"}, {"ORTH": "Felicity"}, {"ORTH": "Zweig"}]], "AimeeMiddletonLaw": [[{"ORTH": "Aimee"}, {"ORTH": "Middleton-Law"}]], "AnnKittenplan": [[{"ORTH": "Ann"}, {"ORTH": "Kittenplan"}], [{"ORTH": "Kittenplan"}]], "CorbettThorp": [[{"ORTH": "Corbett"}, {"ORTH": "Thorp's"}], [{"ORTH": "Corbett"}, {"ORTH": "Thorp's"}, {"ORTH": "'"}], [{"ORTH": "Corbett"}, {"ORTH": "Thorp"}], [{"ORTH": "Thorp"}]], "CraigBurda": [[{"ORTH": "Craig"}, {"ORTH": "Burda"}]], "DavidWiere": [[{"ORTH": "David"}, {"ORTH": "Wiere"}]], "DianePrins": [[{"ORTH": "Diane"}, {"ORTH": "Prins"}]], "GretchenHolt": [[{"ORTH": "Gretchen"}, {"ORTH": "Holt"}]], "JeffPenn": [[{"ORTH": "Jeff"}, {"ORTH": "Penn"}]], "JessicaPearlberg": [[{"ORTH": "Jessica"}, {"ORTH": "Pearlberg"}]], "JoleneCriess": [[{"ORTH": "Jolene"}, {"ORTH": "Criess"}]], "KikiPfefferblit": [[{"ORTH": "Kiki"}, {"ORTH": "Pfefferblit"}]], "MarilynNg": [[{"ORTH": "Marilyn"}, {"ORTH": "Ng"}]], "MonaGhent": [[{"ORTH": "Mona"}, {"ORTH": "Ghent"}]], "NateMillisJohnson": [[{"ORTH": "Nate"}, {"ORTH": "Millis-Johnson"}]], "PaisleySteinkamp": [[{"ORTH": "Paisley"}, {"ORTH": "Steinkamp"}]], "ShelbyVanDerMerwe": [[{"ORTH": "Shelby"}, {"ORTH": "van"}, {"ORTH": "der"}]], "TammiTaylorBing": [[{"ORTH": "Tammi"}, {"ORTH": "Taylor-Bing"}]], "TapioMartti": [[{"ORTH": "Tapio"}, {"ORTH": "Martti"}]], "ThierryPoutrincourt": [[{"ORTH": "Thierry"}, {"ORTH": "Poutrincourt"}], [{"ORTH": "Thierry"}, {"ORTH": "Poutrincourt's"}, {"ORTH": "'"}], [{"ORTH": "Thierry"}], [{"ORTH": "Poutrincourt"}]], "VilleDillard": [[{"ORTH": "Ville"}, {"ORTH": "Dillard"}]], "AbuKenal": [[{"ORTH": "Abu"}, {"ORTH": "Kenal"}]], "JeffreyJosephPenn": [[{"ORTH": "J."}, {"ORTH": "J."}, {"ORTH": "Penn"}], [{"ORTH": "J."}, {"ORTH": "J."}, {"ORTH": "Penn's"}], [{"ORTH": "Jeffrey"}, {"ORTH": "Joseph"}, {"ORTH": "Penn"}]], "MilesPenn": [[{"ORTH": "Miles"}, {"ORTH": "Penn"}]], "AlfonsoPariasCarbo": [[{"ORTH": "Alfonso"}, {"ORTH": "Parias-Carbo"}], [{"ORTH": "Alfonso"}, {"ORTH": "P.-C."}], [{"ORTH": "Alfonso"}, {"ORTH": "Parias-Carbo"}], [{"ORTH": "Alfonso"}, {"ORTH": "Parias-Carbo"}], [{"ORTH": "Alfonso"}]], "GlennK": [[{"ORTH": "Flagger"}, {"ORTH": "Glenn"}, {"ORTH": "K.'s"}], [{"ORTH": "Glenn"}, {"ORTH": "K."}]], "RikDunkel": [[{"ORTH": "Rik"}, {"ORTH": "Dunkel"}], [{"ORTH": "Dunkel"}], [{"ORTH": "R."}, {"ORTH": "Dunkel"}]], "TinaEcht": [[{"ORTH": "Tina"}, {"ORTH": "Echt"}], [{"ORTH": "Echt"}], [{"ORTH": "Tina"}]], "AntonDucette": [[{"ORTH": "Anton"}], [{"ORTH": "Anton"}, {"ORTH": "Doucette"}], [{"ORTH": "Anton"}, {"ORTH": "Doucette's"}], [{"ORTH": "Doucette"}], [{"ORTH": "Booger"}], [{"ORTH": "Anton"}, {"ORTH": "('Booger')"}, {"ORTH": "Ducette"}], [{"ORTH": "Boog"}]], "MichaelChang": [[{"ORTH": "M."}, {"ORTH": "Chang"}], [{"ORTH": "Michael"}, {"ORTH": "Chang"}], [{"ORTH": "Michael"}, {"ORTH": "Chang's"}]], "MrsHeath": [[{"ORTH": "Heath"}]], "EricClipperton": [[{"ORTH": "Clipper-ton"}], [{"ORTH": "Clipperton"}], [{"ORTH": "Eric"}, {"ORTH": "Clipperton"}], [{"ORTH": "Clipperton'll"}], [{"ORTH": "Clippertons"}], [{"ORTH": "Eric"}]], "PTomVeals": [[{"ORTH": "P."}, {"ORTH": "Tom"}, {"ORTH": "Veals"}], [{"ORTH": "Veals"}], [{"ORTH": "P."}, {"ORTH": "TOM"}, {"ORTH": "VEALS"}], [{"ORTH": "VEALS"}]], "JackKemp": [[{"ORTH": "M."}, {"ORTH": "Kemp"}]], "StavrosLobokulas": [[{"ORTH": "Stavros"}], [{"ORTH": "Stavros"}, {"ORTH": "L."}], [{"ORTH": "Stavros"}, {"ORTH": "Lobokulas"}], [{"ORTH": "Stavros"}, {"ORTH": "Lobokulas's"}]], "RobertF": [[{"ORTH": "Robert"}, {"ORTH": "F."}]], "TamaraN": [[{"ORTH": "Tamara"}, {"ORTH": "N."}]], "JeffWax": [[{"ORTH": "Jeff"}, {"ORTH": "Wax"}]], "NeilHartigan": [[{"ORTH": "Neil"}, {"ORTH": "Hartigan"}], [{"ORTH": "Neil"}, {"ORTH": "Hart\u00c3\u00adgan"}], [{"ORTH": "Hartigan"}]], "ChipSweeny": [[{"ORTH": "Sweeny"}]], "DennisVanDerMeer": [[{"ORTH": "van"}, {"ORTH": "der"}, {"ORTH": "Meer"}]], "PamelaHoffmanJeep": [[{"ORTH": "Pamela"}, {"ORTH": "Hoffman-Jeep"}], [{"ORTH": "Pamela"}, {"ORTH": "Hoffman-Jeep's"}], [{"ORTH": "P.H.-J.'s"}], [{"ORTH": "Pamela"}, {"ORTH": "H.-J."}], [{"ORTH": "Pamela"}, {"ORTH": "Hoffman-Jeep"}], [{"ORTH": "Pamela"}, {"ORTH": "Hoffman-Jeep's"}], [{"ORTH": "P.H.-J."}], [{"ORTH": "Pamela"}, {"ORTH": "Hoffman-Jeep"}], [{"ORTH": "Pamela"}, {"ORTH": "Hoffman-Jeep's"}]], "AmyJohnson": [[{"ORTH": "Amy"}, {"ORTH": "J."}], [{"ORTH": "Amy"}]], "BertraundAntitoi": [[{"ORTH": "Bertraund"}], [{"ORTH": "Bertraund"}, {"ORTH": "Antitoi"}], [{"ORTH": "Betraund"}, {"ORTH": "Antitoi"}]], "LucienAntitoi": [[{"ORTH": "Lucien"}], [{"ORTH": "Lucien"}, {"ORTH": "Antitoi"}], [{"ORTH": "Lucien"}, {"ORTH": "Antitoi's"}]], "TomFlatto": [[{"ORTH": "Flatto"}], [{"ORTH": "Thomas"}, {"ORTH": "M."}], [{"ORTH": "Tom"}, {"ORTH": "Flatto's"}]], "MBroullime": [[{"ORTH": "M."}, {"ORTH": "Brull\u00c3\u00ae"}], [{"ORTH": "Broull\u00c3"}], [{"ORTH": "Broull\u00c3\u00ae"}], [{"ORTH": "M."}, {"ORTH": "Broull\u00eeme"}], [{"ORTH": "M."}, {"ORTH": "Brull\u00eeme"}], [{"ORTH": "Broull\u00eeme"}], [{"ORTH": "Brull\u00eeme"}]], "HankHoyne": [[{"ORTH": "Hank"}], [{"ORTH": "Hank"}, {"ORTH": "Hoyne"}], [{"ORTH": "Henri"}], [{"ORTH": "Hoyne"}]], "SomaRichardsonLevyOByrneChawaf": [[{"ORTH": "Soma"}], [{"ORTH": "Soma"}, {"ORTH": "R.-L.-O."}, {"ORTH": "Chawaf's"}]], "EricaSiress": [[{"ORTH": "Erica"}], [{"ORTH": "Erica"}, {"ORTH": "Siress"}]], "GertraudMarathe": [[{"ORTH": "Gertraud"}], [{"ORTH": "Gertraude"}]], "TommyS": [[{"ORTH": "Tommy"}, {"ORTH": "S."}]], "Tingley": [[{"ORTH": "Tingley"}]], "YolandaWillis": [[{"ORTH": "Yolanda"}], [{"ORTH": "Willis"}]], "RuthVanCleve": [[{"ORTH": "Ruth"}, {"ORTH": "van"}, {"ORTH": "Cleve"}], [{"ORTH": "Ruth"}]], "EugeneFackelmann": [[{"ORTH": "G."}, {"ORTH": "Fackelmann"}], [{"ORTH": "Fackelmann"}], [{"ORTH": "Gene"}, {"ORTH": "Fackelmann"}], [{"ORTH": "Gene"}, {"ORTH": "Fackelmann's"}], [{"ORTH": "Faxman"}], [{"ORTH": "Faxter"}], [{"ORTH": "Faxula"}]], "TawniKondo": [[{"ORTH": "Tawni"}, {"ORTH": "Kondo"}]], "BernardMakulic": [[{"ORTH": "Bernard"}, {"ORTH": "Makulic"}], [{"ORTH": "Makulic"}]], "MattyPemulis": [[{"ORTH": "Matty"}], [{"ORTH": "Matty'd"}]], "ErnestFeaster": [[{"ORTH": "Ernest"}, {"ORTH": "Feaster"}]], "Tassigny": [[{"ORTH": "Tassigny"}]], "Beausoleil": [[{"ORTH": "Beausoleil"}]], "Desjardins": [[{"ORTH": "Desjardins"}], [{"ORTH": "Desjardin"}]], "Joubet": [[{"ORTH": "Joubet"}]], "DavidKrone": [[{"ORTH": "David"}, {"ORTH": "K."}], [{"ORTH": "David"}, {"ORTH": "Krone"}], [{"ORTH": "Dave"}, {"ORTH": "K."}], [{"ORTH": "Dave"}, {"ORTH": "K.'s"}]], "Lopate": [[{"ORTH": "Lopate"}]], "EstebanReyne": [[{"ORTH": "Esteban"}, {"ORTH": "Reynes's"}]], "GuglielmoRedondo": [[{"ORTH": "Guglielmo"}, {"ORTH": "Redondo's"}]], "ShoshanaAbram": [[{"ORTH": "Shoshana"}, {"ORTH": "Abram's"}]], "Virgilio": [[{"ORTH": "Virgilio"}]], "EZeggarelli": [[{"ORTH": "Zeggarelli"}]], "SJohnson": [[{"ORTH": "S."}, {"ORTH": "Johnson"}], [{"ORTH": "S."}, {"ORTH": "Johnson's"}], [{"ORTH": "S.J."}]], "BradAnderson": [[{"ORTH": "Brad"}, {"ORTH": "Anderson"}]], "Harv": [[{"ORTH": "Harv"}]], "KevinBain": [[{"ORTH": "Kev"}], [{"ORTH": "Kevin"}], [{"ORTH": "Kevin"}, {"ORTH": "Kevin"}, {"ORTH": "Kevin"}, {"ORTH": "Kevin"}, {"ORTH": "Kevin"}], [{"ORTH": "Kevin"}, {"ORTH": "keens"}]], "MaureenN": [[{"ORTH": "Maureen"}, {"ORTH": "N."}]], "BudO": [[{"ORTH": "Bud"}, {"ORTH": "O."}], [{"ORTH": "Bud"}, {"ORTH": "O.'d"}]], "JackJ": [[{"ORTH": "Jack"}, {"ORTH": "J."}], [{"ORTH": "Jack"}, {"ORTH": "J.'s"}]], "TheWraith": [[{"ORTH": "the"}, {"ORTH": "Wraith"}], [{"ORTH": "The"}, {"ORTH": "Wraith"}], [{"ORTH": "the"}, {"ORTH": "wraith"}]], "Balbalis": [[{"ORTH": "Balbalis"}]], "MrsWaite": [[{"ORTH": "Waite"}]], "LumRiney": [[{"ORTH": "Lum"}, {"ORTH": "Riney"}], [{"ORTH": "Lum"}], [{"ORTH": "Riney"}]], "MaureenHooley": [[{"ORTH": "HOOLEY"}], [{"ORTH": "MAUREEN"}, {"ORTH": "HOOLEY"}]], "RodneyTineJr": [[{"ORTH": "R."}, {"ORTH": "TINE"}, {"ORTH": "JR"}], [{"ORTH": "RODNEY"}, {"ORTH": "TINE"}, {"ORTH": "SR"}]], "GaryCarty": [[{"ORTH": "Gary"}, {"ORTH": "Carty"}]], "GlennyKubitz": [[{"ORTH": "Glenny"}, {"ORTH": "Kubitz"}]], "TrentKite": [[{"ORTH": "Kite"}], [{"ORTH": "Kite'd"}]], "VinnieNucci": [[{"ORTH": "Nucci"}], [{"ORTH": "Nooch"}], [{"ORTH": "Vinnie"}, {"ORTH": "Nucci"}], [{"ORTH": "V."}, {"ORTH": "Nucc\u00c3\u00ad"}]], "CliffordPendleton": [[{"ORTH": "Clifford"}, {"ORTH": "Pendleton"}]], "EightiesBill": [[{"ORTH": "E.B.'d"}], [{"ORTH": "Eighties"}, {"ORTH": "Bill"}], [{"ORTH": "Eighties"}, {"ORTH": "Bill's"}]], "GwendineOShay": [[{"ORTH": "Gwendine"}, {"ORTH": "O'Shay"}], [{"ORTH": "O'Shay"}]], "DrPressburger": [[{"ORTH": "Pressburger"}], [{"ORTH": "Prissburger"}]], "SixtiesBob": [[{"ORTH": "Sixties"}, {"ORTH": "Bob"}]], "DwightFlechette": [[{"ORTH": "Dwight"}, {"ORTH": "Flechette"}], [{"ORTH": "Flechette"}]], "Tooty": [[{"ORTH": "Tooty"}]], "BinnieBuckman": [[{"ORTH": "Binnie"}, {"ORTH": "Buckman"}]], "MarlonBrando": [[{"ORTH": "Marlon"}, {"ORTH": "Brando"}]]}
+{
+    "AbuKenal": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Abu"
+                },
+                {
+                    "ORTH": "Kenal"
+                }
+            ]
+        ]
+    },
+    "AimeeMiddletonLaw": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Aimee"
+                },
+                {
+                    "ORTH": "Middleton-Law"
+                }
+            ]
+        ]
+    },
+    "AlfonsoPariasCarbo": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Alfonso"
+                },
+                {
+                    "ORTH": "Parias-Carbo"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Alfonso"
+                },
+                {
+                    "ORTH": "P.-C."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Alfonso"
+                },
+                {
+                    "ORTH": "Parias-Carbo"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Alfonso"
+                },
+                {
+                    "ORTH": "Parias-Carbo"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Alfonso"
+                }
+            ]
+        ]
+    },
+    "AliceMoore": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Alice"
+                },
+                {
+                    "ORTH": "Moore"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lateral"
+                },
+                {
+                    "ORTH": "Alice's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "L."
+                },
+                {
+                    "ORTH": "A."
+                },
+                {
+                    "ORTH": "Moore"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lateral"
+                },
+                {
+                    "ORTH": "Alice"
+                }
+            ]
+        ]
+    },
+    "AmyJohnson": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Amy"
+                },
+                {
+                    "ORTH": "J."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Amy"
+                }
+            ]
+        ]
+    },
+    "AnnKittenplan": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ann"
+                },
+                {
+                    "ORTH": "Kittenplan"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kittenplan"
+                }
+            ]
+        ]
+    },
+    "AnnieParrot": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Annie"
+                },
+                {
+                    "ORTH": "Parrot"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Annie"
+                },
+                {
+                    "ORTH": "P."
+                }
+            ]
+        ]
+    },
+    "AntonDucette": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Anton"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Anton"
+                },
+                {
+                    "ORTH": "Doucette"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Anton"
+                },
+                {
+                    "ORTH": "Doucette's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Doucette"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Booger"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Anton"
+                },
+                {
+                    "ORTH": "('Booger')"
+                },
+                {
+                    "ORTH": "Ducette"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Boog"
+                }
+            ]
+        ]
+    },
+    "AprilCortelyu": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Cortelyu"
+                }
+            ]
+        ]
+    },
+    "AubreyDeLint": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "LOWER": "mr"
+                },
+                {
+                    "LOWER": "a"
+                },
+                {
+                    "ORTH": "deLint"
+                }
+            ],
+            [
+                {
+                    "LOWER": "mr"
+                },
+                {
+                    "ORTH": "deLint"
+                }
+            ],
+            [
+                {
+                    "LOWER": "aubrey"
+                },
+                {
+                    "LOWER": "f"
+                },
+                {
+                    "LOWER": "delint"
+                }
+            ],
+            [
+                {
+                    "LOWER": "aubrey"
+                },
+                {
+                    "LOWER": "delint"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Aubrey"
+                }
+            ],
+            [
+                {
+                    "ORTH": "deLint"
+                }
+            ]
+        ]
+    },
+    "AudernTallatKelpsa": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "A.T.P."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Audern"
+                },
+                {
+                    "ORTH": "Tallat-Kelpsa's"
+                },
+                {
+                    "ORTH": "E.T.A."
+                }
+            ]
+        ]
+    },
+    "AvrilIncandenza": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "LOWER": "avril"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "LOWER": "avril"
+                },
+                {
+                    "ORTH": "I."
+                }
+            ],
+            [
+                {
+                    "LOWER": "avril"
+                }
+            ],
+            [
+                {
+                    "LOWER": "the"
+                },
+                {
+                    "ORTH": "Moms"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Moms"
+                }
+            ]
+        ]
+    },
+    "Balbalis": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Balbalis"
+                }
+            ]
+        ]
+    },
+    "BarryLoach": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Loach"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Barry"
+                }
+            ]
+        ]
+    },
+    "Beausoleil": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Beausoleil"
+                }
+            ]
+        ]
+    },
+    "BernadetteLongley": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bernadette"
+                },
+                {
+                    "ORTH": "Longley"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Longley"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bernadette"
+                },
+                {
+                    "ORTH": "Long-ley"
+                }
+            ]
+        ]
+    },
+    "BernardMakulic": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bernard"
+                },
+                {
+                    "ORTH": "Makulic"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Makulic"
+                }
+            ]
+        ]
+    },
+    "BertraundAntitoi": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bertraund"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bertraund"
+                },
+                {
+                    "ORTH": "Antitoi"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Betraund"
+                },
+                {
+                    "ORTH": "Antitoi"
+                }
+            ]
+        ]
+    },
+    "BinnieBuckman": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Binnie"
+                },
+                {
+                    "ORTH": "Buckman"
+                }
+            ]
+        ]
+    },
+    "BobbyC": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bobby"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bobby"
+                },
+                {
+                    "ORTH": "C"
+                }
+            ]
+        ]
+    },
+    "BradAnderson": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Brad"
+                },
+                {
+                    "ORTH": "Anderson"
+                }
+            ]
+        ]
+    },
+    "BrianvanVleck": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Brian"
+                },
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "Vleck"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Van"
+                },
+                {
+                    "ORTH": "Vleck"
+                }
+            ],
+            [
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "Vleck"
+                }
+            ]
+        ]
+    },
+    "BridgetBoone": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bridget"
+                },
+                {
+                    "ORTH": "C."
+                },
+                {
+                    "ORTH": "Boone"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Boone"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bridget"
+                }
+            ]
+        ]
+    },
+    "BruceGreen": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bruce"
+                },
+                {
+                    "ORTH": "Green"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bruce"
+                },
+                {
+                    "ORTH": "G."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Brucie"
+                },
+                {
+                    "ORTH": "Green"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Brucie"
+                },
+                {
+                    "ORTH": "Green's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Brucie"
+                },
+                {
+                    "ORTH": "G."
+                }
+            ]
+        ]
+    },
+    "BudO": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bud"
+                },
+                {
+                    "ORTH": "O."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bud"
+                },
+                {
+                    "ORTH": "O.'d"
+                }
+            ]
+        ]
+    },
+    "BurtSmith": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Burt"
+                },
+                {
+                    "ORTH": "F."
+                },
+                {
+                    "ORTH": "Smith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Burt"
+                },
+                {
+                    "ORTH": "F."
+                },
+                {
+                    "ORTH": "Smith's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Burt"
+                },
+                {
+                    "ORTH": "F.S."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Burt"
+                },
+                {
+                    "ORTH": "F.S.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Burt"
+                },
+                {
+                    "ORTH": "Smith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Burt"
+                }
+            ]
+        ]
+    },
+    "CalvinThrust": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Calvin"
+                },
+                {
+                    "ORTH": "Thrust"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Calvin"
+                },
+                {
+                    "ORTH": "T."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Calvin"
+                }
+            ]
+        ]
+    },
+    "CarlWhale": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Carl"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Carl"
+                },
+                {
+                    "ORTH": "Whale"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mobes"
+                }
+            ]
+        ]
+    },
+    "CarolSpodek": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Spodek"
+                }
+            ]
+        ]
+    },
+    "CarynVaught": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Caryn"
+                }
+            ]
+        ]
+    },
+    "ChandlerFoss": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Chandler"
+                },
+                {
+                    "ORTH": "Foss"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Chandler"
+                },
+                {
+                    "ORTH": "F."
+                }
+            ]
+        ]
+    },
+    "CharlesTavis": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "LOWER": "uncle"
+                },
+                {
+                    "LOWER": "charles"
+                }
+            ],
+            [
+                {
+                    "LOWER": "charles"
+                },
+                {
+                    "LOWER": "tavis"
+                }
+            ],
+            [
+                {
+                    "LOWER": "tavis"
+                }
+            ],
+            [
+                {
+                    "ORTH": "C.T."
+                }
+            ],
+            [
+                {
+                    "ORTH": "C. T."
+                }
+            ],
+            [
+                {
+                    "ORTH": "C.T"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Charles"
+                },
+                {
+                    "ORTH": "Tavises"
+                }
+            ]
+        ]
+    },
+    "CharltonHeston": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Charlton"
+                },
+                {
+                    "ORTH": "Heston"
+                }
+            ]
+        ]
+    },
+    "ChartlotteTreat": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Charlotte"
+                },
+                {
+                    "ORTH": "Treat"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Charlotte"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Charlotte"
+                },
+                {
+                    "ORTH": "T."
+                }
+            ]
+        ]
+    },
+    "ChipSweeny": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Sweeny"
+                }
+            ]
+        ]
+    },
+    "Clenette": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Clenette"
+                }
+            ]
+        ]
+    },
+    "CliffordPendleton": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Clifford"
+                },
+                {
+                    "ORTH": "Pendleton"
+                }
+            ]
+        ]
+    },
+    "CoachWhite": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "LOWER": "coach"
+                },
+                {
+                    "LOWER": "white"
+                }
+            ],
+            [
+                {
+                    "LOWER": "kirk"
+                },
+                {
+                    "LOWER": "white"
+                }
+            ],
+            [
+                {
+                    "LOWER": "kirk"
+                }
+            ]
+        ]
+    },
+    "ColumbusEpps": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Columbus"
+                },
+                {
+                    "ORTH": "Epps"
+                }
+            ]
+        ]
+    },
+    "CorbettThorp": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Corbett"
+                },
+                {
+                    "ORTH": "Thorp's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Corbett"
+                },
+                {
+                    "ORTH": "Thorp's"
+                },
+                {
+                    "ORTH": "'"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Corbett"
+                },
+                {
+                    "ORTH": "Thorp"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thorp"
+                }
+            ]
+        ]
+    },
+    "CosgroveWatt": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Cosgrove"
+                },
+                {
+                    "ORTH": "Watt"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Watt"
+                }
+            ]
+        ]
+    },
+    "CraigBurda": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Craig"
+                },
+                {
+                    "ORTH": "Burda"
+                }
+            ]
+        ]
+    },
+    "CrosbyBaum": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Baum"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Crosby"
+                },
+                {
+                    "ORTH": "Baum"
+                }
+            ]
+        ]
+    },
+    "DanielleSteenbok": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Danielle"
+                },
+                {
+                    "ORTH": "Steenbok"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Danielle"
+                },
+                {
+                    "ORTH": "Steen"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Danielle"
+                },
+                {
+                    "ORTH": "S."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Danielle"
+                },
+                {
+                    "ORTH": "S.'d"
+                }
+            ]
+        ]
+    },
+    "DaveHarde": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Harde"
+                }
+            ],
+            [
+                {
+                    "ORTH": "F."
+                },
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "V.'"
+                }
+            ],
+            [
+                {
+                    "ORTH": "F."
+                },
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "V."
+                }
+            ]
+        ]
+    },
+    "DavidKrone": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "David"
+                },
+                {
+                    "ORTH": "K."
+                }
+            ],
+            [
+                {
+                    "ORTH": "David"
+                },
+                {
+                    "ORTH": "Krone"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dave"
+                },
+                {
+                    "ORTH": "K."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dave"
+                },
+                {
+                    "ORTH": "K.'s"
+                }
+            ]
+        ]
+    },
+    "DavidWiere": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "David"
+                },
+                {
+                    "ORTH": "Wiere"
+                }
+            ]
+        ]
+    },
+    "DeanOfAcademicAffairs": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dean of Academic Affairs"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Academic"
+                },
+                {
+                    "ORTH": "Affairs"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dean"
+                },
+                {
+                    "LOWER": "at"
+                },
+                {
+                    "LOWER": "center"
+                }
+            ],
+            [
+                {
+                    "LOWER": "middle"
+                },
+                {
+                    "ORTH": "Dean"
+                }
+            ]
+        ]
+    },
+    "DeanOfAdmissions": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dean"
+                },
+                {
+                    "LOWER": "at"
+                },
+                {
+                    "LOWER": "left"
+                }
+            ],
+            [
+                {
+                    "LOWER": "yellow"
+                },
+                {
+                    "LOWER": "dean"
+                }
+            ],
+            [
+                {
+                    "LOWER": "dean"
+                },
+                {
+                    "LOWER": "sawyer"
+                }
+            ]
+        ]
+    },
+    "DeanOfAthleticAffairs": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dean of Athletic Affairs"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Athletic"
+                },
+                {
+                    "ORTH": "Affairs"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Athletics"
+                }
+            ]
+        ]
+    },
+    "DennisVanDerMeer": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "der"
+                },
+                {
+                    "ORTH": "Meer"
+                }
+            ]
+        ]
+    },
+    "Desjardins": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Desjardins"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Desjardin"
+                }
+            ]
+        ]
+    },
+    "DianePrins": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Diane"
+                },
+                {
+                    "ORTH": "Prins"
+                }
+            ]
+        ]
+    },
+    "DidiNeaves": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Didi"
+                },
+                {
+                    "ORTH": "N."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Didi"
+                },
+                {
+                    "ORTH": "Neaves"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Didi"
+                }
+            ]
+        ]
+    },
+    "DirectorOfComposition": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Director"
+                },
+                {
+                    "LOWER": "of"
+                },
+                {
+                    "ORTH": "Composition"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dir"
+                },
+                {
+                    "LOWER": "of"
+                },
+                {
+                    "ORTH": "Comp"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Director"
+                },
+                {
+                    "LOWER": "of"
+                },
+                {
+                    "ORTH": "Comp"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Comp"
+                },
+                {
+                    "ORTH": "Director"
+                }
+            ]
+        ]
+    },
+    "DisneyRLeith": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Disney"
+                },
+                {
+                    "ORTH": "R."
+                },
+                {
+                    "ORTH": "Leith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Leith"
+                }
+            ]
+        ]
+    },
+    "DoloresEpps": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "LOWER": "dolores"
+                },
+                {
+                    "LOWER": "epps"
+                }
+            ]
+        ]
+    },
+    "DoloresRusk": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dolores"
+                },
+                {
+                    "ORTH": "Rusk"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dr."
+                },
+                {
+                    "ORTH": "Rusk"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Rusk"
+                }
+            ]
+        ]
+    },
+    "DonaldGately": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Don"
+                }
+            ],
+            [
+                {
+                    "LOWER": "donald"
+                },
+                {
+                    "LOWER": "gately"
+                }
+            ],
+            [
+                {
+                    "LOWER": "donald"
+                }
+            ],
+            [
+                {
+                    "ORTH": "D. W. Gately"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don Gately"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don Gately's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "W."
+                },
+                {
+                    "ORTH": "Gately"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don"
+                },
+                {
+                    "ORTH": "Gately"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don"
+                },
+                {
+                    "ORTH": "Gately's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gately"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gately'd"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gately'll"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bim"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don"
+                },
+                {
+                    "ORTH": "G."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don'd"
+                }
+            ],
+            [
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "W."
+                },
+                {
+                    "ORTH": "GATELY"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bimmy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "W."
+                }
+            ],
+            [
+                {
+                    "ORTH": "G.'d"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bimster"
+                }
+            ],
+            [
+                {
+                    "ORTH": "the"
+                },
+                {
+                    "ORTH": "G-Man's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Donny"
+                }
+            ]
+        ]
+    },
+    "DonnieStott": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Donnie"
+                },
+                {
+                    "ORTH": "Stott"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Donni"
+                }
+            ]
+        ]
+    },
+    "DrPressburger": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Pressburger"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Prissburger"
+                }
+            ]
+        ]
+    },
+    "DwayneGlynn": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Doony"
+                },
+                {
+                    "ORTH": "Glynn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Glynn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Doonster"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Doony"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Doon"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Doonulater"
+                }
+            ]
+        ]
+    },
+    "DwightFlechette": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dwight"
+                },
+                {
+                    "ORTH": "Flechette"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Flechette"
+                }
+            ]
+        ]
+    },
+    "Dymphna": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dymphna"
+                }
+            ]
+        ]
+    },
+    "EZeggarelli": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Zeggarelli"
+                }
+            ]
+        ]
+    },
+    "EightiesBill": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "E.B.'d"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eighties"
+                },
+                {
+                    "ORTH": "Bill"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eighties"
+                },
+                {
+                    "ORTH": "Bill's"
+                }
+            ]
+        ]
+    },
+    "EliotKornspan": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Eliot"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eliot"
+                },
+                {
+                    "ORTH": "Kornspan"
+                }
+            ]
+        ]
+    },
+    "EmilMinty": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Yrstruly"
+                }
+            ],
+            [
+                {
+                    "ORTH": "yrstrulys"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Emil"
+                },
+                {
+                    "ORTH": "Minty"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Minty"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Emil"
+                }
+            ]
+        ]
+    },
+    "EricClipperton": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Clipper-ton"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Clipperton"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eric"
+                },
+                {
+                    "ORTH": "Clipperton"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Clipperton'll"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Clippertons"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eric"
+                }
+            ]
+        ]
+    },
+    "EricaSiress": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Erica"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Erica"
+                },
+                {
+                    "ORTH": "Siress"
+                }
+            ]
+        ]
+    },
+    "ErnestFeaster": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ernest"
+                },
+                {
+                    "ORTH": "Feaster"
+                }
+            ]
+        ]
+    },
+    "EstebanReyne": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Esteban"
+                },
+                {
+                    "ORTH": "Reynes's"
+                }
+            ]
+        ]
+    },
+    "EugeneFackelmann": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "G."
+                },
+                {
+                    "ORTH": "Fackelmann"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Fackelmann"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gene"
+                },
+                {
+                    "ORTH": "Fackelmann"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gene"
+                },
+                {
+                    "ORTH": "Fackelmann's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Faxman"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Faxter"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Faxula"
+                }
+            ]
+        ]
+    },
+    "EugenioMartinez": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gene"
+                },
+                {
+                    "ORTH": "M."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eugenio"
+                },
+                {
+                    "ORTH": "M."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eugenio"
+                },
+                {
+                    "ORTH": "Martinez"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eugenio'd"
+                }
+            ]
+        ]
+    },
+    "EvanIngersoll": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Evan"
+                },
+                {
+                    "ORTH": "Ingersoll"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Inger-soll"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Inger-soll's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "IngersolPs"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Inger-soll"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Inger-soll's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Evan"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ingersoll"
+                }
+            ]
+        ]
+    },
+    "FelicityZweig": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "A-3"
+                },
+                {
+                    "ORTH": "Felicity"
+                },
+                {
+                    "ORTH": "Zweig"
+                }
+            ]
+        ]
+    },
+    "Flottman": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Flottman"
+                }
+            ]
+        ]
+    },
+    "FrancisGehaney": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Francis"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gehaney"
+                }
+            ],
+            [
+                {
+                    "ORTH": "F.F."
+                }
+            ]
+        ]
+    },
+    "FrannieUnwin": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Frannie"
+                },
+                {
+                    "ORTH": "Unwin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Fran"
+                },
+                {
+                    "ORTH": "Unwin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Fran"
+                },
+                {
+                    "ORTH": "Unwin's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Frances"
+                },
+                {
+                    "ORTH": "L."
+                },
+                {
+                    "ORTH": "Unwin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Unwin"
+                }
+            ]
+        ]
+    },
+    "GNell": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Nell"
+                }
+            ]
+        ]
+    },
+    "GaryCarty": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gary"
+                },
+                {
+                    "ORTH": "Carty"
+                }
+            ]
+        ]
+    },
+    "GavinDiehl": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Diehl"
+                }
+            ]
+        ]
+    },
+    "GeoffreyDay": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "G."
+                },
+                {
+                    "ORTH": "Day"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Geoffrey"
+                },
+                {
+                    "ORTH": "D."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Geoffrey"
+                },
+                {
+                    "ORTH": "Day"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Geoff"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Geoffrey"
+                }
+            ]
+        ]
+    },
+    "GeorgeBush": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "G."
+                },
+                {
+                    "ORTH": "Bush"
+                }
+            ]
+        ]
+    },
+    "GeraldFord": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "G."
+                },
+                {
+                    "ORTH": "Ford"
+                }
+            ]
+        ]
+    },
+    "GertraudMarathe": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gertraud"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gertraude"
+                }
+            ]
+        ]
+    },
+    "GlennK": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Flagger"
+                },
+                {
+                    "ORTH": "Glenn"
+                },
+                {
+                    "ORTH": "K.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Glenn"
+                },
+                {
+                    "ORTH": "K."
+                }
+            ]
+        ]
+    },
+    "GlennyKubitz": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Glenny"
+                },
+                {
+                    "ORTH": "Kubitz"
+                }
+            ]
+        ]
+    },
+    "GrahamRader": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Graham"
+                },
+                {
+                    "ORTH": "Rader"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Rader"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Graham"
+                },
+                {
+                    "ORTH": "('Yard-guard')"
+                },
+                {
+                    "ORTH": "Rader"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Graham"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Yardguard"
+                }
+            ]
+        ]
+    },
+    "GregChubb": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "5-man"
+                },
+                {
+                    "ORTH": "R."
+                },
+                {
+                    "ORTH": "Greg"
+                },
+                {
+                    "ORTH": "Chubb"
+                }
+            ]
+        ]
+    },
+    "GretchenHolt": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gretchen"
+                },
+                {
+                    "ORTH": "Holt"
+                }
+            ]
+        ]
+    },
+    "GuglielmoRedondo": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Guglielmo"
+                },
+                {
+                    "ORTH": "Redondo's"
+                }
+            ]
+        ]
+    },
+    "GuillaumeDuPlessis": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "DuPlessis"
+                }
+            ]
+        ]
+    },
+    "GwendineOShay": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gwendine"
+                },
+                {
+                    "ORTH": "O'Shay"
+                }
+            ],
+            [
+                {
+                    "ORTH": "O'Shay"
+                }
+            ]
+        ]
+    },
+    "HalIncandenza": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "LOWER": "hal"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "LOWER": "hal"
+                }
+            ],
+            [
+                {
+                    "LOWER": "harold"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "LOWER": "harold"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Halorama"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Halster"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hallie"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hal\u00c3\u00adie"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hal'd"
+                }
+            ]
+        ]
+    },
+    "HankHoyne": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Hank"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hank"
+                },
+                {
+                    "ORTH": "Hoyne"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Henri"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hoyne"
+                }
+            ]
+        ]
+    },
+    "Harv": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Harv"
+                }
+            ]
+        ]
+    },
+    "HesterThrale": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Hester"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hester"
+                },
+                {
+                    "ORTH": "Thrale"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thrale"
+                }
+            ]
+        ]
+    },
+    "Hopman": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Hopman"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jenny"
+                },
+                {
+                    "ORTH": "B."
+                }
+            ]
+        ]
+    },
+    "HughSteeply": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Hugh"
+                },
+                {
+                    "ORTH": "Steeply"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Hugh"
+                },
+                {
+                    "ORTH": "Steeply"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Steeply"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Helen"
+                }
+            ],
+            [
+                {
+                    "ORTH": "HELEN"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hugh"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Steepley"
+                }
+            ]
+        ]
+    },
+    "IdrisArslanian": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Idris"
+                },
+                {
+                    "ORTH": "Arslanian"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Idris"
+                },
+                {
+                    "ORTH": "Arslanian's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Idris"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ars"
+                }
+            ]
+        ]
+    },
+    "JackJ": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jack"
+                },
+                {
+                    "ORTH": "J."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jack"
+                },
+                {
+                    "ORTH": "J.'s"
+                }
+            ]
+        ]
+    },
+    "JackKemp": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Kemp"
+                }
+            ]
+        ]
+    },
+    "JamesIncandenza": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Himself"
+                }
+            ],
+            [
+                {
+                    "ORTH": "James"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "ORTH": "James"
+                }
+            ],
+            [
+                {
+                    "ORTH": "James"
+                },
+                {
+                    "ORTH": "O."
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "ORTH": "JAMES"
+                },
+                {
+                    "ORTH": "O."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jimbo"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jim"
+                },
+                {
+                    "ORTH": "Incandenza"
+                }
+            ],
+            [
+                {
+                    "ORTH": "el"
+                },
+                {
+                    "ORTH": "Storko's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "O."
+                },
+                {
+                    "ORTH": "Incandenza"
+                }
+            ]
+        ]
+    },
+    "JeffPenn": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jeff"
+                },
+                {
+                    "ORTH": "Penn"
+                }
+            ]
+        ]
+    },
+    "JeffWax": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jeff"
+                },
+                {
+                    "ORTH": "Wax"
+                }
+            ]
+        ]
+    },
+    "JeffreyJosephPenn": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "Penn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "Penn's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jeffrey"
+                },
+                {
+                    "ORTH": "Joseph"
+                },
+                {
+                    "ORTH": "Penn"
+                }
+            ]
+        ]
+    },
+    "JennieBash": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jennie"
+                },
+                {
+                    "ORTH": "Bash"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bash"
+                }
+            ]
+        ]
+    },
+    "JenniferBelbin": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Belbin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jennifer"
+                }
+            ]
+        ]
+    },
+    "JessicaPearlberg": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jessica"
+                },
+                {
+                    "ORTH": "Pearlberg"
+                }
+            ]
+        ]
+    },
+    "JimStruck": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jim"
+                },
+                {
+                    "ORTH": "Struck"
+                }
+            ],
+            [
+                {
+                    "ORTH": "James"
+                },
+                {
+                    "ORTH": "Struck"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Struck"
+                }
+            ]
+        ]
+    },
+    "JimTroeltsch": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jim"
+                },
+                {
+                    "ORTH": "Troeltsch"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Troeltsch"
+                }
+            ]
+        ]
+    },
+    "JoeLonVanDyne": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Joe"
+                },
+                {
+                    "ORTH": "Lon"
+                },
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "Dyne"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Joe"
+                },
+                {
+                    "ORTH": "Lon's"
+                }
+            ]
+        ]
+    },
+    "JoelleVanDyne": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "LOWER": "joelle"
+                },
+                {
+                    "LOWER": "van"
+                },
+                {
+                    "LOWER": "dyne"
+                }
+            ],
+            [
+                {
+                    "LOWER": "joelle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Madame"
+                },
+                {
+                    "ORTH": "Psychosis"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Madame"
+                },
+                {
+                    "ORTH": "Psy-chosis's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Madame"
+                },
+                {
+                    "ORTH": "P."
+                }
+            ],
+            [
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "Dyne"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Madame"
+                },
+                {
+                    "ORTH": "P.G.O.A.T."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Joel"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Joelle'd"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Madame"
+                },
+                {
+                    "ORTH": "Psy-chosis's"
+                }
+            ]
+        ]
+    },
+    "JohnWayne": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Wayne"
+                }
+            ],
+            [
+                {
+                    "ORTH": "John"
+                },
+                {
+                    "ORTH": "('N.R.')"
+                },
+                {
+                    "ORTH": "Wayne"
+                }
+            ],
+            [
+                {
+                    "ORTH": "J.W."
+                }
+            ],
+            [
+                {
+                    "ORTH": "John"
+                }
+            ]
+        ]
+    },
+    "JohnetteFoltz": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Johnette"
+                },
+                {
+                    "ORTH": "Foltz"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Foltz"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Johnette"
+                }
+            ]
+        ]
+    },
+    "JohnnyGentle": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "Gentle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gentle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "J.G."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Johnny"
+                }
+            ],
+            [
+                {
+                    "ORTH": "J.G.F.C."
+                }
+            ],
+            [
+                {
+                    "ORTH": "GENTLE"
+                }
+            ]
+        ]
+    },
+    "JoleneCriess": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jolene"
+                },
+                {
+                    "ORTH": "Criess"
+                }
+            ]
+        ]
+    },
+    "JoshGopnik": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gopnik"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Josh"
+                },
+                {
+                    "ORTH": "Gopnik"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gop"
+                }
+            ]
+        ]
+    },
+    "Joubet": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Joubet"
+                }
+            ]
+        ]
+    },
+    "KateGompert": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gompert"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kate"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kate"
+                },
+                {
+                    "ORTH": "Gom-pert"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kate"
+                },
+                {
+                    "ORTH": "Gompert"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kate"
+                },
+                {
+                    "ORTH": "Gompert's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Katherine"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Katherine"
+                },
+                {
+                    "ORTH": "A."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Katherine"
+                },
+                {
+                    "ORTH": "Ann"
+                },
+                {
+                    "ORTH": "Gompert"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Katherine"
+                },
+                {
+                    "ORTH": "Gompert"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Katharine"
+                }
+            ]
+        ]
+    },
+    "KeithFreer": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Keith"
+                },
+                {
+                    "ORTH": "Freer"
+                }
+            ],
+            [
+                {
+                    "ORTH": "K."
+                },
+                {
+                    "ORTH": "Freer"
+                }
+            ],
+            [
+                {
+                    "ORTH": "K."
+                },
+                {
+                    "ORTH": "B."
+                },
+                {
+                    "ORTH": "Freer"
+                }
+            ]
+        ]
+    },
+    "KenErdedy": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Erdedy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Erdedy'd"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ken"
+                },
+                {
+                    "ORTH": "E."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Airdaddy"
+                }
+            ]
+        ]
+    },
+    "Kenkle": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kenkle"
+                }
+            ]
+        ]
+    },
+    "KentBlott": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Blott"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kent"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kent"
+                },
+                {
+                    "ORTH": "Blott"
+                }
+            ],
+            [
+                {
+                    "ORTH": "K.B."
+                }
+            ]
+        ]
+    },
+    "KevinBain": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kev"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kevin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kevin"
+                },
+                {
+                    "ORTH": "Kevin"
+                },
+                {
+                    "ORTH": "Kevin"
+                },
+                {
+                    "ORTH": "Kevin"
+                },
+                {
+                    "ORTH": "Kevin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kevin"
+                },
+                {
+                    "ORTH": "keens"
+                }
+            ]
+        ]
+    },
+    "KieranMcKenna": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kieran"
+                },
+                {
+                    "ORTH": "McKenna"
+                }
+            ],
+            [
+                {
+                    "ORTH": "K."
+                },
+                {
+                    "ORTH": "McKenna"
+                }
+            ],
+            [
+                {
+                    "ORTH": "McKenna"
+                }
+            ]
+        ]
+    },
+    "KikiPfefferblit": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kiki"
+                },
+                {
+                    "ORTH": "Pfefferblit"
+                }
+            ]
+        ]
+    },
+    "KyleCoyle": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kyle"
+                },
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "Coyle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Coyle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "K.D.C."
+                }
+            ]
+        ]
+    },
+    "LaMontChu": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Chu"
+                }
+            ],
+            [
+                {
+                    "ORTH": "La-Mont"
+                }
+            ],
+            [
+                {
+                    "ORTH": "LaMont"
+                }
+            ]
+        ]
+    },
+    "LadyDelphina": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Delphinas"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lady"
+                },
+                {
+                    "ORTH": "Delphina"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Delphina"
+                }
+            ]
+        ]
+    },
+    "Lendl": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lendl"
+                }
+            ]
+        ]
+    },
+    "Lolasister": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lolasister"
+                }
+            ]
+        ]
+    },
+    "Lopate": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lopate"
+                }
+            ]
+        ]
+    },
+    "LucienAntitoi": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lucien"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lucien"
+                },
+                {
+                    "ORTH": "Antitoi"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lucien"
+                },
+                {
+                    "ORTH": "Antitoi's"
+                }
+            ]
+        ]
+    },
+    "LumRiney": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lum"
+                },
+                {
+                    "ORTH": "Riney"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lum"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Riney"
+                }
+            ]
+        ]
+    },
+    "LuriaPerec": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Luria"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Luria"
+                },
+                {
+                    "ORTH": "Perec"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lur\u00c3\u00ada"
+                }
+            ]
+        ]
+    },
+    "Lyle": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lyle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lyles"
+                }
+            ]
+        ]
+    },
+    "MBroullime": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Brull\u00c3\u00ae"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Broull\u00c3"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Broull\u00c3\u00ae"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Broull\u00eeme"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Brull\u00eeme"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Broull\u00eeme"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Brull\u00eeme"
+                }
+            ]
+        ]
+    },
+    "MFortier": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Fortier"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Fortier"
+                }
+            ]
+        ]
+    },
+    "MarilynNg": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Marilyn"
+                },
+                {
+                    "ORTH": "Ng"
+                }
+            ]
+        ]
+    },
+    "MarioIncandenza": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "LOWER": "mario"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "LOWER": "mario"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Booboo"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Incandenza"
+                }
+            ]
+        ]
+    },
+    "MarlonBain": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Marlon"
+                },
+                {
+                    "ORTH": "Bain"
+                }
+            ]
+        ]
+    },
+    "MarlonBrando": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Marlon"
+                },
+                {
+                    "ORTH": "Brando"
+                }
+            ]
+        ]
+    },
+    "MaryEstherThode": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Mary"
+                },
+                {
+                    "ORTH": "Esther"
+                },
+                {
+                    "ORTH": "Thode"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thode"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mary"
+                },
+                {
+                    "ORTH": "Esther's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "THODE"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mary"
+                },
+                {
+                    "ORTH": "Esther"
+                }
+            ]
+        ]
+    },
+    "MattyPemulis": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Matty"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Matty'd"
+                }
+            ]
+        ]
+    },
+    "MaureenHooley": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "HOOLEY"
+                }
+            ],
+            [
+                {
+                    "ORTH": "MAUREEN"
+                },
+                {
+                    "ORTH": "HOOLEY"
+                }
+            ]
+        ]
+    },
+    "MaureenN": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Maureen"
+                },
+                {
+                    "ORTH": "N."
+                }
+            ]
+        ]
+    },
+    "MauryKlamkin": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "LOWER": "maury"
+                },
+                {
+                    "LOWER": "klamkin"
+                }
+            ],
+            [
+                {
+                    "LOWER": "maury"
+                }
+            ],
+            [
+                {
+                    "LOWER": "klamkin"
+                }
+            ]
+        ]
+    },
+    "MedicalAttache": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "LOWER": "medical"
+                },
+                {
+                    "LOWER": "attach\u00e9"
+                }
+            ]
+        ]
+    },
+    "Melinda": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Melinda"
+                }
+            ]
+        ]
+    },
+    "MichaelChang": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Chang"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Michael"
+                },
+                {
+                    "ORTH": "Chang"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Michael"
+                },
+                {
+                    "ORTH": "Chang's"
+                }
+            ]
+        ]
+    },
+    "MichaelPemulis": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Michael"
+                },
+                {
+                    "ORTH": "Pemulis"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pemulis"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Peemster"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Michael"
+                },
+                {
+                    "ORTH": "Penisless"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M.M.P."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mickey"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Micky"
+                }
+            ]
+        ]
+    },
+    "MildredBonk": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Mildred"
+                },
+                {
+                    "ORTH": "Bonk"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mildred"
+                },
+                {
+                    "ORTH": "L."
+                },
+                {
+                    "ORTH": "Bonk"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mildred"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bonkesque"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Bonk"
+                }
+            ]
+        ]
+    },
+    "MilesPenn": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Miles"
+                },
+                {
+                    "ORTH": "Penn"
+                }
+            ]
+        ]
+    },
+    "MiriamPricket": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Pricket"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Miriam"
+                },
+                {
+                    "ORTH": "Prickett"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Prickett"
+                }
+            ]
+        ]
+    },
+    "MollyNotkin": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Molly"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Molly"
+                },
+                {
+                    "ORTH": "Notkin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Molly"
+                },
+                {
+                    "ORTH": "Notkin's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Notkin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Cantrell"
+                }
+            ]
+        ]
+    },
+    "MonaGhent": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Mona"
+                },
+                {
+                    "ORTH": "Ghent"
+                }
+            ]
+        ]
+    },
+    "MorrisHanley": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Morris"
+                },
+                {
+                    "ORTH": "H.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Morris"
+                },
+                {
+                    "ORTH": "H.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Morris"
+                },
+                {
+                    "ORTH": "Hanley"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Morris"
+                },
+                {
+                    "ORTH": "H."
+                }
+            ]
+        ]
+    },
+    "MrsClarke": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Clarke"
+                }
+            ]
+        ]
+    },
+    "MrsHeath": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Heath"
+                }
+            ]
+        ]
+    },
+    "MrsWaite": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Waite"
+                }
+            ]
+        ]
+    },
+    "NateMillisJohnson": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Nate"
+                },
+                {
+                    "ORTH": "Millis-Johnson"
+                }
+            ]
+        ]
+    },
+    "NeilHartigan": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Neil"
+                },
+                {
+                    "ORTH": "Hartigan"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Neil"
+                },
+                {
+                    "ORTH": "Hart\u00c3\u00adgan"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hartigan"
+                }
+            ]
+        ]
+    },
+    "NickBollettieri": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Nick"
+                },
+                {
+                    "ORTH": "Bollettieri"
+                }
+            ]
+        ]
+    },
+    "OrinIncandenza": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "LOWER": "orin"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "LOWER": "orin"
+                }
+            ]
+        ]
+    },
+    "OrthoStice": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Stice"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ortho"
+                },
+                {
+                    "LOWER": "('the"
+                },
+                {
+                    "LOWER": "darkness')"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Slice"
+                }
+            ],
+            [
+                {
+                    "ORTH": "STICE"
+                }
+            ],
+            [
+                {
+                    "ORTH": "The"
+                },
+                {
+                    "ORTH": "Darkness"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Orth"
+                }
+            ],
+            [
+                {
+                    "ORTH": "The"
+                },
+                {
+                    "ORTH": "Dark's"
+                }
+            ]
+        ]
+    },
+    "OtisPLord": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Otis"
+                },
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "Lord"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lord"
+                }
+            ],
+            [
+                {
+                    "ORTH": "O."
+                },
+                {
+                    "ORTH": "Lord"
+                }
+            ],
+            [
+                {
+                    "ORTH": "O."
+                },
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "Lord"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Otis"
+                },
+                {
+                    "ORTH": "Lord"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Petropulator"
+                }
+            ]
+        ]
+    },
+    "OttoBrandt": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Brandt"
+                }
+            ]
+        ]
+    },
+    "PTomVeals": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "Tom"
+                },
+                {
+                    "ORTH": "Veals"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Veals"
+                }
+            ],
+            [
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "TOM"
+                },
+                {
+                    "ORTH": "VEALS"
+                }
+            ],
+            [
+                {
+                    "ORTH": "VEALS"
+                }
+            ]
+        ]
+    },
+    "PaisleySteinkamp": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Paisley"
+                },
+                {
+                    "ORTH": "Steinkamp"
+                }
+            ]
+        ]
+    },
+    "PamelaHoffmanJeep": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "P.H.-J.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "H.-J."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "P.H.-J."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep's"
+                }
+            ]
+        ]
+    },
+    "PatriciaMontesian": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "PATRICIA"
+                },
+                {
+                    "ORTH": "MONTESIAN"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pat"
+                }
+            ]
+        ]
+    },
+    "PaulShaw": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Paul"
+                },
+                {
+                    "ORTH": "Shaw"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Shaw"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tall"
+                },
+                {
+                    "ORTH": "Paul"
+                },
+                {
+                    "ORTH": "Shaw"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tall"
+                },
+                {
+                    "ORTH": "Paul"
+                }
+            ]
+        ]
+    },
+    "PeterBeak": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Peter"
+                },
+                {
+                    "ORTH": "Beak"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Peter"
+                },
+                {
+                    "ORTH": "Beak"
+                }
+            ]
+        ]
+    },
+    "Peterson": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Peterson"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Sleepy"
+                },
+                {
+                    "ORTH": "T.P."
+                }
+            ],
+            [
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "Peterson"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Sleepster"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Timmy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Sleepy"
+                },
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "P."
+                }
+            ]
+        ]
+    },
+    "PetropolisKahn": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Petropolis"
+                },
+                {
+                    "ORTH": "Kahn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kahn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pe-tropolis"
+                },
+                {
+                    "ORTH": "Kahn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "W.M."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Petropolis"
+                }
+            ]
+        ]
+    },
+    "PhilipTraub": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Philip"
+                },
+                {
+                    "ORTH": "Traub"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Traub"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Phil"
+                }
+            ]
+        ]
+    },
+    "PhillipTSmothergill": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Smothergill"
+                }
+            ]
+        ]
+    },
+    "PoorTonyKrause": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Poor"
+                },
+                {
+                    "ORTH": "Tony"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tony"
+                },
+                {
+                    "ORTH": "Krause"
+                }
+            ],
+            [
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "Krause"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Krause"
+                }
+            ],
+            [
+                {
+                    "ORTH": "P.T."
+                }
+            ]
+        ]
+    },
+    "PrinceQ---------": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Prince"
+                },
+                {
+                    "ORTH": "Q---------"
+                }
+            ],
+            [
+                {
+                    "LOWER": "minister"
+                },
+                {
+                    "LOWER": "of"
+                },
+                {
+                    "LOWER": "home"
+                },
+                {
+                    "LOWER": "entertainment"
+                }
+            ]
+        ]
+    },
+    "RandyLenz": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "LOWER": "randy"
+                },
+                {
+                    "LOWER": "lenz"
+                }
+            ],
+            [
+                {
+                    "LOWER": "randy"
+                }
+            ],
+            [
+                {
+                    "LOWER": "lenz"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Randall"
+                },
+                {
+                    "ORTH": "L.'s"
+                }
+            ]
+        ]
+    },
+    "ReeseEquus": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Eckwus"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Equus"
+                },
+                {
+                    "ORTH": "Reese"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Equus"
+                }
+            ]
+        ]
+    },
+    "ReevesMainwaring": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Reeves"
+                },
+                {
+                    "ORTH": "Mainwaring"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Reeves"
+                },
+                {
+                    "ORTH": "Mainwaring's"
+                }
+            ]
+        ]
+    },
+    "Reginald": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Reginald"
+                }
+            ]
+        ]
+    },
+    "RemyMarathe": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Marathe"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Mar-athe's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ramy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "R\u00e9my"
+                }
+            ]
+        ]
+    },
+    "RikDunkel": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Rik"
+                },
+                {
+                    "ORTH": "Dunkel"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dunkel"
+                }
+            ],
+            [
+                {
+                    "ORTH": "R."
+                },
+                {
+                    "ORTH": "Dunkel"
+                }
+            ]
+        ]
+    },
+    "RobertF": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Robert"
+                },
+                {
+                    "ORTH": "F."
+                }
+            ]
+        ]
+    },
+    "RodneyTineJr": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "R."
+                },
+                {
+                    "ORTH": "TINE"
+                },
+                {
+                    "ORTH": "JR"
+                }
+            ],
+            [
+                {
+                    "ORTH": "RODNEY"
+                },
+                {
+                    "ORTH": "TINE"
+                },
+                {
+                    "ORTH": "SR"
+                }
+            ]
+        ]
+    },
+    "RodneyTineSr": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Tine"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Rod"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Rodney"
+                },
+                {
+                    "ORTH": "Tine"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tine"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Rodney"
+                },
+                {
+                    "ORTH": "'"
+                }
+            ]
+        ]
+    },
+    "RossReat": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Reat"
+                }
+            ]
+        ]
+    },
+    "RoyTony": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Roy"
+                },
+                {
+                    "ORTH": "Tony"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Roy"
+                },
+                {
+                    "ORTH": "Tonys'"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Roy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Roy-Tony"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Yo"
+                },
+                {
+                    "ORTH": "Roy"
+                },
+                {
+                    "ORTH": "T."
+                }
+            ]
+        ]
+    },
+    "RuthVanCleve": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ruth"
+                },
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "Cleve"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ruth"
+                }
+            ]
+        ]
+    },
+    "RutherfordKeck": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Keck"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Rutherford"
+                },
+                {
+                    "ORTH": "Keck"
+                }
+            ]
+        ]
+    },
+    "SJohnson": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "S."
+                },
+                {
+                    "ORTH": "Johnson"
+                }
+            ],
+            [
+                {
+                    "ORTH": "S."
+                },
+                {
+                    "ORTH": "Johnson's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "S.J."
+                }
+            ]
+        ]
+    },
+    "Schtitt": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "LOWER": "gerhardt"
+                },
+                {
+                    "LOWER": "schtitt"
+                }
+            ],
+            [
+                {
+                    "LOWER": "schtitt"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gerhardt"
+                }
+            ]
+        ]
+    },
+    "SharynVaught": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Sharyn"
+                },
+                {
+                    "ORTH": "Vaught"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Sharyn"
+                }
+            ]
+        ]
+    },
+    "ShelbyVanDerMerwe": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Shelby"
+                },
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "der"
+                }
+            ]
+        ]
+    },
+    "ShoshanaAbram": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Shoshana"
+                },
+                {
+                    "ORTH": "Abram's"
+                }
+            ]
+        ]
+    },
+    "SixtiesBob": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Sixties"
+                },
+                {
+                    "ORTH": "Bob"
+                }
+            ]
+        ]
+    },
+    "SomaRichardsonLevyOByrneChawaf": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Soma"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Soma"
+                },
+                {
+                    "ORTH": "R.-L.-O."
+                },
+                {
+                    "ORTH": "Chawaf's"
+                }
+            ]
+        ]
+    },
+    "StanSmith": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Stan"
+                },
+                {
+                    "ORTH": "Smith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stan"
+                },
+                {
+                    "ORTH": "Smith's"
+                }
+            ]
+        ]
+    },
+    "StavrosLobokulas": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Stavros"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stavros"
+                },
+                {
+                    "ORTH": "L."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stavros"
+                },
+                {
+                    "ORTH": "Lobokulas"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stavros"
+                },
+                {
+                    "ORTH": "Lobokulas's"
+                }
+            ]
+        ]
+    },
+    "StephenWagenknecht": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Wagen-knecht"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stephan"
+                },
+                {
+                    "ORTH": "Wagenknecht"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Wagen-knecht"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Wagenknecht"
+                }
+            ]
+        ]
+    },
+    "StokelyMcNair": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Darkstar"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kely"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stokely"
+                }
+            ],
+            [
+                {
+                    "ORTH": "McNair"
+                }
+            ]
+        ]
+    },
+    "SusanTCheese": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Susan"
+                },
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "Cheese"
+                }
+            ],
+            [
+                {
+                    "ORTH": "S."
+                },
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "Cheese"
+                }
+            ]
+        ]
+    },
+    "TamaraN": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tamara"
+                },
+                {
+                    "ORTH": "N."
+                }
+            ]
+        ]
+    },
+    "TammiTaylorBing": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tammi"
+                },
+                {
+                    "ORTH": "Taylor-Bing"
+                }
+            ]
+        ]
+    },
+    "TapioMartti": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tapio"
+                },
+                {
+                    "ORTH": "Martti"
+                }
+            ]
+        ]
+    },
+    "Tassigny": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tassigny"
+                }
+            ]
+        ]
+    },
+    "TawniKondo": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tawni"
+                },
+                {
+                    "ORTH": "Kondo"
+                }
+            ]
+        ]
+    },
+    "TedSchacht": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ted"
+                },
+                {
+                    "ORTH": "Schacht"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Schacht"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Teddy"
+                }
+            ]
+        ]
+    },
+    "TexWatson": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tex"
+                },
+                {
+                    "ORTH": "Watson"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Watson"
+                }
+            ]
+        ]
+    },
+    "TheWraith": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "the"
+                },
+                {
+                    "ORTH": "Wraith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "The"
+                },
+                {
+                    "ORTH": "Wraith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "the"
+                },
+                {
+                    "ORTH": "wraith"
+                }
+            ]
+        ]
+    },
+    "ThierryPoutrincourt": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Thierry"
+                },
+                {
+                    "ORTH": "Poutrincourt"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thierry"
+                },
+                {
+                    "ORTH": "Poutrincourt's"
+                },
+                {
+                    "ORTH": "'"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thierry"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Poutrincourt"
+                }
+            ]
+        ]
+    },
+    "TinaEcht": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tina"
+                },
+                {
+                    "ORTH": "Echt"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Echt"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tina"
+                }
+            ]
+        ]
+    },
+    "Tingley": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tingley"
+                }
+            ]
+        ]
+    },
+    "TinyEwell": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ewell"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tiny"
+                },
+                {
+                    "ORTH": "E."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tiny"
+                },
+                {
+                    "ORTH": "E.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eldred"
+                }
+            ]
+        ]
+    },
+    "ToddPossalthwaite": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Possalthwaite"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Todd"
+                },
+                {
+                    "ORTH": "('Postal-Weight')"
+                },
+                {
+                    "ORTH": "Possalthwaite"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Todd"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Todder"
+                }
+            ]
+        ]
+    },
+    "TomFlatto": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Flatto"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thomas"
+                },
+                {
+                    "ORTH": "M."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tom"
+                },
+                {
+                    "ORTH": "Flatto's"
+                }
+            ]
+        ]
+    },
+    "TommyDoocey": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tommy"
+                },
+                {
+                    "ORTH": "Doocey"
+                }
+            ],
+            [
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "Doocy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tommy"
+                },
+                {
+                    "ORTH": "D.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tommy"
+                },
+                {
+                    "ORTH": "Doocy'd"
+                }
+            ]
+        ]
+    },
+    "TommyS": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tommy"
+                },
+                {
+                    "ORTH": "S."
+                }
+            ]
+        ]
+    },
+    "TonyNwangi": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tony"
+                },
+                {
+                    "ORTH": "Nwangi"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Nwangi"
+                }
+            ]
+        ]
+    },
+    "Tooty": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tooty"
+                }
+            ]
+        ]
+    },
+    "TrentKite": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kite"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kite'd"
+                }
+            ]
+        ]
+    },
+    "TrevorAxford": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Trevor"
+                },
+                {
+                    "ORTH": "Axford"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Axford"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Axhandle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "A-4"
+                },
+                {
+                    "ORTH": "Trevor"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Trevor"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ax-ford"
+                }
+            ]
+        ]
+    },
+    "USSMillicentKent": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Millicent"
+                }
+            ],
+            [
+                {
+                    "ORTH": "U.S.S.M.K."
+                }
+            ]
+        ]
+    },
+    "UrquhartOgilvie": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "OGILVIE"
+                }
+            ],
+            [
+                {
+                    "ORTH": "OGILVIE"
+                },
+                {
+                    "ORTH": "POINTED"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ogilvie"
+                }
+            ]
+        ]
+    },
+    "VilleDillard": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ville"
+                },
+                {
+                    "ORTH": "Dillard"
+                }
+            ]
+        ]
+    },
+    "VinnieNucci": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Nucci"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Nooch"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Vinnie"
+                },
+                {
+                    "ORTH": "Nucci"
+                }
+            ],
+            [
+                {
+                    "ORTH": "V."
+                },
+                {
+                    "ORTH": "Nucc\u00c3\u00ad"
+                }
+            ]
+        ]
+    },
+    "Virgilio": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Virgilio"
+                }
+            ]
+        ]
+    },
+    "WadeMcDade": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "McDade"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Wade"
+                }
+            ]
+        ]
+    },
+    "Wardine": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "LOWER": "wardine"
+                }
+            ]
+        ]
+    },
+    "WhitySorkin": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Whity"
+                },
+                {
+                    "ORTH": "Sorkin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Sorkin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Whitey"
+                },
+                {
+                    "ORTH": "Sorkin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Whitey"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Whitey"
+                },
+                {
+                    "ORTH": "Sor-kin"
+                }
+            ]
+        ]
+    },
+    "Yardley": {
+        "gender": null,
+        "patterns": [
+            [
+                {
+                    "ORTH": "Yardley"
+                }
+            ]
+        ]
+    },
+    "YolandaWillis": {
+        "gender": "female",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Yolanda"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Willis"
+                }
+            ]
+        ]
+    },
+    "ZoltanCsikzentmihalyi": {
+        "gender": "male",
+        "patterns": [
+            [
+                {
+                    "ORTH": "Zoltan"
+                },
+                {
+                    "ORTH": "Csikzentmihalyi"
+                }
+            ]
+        ]
+    }
+}

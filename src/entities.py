@@ -1,3 +1,4 @@
+import argparse
 import sys
 import spacy
 import os
@@ -10,7 +11,12 @@ def get_matcher(nlp):
     matcher = Matcher(nlp.vocab)
     # TODO: how do we do this in an automated fashion?
     #  ...or all by hand i guess.
-    load_patterns(matcher)
+    entities = get_saved_entities()
+
+    # load from above hand-made patterns
+    for _id in entities.keys():
+        patterns = entities[_id]['patterns']
+        matcher.add(_id, None, *patterns)
     return matcher
 
 def on_match(matcher, doc, i, matches):
@@ -24,26 +30,19 @@ def get_saved_entities():
 def add_entity_psuedonym(entity, psuedonym):
     entities = get_saved_entities()
     if not entities.get(entity):
-        entities[entity] = []
+        entities[entity]['patterns'] = []
 
-    entities[entity].append([{"ORTH" : part } for part in psuedonym.split()])
+    entities[entity]['patterns'].append([{"ORTH" : part } for part in psuedonym.split()])
+    write_entities(entities)
 
+def write_entities(entities):
     with open(get_entities_path(), 'w') as f:
-        json.dump(entities, f)
+        json.dump(entities, f, indent=4, sort_keys=True)
     
-def load_patterns(matcher):
-    # possible automated method:
-    #nlp = spacy.load('en_core_web_sm')
-    #matcher = PhraseMatcher(nlp.vocab)
-    #terminology_list = ['Barack Obama', 'Angela Merkel', 'Washington, D.C.']
-    #patterns = [nlp(text) for text in terminology_list]
-    #matcher.add('TerminologyList', None, *patterns)
+def add_entity_attribute(entity, attribute, value):
     entities = get_saved_entities()
-
-    # load from above hand-made patterns
-    for _id, patterns in entities.items():
-        matcher.add(_id, None, *patterns)
-
+    entities[entity][attribute] = value
+    write_entities(entities)
 
 def print_list(lst, indent=2):
     indstr = ""
@@ -109,33 +108,113 @@ def handle_missed_entity(psuedonym):
     if answer != 'n':
         add_entity_psuedonym(entity, psuedonym)
 
+def add_attribute_to_entities(attribute, skip_processed=False):
+    entities = get_saved_entities()
+
+    for entity, attributes in sorted(entities.items()):
+        if skip_processed:
+            # if the attribute has ANY value (including None)
+            # skip it if we're skipping things we've processed
+            if attribute in set(attributes.keys()):
+                continue
+
+        handle_add_entity_attribute(entity, attribute)
+
+def handle_add_entity_attribute(entity, attribute):
+    entities = get_saved_entities()
+
+    attribute_values = set()
+    for entity_attributes in entities.values():
+        value = entity_attributes.get(attribute, None)
+
+        if value:
+            attribute_values.add(value)
+
+    attribute_values = sorted(list(attribute_values))
+
+    print(f"if the entity has attribute {attribute} in the list, enter its number. If the attribute is a number, enter 'z'. If it has no value, hit enter. If it has a new value, enter that value.")
+
+    for i, val in enumerate(attribute_values):
+        print(f"- {i + 1}\t{val}")
+    
+    print(f"ENTITY: {entity}")
+    answer = input()
+
+    if not len(answer):
+        value = None
+    elif answer.isalpha():
+        value = answer
+    elif answer.isdigit():
+        index = int(answer) - 1
+        value = attribute_values[index]
+    elif answer == 'z':
+        print(f"enter numerical attribute {attribute} value for entity {entity}:")
+        answer = input()
+
+        # parse a float if there's a '.'
+        if answer.count('.'):
+            value = float(answer)
+        else:
+            value = int(answer)
+
+    add_entity_attribute(entity, attribute, value)
+
+
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--entities', '-e', default=False, action="store_true", help="add entities")
+    parser.add_argument('--section', '-s', default=0, help="section to add entities from")
+    parser.add_argument('--attributes', '-a', default=False, action="store_true", help="add attributes")
+    parser.add_argument('--name', '-n', default="", help="attribute to add")
+    parser.add_argument('--skip_processed', default=False, action="store_true", help="if true, skip entities with a value for the attribute or sections which we have processed")
+
+    args = parser.parse_args()
+
     sections = [i for i in range(1, 193)]
-    processed_sections = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192]
+    # processed_sections = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192]
 
-    # section 21 is POV (Hal)
-    # section 36 we're missing 2 ingersolls for possibly a hyphen?
+    # SECTION NOTES:
+    # 3: * Hal is 1st person, 'I', but never picked up by NER. 
+    #      Is hal the only 1st person?
+    # 5: * aren't actually any characters except Hal, doctors, C.T.
+    #      But he's thinking of some; 'John N. R. Wayne', 'Dymphna', 
+    #      'Petropolis Kahn', 'Stice', 'Polep', 'Donald Gately'
+    # 6: * Only one character (Erdedy), but mentions Randi in passing
+    #      and some woman bringing pot repeatedly but no name. both in
+    #      thought only, not in person.
+    # 7: * Confusing A.F. Just Hal talking with a 'professional 
+    #      conversationalist' who turns out to be his dad. only 
+    #      the 2 characters are present.
+    # 9: * what. 'medical attache' and his 'wife'. 
+    #      Mentions 'Prince Q---------'  ?
+    # 12:  Still Mario & Hal talking at night, mention the Moms & Himself
+    # 14:  Just Orin by himself being depressed, scattered thoughts.
+    # 15:  Really just Hal thinking/background
+    # 21:   Hal's pov
+    # 36:   we're missing 2 ingersolls for possibly a hyphen?
+    # 89:   will require close reading. (which I haven't done)
+    # 94:   ditto
     # remove 'John' from john wayne
-    # 89 will require close reading. (which I haven't done)
-    # ditto on 94
 
-    # fackelman -->  fackelmann
+    if args.entities:
+        sections_to_process = [i for i in sections if i not in processed_sections]
+        if args.section:
+            sections_to_process = [args.section]
 
-    sections_to_process = [i for i in sections if i not in processed_sections]
+        missing = set()
+        for section_to_process in sections_to_process:
+            for missed in process_section(section_to_process):
+                missing.add(missed)
 
-    if len(sys.argv) > 1:
-        sections_to_process.append(int(sys.argv[1]))
-
-    print(sections_to_process)
-
-    missing = set()
-    for section_to_process in sections_to_process:
-        for missed in process_section(section_to_process):
-            missing.add(missed)
-
-    # for m in missing:
-    #     print(m)
+        for m in missing:
+            print(m)
+    elif args.attributes:
+        attribute = args.name
+        if attribute:
+            add_attribute_to_entities(attribute, args.skip_processed)
+        else:
+            print('no attribute! quitting')
 
     # TODO:
     # - add ignore list
