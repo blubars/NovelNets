@@ -3,25 +3,8 @@ import sys
 import spacy
 import os
 import json
-from spacy.matcher import Matcher
 import ner
 from utils import get_sections_path, get_entities_path
-
-def get_matcher(nlp):
-    matcher = Matcher(nlp.vocab)
-    # TODO: how do we do this in an automated fashion?
-    #  ...or all by hand i guess.
-    entities = get_saved_entities()
-
-    # load from above hand-made patterns
-    for _id in entities.keys():
-        patterns = entities[_id]['patterns']
-        matcher.add(_id, None, *patterns)
-    return matcher
-
-def on_match(matcher, doc, i, matches):
-    # callback when entity pattern matched
-    pass
 
 def get_saved_entities():
     with open(get_entities_path(), 'r') as f:
