@@ -111,13 +111,13 @@ def analyze_dynamics(gg, seq):
 
         degs = [k for (node,k) in G.degree()]
         avg_degree = sum(degs) / len(degs)
-        n = len(degs)
+        n = nx.number_of_nodes(G)
         print("Section:{}\tn:{}\n  avg deg:{}, avg geodesic:{}, num_components={}".format(seq[i], n, avg_degree, avg_len, num_components))
 
 if __name__ == "__main__":
     print("Creating graphs")
     # first run: need to build graph from book text
-    #gg = graphify_whole_book(load_from_file=False, chronological=True)
+    #gg = graphify_whole_book(load_from_file=False, chronological=False)
     #gg.save(SAVE_GRAPH_PATH)
 
     # second run: can load from saved graph files
@@ -125,7 +125,7 @@ if __name__ == "__main__":
 
     print("Analyzing book!")
     analyze_dynamics(gg, get_section_sequence())
-    #analyze_centralities(gg.G)
+    analyze_centralities(gg.G)
     gg.web.draw()
 
 

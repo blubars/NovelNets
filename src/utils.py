@@ -3,8 +3,17 @@ import os
 import re
 import glob
 import errno
+import json
 
 
+def get_entities():
+    with open(get_entities_path(), 'r') as f:
+        return json.load(f)
+
+def set_entities(entities):
+    with open(get_entities_path(), 'w') as f:
+        json.dump(entities, f, indent=4, sort_keys=True)
+    
 def get_sections_path():
     return '../data/current/sections/'
 

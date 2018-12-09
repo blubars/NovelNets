@@ -1,10 +1,10 @@
 import spacy
-#from utils import get_section_text
 import json
 import re
 import io
+from spacy.matcher import Matcher
 
-import entities
+from utils import get_entities
 
 nlp = None
 
@@ -15,13 +15,28 @@ def load_language_model():
         nlp = spacy.load('en_core_web_md')
         print("Done!")
 
+def on_match(matcher, doc, i, matches):
+    # callback when entity pattern matched
+    pass
+
 def tokenize(raw_text):
     load_language_model()
     return nlp(raw_text)
 
+def get_matcher(nlp):
+    matcher = Matcher(nlp.vocab)
+
+    entities = get_entities()
+
+    # load from above hand-made patterns
+    for _id in entities.keys():
+        patterns = entities[_id]['patterns']
+        matcher.add(_id, None, *patterns)
+    return matcher
+
 def match_people(doc):
     # use spacy Matcher to find known patterns
-    matcher = entities.get_matcher(nlp)
+    matcher = get_matcher(nlp)
     matches = matcher(doc)
     #for match_id, start, end in matches:
     #    span = doc[start:end]
