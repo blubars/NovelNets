@@ -4,7 +4,7 @@ import re
 import io
 from spacy.matcher import Matcher
 
-from utils import get_entities_path
+from utils import get_entities
 
 nlp = None
 
@@ -26,8 +26,7 @@ def tokenize(raw_text):
 def get_matcher(nlp):
     matcher = Matcher(nlp.vocab)
 
-    with open(get_entities_path(), 'r') as f:
-        entities = json.load(f)
+    entities = get_entities()
 
     # load from above hand-made patterns
     for _id in entities.keys():
@@ -37,7 +36,7 @@ def get_matcher(nlp):
 
 def match_people(doc):
     # use spacy Matcher to find known patterns
-    matcher = entities.get_matcher(nlp)
+    matcher = get_matcher(nlp)
     matches = matcher(doc)
     #for match_id, start, end in matches:
     #    span = doc[start:end]

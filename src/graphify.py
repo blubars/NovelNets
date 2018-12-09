@@ -34,9 +34,10 @@ from copy import deepcopy
 import networkx as nx
 import matplotlib
 import matplotlib.pyplot as plt
-from webweb.webweb import webweb
 
-from utils import get_sections_path
+from utils import get_entities
+
+import text_io
 import ner
 
 #########################################################
@@ -163,18 +164,29 @@ class GraphSnapshot:
 
     def getNXGraph(self, name_id_map):
         G = nx.Graph()
-        for key in self.V:
-            entity_id = name_id_map[key]
-            G.add_node(entity_id)
-            G.nodes[entity_id]['name'] = key
+        entities = get_entities()
+
+        sorted_entities = sorted([(name_id_map[entity_name], entity_name) for entity_name in self.V])
+
+        for entity_id, entity_name in sorted_entities:
+            add_node_attributes(G, entities, entity_id, entity_name)
         for node1,innerdict in self.E.items():
             for node2,v in innerdict.items():
                 G.add_edge(node1, node2, weight=v)
         return G
 
+def add_node_attributes(G, entities, entity_id, entity_name):
+    entity_attributes = deepcopy(entities[entity_name]['attributes'])
+    entity_attributes['name'] = entity_name
+
+    if entity_id not in G.nodes():
+        G.add_node(entity_id, **entity_attributes)
+    else:
+        for attribute, value in entity_attributes.items():
+            G.nodes[entity_id][attribute] = value
+
 class Graphify:
-    def __init__(self, path, edge_thresh, edge_repeat_thresh):
-        self.section_path = path
+    def __init__(self, edge_thresh, edge_repeat_thresh):
         self.G = nx.Graph()
         self.people = set()
         self.name_id_map = {}
@@ -182,27 +194,18 @@ class Graphify:
         self.edge_threshold = edge_thresh
         self.edge_repeat_threshold = edge_repeat_thresh
 
-        self.web = webweb()
-        self.web.display.colorBy = 'degree'
-        self.web.display.sizeBy = 'degree'
-        self.web.display.l = 60
-        self.web.display.c = 120
-
         self.graph_sequence = [] # list of snapshots
 
     def process_book(self, section_seq):
         for section_num in section_seq:
             self.process_section(section_num)
-            self.add_graph_frame()
         print_graph(self.G)
 
     def process_section(self, section_num):
         print("+-------------------------------------")
         print("| Processing section " + str(section_num))
         print("+-------------------------------------")
-        path = "{}infinite-jest-section-{:03d}.txt".format(self.section_path, section_num)
-        with open(path, 'r') as f:
-            section_text = f.read()
+        section_text = text_io.interpolate_section_endnotes(text_io.get_section(section_num))
 
         doc = ner.tokenize(section_text)
         self.matcher, matches = ner.match_people(doc)
@@ -221,7 +224,6 @@ class Graphify:
         # 2. link entities. (rule?)
         added_E = self.make_edges(doc, matches)
         # 3. graph.
-        # self.display_graph(str(section_num))
         snapshot = GraphSnapshot(added_V, added_E, section_num)
         self.graph_sequence.append(snapshot)
         return snapshot
@@ -235,12 +237,13 @@ class Graphify:
             #if key not in self.people:
         new_people = section_people - self.people
         # keep node ids in same order each run by sorting here.
+        entities = get_entities()
         for key in sorted(list(new_people)):
             self.people.add(key)
             entity_id = self.get_entity_id(key)
             print_debug(1, "  New node: ({}, {})".format(key, entity_id))
-            self.G.add_node(entity_id)
-            self.G.nodes[entity_id]['name'] = key
+
+            add_node_attributes(self.G, entities, entity_id, key)
         return section_people
 
     def graph_by_sections(self, sequence, aggregate=False):
@@ -351,66 +354,43 @@ class Graphify:
         for snap in self.graph_sequence:
             snap.save(sect_path, self.name_id_map)
 
-    def load(self, path, section_seq):
+    def load(self, path, section_seq=None):
         # load graph from edgelist
         # load vertices
         self.people = set()
-        final_G = nx.read_edgelist(path + '/aggregate_edgelist.txt', nodetype=int, data=(('weight', int),))
+        self.G = nx.read_edgelist(path + '/aggregate_edgelist.txt', nodetype=int, data=(('weight', int),))
+        entities = get_entities()
         with open(path + '/aggregate_nodes.txt', 'r') as f:
             for line in f:
                 node_id, key = line.split()
                 node_id = int(node_id)
                 self.name_id_map[key] = node_id
-                try:
-                    final_G.nodes[node_id]['name'] = key
-                except KeyError:
-                    final_G.add_node(node_id, attr_dict={'name':key})
-                self.people.add(key)
+
+                add_node_attributes(self.G, entities, node_id, key)
+
+                if key not in self.people:
+                    self.people.add(key)
+
         self.graph_sequence = []
         sect_path = path + '/sections'
-        aggregate_G = GraphSnapshot()
         for i in section_seq:
             snap = GraphSnapshot(section=i)
             snap.load(sect_path)
             self.graph_sequence.append(snap)
-            # need aggregate graph for saving snapshot
-            aggregate_G = aggregate_G.merge(snap)
-            self.G = aggregate_G.getNXGraph(self.name_id_map)
-            self.add_graph_frame()
-        print_graph(self.G)
-        print_graph(final_G)
-        self.G = final_G # TODO: confirm; these should be the same.
 
     def print_graph_edgelist(self):
         print("Graph edges & weights")
         for n, nbrsdict in self.G.adjacency():
             for nbr,eattr in nbrsdict.items():
                 print((n,nbr,eattr['weight']))
-        #print(self.G.edges(data='weight'))
-
-    def add_graph_frame(self):
-        self.web.networks.infinite_jest.add_frame_from_networkx_graph(self.G)
-
-    def display_graph(self, section_num):
-        labels = {}
-        for n in self.G.nodes():
-            labels[n] = self.G.node[n]['name']
-        fig = plt.figure(1)
-        ax = plt.gca()
-        # nx.draw(self.G, ax=ax, labels=labels)
-        # plt.title("Section " + str(section_num))
-        # plt.tight_layout()
-        #plt.show()
-        # plt.savefig("section_" + str(section_num) + ".pdf")
-        # plt.close(fig)
 
 if __name__ == "__main__":
     # build a graph per section.
-    gg = Graphify(get_sections_path(), 300, 50)
-    gg.process_book(range(1,193))
-    gg.save(SAVE_GRAPH_PATH)
+    gg = Graphify(300, 50)
+    gg.load(SAVE_GRAPH_PATH, range(1,193))
+    # gg.process_book(range(1,193))
+    # gg.save(SAVE_GRAPH_PATH)
     #gg.load(SAVE_GRAPH_PATH, range(1,5))
-    #gg.web.draw()
 
     #for snapshot in gg.graph_sequence:
     #    print(snapshot)

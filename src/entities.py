@@ -4,28 +4,26 @@ import spacy
 import os
 import json
 import ner
-from utils import get_sections_path, get_entities_path
+from utils import get_entities, set_entities
 
-def get_saved_entities():
-    with open(get_entities_path(), 'r') as f:
-        return json.load(f)
-
+################################################################################
+# file stuff
+################################################################################
 def add_entity_psuedonym(entity, psuedonym):
-    entities = get_saved_entities()
+    entities = get_entities()
     if not entities.get(entity):
         entities[entity]['patterns'] = []
 
     entities[entity]['patterns'].append([{"ORTH" : part } for part in psuedonym.split()])
-    write_entities(entities)
+    set_entities(entities)
 
-def write_entities(entities):
-    with open(get_entities_path(), 'w') as f:
-        json.dump(entities, f, indent=4, sort_keys=True)
-    
 def add_entity_attribute(entity, attribute, value):
-    entities = get_saved_entities()
-    entities[entity][attribute] = value
-    write_entities(entities)
+    entities = get_entities()
+    if not entities[entity].get('attributes'):
+        entities[entity]['attributes'] =  {}
+
+    entities[entity]['attributes'][attribute] = value
+    set_entities(entities)
 
 def print_list(lst, indent=2):
     indstr = ""
@@ -34,6 +32,9 @@ def print_list(lst, indent=2):
     for item in lst:
         print("{}{}".format(indstr, item))
 
+################################################################################
+# entity processing
+################################################################################
 def process_section(section_num):
     print("+-------------------------------------")
     print("| Processing section " + str(section_num))
@@ -68,9 +69,8 @@ def process_section(section_num):
 
     return missing
 
-
 def handle_missed_entity(psuedonym):
-    entities = get_saved_entities()
+    entities = get_entities()
     entity_names = sorted(list(entities.keys()))
     for i, entity in enumerate(entity_names):
         print(f"- {i}\t{entity}")
@@ -91,11 +91,15 @@ def handle_missed_entity(psuedonym):
     if answer != 'n':
         add_entity_psuedonym(entity, psuedonym)
 
+################################################################################
+# attribute processing
+################################################################################
 def add_attribute_to_entities(attribute, skip_processed=False):
-    entities = get_saved_entities()
+    entities = get_entities()
 
-    for entity, attributes in sorted(entities.items()):
-        if skip_processed:
+    for entity, entity_data in sorted(entities.items()):
+        attributes = entity_data.get('attributes', None)
+        if attributes and skip_processed:
             # if the attribute has ANY value (including None)
             # skip it if we're skipping things we've processed
             if attribute in set(attributes.keys()):
@@ -104,7 +108,7 @@ def add_attribute_to_entities(attribute, skip_processed=False):
         handle_add_entity_attribute(entity, attribute)
 
 def handle_add_entity_attribute(entity, attribute):
-    entities = get_saved_entities()
+    entities = get_entities()
 
     attribute_values = set()
     for entity_attributes in entities.values():

@@ -19,7 +19,7 @@ def interpolate_section_endnotes(section_txt, exclusions=[]):
     return section_txt
 
 
-def retreive_section_endnotes(section_txt, exclusions=[]):
+def retrieve_section_endnotes(section_txt, exclusions=[]):
     basepath = os.path.dirname(os.path.realpath(__file__))
     pattern = re.compile(r'<endnote>[0-9]{1,3}</endnote>', re.MULTILINE)
     matches = re.finditer(pattern, section_txt)
@@ -46,7 +46,7 @@ def get_section(section_number, remove_endnote_tags=False):
 
 if __name__ == '__main__':
     text = get_section(73)
-    assert 112 not in list(retreive_section_endnotes(text, [112]).keys())
-    assert 112 in list(retreive_section_endnotes(text, []).keys())
+    assert 112 not in list(retrieve_section_endnotes(text, [112]).keys())
+    assert 112 in list(retrieve_section_endnotes(text, []).keys())
 
     print(get_section(73, remove_endnote_tags=True))
