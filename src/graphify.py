@@ -35,6 +35,7 @@ import networkx as nx
 import matplotlib
 import matplotlib.pyplot as plt
 from webweb.webweb import webweb
+import json
 
 from utils import get_sections_path
 import ner
@@ -68,37 +69,30 @@ def match_to_string(match, doc):
 # store a snapshot of the graph in time.
 # just a collection of vertices & edges right now.
 class GraphSnapshot:
-    def __init__(self, V=None, E=None, section=None):
-        self.sections = []
-        if section:
-            self.sections.append(section)
-        if V:
-            self.V = V
-        else:
-            self.V = set()
+    def __init__(self, V=set(), E=defaultdict(lambda: defaultdict(int)), section=None, section_length=None):
+        self.section = section
+        self.section_length = section_length
+        self.V = V
         # edgelist is dict of dicts of weights.
         #   E[key1][key2] = weight
-        if E:
-            self.E = E
-        else:
-            self.E = defaultdict(lambda: defaultdict(int))
+        self.E = E
 
     def __str__(self):
-        s_str = "** SECTIONS {} **\n".format(self.sections)
+        s_str = "** SECTION {} **\n".format(self.section)
         v_str = "  Nodes:\n"
         for v in self.V:
             v_str += "    {}\n".format(v)
         e_str = "  Edges:\n"
-        for k1,innerdict in self.E.items():
-            for k2,v in innerdict.items():
+        for k1, innerdict in self.E.items():
+            for k2, v in innerdict.items():
                 e_str += "    ({}<->{}: {})\n".format(k1, k2, v)
         return s_str + v_str + e_str
 
     def merge(self, other):
         merged_V = self.V | other.V
         merged_E = deepcopy(self.E)
-        for k1,innerdict in other.E.items():
-            for k2,v in innerdict.items():
+        for k1, innerdict in other.E.items():
+            for k2, v in innerdict.items():
                 merged_E[k1][k2] += v
         g = GraphSnapshot(merged_V, merged_E)
         g.sections = self.sections + other.sections
@@ -110,59 +104,39 @@ class GraphSnapshot:
         # might want to treat edges as binary rather than weighted 
         # for this purpose.
         delta_E = deepcopy(self.E)
-        for k1,innerdict in other.E.items():
-            for k2,v in innerdict.items():
+        for k1, innerdict in other.E.items():
+            for k2, v in innerdict.items():
                 delta_E[k1][k2] -= v
         return GraphSnapshot(delta_V, delta_E)
 
-    def save(self, path, name_id_map):
-        section_num = self.sections[0]
-        edge_path = "{}/{}-edgelist.txt".format(path, section_num)
-        self.save_edgelist(edge_path, name_id_map)
-        node_path = "{}/{}-nodelist.txt".format(path, section_num)
-        self.save_nodelist(node_path, name_id_map)
+    def save(self, path):
+        filepath = "{}/{}-snapshot.json".format(path, self.section)
+        data = dict()
+        data["section_id"] = self.section
+        data["section_length"] = self.section_length
+        data["edges"] = self.E
+        data["nodes"] = list(self.V) if type(self.V) is set else self.V
+        with open(filepath, 'w') as fp:
+            json.dump(data, fp, sort_keys=True, indent=4)
 
     def load(self, path):
-        section_num = self.sections[0]
-        edge_path = "{}/{}-edgelist.txt".format(path, section_num)
-        self.load_edgelist(edge_path)
-        node_path = "{}/{}-nodelist.txt".format(path, section_num)
-        self.load_nodelist(node_path)
+        filepath = "{}/{}-snapshot.json".format(path, self.section)
+        with open(filepath, 'r') as fp:
+            data = json.load(fp)
+            self.section = data["section_id"]
+            self.section_length = data["section_length"]
+            self.E = data["edges"]
+            self.V = set(data["nodes"])
 
-    def save_nodelist(self, fname, name_id_map):
-        with open(fname, 'w') as f:
-            for key in self.V:
-                node_id = name_id_map[key]
-                f.write("{}\t{}\n".format(node_id, key))
-
-    def save_edgelist(self, fname, name_id_map):
-        with open(fname, 'w') as f:
-            for k1,innerdict in self.E.items():
-                for k2,v in innerdict.items():
-                    node1 = name_id_map[k1]
-                    node2 = name_id_map[k2]
-                    f.write("{}\t{}\t{}\n".format(node1, node2, v))
-
-    def load_nodelist(self, fname):
-        with open(fname, 'r') as f:
-            for line in f:
-                node_id, key = line.split()
-                self.V.add(key)
-
-    def load_edgelist(self, fname):
-        with open(fname, 'r') as f:
-            for line in f:
-                node1, node2, weight = line.split()
-                self.E[int(node1)][int(node2)] = int(weight)
-
-    def getNXGraph(self, name_id_map):
+    def getNXGraph(self):
         G = nx.Graph()
         for key in self.V:
-            G.add_node(name_id_map[key])
-        for node1,innerdict in self.E.items():
-            for node2,v in innerdict.items():
+            G.add_node(key)
+        for node1, innerdict in self.E.items():
+            for node2, v in innerdict.items():
                 G.add_edge(node1, node2, weight=v)
         return G
+
 
 class Graphify:
     def __init__(self, path, edge_thresh, edge_repeat_thresh):
@@ -209,11 +183,12 @@ class Graphify:
         print_list(found)
         # 1. recognize entities
         added_V = self.make_nodes(doc, matches)
+        print(added_V)
         # 2. link entities. (rule?)
         added_E = self.make_edges(doc, matches)
         # 3. graph.
         # self.display_graph(str(section_num))
-        snapshot = GraphSnapshot(added_V, added_E, section_num)
+        snapshot = GraphSnapshot(V=added_V, E=added_E, section=section_num, section_length=len(doc))
         self.graph_sequence.append(snapshot)
         return snapshot
 
@@ -340,7 +315,7 @@ class Graphify:
         except FileExistsError:
             pass
         for snap in self.graph_sequence:
-            snap.save(sect_path, self.name_id_map)
+            snap.save(sect_path)
 
     def load(self, path, section_seq):
         # load graph from edgelist
@@ -355,7 +330,7 @@ class Graphify:
                 try:
                     self.G.nodes[node_id]['name'] = key
                 except KeyError:
-                    self.G.add_node(node_id, attr_dict={'name':key})
+                    self.G.add_node(node_id, attr_dict={'name': key})
                 self.people.add(key)
         self.graph_sequence = []
         sect_path = path + '/sections'
@@ -390,10 +365,12 @@ class Graphify:
 if __name__ == "__main__":
     # build a graph per section.
     gg = Graphify(get_sections_path(), 300, 50)
-    gg.process_book(range(1,193))
+    gg.process_book(range(1, 5))
     gg.save(SAVE_GRAPH_PATH)
-    #gg.load(SAVE_GRAPH_PATH, range(1,5))
-    #gg.web.draw()
+    gg.load(SAVE_GRAPH_PATH, range(1, 5))
+    for snap in gg.graph_sequence:
+        print(snap)
+    gg.web.draw()
 
     #for snapshot in gg.graph_sequence:
     #    print(snapshot)
