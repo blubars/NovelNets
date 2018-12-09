@@ -3,3 +3,6 @@ __pycache__
 /src/section*.pdf
 /webweb
 /data/graph
+*.aux
+*.out
+*.log
