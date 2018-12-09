@@ -98,7 +98,6 @@ class GraphSnapshot:
             for k2, v in innerdict.items():
                 merged_E[k1][k2] += v
         g = GraphSnapshot(merged_V, merged_E)
-        g.sections = self.sections + other.sections
         return g
 
     def delta(self, other):
@@ -146,7 +145,7 @@ class GraphSnapshot:
 
 
 def add_node_attributes(G, entities, entity):
-    entity_attributes = deepcopy(entities[entity_name]['attributes'])
+    entity_attributes = deepcopy(entities[entity]['attributes'])
     entity_attributes['name'] = entity
 
     if entity not in G.nodes():
@@ -213,18 +212,20 @@ class Graphify:
         for key in sorted(list(new_people)):
             self.people.add(key)
             entity_id = self.get_entity_id(key)
-            print_debug(1, "  New node: ({}, {})".format(key))
+            print_debug(1, "  New node: ({})".format(key))
 
             add_node_attributes(self.G, entities, key)
         return section_people
 
     def graph_by_sections(self, sequence, aggregate=False):
         g0 = GraphSnapshot()
+        print(sequence)
+        print(self.graph_sequence)
         for section_num in sequence:
             section_snapshot = self.graph_sequence[section_num-1]
             if aggregate:
                 g0 = g0.merge(section_snapshot)
-                yield g0.getNXGraph(self.name_id_map)
+                yield g0.getNXGraph()
             else:
                 yield section_snapshot
 

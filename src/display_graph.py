@@ -13,7 +13,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     gg = Graphify(300, 50)
-    gg.load(SAVE_GRAPH_PATH, range(1,193))
+    gg.process_book(range(1, 193))
+    gg.save(SAVE_GRAPH_PATH)
+    gg.load(SAVE_GRAPH_PATH, range(1, 193))
 
     web = webweb()
     web.display.colorBy = 'degree'

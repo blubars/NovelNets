@@ -21,9 +21,9 @@ def interpolate_section_endnotes(section_txt, exclusions=[]):
 
 def interpolate_pov_name(section_id, name="Jack the Ripper"):
     section_txt = get_section(1, remove_endnote_tags=True)
-    inner_pattern = r"(?:^I|^i|^me|^Me|^my|^My|^I'd|^i'd|^I'll|^i'll|^I've|^i've|^mine|^Mine)|\(?<=[^a-zA-Z])(?:I|i|me|Me|my|My|I'd|i'd|I'll|i'll|I've|i've|mine|Mine)(?=[^a-zA-Z])
+    inner_pattern = r"(?:^I|^i|^me|^Me|^my|^My|^I'd|^i'd|^I'll|^i'll|^I've|^i've|^mine|^Mine)|\(?<=[^a-zA-Z])(?:I|i|me|Me|my|My|I'd|i'd|I'll|i'll|I've|i've|mine|Mine)(?=[^a-zA-Z])"
     outer_pattern = "(?:[“]{}[”])|(?:[‘]{}[’])".format(inner_pattern, inner_pattern)
-    regex = re.compile(pattern, re.MULTILINE)
+    regex = re.compile(outer_pattern, re.MULTILINE)
     new_text = re.sub(regex, ' {} '.format(name), section_txt)
     return new_text
 
