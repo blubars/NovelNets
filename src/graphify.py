@@ -28,20 +28,12 @@
 # Imports
 #########################################################
 import os
-import math
-from collections import defaultdict, namedtuple
+from collections import defaultdict
 from copy import deepcopy
 import networkx as nx
-import matplotlib
-import matplotlib.pyplot as plt
-<<<<<<< HEAD
-=======
-from webweb.webweb import webweb
 import json
->>>>>>> c76a61f1bbe2dcf20af91f86d3ec39b1caf22ff3
 
 from utils import get_entities
-
 import text_io
 import ner
 
