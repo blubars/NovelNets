@@ -5,28 +5,29 @@ Please follow the instructions for installing webweb locally via a git repo:
 https://github.com/hneutr/webweb
 
 # Todo:
-  STATIC-NETWORK ANALYSIS:
-    0. small-world property (meh, used in dynamic analysis)
-    1. centrality
-    2. modularity: 
-        a. community structure (greedy agg), Normalized Mutual Information
-        b. assortativity: degree, gender, association.
-    3. ccdf of degree distribution, time vs degree: preferential attachment? probably not...
+## Static-Network Analysis:
+0. small-world property (meh, used in dynamic analysis)
+1. centrality
+2. modularity: 
+    a. community structure (greedy agg), Normalized Mutual Information
+    b. assortativity: degree, gender, association.
+3. ccdf of degree distribution, time vs degree: preferential attachment? probably not...
   
-  DYNAMIC-NETWORK ANALYSIS:
-    1. changepoint detection
-       a. need function to determine changepoint
-       b. statistics to feed function: all centralities, diam or avg geodesic, num triangles, avg degree 
-    2. attachment: sparsification vs densification
-    3. temporal analysis:
-         - how long do edges last?
-         * how does structure vary over time?
-            - vary aggregation window
-         * how stable are local neighborhoods?
-            - compute adjacenty correlation over time.
-         - how does discrete time impact our measurements?
-            - perhaps try varying definition of discrete time: sections/pages/tokens
+## Dynamic-Network Analysis:
+1. changepoint detection
+   a. need function to determine changepoint
+   b. statistics to feed function: all centralities, diam or avg geodesic, num triangles, avg degree 
+2. attachment: sparsification vs densification
+3. temporal analysis:
+     - how long do edges last?
+     * how does structure vary over time?
+        - vary aggregation window
+     * how stable are local neighborhoods?
+        - compute adjacenty correlation over time.
+     - how does discrete time impact our measurements?
+        - perhaps try varying definition of discrete time: sections/pages/tokens
   
+## Other:
     - Coreference resolution
     - start adding entity attributes
     - CENTRAL QUESTIONS:
