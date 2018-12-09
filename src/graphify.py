@@ -64,10 +64,20 @@ def match_to_string(match, doc):
     return "'{}': {}, {}".format(span.text, start, end)
 
 def print_graph(G):
-    #print(list(G.nodes(data=True)))
     print(len(list(G.nodes)))
     print(len(G.edges()))
     print()
+
+class Match():
+    def __init__(self, match, matcher, doc):
+        self.match = match
+        self.key = matcher.vocab.strings[match[0]]
+        self.start = match[1]
+        self.end = match[2]
+        self.span = doc[self.start:self.end]
+
+    def __str__(self):
+        return "'{}': {}, {}".format(self.span.text, self.start, self.end)
 
 # store a snapshot of the graph in time.
 # just a collection of vertices & edges right now.
@@ -134,8 +144,6 @@ class GraphSnapshot:
         G = nx.Graph()
         entities = get_entities()
 
-        # sorted_entities = sorted([(name_id_map[entity_name], entity_name) for entity_name in self.V])
-
         for entity in self.V:
             add_node_attributes(G, entities, entity)
         for node1, innerdict in self.E.items():
@@ -159,10 +167,10 @@ class Graphify:
     def __init__(self, edge_thresh, edge_repeat_thresh):
         self.G = nx.Graph()
         self.people = set()
-        self.name_id_map = {}
         self.unused_id = 0
         self.edge_threshold = edge_thresh
         self.edge_repeat_threshold = edge_repeat_thresh
+        self.entities = get_entities()
 
         self.graph_sequence = [] # list of snapshots
 
@@ -183,44 +191,37 @@ class Graphify:
             print("MATCHES:")
             for m in matches:
                 print("  '{}': ({}, {})".format(
-                    self.get_entity_from_match(m), m[1], m[2]))
+                    self.get_match_entity(m), m[1], m[2]))
         missing, overlap, found = ner.find_missing_entities(doc)
         print("MISSING ENTITIES:")
         print_list(missing)
         print("FOUND ENTITIES:")
         print_list(found)
+        entity_matches = [Match(match, self.matcher, doc) for match in matches]
         # 1. recognize entities
-        added_V = self.make_nodes(doc, matches)
+        added_V = self.make_nodes(entity_matches)
         print(added_V)
         # 2. link entities. (rule?)
-        added_E = self.make_edges(doc, matches)
+        added_E = self.make_edges(entity_matches)
         # 3. graph.
         snapshot = GraphSnapshot(V=added_V, E=added_E, section=section_num, section_length=len(doc))
         self.graph_sequence.append(snapshot)
         return snapshot
 
-    def make_nodes(self, doc, matches):
+    def make_nodes(self, entity_matches):
         print_debug(1, "NODES:")
-        section_people = set() # ppl in this section
-        for match_id, start, end in matches:
-            key = self.matcher.vocab.strings[match_id] # this is dumb.
-            section_people.add(key)
-            #if key not in self.people:
+        section_people = set([match.key for match in entity_matches])
         new_people = section_people - self.people
         # keep node ids in same order each run by sorting here.
-        entities = get_entities()
         for key in sorted(list(new_people)):
             self.people.add(key)
-            entity_id = self.get_entity_id(key)
             print_debug(1, "  New node: ({})".format(key))
 
-            add_node_attributes(self.G, entities, key)
+            add_node_attributes(self.G, self.entities, key)
         return section_people
 
     def graph_by_sections(self, sequence, aggregate=False):
         g0 = GraphSnapshot()
-        print(sequence)
-        print(self.graph_sequence)
         for section_num in sequence:
             section_snapshot = self.graph_sequence[section_num-1]
             if aggregate:
@@ -229,45 +230,32 @@ class Graphify:
             else:
                 yield section_snapshot
 
-    def get_entity_id(self, entity_string):
-        if self.name_id_map.get(entity_string, None) == None:
-            self.name_id_map[entity_string] = self.unused_id
-            self.unused_id += 1
-        return self.name_id_map.get(entity_string)
-
-    def get_entity_from_match(self, match):
+    def get_match_entity(self, match):
         return self.matcher.vocab.strings[match[0]]
 
-    def get_entity_id_from_match(self, match):
-        return self.get_entity_id(self.get_entity_from_match(match))
-
     def add_edge_from_matches(self, first, second):
-        first_id, first_start, first_end = first
-        second_id, second_start, second_end = second
-        if first_id == second_id:
+        if first.key == second.key:
             print_debug(3, "  - Skipped match b/c same entity")
             return False
-        if first_start > second_start:
-            return self.add_edge_from_matches(second, first)
-        if second_start - first_start > self.edge_threshold:
+
+        if first.start > second.start:
+            first, second = second, first
+
+        if second.start - first.start > self.edge_threshold:
             print_debug(3, "  - Skipped match b/c outside edge thresh")
             return False
 
-        key1 = self.get_entity_from_match(first)
-        key2 = self.get_entity_from_match(second)
-        first_entity_id = self.get_entity_id(key1)
-        second_entity_id = self.get_entity_id(key2)
-        if self.G.has_edge(first_entity_id, second_entity_id):
-            self.G[first_entity_id][second_entity_id]['weight'] += 1
+        if self.G.has_edge(first.key, second.key):
+            self.G[first.key][second.key]['weight'] += 1
         else:
-            self.G.add_edge(first_entity_id, second_entity_id, weight=1)
+            self.G.add_edge(first.key, second.key, weight=1)
         if DEBUG > 1:
-            print("  - Incr weight ({}({}),{}({})), pos=({},{})".format(
-                key1, first_entity_id, key2, second_entity_id,
-                first_start, second_start))
+            print("  - Incr weight ({},{}), pos=({},{})".format(
+                first.key, second.key,
+                first.start, second.start))
         return True
 
-    def make_edges(self, doc, matches):
+    def make_edges(self, entity_matches):
         # dict for counting weights
         new_edges = defaultdict(lambda: defaultdict(int))
         # dict for tracking edge thresholds for smoothing.
@@ -275,34 +263,27 @@ class Graphify:
         edge_block_threshs = defaultdict(lambda: defaultdict(int))
         # dumbest way possible: link if within THRESHOLD tokens of eachother.
         # note: this adds 1 edges per match pair, only in one direction.
-        for i in range(len(matches)-1):
-            for j in range(i+1, len(matches)):
-                first = matches[i]
-                second = matches[j]
-                print_debug(3, "[Process match:{}, {}]"
-                   .format(match_to_string(first, doc), match_to_string(second, doc)))
-                key1 = self.get_entity_from_match(first)
-                key2 = self.get_entity_from_match(second)
-                if key1 > key2:
-                    key1, key2 = key2, key1
-                match_start = min(first[1], second[1])
-                match_end = max(first[2], second[2])
-                if match_start > edge_block_threshs[key1][key2]:
+        for i, first in enumerate(entity_matches[:-1]):
+            for second in entity_matches[i + 1:]:
+                print_debug(3, "[Process match:{}, {}]".format(str(first), str(second)))
+                if first.key > second.key:
+                    first, second = second, first
+                match_start = min(first.start, second.start)
+                match_end = max(first.end, second.end)
+                if match_start > edge_block_threshs[first.key][second.key]:
                     # don't add a new edge if we're within the blocking 
                     # threshold from the previous edge.
                     new_edge = self.add_edge_from_matches(first, second)
                     if new_edge:
-                        new_edges[key1][key2] += 1
-                        edge_block_threshs[key1][key2] = match_end + self.edge_repeat_threshold
+                        new_edges[first.key][second.key] += 1
+                        edge_block_threshs[first.key][second.key] = match_end + self.edge_repeat_threshold
                 else:
                     print_debug(3, "  - Skipped match b/c within thresh ({})"
-                        .format(edge_block_threshs[key1][key2]))
+                        .format(edge_block_threshs[first.key][second.key]))
         print_debug(1, "EDGES:")
         for key1, inner_dict in new_edges.items():
             for key2, weight in inner_dict.items():
-                print_debug(1, "  {} <--> {} ({} <--> {}), weight:+{}"
-                    .format(key1, key2, self.get_entity_id(key1), \
-                            self.get_entity_id(key2), weight))
+                print_debug(1, "  {} <--> {}, weight:+{}".format(key1, key2, weight))
         return new_edges
 
     def save(self, path):
@@ -313,9 +294,8 @@ class Graphify:
             pass
         # write aggregate list of vertices (keys + ids) to file
         with open(path + '/aggregate_nodes.txt', 'w') as f:
-            for key in self.people:
-                node_id = self.get_entity_id(key)
-                f.write("{}\t{}\n".format(node_id, key))
+            for i, key in enumerate(self.people):
+                f.write("{}\t{}\n".format(i, key))
         # write complete graph
         nx.write_weighted_edgelist(self.G, path + '/aggregate_edgelist.txt')
         # write each section snapshot to file
@@ -331,13 +311,12 @@ class Graphify:
         # load graph from edgelist
         # load vertices
         self.people = set()
-        self.G = nx.read_edgelist(path + '/aggregate_edgelist.txt', nodetype=int, data=(('weight', int),))
-        entities = get_entities()
+        self.G = nx.read_edgelist(path + '/aggregate_edgelist.txt', nodetype=str, data=(('weight', int),))
         with open(path + '/aggregate_nodes.txt', 'r') as f:
             for line in f:
                 node_id, key = line.split()
                 node_id = int(node_id)
-                add_node_attributes(self.G, entities, key)
+                add_node_attributes(self.G, self.entities, key)
 
                 if key not in self.people:
                     self.people.add(key)
@@ -363,30 +342,3 @@ if __name__ == "__main__":
     gg.load(SAVE_GRAPH_PATH, range(1, 5))
     for snap in gg.graph_sequence:
         print(snap)
-    # gg.web.draw()
-
-    #for snapshot in gg.graph_sequence:
-    #    print(snapshot)
-
-
-    # PROGRESS: 
-    #   sections 1-15 done. slow going.
-    # SECTION NOTES:
-    # 3: * Hal is 1st person, 'I', but never picked up by NER. 
-    #      Is hal the only 1st person?
-    # 5: * aren't actually any characters except Hal, doctors, C.T.
-    #      But he's thinking of some; 'John N. R. Wayne', 'Dymphna', 
-    #      'Petropolis Kahn', 'Stice', 'Polep', 'Donald Gately'
-    # 6: * Only one character (Erdedy), but mentions Randi in passing
-    #      and some woman bringing pot repeatedly but no name. both in
-    #      thought only, not in person.
-    # 7: * Confusing A.F. Just Hal talking with a 'professional 
-    #      conversationalist' who turns out to be his dad. only 
-    #      the 2 characters are present.
-    # 9: * what. 'medical attache' and his 'wife'. 
-    #      Mentions 'Prince Q---------'  ?
-    # 12:  Still Mario & Hal talking at night, mention the Moms & Himself
-    # 14:  Just Orin by himself being depressed, scattered thoughts.
-    # 15:  Really just Hal thinking/background
-
-
