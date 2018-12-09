@@ -1,25 +1,20 @@
-import spacy
 #from utils import get_section_text
 import json
 import re
 import io
-
 import entities
+from model import load_spacy
 
-nlp = None
-
-def load_language_model():
-    global nlp
-    if not nlp:
-        print("Loading spacy lang model...")
-        nlp = spacy.load('en_core_web_md')
-        print("Done!")
 
 def tokenize(raw_text):
-    load_language_model()
+    # loads or is cached
+    nlp = load_spacy('en_core_web_md')
     return nlp(raw_text)
 
+
 def match_people(doc):
+    # loads or is cached
+    nlp = load_spacy('en_core_web_md')
     # use spacy Matcher to find known patterns
     matcher = entities.get_matcher(nlp)
     matches = matcher(doc)
@@ -29,6 +24,8 @@ def match_people(doc):
     return matcher, matches
 
 def find_missing_entities(doc):
+    # loads or is cached
+    nlp = load_spacy('en_core_web_md')
     found = set()
     overlap = set()
     missing = set()
