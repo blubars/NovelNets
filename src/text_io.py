@@ -19,6 +19,15 @@ def interpolate_section_endnotes(section_txt, exclusions=[]):
     return section_txt
 
 
+def interpolate_pov_name(section_id, name="Jack the Ripper"):
+    section_txt = get_section(1, remove_endnote_tags=True)
+    inner_pattern = r"(?:^I|^i|^me|^Me|^my|^My|^I'd|^i'd|^I'll|^i'll|^I've|^i've|^mine|^Mine)|\(?<=[^a-zA-Z])(?:I|i|me|Me|my|My|I'd|i'd|I'll|i'll|I've|i've|mine|Mine)(?=[^a-zA-Z])
+    outer_pattern = "(?:[“]{}[”])|(?:[‘]{}[’])".format(inner_pattern, inner_pattern)
+    regex = re.compile(pattern, re.MULTILINE)
+    new_text = re.sub(regex, ' {} '.format(name), section_txt)
+    return new_text
+
+
 def retrieve_section_endnotes(section_txt, exclusions=[]):
     basepath = os.path.dirname(os.path.realpath(__file__))
     pattern = re.compile(r'<endnote>[0-9]{1,3}</endnote>', re.MULTILINE)
@@ -44,9 +53,8 @@ def get_section(section_number, remove_endnote_tags=False):
     return section
 
 
+
 if __name__ == '__main__':
     text = get_section(73)
     assert 112 not in list(retrieve_section_endnotes(text, [112]).keys())
     assert 112 in list(retrieve_section_endnotes(text, []).keys())
-
-    print(get_section(73, remove_endnote_tags=True))
