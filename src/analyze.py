@@ -103,16 +103,6 @@ def analyze_centralities(G):
 def get_section_sequence(chronological=False):
     return get_chronological_order() if chronological else range(1,TOTAL_NUM_SECTIONS+1)
 
-def graphify_whole_book(chronological=False, load_from_file=False):
-    # build a graph per section.
-    gg = Graphify(get_sections_path(), 500, 50)
-    sections = get_chronological_order() if chronological else range(1,TOTAL_NUM_SECTIONS+1)
-    if load_from_file:
-        gg.load(SAVE_GRAPH_PATH, sections)
-    else:
-        gg.process_book(sections)
-    return gg
-
 def analyze_attachment(gg, weighted=True):
     # does degree distribution follow a power law?
     # compare degree distribution to price's model
@@ -194,12 +184,7 @@ def make_plots():
 
 if __name__ == "__main__":
     print("Creating graphs")
-    # first run: need to build graph from book text
-    #gg = graphify_whole_book(load_from_file=False, chronological=False)
-    #gg.save(SAVE_GRAPH_PATH)
-
-    # second run: can load from saved graph files
-    gg = graphify_whole_book(load_from_file=True)
+    gg = Graphify()
 
     print("Analyzing book!")
     #analyze_dynamics(gg, get_section_sequence())

@@ -33,7 +33,7 @@ from copy import deepcopy
 import networkx as nx
 import json
 
-from utils import get_entities
+from utils import get_entities, get_entities_hash
 import text_io
 import ner
 
@@ -164,7 +164,7 @@ def add_node_attributes(G, entities, entity):
 
 
 class Graphify:
-    def __init__(self, edge_thresh, edge_repeat_thresh):
+    def __init__(self, edge_thresh=300, edge_repeat_thresh=50, data_path=SAVE_GRAPH_PATH, sections=range(1, 193)):
         self.G = nx.Graph()
         self.people = set()
         self.unused_id = 0
@@ -172,10 +172,20 @@ class Graphify:
         self.edge_repeat_threshold = edge_repeat_thresh
         self.entities = get_entities()
 
+        self.sections = sections
+
         self.graph_sequence = [] # list of snapshots
 
-    def process_book(self, section_seq):
-        for section_num in section_seq:
+        self.data_path = data_path
+
+        if self.should_reload():
+            self.process_book()
+            self.save()
+        else:
+            self.load()
+
+    def process_book(self):
+        for section_num in self.sections:
             self.process_section(section_num)
         print_graph(self.G)
 
@@ -286,33 +296,63 @@ class Graphify:
                 print_debug(1, "  {} <--> {}, weight:+{}".format(key1, key2, weight))
         return new_edges
 
-    def save(self, path):
-        # write each snapshot to a file. also write the aggregate.
-        try:
-            os.mkdir(path)
-        except FileExistsError:
-            pass
+    def save(self):
+        if not os.path.exists(self.data_path):
+            os.mkdir(self.data_path)
+
         # write aggregate list of vertices (keys + ids) to file
-        with open(path + '/aggregate_nodes.txt', 'w') as f:
+        with open(self.aggregate_nodes_path, 'w') as f:
             for i, key in enumerate(self.people):
                 f.write("{}\t{}\n".format(i, key))
         # write complete graph
-        nx.write_weighted_edgelist(self.G, path + '/aggregate_edgelist.txt')
+        nx.write_weighted_edgelist(self.G, self.aggregate_edgelist_path)
+
         # write each section snapshot to file
-        sect_path = path + '/sections'
-        try:
-            os.mkdir(path + '/sections')
-        except FileExistsError:
-            pass
+        sect_path = self.data_path + '/sections'
+
+        if not os.path.exists(sect_path):
+            os.mkdir(sect_path)
+
+        # write each snapshot to a file
         for snap in self.graph_sequence:
             snap.save(sect_path)
 
-    def load(self, path, section_seq=None):
+        # save entities hash to later determine if we need to rerun
+        with open(self.entities_hash_path, 'w') as f:
+            f.write(get_entities_hash())
+
+    @property
+    def aggregate_nodes_path(self):
+        return os.path.join(self.data_path, 'aggregate_nodes.txt')
+
+    @property
+    def aggregate_edgelist_path(self):
+        return os.path.join(self.data_path, 'aggregate_edgelist.txt')
+
+    @property
+    def entities_hash_path(self):
+        return os.path.join(self.data_path, 'entities_hash.txt')
+
+    def should_reload(self):
+        # going to assume we have a path here
+        entities_hash_path = self.entities_hash_path
+        if os.path.exists(entities_hash_path):
+            with open(entities_hash_path, 'r') as f:
+                content = f.read().strip()
+
+            # we should reload if the new hash is different from the old one
+            if content == get_entities_hash():
+                return False
+
+        return True
+
+    
+    def load(self):
         # load graph from edgelist
         # load vertices
         self.people = set()
-        self.G = nx.read_edgelist(path + '/aggregate_edgelist.txt', nodetype=str, data=(('weight', int),))
-        with open(path + '/aggregate_nodes.txt', 'r') as f:
+        self.G = nx.read_edgelist(self.aggregate_edgelist_path, nodetype=str, data=(('weight', int),))
+        with open(self.aggregate_nodes_path, 'r') as f:
             for line in f:
                 node_id, key = line.split()
                 node_id = int(node_id)
@@ -322,8 +362,8 @@ class Graphify:
                     self.people.add(key)
 
         self.graph_sequence = []
-        sect_path = path + '/sections'
-        for i in section_seq:
+        sect_path = self.data_path + '/sections'
+        for i in self.sections:
             snap = GraphSnapshot(section=i)
             snap.load(sect_path)
             self.graph_sequence.append(snap)
@@ -336,9 +376,4 @@ class Graphify:
 
 if __name__ == "__main__":
     # build a graph per section.
-    gg = Graphify(get_sections_path(), 300, 50)
-    gg.process_book(range(1, 5))
-    gg.save(SAVE_GRAPH_PATH)
-    gg.load(SAVE_GRAPH_PATH, range(1, 5))
-    for snap in gg.graph_sequence:
-        print(snap)
+    gg = Graphify()
