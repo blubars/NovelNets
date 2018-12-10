@@ -334,7 +334,15 @@ class Graphify:
 
         # save entities hash to later determine if we need to rerun
         with open(self.entities_hash_path, 'w') as f:
-            f.write(get_entities_hash())
+            json.dump(self.cache_info, f)
+
+    @property
+    def cache_info(self):
+        return {
+            'edge_threshold' : self.edge_threshold,
+            'edge_repeat_threshold' : self.edge_repeat_threshold,
+            'entities_hash' : get_entities_hash(),
+        }
 
     @property
     def aggregate_nodes_path(self):
@@ -349,15 +357,17 @@ class Graphify:
         return os.path.join(self.data_path, 'entities_hash.txt')
 
     def should_reload(self):
-        # going to assume we have a path here
         entities_hash_path = self.entities_hash_path
         if os.path.exists(entities_hash_path):
             with open(entities_hash_path, 'r') as f:
-                content = f.read().strip()
+                old_cache_info = json.load(f)
 
-            # we should reload if the new hash is different from the old one
-            if content == get_entities_hash():
-                return False
+            for key, value in self.cache_info.items():
+                if old_cache_info[key] != value:
+                    return True
+
+
+            return False
 
         return True
     
