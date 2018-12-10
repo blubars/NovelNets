@@ -24,11 +24,11 @@ if __name__ == '__main__':
 
     section_sequence = get_section_sequence(chronological=False)
 
-    for G in gg.graph_by_sections(section_sequence, aggregate=True, decay_weights=True, decay_factor=2):
+    for G in gg.graph_by_sections(section_sequence, aggregate=True, decay_weights=True, stability=100):
         web.networks.infinite_jest.add_frame_from_networkx_graph(G)
 
     section_sequence = get_section_sequence(chronological=True)
-    for G in gg.graph_by_sections(section_sequence, aggregate=True, decay_weights=True, decay_factor=2):
+    for G in gg.graph_by_sections(section_sequence, aggregate=True, decay_weights=True, stability=100):
         web.networks.infinite_jest_chronological.add_frame_from_networkx_graph(G)
 
     web.draw()

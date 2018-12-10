@@ -230,13 +230,13 @@ class Graphify:
             add_node_attributes(self.G, self.entities, key)
         return section_people
 
-    def graph_by_sections(self, sequence, aggregate=False, decay_weights=False, decay_factor=2):
+    def graph_by_sections(self, sequence, aggregate=False, decay_weights=False, stability=10):
         g0 = GraphSnapshot()
         for section_num in sequence:
             section_snapshot = self.graph_sequence[section_num-1]
             if aggregate:
                 if decay_weights:
-                    scale = self.forgetting_curve(section_snapshot.section_length, S=decay_factor)
+                    scale = self.forgetting_curve(section_snapshot.section_length, S=stability)
                     # print(scale)
                     self.decay_weights(g0.E, scale)
                 # print(g0.V)
