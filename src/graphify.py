@@ -32,7 +32,7 @@ from collections import defaultdict
 from copy import deepcopy
 import networkx as nx
 import json
-
+import math
 from utils import get_entities, get_entities_hash
 import text_io
 import ner
@@ -230,15 +230,26 @@ class Graphify:
             add_node_attributes(self.G, self.entities, key)
         return section_people
 
-    def graph_by_sections(self, sequence, aggregate=False):
+    def graph_by_sections(self, sequence, aggregate=False, decay_weights=False, decay_factor=2):
         g0 = GraphSnapshot()
         for section_num in sequence:
             section_snapshot = self.graph_sequence[section_num-1]
             if aggregate:
+                if decay_weights:
+                    scale = self.forgetting_curve(section_snapshot.section_length, S=decay_factor)
+                    self.decay_weights(g0.E, scale)
                 g0 = g0.merge(section_snapshot)
                 yield g0.getNXGraph()
             else:
                 yield section_snapshot
+
+    def decay_weights(self, edges, scale):
+        for k1, innerdict in edges.items():
+            for k2, v in innerdict.items():
+                edges[k1][k2] += v * scale
+
+    def forgetting_curve(self, length, S=2):
+        return math.e**(-1 * length / S)
 
     def get_match_entity(self, match):
         return self.matcher.vocab.strings[match[0]]
@@ -345,7 +356,6 @@ class Graphify:
                 return False
 
         return True
-
     
     def load(self):
         # load graph from edgelist
