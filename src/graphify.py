@@ -36,7 +36,8 @@ import math
 from utils import get_entities, get_entities_hash
 import text_io
 import ner
-
+import sys
+from pprint import pprint
 #########################################################
 # Globals
 #########################################################
@@ -361,16 +362,12 @@ class Graphify:
         if os.path.exists(entities_hash_path):
             with open(entities_hash_path, 'r') as f:
                 old_cache_info = json.load(f)
-
             for key, value in self.cache_info.items():
                 if old_cache_info[key] != value:
                     return True
-
-
             return False
-
         return True
-    
+
     def load(self):
         # load graph from edgelist
         # load vertices
