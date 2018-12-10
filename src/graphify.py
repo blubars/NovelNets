@@ -237,7 +237,11 @@ class Graphify:
             if aggregate:
                 if decay_weights:
                     scale = self.forgetting_curve(section_snapshot.section_length, S=decay_factor)
+                    # print(scale)
                     self.decay_weights(g0.E, scale)
+                # print(g0.V)
+                # print(g0.E["HughSteeply"]["RemyMarathe"])
+                # print()
                 g0 = g0.merge(section_snapshot)
                 yield g0.getNXGraph()
             else:
@@ -246,10 +250,10 @@ class Graphify:
     def decay_weights(self, edges, scale):
         for k1, innerdict in edges.items():
             for k2, v in innerdict.items():
-                edges[k1][k2] += v * scale
+                edges[k1][k2] = (v * scale)
 
     def forgetting_curve(self, length, S=2):
-        return math.e**(-1 * length / S)
+        return math.e**(-1 * length / (10000*S))
 
     def get_match_entity(self, match):
         return self.matcher.vocab.strings[match[0]]
