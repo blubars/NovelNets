@@ -1,4 +1,3 @@
-
 import spacy
 import json
 import re
@@ -6,9 +5,7 @@ import io
 from spacy.matcher import Matcher
 from utils import get_entities
 import io
-import entities
 from model import load_spacy
-
 
 def on_match(matcher, doc, i, matches):
     # callback when entity pattern matched

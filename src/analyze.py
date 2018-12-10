@@ -20,6 +20,7 @@ import pandas as pd
 import networkx as nx
 import matplotlib
 import matplotlib.pyplot as plt
+import argparse
 
 from graphify import Graphify
 from utils import get_sections_path
@@ -82,7 +83,7 @@ def get_chronological_order():
         print("Num set(sections):{}".format(num_unique_sects))
     return sections
 
-def analyze_centralities(G):
+def analyze_centralities(G, weighted=True):
     # centrality measures
     centralities = [
         (nx.degree_centrality, "Degree"),
@@ -91,8 +92,13 @@ def analyze_centralities(G):
     ]
     for cent_f, name in centralities:
         print("Top 10 {} Centrality:".format(name))
-        result = cent_f(G)
-        #result = cent_f(G, weight="weight") # deg. cent. doesn't take weight
+        # TODO: fix this, take weight to degree centrality.
+        if name is "Degree":
+            result = cent_f(G)
+        elif weighted:
+            result = cent_f(G, weight="weight") # deg. cent. doesn't take weight
+        else:
+            result = cent_f(G)
         res_list = sorted(list(result.items()), key=lambda x:x[1], reverse=True)
         for i in range(10):
             node_id, cent = res_list[i]
@@ -133,8 +139,9 @@ def analyze_attachment(gg, weighted=True):
     fname = "degree_distr_ccdf.pdf"
     plt.savefig(ANALYSIS_PATH + fname)
 
-def analyze_dynamics(gg, seq, weighted=True):
+def analyze_dynamics(gg, chronological=False, weighted=True):
     # geodesic_vs_degree
+    seq = get_section_sequence(chronological)
     out_csv_name = ANALYSIS_PATH + 'geodesic_vs_degree.csv'
     if not os.path.isdir(ANALYSIS_PATH):
         os.makedirs(ANALYSIS_PATH)
@@ -173,9 +180,6 @@ def analyze_dynamics(gg, seq, weighted=True):
             .format(seq[i], n, avg_degree, avg_len, num_components))
         writer.writerow([seq[i], n, avg_degree, avg_len, num_components, largest_component_size])
     csvf.close()
-    # plot results.
-    df = pd.read_csv(out_csv_name)
-    plot_df(df, "avg degree", "avg geodesic len")
 
 def make_plots():
     df = pd.read_csv(ANALYSIS_PATH + 'geodesic_vs_degree.csv')
@@ -183,14 +187,27 @@ def make_plots():
     plot_df(df, "n", "avg geodesic len", "Attachment: Log(n) vs Avg Geodesic Path", logx=True)
 
 if __name__ == "__main__":
+    chronological = False
+    weighted = True
+
+    parser = argparse.ArgumentParser(description="Analyze Infinite Jest")
+    parser.add_argument('--chrono', '-c', help="Analyze book in chronological order", action="store_true")
+    parser.add_argument('--binary_weights', '-b', help="Analyze book without edge weights (as binary undirected graph)", action="store_true")
+    parser.add_argument('--make_plots', '-p', help="Make plots", action="store_true")
+    args = parser.parse_args()
+    if args.chrono:
+        chronological = True
+    if args.binary_weights:
+        weighted = False
+
     print("Creating graphs")
     gg = Graphify()
 
     print("Analyzing book!")
-    #analyze_dynamics(gg, get_section_sequence())
-    #analyze_centralities(gg.G)
-    analyze_attachment(gg, weighted=False)
-    #make_plots()
-    #gg.web.draw()
+    analyze_dynamics(gg, chronological=chronological, weighted=weighted)
+    analyze_centralities(gg.G, weighted=weighted)
+    analyze_attachment(gg, weighted=weighted)
+    if args.make_plots:
+        make_plots()
 
 
