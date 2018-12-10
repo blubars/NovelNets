@@ -111,7 +111,7 @@ def handle_add_entity_attribute(entity, attribute):
     entities = get_entities()
 
     attribute_values = set()
-    for entity_attributes in entities.values():
+    for entity_attributes in [v['attributes'] for v in entities.values()]:
         value = entity_attributes.get(attribute, None)
 
         if value:
@@ -183,6 +183,10 @@ if __name__ == '__main__':
     # 89:   will require close reading. (which I haven't done)
     # 94:   ditto
     # remove 'John' from john wayne
+
+    # GlennK == Glenny Kubitz?
+    # Jennie Bash/Jennifer Belbin getting crossed?
+    # TinyEwell --> 
 
     if args.entities:
         sections_to_process = [i for i in sections if i not in processed_sections]
