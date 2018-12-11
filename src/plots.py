@@ -1,0 +1,195 @@
+import json
+import os
+import csv
+import analyze
+import argparse
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+from collections import defaultdict
+
+ANALYSIS_PATH = '../data/analysis/'
+PLOTS_PATH = '../data/plots/'
+
+#########################################################
+# Function definitions
+#########################################################
+def plot_df(df, x_name, y_name, title, logx=False):
+    fig = plt.figure(1)
+    X = df[x_name]
+    Y = df[y_name]
+    plt.plot(X, Y)
+    plt.title(title)
+    plt.ylabel(y_name)
+    plt.xlabel(x_name)
+    if logx:
+        plt.xscale('log')
+    plt.tight_layout()
+    fname = x_name.lower() + '_vs_' + y_name.lower() + ".png"
+    fname = fname.replace(" ", "_")
+    plt.savefig(os.path.join(PLOTS_PATH, fname))
+    plt.close(fig)
+
+def make_plots():
+    df = pd.read_csv(ANALYSIS_PATH + 'geodesic_vs_degree.csv')
+    plot_df(df, "avg degree", "avg geodesic len", "Attachment: Degree vs Avg Geodesic Path, By Section")
+    plot_df(df, "n", "avg geodesic len", "Attachment: Log(n) vs Avg Geodesic Path", logx=True)
+
+def plot_neighborhood_stabilities():
+    1
+
+def section_bars():
+    chronological = analyze.get_section_sequence(chronological=True)
+    booktime = analyze.get_section_sequence(chronological=False)
+
+        # Make a figure and axes with dimensions as desired.
+    fig = plt.figure(figsize=(8, 3))
+    ax1 = fig.add_axes([0.05, 0.80, 0.9, 0.15])
+    ax2 = fig.add_axes([0.05, 0.475, 0.9, 0.15])
+
+    rainbow = mpl.cm.rainbow(np.linspace(0, 1, 192))
+    norm = mpl.colors.Normalize(vmin=1, vmax=192)
+    bounds = [1, 192]
+
+    booktime = [None for _ in range(len(chronological))]
+    new_chronological = [i + 1 for i in range(len(chronological))]
+    for book, chrono in enumerate(chronological):
+        booktime[chrono - 1] = book + 1
+
+    chronological_colormap = [rainbow[i - 1] for i in new_chronological]
+
+    cb1 = mpl.colorbar.ColorbarBase(
+        ax1,
+        cmap=mpl.colors.ListedColormap(chronological_colormap),
+        norm=norm,
+        orientation='horizontal',
+        ticks=bounds,
+    )
+    cb1.set_label('chronological ordering')
+
+    booktime_colormap = [rainbow[i - 1] for i in booktime]
+
+    cb2 = mpl.colorbar.ColorbarBase(
+        ax2,
+        cmap=mpl.colors.ListedColormap(booktime_colormap),
+        norm=norm,
+        orientation='horizontal',
+        ticks=bounds,
+    )
+    cb2.set_label('book ordering')
+
+    plt.savefig(os.path.join(PLOTS_PATH, 'section_bars.png'))
+    plt.close(fig)
+
+
+def get_dynamics(chronological=True, weighted=True):
+    data_file_name = "dynamics-chronological_{}-weighted_{}.csv".format(chronological, weighted)
+    data_path = os.path.join(ANALYSIS_PATH, data_file_name)
+
+    if not os.path.exists(data_path):
+        print('no data!')
+        return
+
+    with open(data_path, 'r', newline='') as f:
+        reader = csv.reader(f, delimiter=',')
+
+        rows = []
+        header = None
+        for i, row in enumerate(reader):
+            if i == 0:
+                header = row
+            else:
+                row_dict = { header[key] : val for key, val in enumerate(row)}
+                row_dict['index'] = i - 1
+                rows.append(row_dict)
+    return rows
+
+def plot_dynamic(dynamic, booktime_data, chronological_data, yscale=None):
+    xs = [r['index'] for r in booktime_data]
+    chronological_avg_degrees = [float(r[dynamic]) for r in chronological_data]
+    booktime_avg_degrees = [float(r[dynamic]) for r in booktime_data]
+
+    fig = plt.figure(1)
+    plt.plot(chronological_avg_degrees, label='chronological')
+    plt.plot(booktime_avg_degrees, label='booktime')
+    plt.title("{} by section, chronological and booktime".format(dynamic))
+    plt.ylabel('average degree')
+    plt.xlabel('section index')
+
+    if yscale:
+        plt.yscale(yscale)
+
+    plt.xlim(0, 192)
+    plt.legend()
+    plt.tight_layout()
+
+    fname = "dynamics-{}.png".format(dynamic)
+    plt.savefig(os.path.join(PLOTS_PATH, fname))
+    plt.close(fig)
+
+def plot_dynamics():
+    booktime_rows = get_dynamics(chronological=False)
+    chronological_rows = get_dynamics(chronological=True)
+
+    plot_dynamic('avg degree', booktime_rows, chronological_rows)
+    plot_dynamic('avg geodesic len', booktime_rows, chronological_rows)
+    plot_dynamic('num components', booktime_rows, chronological_rows)
+    plot_dynamic('largest component size', booktime_rows, chronological_rows)
+    plot_dynamic('n', booktime_rows, chronological_rows)
+
+def get_neighborhood_scene_stabilities(chronological):
+    with open(os.path.join(ANALYSIS_PATH, 'neighborhood_stabilities-chronological_{}.json'.format(chronological)), 'r') as f:
+        stabilities = json.load(f)
+
+    scene_stabilities = defaultdict(list)
+
+    for entity, stability_vals in stabilities.items():
+        for stability_val in stability_vals:
+            scene = stability_val[1]
+            stability = float(stability_val[2])
+
+            scene_stabilities[scene].append(stability)
+
+    avg_scene_stabilities = [0 for _ in range(1, 193)]
+    for scene, scene_stabilities in scene_stabilities.items():
+        avg_scene_stabilities[scene] = sum(scene_stabilities) / len(scene_stabilities)
+
+    return avg_scene_stabilities
+
+def plot_neighborhoods():
+    chronological_scene_stabilities = get_neighborhood_scene_stabilities(True)
+    booktime_scene_stabilities = get_neighborhood_scene_stabilities(False)
+        
+
+    plt.plot(chronological_scene_stabilities, label='chronological')
+    plt.plot(booktime_scene_stabilities, label='booktime')
+    plt.title("neighborhood stability by entity")
+    plt.ylabel("neighborhood stability")
+    plt.xlabel("scene index")
+    plt.legend()
+    # plt.tight_layout()
+    # fname = "degree_distr_ccdf.pdf"
+    # plt.savefig(ANALYSIS_PATH + fname)
+    plt.show()
+
+    1
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Plot Infinite Jest")
+    parser.add_argument('--section_bars', '-s', default=False, action="store_true", help="create the section bars")
+    parser.add_argument('--make_plots', '-p', help="Make plots", action="store_true")
+    parser.add_argument('--dynamics', '-d', help="plot dynamics", action="store_true")
+    parser.add_argument('--neighborhoods', '-n', help="plot dynamics", action="store_true")
+
+    args = parser.parse_args()
+
+    if args.section_bars:
+        section_bars()
+
+    if args.dynamics:
+        plot_dynamics()
+
+    if args.neighborhoods:
+        plot_neighborhoods()
