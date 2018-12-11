@@ -258,7 +258,7 @@ def display_chronologicality():
     booktime = [None for _ in range(len(chronological))]
     new_chronological = [i + 1 for i in range(len(chronological))]
     for book, chrono in enumerate(chronological):
-        booktime[chrono - 1] = book
+        booktime[chrono - 1] = book + 1
 
     chronological_colormap = [rainbow[i - 1] for i in new_chronological]
 
