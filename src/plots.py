@@ -116,7 +116,7 @@ def plot_dynamic(dynamic, booktime_data, chronological_data, yscale=None):
     plt.plot(chronological_avg_degrees, label='chronological')
     plt.plot(booktime_avg_degrees, label='booktime')
     plt.title("{} by section, chronological and booktime".format(dynamic))
-    plt.ylabel('average degree')
+    plt.ylabel('{}'.format(dynamic))
     plt.xlabel('section index')
 
     if yscale:
@@ -171,6 +171,7 @@ def plot_neighborhoods():
     plt.xlabel("scene index")
     plt.legend()
     plt.tight_layout()
+    plt.show()
     plt.savefig(os.path.join(PLOTS_PATH, 'neighborhood.png'))
     plt.close(fig)
 

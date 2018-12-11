@@ -118,7 +118,9 @@ def analyze_modularity(G):
 
     print("Greedy Modularity:")
     communities = greedy_modularity_communities(G, weight="weight")
+    print(communities)
     print("Num communities:{}".format(len(communities)))
+    return communities
     #algos.draw_partition_graph(G, communities)
 
 def analyze_neighborhood(gg, chronological=False):
@@ -238,9 +240,9 @@ if __name__ == "__main__":
     # analyze_dynamics(gg, chronological=args.chronological, weighted=weighted)
     # analyze_centralities(gg.G, weighted=weighted)
     # analyze_assortativity(gg.G)
-    # analyze_modularity(gg.G)
+    analyze_modularity(gg.G)
 
-    analyze_neighborhood(gg, chronological=False)
-    analyze_neighborhood(gg, chronological=True)
+    # analyze_neighborhood(gg, chronological=False)
+    # analyze_neighborhood(gg, chronological=True)
     # display_chronologicality()
     # analyze_attachment(gg, weighted=weighted)

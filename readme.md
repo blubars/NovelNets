@@ -6,7 +6,7 @@ https://github.com/hneutr/webweb
 
 # Todo:
 ## Static-Network Analysis:
-0. small-world property (meh, used in dynamic analysis)
+1. small-world property (meh, used in dynamic analysis)
 2. modularity: 
     a. community structure (greedy agg), Normalized Mutual Information
     b. assortativity: degree, gender, association.
@@ -27,21 +27,21 @@ https://github.com/hneutr/webweb
         - perhaps try varying definition of discrete time: sections/pages/tokens
 
 ## Other:
-- Coreference resolution
-- start adding entity attributes
-- CENTRAL QUESTIONS:
-    - why is the book structured this way?
-    - does the graph's structure reflect common knowledge about the book?
-        - e.g. criticisms: gender power imbalance
-- ANALYSIS to address above questions:
-    - Centralities: main characters
-    - Assortativity: degree, gender, age
-        - modularity: community structures
-    - Dynamics: 
-        - graph avg degree vs mean geodesic path per section
-        - compare chronological vs authored order
-        - compare dynamics across different windows & smoothing?
-    - momentum -- what causes it?
+    - Coreference resolution
+    - start adding entity attributes
+    - CENTRAL QUESTIONS:
+      - why is the book structured this way?
+      - does the graph's structure reflect common knowledge about the book?
+          - e.g. criticisms: gender power imbalance
+    - ANALYSIS to address above questions:
+      - Centralities: main characters
+      - Assortativity: degree, gender, age
+          - modularity: community structures
+      - Dynamics: 
+          - graph avg degree vs mean geodesic path per section
+            - compare chronological vs authored order
+          - compare dynamics across different windows & smoothing?
+      - momentum -- what causes it?
 
 # Done!
 Analyses:
