@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
 import copy
+from collections import defaultdict
 from networkx.algorithms.community.quality import modularity
 
 ########################
@@ -102,4 +103,42 @@ def weighted_degree_centrality(G, weight=None):
         s = 1 / (len(G) - 1)
         centrality = {n: k * s for n, k in G.degree()}
     return centrality
+
+
+########################
+# Neighborhood stability functions
+########################
+def neighborhood_stabilities(gg, seq):
+    # for each character:
+    # - find the set of scenes that have that character
+    #   - for each consecutive scene
+    #       - calculate the shared neighbors between those two scenes
+
+    previous_neighbors = {}
+    stabilities = defaultdict(list)
+    previous_scenes = defaultdict(list)
+
+    for current_scene, G in enumerate(gg.graph_by_sections(seq, aggregate=False)):
+        current_neighbors = { n: set(G.neighbors(n)) for n in G.nodes() }
+
+        for node in G.nodes():
+            if node in previous_neighbors:
+                stability = calculate_neighborhood_stability(previous_neighbors[node], current_neighbors[node])
+
+                stabilities[node].append((previous_scenes[node][-1], current_scene, stability))
+
+        for node in G.nodes():
+            previous_neighbors[node] = current_neighbors[node]
+            previous_scenes[node].append(current_scene)
+
+    return stabilities
+
+def calculate_neighborhood_stability(previous_neighbors, current_neighbors):
+    numerator = len(previous_neighbors.intersection(current_neighbors))
+    denominator = (len(previous_neighbors) * len(current_neighbors)) ** .5
+
+    if not denominator:
+        denominator = 1
+
+    return numerator / denominator
 

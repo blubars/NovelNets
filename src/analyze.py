@@ -18,6 +18,7 @@ import os
 import csv
 import networkx as nx
 import argparse
+import numpy as np
 from networkx.algorithms.community import greedy_modularity_communities
 import algorithms as algos
 from graphify import Graphify
@@ -118,6 +119,32 @@ def analyze_modularity(G):
     print("Num communities:{}".format(len(communities)))
     #algos.draw_partition_graph(G, communities)
 
+def analyze_neighborhood(gg):
+    print("Neighborhood stability:")
+    seq = get_section_sequence()
+    print(seq)
+    stabilities = algos.neighborhood_stabilities(gg, seq)
+
+    print(len([x for x in stabilities.values() if len(x) > 30]))
+
+    fig = plt.figure(1)
+    for entity, vals in stabilities.items():
+        if len(vals) > 25:
+            xs = [v[1] for v in vals]
+            ys = [v[2] for v in vals]
+            plt.plot(xs, ys, label=entity)
+        
+
+    # plt.loglog(bins, cumbins)
+    plt.title("neighborhood stability by entity")
+    plt.ylabel("neighborhood stability")
+    plt.xlabel("scene index")
+    # plt.legend()
+    # plt.tight_layout()
+    # fname = "degree_distr_ccdf.pdf"
+    # plt.savefig(ANALYSIS_PATH + fname)
+    plt.show()
+
 def get_section_sequence(chronological=False):
     return get_chronological_order() if chronological else range(1, TOTAL_NUM_SECTIONS+1)
 
@@ -183,6 +210,48 @@ def analyze_dynamics(gg, chronological=False, weighted=True):
         writer.writerow([seq[i], n, avg_degree, avg_len, num_components, largest_component_size])
     csvf.close()
 
+def display_chronologicality():
+    chronological = get_section_sequence(chronological=True)
+    booktime = get_section_sequence(chronological=False)
+
+        # Make a figure and axes with dimensions as desired.
+    fig = plt.figure(figsize=(8, 3))
+    ax1 = fig.add_axes([0.05, 0.80, 0.9, 0.15])
+    ax2 = fig.add_axes([0.05, 0.475, 0.9, 0.15])
+
+    rainbow = matplotlib.cm.rainbow(np.linspace(0, 1, 192))
+    norm = matplotlib.colors.Normalize(vmin=1, vmax=192)
+    bounds = [1, 192]
+
+    booktime = [None for _ in range(len(chronological))]
+    new_chronological = [i + 1 for i in range(len(chronological))]
+    for book, chrono in enumerate(chronological):
+        booktime[chrono - 1] = book + 1
+
+    chronological_colormap = [rainbow[i - 1] for i in new_chronological]
+
+    cb1 = matplotlib.colorbar.ColorbarBase(
+        ax1,
+        cmap=matplotlib.colors.ListedColormap(chronological_colormap),
+        norm=norm,
+        orientation='horizontal',
+        ticks=bounds,
+    )
+    cb1.set_label('chronological ordering')
+
+    booktime_colormap = [rainbow[i - 1] for i in booktime]
+
+    cb2 = matplotlib.colorbar.ColorbarBase(
+        ax2,
+        cmap=matplotlib.colors.ListedColormap(booktime_colormap),
+        norm=norm,
+        orientation='horizontal',
+        ticks=bounds,
+    )
+    cb2.set_label('book ordering')
+
+    plt.show()
+
 
 def analyze_edge_distance_thresh():
     # Edge distance thresh impacts every part of the graph.
@@ -223,11 +292,15 @@ if __name__ == "__main__":
     gg = Graphify()
 
     print("Analyzing book!")
-    # analyze_dynamics(gg, chronological=chronological, weighted=weighted)
+    analyze_dynamics(gg, chronological=chronological, weighted=weighted)
     analyze_centralities(gg.G, weighted=weighted)
     analyze_assortativity(gg.G)
     analyze_modularity(gg.G)
-    analyze_attachment(gg, weighted=weighted)
+    # analyze_neighborhood(gg)
+    display_chronologicality()
+    # analyze_attachment(gg, weighted=weighted)
+
     if args.make_plots:
         plots.make_plots(ANALYSIS_PATH)
+
 
