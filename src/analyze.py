@@ -16,10 +16,14 @@
 import json
 import os
 import csv
-import networkx as nx
 import argparse
 import numpy as np
+import networkx as nx
 from networkx.algorithms.community import greedy_modularity_communities
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
 import algorithms as algos
 from graphify import Graphify
 from utils import get_sections_path
@@ -214,7 +218,7 @@ def display_chronologicality():
     chronological = get_section_sequence(chronological=True)
     booktime = get_section_sequence(chronological=False)
 
-        # Make a figure and axes with dimensions as desired.
+    # Make a figure and axes with dimensions as desired.
     fig = plt.figure(figsize=(8, 3))
     ax1 = fig.add_axes([0.05, 0.80, 0.9, 0.15])
     ax2 = fig.add_axes([0.05, 0.475, 0.9, 0.15])
@@ -292,13 +296,13 @@ if __name__ == "__main__":
     gg = Graphify()
 
     print("Analyzing book!")
-    analyze_dynamics(gg, chronological=chronological, weighted=weighted)
+    #analyze_dynamics(gg, chronological=chronological, weighted=weighted)
     analyze_centralities(gg.G, weighted=weighted)
     analyze_assortativity(gg.G)
     analyze_modularity(gg.G)
     # analyze_neighborhood(gg)
-    display_chronologicality()
-    # analyze_attachment(gg, weighted=weighted)
+    #display_chronologicality()
+    analyze_attachment(gg, weighted=weighted)
 
     if args.make_plots:
         plots.make_plots(ANALYSIS_PATH)
