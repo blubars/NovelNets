@@ -7,7 +7,6 @@ https://github.com/hneutr/webweb
 # Todo:
 ## Static-Network Analysis:
 0. small-world property (meh, used in dynamic analysis)
-1. centrality
 2. modularity: 
     a. community structure (greedy agg), Normalized Mutual Information
     b. assortativity: degree, gender, association.
@@ -45,6 +44,14 @@ https://github.com/hneutr/webweb
       - momentum -- what causes it?
 
 # Done!
+Analyses:
+  Static:
+    1. Centralities
+    2. Assortativities
+    3. Modularity
+  Dynamic:
+
+
 - find entities by section:
     - run graphify for a given section (1-192)
         - brian: 1-50

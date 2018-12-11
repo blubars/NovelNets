@@ -16,14 +16,13 @@
 import json
 import os
 import csv
-import pandas as pd
 import networkx as nx
-import matplotlib
-import matplotlib.pyplot as plt
 import argparse
-
+from networkx.algorithms.community import greedy_modularity_communities
+import algorithms as algos
 from graphify import Graphify
 from utils import get_sections_path
+import plots
 
 #########################################################
 # Globals
@@ -35,23 +34,6 @@ TOTAL_NUM_SECTIONS = 192
 #########################################################
 # Function definitions
 #########################################################
-def plot_df(df, x_name, y_name, title, logx=False):
-    fig = plt.figure(1)
-    X = df[x_name]
-    Y = df[y_name]
-    plt.scatter(X, Y)
-    plt.plot(X, Y)
-    plt.title(title)
-    plt.ylabel(y_name)
-    plt.xlabel(x_name)
-    if logx:
-        plt.xscale('log')
-    plt.tight_layout()
-    fname = x_name.lower() + '_vs_' + y_name.lower() + ".pdf"
-    fname = fname.replace(" ", "_")
-    plt.savefig(ANALYSIS_PATH + fname)
-    plt.close(fig)
-
 def get_chronological_order():
     # read json files to extract chronological sect order
     with open("../data/chronology.json", 'r') as f:
@@ -84,20 +66,20 @@ def get_chronological_order():
         print("Num set(sections):{}".format(num_unique_sects))
     return sections
 
+
 def analyze_centralities(G, weighted=True):
     # centrality measures
     centralities = [
-        (nx.degree_centrality, "Degree"),
-        (nx.betweenness_centrality, "Betweenness"),
-        (nx.eigenvector_centrality, "Eigenvector")
+        (nx.degree_centrality, "Degree", False),
+        (algos.weighted_degree_centrality, "Weighted Degree", True),
+        (nx.betweenness_centrality, "Betweenness", weighted),
+        (nx.eigenvector_centrality, "Eigenvector", weighted),
+        (nx.harmonic_centrality, "Harmonic (unweighted)", False)
     ]
-    for cent_f, name in centralities:
+    for cent_f, name, weight_param in centralities:
         print("Top 10 {} Centrality:".format(name))
-        # TODO: fix this, take weight to degree centrality.
-        if name is "Degree":
-            result = cent_f(G)
-        elif weighted:
-            result = cent_f(G, weight="weight") # deg. cent. doesn't take weight
+        if weight_param:
+            result = cent_f(G, weight="weight")
         else:
             result = cent_f(G)
         res_list = sorted(list(result.items()), key=lambda x:x[1], reverse=True)
@@ -107,8 +89,38 @@ def analyze_centralities(G, weighted=True):
             print(" [{}] {}({}): {}".format(i, node_name, node_id, cent))
         print()
 
+
+def analyze_assortativity(G):
+    # Degree Assortativity
+    result = nx.degree_assortativity_coefficient(G, weight="weight")
+    print("Degree Assortativity Assorativity: {}".format(result))
+    print()
+
+    # Gender Associativity
+    result = nx.attribute_assortativity_coefficient(G, "gender")
+    print("Gender Assortativity Assorativity: {}".format(result))
+    print()
+
+    # Association Associativity
+    result = nx.attribute_assortativity_coefficient(G, "association")
+    print("Association Assortativity Assorativity: {}".format(result))
+    print()
+
+
+def analyze_modularity(G):
+    print("Agglomerative Modularity:")
+    # partitions, modularities = algos.agglomerative_modularity(G)
+    # algos.draw_partition_graph(G, partitions)
+    # algos.draw_modularity_plot(modularities)
+
+    print("Greedy Modularity:")
+    communities = greedy_modularity_communities(G, weight="weight")
+    print("Num communities:{}".format(len(communities)))
+    #algos.draw_partition_graph(G, communities)
+
 def get_section_sequence(chronological=False):
-    return get_chronological_order() if chronological else range(1,TOTAL_NUM_SECTIONS+1)
+    return get_chronological_order() if chronological else range(1, TOTAL_NUM_SECTIONS+1)
+
 
 def analyze_attachment(gg, weighted=True):
     # does degree distribution follow a power law?
@@ -119,26 +131,8 @@ def analyze_attachment(gg, weighted=True):
         ks = sorted((k for (node,k) in gg.G.degree(weight='weight')), reverse=True)
     else:
         ks = sorted((k for (node,k) in gg.G.degree()), reverse=True)
-    #for section in range(0, len(ks)+1, 2):
-    #for G in gg.graph_by_sections(seq, aggregate=True):
-    fig = plt.figure(1)
-    bins = [k+1 for k in range(max(ks)+1)]
-    cumbins = [0 for k in range(max(ks)+1)]
-    for k in ks:
-        cumbins[k] += 1
-    print("Nodes with 0 citations: {}%".format(cumbins[k]/len(cumbins)))
-    for i in range(len(cumbins)-2, -1, -1):
-        cumbins[i] = (cumbins[i+1] + cumbins[i])
-    for i in range(len(cumbins)):
-        cumbins[i] /= len(cumbins)
-    plt.loglog(bins, cumbins)
-    plt.title("Degree Distribution CCDF")
-    plt.ylabel("Compl. Cumulative Distr Function")
-    plt.xlabel("Degree, $k$")
-    plt.legend()
-    plt.tight_layout()
-    fname = "degree_distr_ccdf.pdf"
-    plt.savefig(ANALYSIS_PATH + fname)
+    outfile = ANALYSIS_PATH + "degree_distr_ccdf.pdf"
+    plots.plot_ccdf(ks, outfile)
 
 def open_csv_file(name):
     out_csv_name = ANALYSIS_PATH + name
@@ -216,15 +210,6 @@ def analyze_edge_distance_thresh():
     csvf.close()
 
 
-def make_plots():
-    #df = pd.read_csv(ANALYSIS_PATH + 'geodesic_vs_degree.csv')
-    #plot_df(df, "avg degree", "avg geodesic len", "Attachment: Degree vs Avg Geodesic Path, By Section")
-    #plot_df(df, "n", "avg geodesic len", "Attachment: Log(n) vs Avg Geodesic Path", logx=True)
-    df = pd.read_csv(ANALYSIS_PATH + 'edge_dist_analysis.csv')
-    plot_df(df, "thresh", "GC size", "Threshold choice: Giant Component Size")
-    plot_df(df, "thresh", "avg clustering", "Threshold choice: Clustering Coefficient")
-    plot_df(df, "thresh", "mean weighted degree", "Threshold choice: Weighted Mean Degree")
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Analyze Infinite Jest")
     parser.add_argument('--chrono', '-c', help="Analyze book in chronological order", action="store_true")
@@ -234,15 +219,15 @@ if __name__ == "__main__":
     chronological = True if args.chrono else False
     weighted = False if args.unweighted else True
 
-    print("Creating graphs")
+    print("Creating graphs!")
     gg = Graphify()
 
     print("Analyzing book!")
-    #analyze_edge_distance_thresh()
-    #analyze_dynamics(gg, chronological=chronological, weighted=weighted)
-    #analyze_centralities(gg.G, weighted=weighted)
-    #analyze_attachment(gg, weighted=weighted)
+    # analyze_dynamics(gg, chronological=chronological, weighted=weighted)
+    analyze_centralities(gg.G, weighted=weighted)
+    analyze_assortativity(gg.G)
+    analyze_modularity(gg.G)
+    analyze_attachment(gg, weighted=weighted)
     if args.make_plots:
-        make_plots()
-
+        plots.make_plots(ANALYSIS_PATH)
 

@@ -8,8 +8,9 @@ import hashlib
 
 
 def get_entities_hash():
-    entities_string = json.dumps(get_entities()).encode('ascii', 'ignore')
-    entities_hash = hashlib.md5(entities_string).hexdigest()
+    with open(get_entities_path(), 'rb') as f:
+        data = f.read()
+    entities_hash = hashlib.md5(data).hexdigest()
     return entities_hash
 
 def get_entities():
