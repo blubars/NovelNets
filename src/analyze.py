@@ -16,16 +16,17 @@
 import json
 import os
 import csv
-import pandas as pd
-import networkx as nx
-import matplotlib
-import matplotlib.pyplot as plt
 import argparse
 import numpy as np
+import networkx as nx
 from networkx.algorithms.community import greedy_modularity_communities
+import matplotlib
+import matplotlib.pyplot as plt
+
 import algorithms as algos
 from graphify import Graphify
 from utils import get_sections_path
+import plots
 
 #########################################################
 # Globals
@@ -33,6 +34,9 @@ from utils import get_sections_path
 ANALYSIS_PATH = '../data/analysis/'
 TOTAL_NUM_SECTIONS = 192
 
+#########################################################
+# Function definitions
+#########################################################
 def get_chronological_order():
     # read json files of chronological order
     with open("../data/chronology.json", 'r') as f:
@@ -69,19 +73,16 @@ def get_chronological_order():
 def analyze_centralities(G, weighted=True):
     # centrality measures
     centralities = [
-        (nx.degree_centrality, "Degree"),
-        (algos.weighted_degree_centrality, "Weighted Degree"),
-        (nx.betweenness_centrality, "Betweenness"),
-        (nx.eigenvector_centrality, "Eigenvector"),
-        (nx.harmonic_centrality, "Harmonic")
+        (nx.degree_centrality, "Degree", False),
+        (algos.weighted_degree_centrality, "Weighted Degree", True),
+        (nx.betweenness_centrality, "Betweenness", weighted),
+        (nx.eigenvector_centrality, "Eigenvector", weighted),
+        (nx.harmonic_centrality, "Harmonic (unweighted)", False)
     ]
-    for cent_f, name in centralities:
+    for cent_f, name, weight_param in centralities:
         print("Top 10 {} Centrality:".format(name))
-        # TODO: fix this, take weight to degree centrality.
-        if name is "Degree" or "Weighted Degree":
-            result = cent_f(G)
-        elif weighted:
-            result = cent_f(G, weight="weight") # deg. cent. doesn't take weight
+        if weight_param:
+            result = cent_f(G, weight="weight")
         else:
             result = cent_f(G)
         res_list = sorted(list(result.items()), key=lambda x:x[1], reverse=True)
@@ -117,8 +118,8 @@ def analyze_modularity(G):
 
     print("Greedy Modularity:")
     communities = greedy_modularity_communities(G, weight="weight")
-    print(len(communities))
-    algos.draw_partition_graph(G, communities)
+    print("Num communities:{}".format(len(communities)))
+    #algos.draw_partition_graph(G, communities)
 
 def analyze_neighborhood(gg, chronological=False):
     print("Neighborhood stability:")
@@ -140,38 +141,30 @@ def analyze_attachment(gg, weighted=True):
         ks = sorted((k for (node,k) in gg.G.degree(weight='weight')), reverse=True)
     else:
         ks = sorted((k for (node,k) in gg.G.degree()), reverse=True)
-    #for section in range(0, len(ks)+1, 2):
-    #for G in gg.graph_by_sections(seq, aggregate=True):
-    fig = plt.figure(1)
-    bins = [k+1 for k in range(max(ks)+1)]
-    cumbins = [0 for k in range(max(ks)+1)]
-    for k in ks:
-        cumbins[k] += 1
-    print("Nodes with 0 citations: {}%".format(cumbins[k]/len(cumbins)))
-    for i in range(len(cumbins)-2, -1, -1):
-        cumbins[i] = (cumbins[i+1] + cumbins[i])
-    for i in range(len(cumbins)):
-        cumbins[i] /= len(cumbins)
-    plt.loglog(bins, cumbins)
-    plt.title("Degree Distribution CCDF")
-    plt.ylabel("Compl. Cumulative Distr Function")
-    plt.xlabel("Degree, $k$")
-    plt.legend()
-    plt.tight_layout()
-    fname = "degree_distr_ccdf.pdf"
-    plt.savefig(ANALYSIS_PATH + fname)
+    outfile = ANALYSIS_PATH + "degree_distr_ccdf.pdf"
+    plots.plot_ccdf(ks, outfile)
 
-def analyze_dynamics(gg, chronological=False, weighted=True):
-    seq = get_section_sequence(chronological)
-    out_csv_name = ANALYSIS_PATH + 'dynamics-chronological_{}-weighted_{}.csv'.format(chronological, weighted)
+def open_csv_file(name):
+    out_csv_name = os.path.join(ANALYSIS_PATH, name)
     if not os.path.isdir(ANALYSIS_PATH):
         os.makedirs(ANALYSIS_PATH)
     try:
         csvf = open(out_csv_name, 'w', newline='')
-        writer = csv.writer(csvf)
+        return csvf
     except:
-        print("Failed to create csv file, quitting")
+        print("Failed to create csv file")
+        return None
+
+def analyze_dynamics(gg, chronological=False, weighted=True):
+    seq = get_section_sequence(chronological)
+    out_csv_name = ANALYSIS_PATH + 'dynamics-chronological_{}-weighted_{}.csv'.format(chronological, weighted)
+
+    # geodesic_vs_degree
+    seq = get_section_sequence(chronological)
+    csvf = open_csv_file(out_csv_name)
+    if not csvf:
         return
+    writer = csv.writer(csvf)
     writer.writerow(["Section", "n", "avg degree", "avg geodesic len", "num components", "largest component size"])
 
     # for each section, calculate avg degree & mean geodesic
@@ -183,10 +176,11 @@ def analyze_dynamics(gg, chronological=False, weighted=True):
         except nx.NetworkXError:
             avg_len = 0
             num_components = 0
-            for ci,C in enumerate(nx.connected_component_subgraphs(G)):
-                ni = nx.number_of_nodes(C)
+            for ci,C in enumerate(nx.connected_components(G)):
+                ni = len(C)
                 if ni > largest_component[1]:
-                    avg_len = nx.average_shortest_path_length(C, weight="weight")
+                    subG = G.subgraph(C)
+                    avg_len = nx.average_shortest_path_length(subG, weight="weight")
                     largest_component = (ci, ni)
                 num_components += 1
 
@@ -201,8 +195,32 @@ def analyze_dynamics(gg, chronological=False, weighted=True):
             .format(seq[i], n, avg_degree, avg_len, num_components))
         writer.writerow([seq[i], n, avg_degree, avg_len, num_components, largest_component_size])
     csvf.close()
-
     
+def analyze_edge_distance_thresh():
+    # Edge distance thresh impacts every part of the graph.
+    # Higher the threshold, more dense and connected graph is.
+    # Lower, less dense. Want to be lower so we can see 'real' connections
+    # So, want to pick minimum viable threshold. Can decide by graphing.
+    # Look for a phase transition.
+    csvf = open_csv_file('edge_dist_analysis.csv')
+    if not csvf:
+        return
+    writer = csv.writer(csvf)
+    writer.writerow(["thresh", "n", "avg clustering", "num components", "GC size", "mean degree", "mean weighted degree"])
+
+    threshs = [1, 2, 3, 5, 10, 15, 20, 50, 100, 200, 500]
+    for thresh in threshs:
+        g = Graphify(edge_thresh=thresh, edge_repeat_thresh=0, force_reload=True, autosave=False)
+        largest_component = max(nx.connected_components(g.G), key=len)
+        n = nx.number_of_nodes(g.G)
+        avg_clus = nx.average_clustering(g.G)
+        num_comp = nx.number_connected_components(g.G)
+        gc_size = len(largest_component)
+        mean_deg = sum(v for k,v in g.G.degree()) / n
+        weighted_mean_deg = sum(v for k,v in g.G.degree(weight='weight')) / n
+        writer.writerow([thresh, n, avg_clus, num_comp, gc_size, mean_deg, weighted_mean_deg])
+    csvf.close()
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Analyze Infinite Jest")

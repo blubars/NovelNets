@@ -3,8 +3,8 @@ import os
 import csv
 import analyze
 import argparse
-import matplotlib as mpl
 import matplotlib.pyplot as plt
+import matplotlib
 import numpy as np
 import pandas as pd
 
@@ -49,8 +49,8 @@ def section_bars():
     ax1 = fig.add_axes([0.05, 0.80, 0.9, 0.15])
     ax2 = fig.add_axes([0.05, 0.475, 0.9, 0.15])
 
-    rainbow = mpl.cm.rainbow(np.linspace(0, 1, 192))
-    norm = mpl.colors.Normalize(vmin=1, vmax=192)
+    rainbow = matplotlib.cm.rainbow(np.linspace(0, 1, 192))
+    norm = matplotlib.colors.Normalize(vmin=1, vmax=192)
     bounds = [1, 192]
 
     booktime = [None for _ in range(len(chronological))]
@@ -60,9 +60,9 @@ def section_bars():
 
     chronological_colormap = [rainbow[i - 1] for i in new_chronological]
 
-    cb1 = mpl.colorbar.ColorbarBase(
+    cb1 = matplotlib.colorbar.ColorbarBase(
         ax1,
-        cmap=mpl.colors.ListedColormap(chronological_colormap),
+        cmap=matplotlib.colors.ListedColormap(chronological_colormap),
         norm=norm,
         orientation='horizontal',
         ticks=bounds,
@@ -71,9 +71,9 @@ def section_bars():
 
     booktime_colormap = [rainbow[i - 1] for i in booktime]
 
-    cb2 = mpl.colorbar.ColorbarBase(
+    cb2 = matplotlib.colorbar.ColorbarBase(
         ax2,
-        cmap=mpl.colors.ListedColormap(booktime_colormap),
+        cmap=matplotlib.colors.ListedColormap(booktime_colormap),
         norm=norm,
         orientation='horizontal',
         ticks=bounds,
@@ -81,6 +81,7 @@ def section_bars():
     cb2.set_label('book ordering')
 
     plt.savefig(os.path.join(PLOTS_PATH, 'section_bars.png'))
+    plt.show()
     plt.close(fig)
 
 
@@ -161,20 +162,17 @@ def get_neighborhood_scene_stabilities(chronological):
 def plot_neighborhoods():
     chronological_scene_stabilities = get_neighborhood_scene_stabilities(True)
     booktime_scene_stabilities = get_neighborhood_scene_stabilities(False)
-        
 
+    fig = plt.figure(1)
     plt.plot(chronological_scene_stabilities, label='chronological')
     plt.plot(booktime_scene_stabilities, label='booktime')
     plt.title("neighborhood stability by entity")
     plt.ylabel("neighborhood stability")
     plt.xlabel("scene index")
     plt.legend()
-    # plt.tight_layout()
-    # fname = "degree_distr_ccdf.pdf"
-    # plt.savefig(ANALYSIS_PATH + fname)
-    plt.show()
-
-    1
+    plt.tight_layout()
+    plt.savefig(os.path.join(PLOTS_PATH, 'neighborhood.png'))
+    plt.close(fig)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Plot Infinite Jest")

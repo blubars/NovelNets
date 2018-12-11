@@ -1,3 +1,4 @@
+import matplotlib
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
@@ -8,8 +9,6 @@ from networkx.algorithms.community.quality import modularity
 ########################
 # Modularity Functions #
 ########################
-
-
 def draw_partition_graph(G, partitions):
     plt.rc('axes.formatter', useoffset=False)
     pos = nx.spring_layout(G) # positions for all nodes
@@ -90,12 +89,16 @@ def agglomerative_modularity(G):
 ########################
 
 
-def weighted_degree_centrality(G):
+def weighted_degree_centrality(G, weight=None):
     if len(G) <= 1:
         return {n: 1 for n in G}
 
-    s = 1 / sum([e[2] for e in G.edges(data="weight", default=0)])
-    centrality = {n: w * s for n, w in G.degree(weight="weight")}
+    if weight:
+        s = 1 / sum([e[2] for e in G.edges(data="weight", default=0)])
+        centrality = {n: w * s for n, w in G.degree(weight="weight")}
+    else:
+        s = 1 / (len(G) - 1)
+        centrality = {n: k * s for n, k in G.degree()}
     return centrality
 
 

@@ -149,7 +149,7 @@ def add_node_attributes(G, entities, entity):
 
 
 class Graphify:
-    def __init__(self, edge_thresh=300, edge_repeat_thresh=50, data_path=SAVE_GRAPH_PATH, sections=range(1, 193)):
+    def __init__(self, edge_thresh=300, edge_repeat_thresh=50, data_path=SAVE_GRAPH_PATH, sections=range(1, 193), force_reload=False, autosave=True):
         self.G = nx.Graph()
         self.people = set()
         self.unused_id = 0
@@ -168,22 +168,27 @@ class Graphify:
 
         self.data_path = data_path
 
-        self.restore_state()
+        # either load from saved state or regenerate.
+        state_changed = self.restore_state(force_reload)
 
-    def restore_state(self):
-        regenerate = self.should_regenerate()
+        # save if state changed.
+        if autosave and state_changed:
+            self.save()
+
+    def restore_state(self, force_reload):
+        regenerate = 'all' if force_reload else self.should_regenerate()
         if regenerate == 'none':
             self.load()
+            state_changed = False
         else:
             if regenerate == 'all':
                 self.process_book()
             elif regenerate == 'edges':
                 self.load_matches()
-
                 for section_number in self.sections:
                     self.create_section_graph(section_number)
-
-            self.save()
+            state_changed = True
+        return state_changed
 
     def process_book(self):
         for section_number in self.sections:
@@ -434,7 +439,7 @@ class Graphify:
         for i in self.sections:
             with open(self.get_section_matches_path(i), 'r') as f:
                 matches = json.load(f)
-            
+
             self.matches_sequence.append([ner.Match(**match) for match in matches])
 
         with open(self.document_lengths_path, 'r') as f:
