@@ -39,6 +39,7 @@ def plot_df(df, x_name, y_name, title, logx=False):
     fig = plt.figure(1)
     X = df[x_name]
     Y = df[y_name]
+    plt.scatter(X, Y)
     plt.plot(X, Y)
     plt.title(title)
     plt.ylabel(y_name)
@@ -139,18 +140,24 @@ def analyze_attachment(gg, weighted=True):
     fname = "degree_distr_ccdf.pdf"
     plt.savefig(ANALYSIS_PATH + fname)
 
-def analyze_dynamics(gg, chronological=False, weighted=True):
-    # geodesic_vs_degree
-    seq = get_section_sequence(chronological)
-    out_csv_name = ANALYSIS_PATH + 'geodesic_vs_degree.csv'
+def open_csv_file(name):
+    out_csv_name = ANALYSIS_PATH + name
     if not os.path.isdir(ANALYSIS_PATH):
         os.makedirs(ANALYSIS_PATH)
     try:
         csvf = open(out_csv_name, 'w', newline='')
-        writer = csv.writer(csvf)
+        return csvf
     except:
-        print("Failed to create csv file, quitting")
+        print("Failed to create csv file")
+        return None
+
+def analyze_dynamics(gg, chronological=False, weighted=True):
+    # geodesic_vs_degree
+    seq = get_section_sequence(chronological)
+    csvf = open_csv_file('geodesic_vs_degree.csv')
+    if not csvf:
         return
+    writer = csv.writer(csvf)
     writer.writerow(["Section", "n", "avg degree", "avg geodesic len", "num components", "largest component size"])
 
     # for each section, calculate avg degree & mean geodesic
@@ -162,10 +169,11 @@ def analyze_dynamics(gg, chronological=False, weighted=True):
         except nx.NetworkXError:
             avg_len = 0
             num_components = 0
-            for ci,C in enumerate(nx.connected_component_subgraphs(G)):
-                ni = nx.number_of_nodes(C)
+            for ci,C in enumerate(nx.connected_components(G)):
+                ni = len(C)
                 if ni > largest_component[1]:
-                    avg_len = nx.average_shortest_path_length(C, weight="weight")
+                    subG = G.subgraph(C)
+                    avg_len = nx.average_shortest_path_length(subG, weight="weight")
                     largest_component = (ci, ni)
                 num_components += 1
 
@@ -181,32 +189,59 @@ def analyze_dynamics(gg, chronological=False, weighted=True):
         writer.writerow([seq[i], n, avg_degree, avg_len, num_components, largest_component_size])
     csvf.close()
 
+
+def analyze_edge_distance_thresh():
+    # Edge distance thresh impacts every part of the graph.
+    # Higher the threshold, more dense and connected graph is.
+    # Lower, less dense. Want to be lower so we can see 'real' connections
+    # So, want to pick minimum viable threshold. Can decide by graphing.
+    # Look for a phase transition.
+    csvf = open_csv_file('edge_dist_analysis.csv')
+    if not csvf:
+        return
+    writer = csv.writer(csvf)
+    writer.writerow(["thresh", "n", "avg clustering", "num components", "GC size", "mean degree", "mean weighted degree"])
+
+    threshs = [1, 2, 3, 5, 10, 15, 20, 50, 100, 200, 500]
+    for thresh in threshs:
+        g = Graphify(edge_thresh=thresh, edge_repeat_thresh=0, force_reload=True, autosave=False)
+        largest_component = max(nx.connected_components(g.G), key=len)
+        n = nx.number_of_nodes(g.G)
+        avg_clus = nx.average_clustering(g.G)
+        num_comp = nx.number_connected_components(g.G)
+        gc_size = len(largest_component)
+        mean_deg = sum(v for k,v in g.G.degree()) / n
+        weighted_mean_deg = sum(v for k,v in g.G.degree(weight='weight')) / n
+        writer.writerow([thresh, n, avg_clus, num_comp, gc_size, mean_deg, weighted_mean_deg])
+    csvf.close()
+
+
 def make_plots():
-    df = pd.read_csv(ANALYSIS_PATH + 'geodesic_vs_degree.csv')
-    plot_df(df, "avg degree", "avg geodesic len", "Attachment: Degree vs Avg Geodesic Path, By Section")
-    plot_df(df, "n", "avg geodesic len", "Attachment: Log(n) vs Avg Geodesic Path", logx=True)
+    #df = pd.read_csv(ANALYSIS_PATH + 'geodesic_vs_degree.csv')
+    #plot_df(df, "avg degree", "avg geodesic len", "Attachment: Degree vs Avg Geodesic Path, By Section")
+    #plot_df(df, "n", "avg geodesic len", "Attachment: Log(n) vs Avg Geodesic Path", logx=True)
+    df = pd.read_csv(ANALYSIS_PATH + 'edge_dist_analysis.csv')
+    plot_df(df, "thresh", "GC size", "Threshold choice: Giant Component Size")
+    plot_df(df, "thresh", "avg clustering", "Threshold choice: Clustering Coefficient")
+    plot_df(df, "thresh", "mean weighted degree", "Threshold choice: Weighted Mean Degree")
 
 if __name__ == "__main__":
-    chronological = False
-    weighted = True
-
     parser = argparse.ArgumentParser(description="Analyze Infinite Jest")
     parser.add_argument('--chrono', '-c', help="Analyze book in chronological order", action="store_true")
-    parser.add_argument('--binary_weights', '-b', help="Analyze book without edge weights (as binary undirected graph)", action="store_true")
+    parser.add_argument('--unweighted', '-u', help="Analyze book without edge weights", action="store_true")
     parser.add_argument('--make_plots', '-p', help="Make plots", action="store_true")
     args = parser.parse_args()
-    if args.chrono:
-        chronological = True
-    if args.binary_weights:
-        weighted = False
+    chronological = True if args.chrono else False
+    weighted = False if args.unweighted else True
 
     print("Creating graphs")
     gg = Graphify()
 
     print("Analyzing book!")
-    analyze_dynamics(gg, chronological=chronological, weighted=weighted)
-    analyze_centralities(gg.G, weighted=weighted)
-    analyze_attachment(gg, weighted=weighted)
+    #analyze_edge_distance_thresh()
+    #analyze_dynamics(gg, chronological=chronological, weighted=weighted)
+    #analyze_centralities(gg.G, weighted=weighted)
+    #analyze_attachment(gg, weighted=weighted)
     if args.make_plots:
         make_plots()
 

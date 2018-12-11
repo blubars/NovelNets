@@ -164,7 +164,7 @@ def add_node_attributes(G, entities, entity):
 
 
 class Graphify:
-    def __init__(self, edge_thresh=300, edge_repeat_thresh=50, data_path=SAVE_GRAPH_PATH, sections=range(1, 193)):
+    def __init__(self, edge_thresh=300, edge_repeat_thresh=50, data_path=SAVE_GRAPH_PATH, sections=range(1, 193), force_reload=False, autosave=True):
         self.G = nx.Graph()
         self.people = set()
         self.unused_id = 0
@@ -178,9 +178,10 @@ class Graphify:
 
         self.data_path = data_path
 
-        if self.should_reload():
+        if self.should_reload() or force_reload:
             self.process_book()
-            self.save()
+            if autosave:
+                self.save()
         else:
             self.load()
 
