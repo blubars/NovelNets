@@ -21,7 +21,8 @@ import networkx as nx
 import matplotlib
 import matplotlib.pyplot as plt
 import argparse
-
+from networkx.algorithms.community import greedy_modularity_communities
+import algorithms as algos
 from graphify import Graphify
 from utils import get_sections_path
 
@@ -83,17 +84,20 @@ def get_chronological_order():
         print("Num set(sections):{}".format(num_unique_sects))
     return sections
 
+
 def analyze_centralities(G, weighted=True):
     # centrality measures
     centralities = [
         (nx.degree_centrality, "Degree"),
+        (algos.weighted_degree_centrality, "Weighted Degree"),
         (nx.betweenness_centrality, "Betweenness"),
-        (nx.eigenvector_centrality, "Eigenvector")
+        (nx.eigenvector_centrality, "Eigenvector"),
+        (nx.harmonic_centrality, "Harmonic")
     ]
     for cent_f, name in centralities:
         print("Top 10 {} Centrality:".format(name))
         # TODO: fix this, take weight to degree centrality.
-        if name is "Degree":
+        if name is "Degree" or "Weighted Degree":
             result = cent_f(G)
         elif weighted:
             result = cent_f(G, weight="weight") # deg. cent. doesn't take weight
@@ -106,8 +110,38 @@ def analyze_centralities(G, weighted=True):
             print(" [{}] {}({}): {}".format(i, node_name, node_id, cent))
         print()
 
+
+def analyze_assortativity(G):
+    # Degree Assortativity
+    result = nx.degree_assortativity_coefficient(G, weight="weight")
+    print("Degree Assortativity Assorativity: {}".format(result))
+    print()
+
+    # Gender Associativity
+    result = nx.attribute_assortativity_coefficient(G, "gender")
+    print("Gender Assortativity Assorativity: {}".format(result))
+    print()
+
+    # Association Associativity
+    result = nx.attribute_assortativity_coefficient(G, "association")
+    print("Association Assortativity Assorativity: {}".format(result))
+    print()
+
+
+def analyze_modularity(G):
+    print("Agglomerative Modularity:")
+    # partitions, modularities = algos.agglomerative_modularity(G)
+    # algos.draw_partition_graph(G, partitions)
+    # algos.draw_modularity_plot(modularities)
+
+    print("Greedy Modularity:")
+    communities = greedy_modularity_communities(G, weight="weight")
+    print(len(communities))
+    algos.draw_partition_graph(G, communities)
+
 def get_section_sequence(chronological=False):
-    return get_chronological_order() if chronological else range(1,TOTAL_NUM_SECTIONS+1)
+    return get_chronological_order() if chronological else range(1, TOTAL_NUM_SECTIONS+1)
+
 
 def analyze_attachment(gg, weighted=True):
     # does degree distribution follow a power law?
@@ -204,10 +238,12 @@ if __name__ == "__main__":
     gg = Graphify()
 
     print("Analyzing book!")
-    analyze_dynamics(gg, chronological=chronological, weighted=weighted)
+    # analyze_dynamics(gg, chronological=chronological, weighted=weighted)
     analyze_centralities(gg.G, weighted=weighted)
-    analyze_attachment(gg, weighted=weighted)
-    if args.make_plots:
-        make_plots()
+    analyze_assortativity(gg.G)
+    analyze_modularity(gg.G)
+    # analyze_attachment(gg, weighted=weighted)
+    # if args.make_plots:
+    #     make_plots()
 
 
