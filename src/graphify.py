@@ -252,7 +252,7 @@ class Graphify:
                 g0 = g0.merge(section_snapshot)
                 yield g0.getNXGraph()
             else:
-                yield section_snapshot
+                yield section_snapshot.getNXGraph()
 
     def decay_weights(self, edges, scale):
         for k1, innerdict in edges.items():
