@@ -7,10 +7,36 @@ from utils import get_entities
 import io
 from model import load_spacy
 
+class Match(dict):
+    def __init__(self, key="", start=0, end=0, text=""):
+        # this is so we can json dumps on it
+        dict.__init__(self, key=key, start=start, end=end, text=text)
+
+        self.key = key
+        self.start = start
+        self.end = end
+        self.text = text
+
+    def __str__(self):
+        return "'{}': {}, {}".format(self.text, self.start, self.end)
+
 def on_match(matcher, doc, i, matches):
     # callback when entity pattern matched
     pass
 
+def get_section_matches(doc):
+    matcher, raw_matches = match_people(doc)
+
+    matches = []
+    for raw_match in raw_matches:
+        key = matcher.vocab.strings[raw_match[0]]
+        start = raw_match[1]
+        end = raw_match[2]
+        text = doc[start:end].text
+
+        matches.append(Match(key, start, end, text))
+
+    return matches
 
 def tokenize(raw_text):
     # loads or is cached
@@ -35,10 +61,13 @@ def match_people(doc):
     # use spacy Matcher to find known patterns
     matcher = get_matcher(nlp)
     matches = matcher(doc)
+
     #for match_id, start, end in matches:
     #    span = doc[start:end]
     #    print("'{}', start:{}, end:{}".format(span.text, start, end))
     return matcher, matches
+
+
 
 def find_missing_entities(doc):
     # loads or is cached

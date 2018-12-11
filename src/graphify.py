@@ -59,31 +59,15 @@ def print_debug(level, s):
     if DEBUG >= level:
         print(s)
 
-def match_to_string(match, doc):
-    mid, start, end = match
-    span = doc[start:end]
-    return "'{}': {}, {}".format(span.text, start, end)
-
 def print_graph(G):
     print(len(list(G.nodes)))
     print(len(G.edges()))
     print()
 
-class Match():
-    def __init__(self, match, matcher, doc):
-        self.match = match
-        self.key = matcher.vocab.strings[match[0]]
-        self.start = match[1]
-        self.end = match[2]
-        self.span = doc[self.start:self.end]
-
-    def __str__(self):
-        return "'{}': {}, {}".format(self.span.text, self.start, self.end)
-
 # store a snapshot of the graph in time.
 # just a collection of vertices & edges right now.
 class GraphSnapshot:
-    def __init__(self, V=set(), E=defaultdict(lambda: defaultdict(int)), section=None, section_length=None):
+    def __init__(self, V=set(), E=defaultdict(lambda: defaultdict(float)), section=None, section_length=None):
         self.section = section
         self.section_length = section_length
         self.V = V
@@ -175,53 +159,79 @@ class Graphify:
 
         self.sections = sections
 
-        self.graph_sequence = [] # list of snapshots
+        # list of snapshots
+        self.graph_sequence = [] 
+
+        # list of list of matches
+        self.matches_sequence = []
+        self.doc_lengths_sequence = []
 
         self.data_path = data_path
 
-        if self.should_reload():
-            self.process_book()
-            self.save()
-        else:
+        self.restore_state()
+
+    def restore_state(self):
+        regenerate = self.should_regenerate()
+        if regenerate == 'none':
             self.load()
+        else:
+            if regenerate == 'all':
+                self.process_book()
+            elif regenerate == 'edges':
+                self.load_matches()
+
+                for section_number in self.sections:
+                    self.create_section_graph(section_number)
+
+            self.save()
 
     def process_book(self):
-        for section_num in self.sections:
-            self.process_section(section_num)
+        for section_number in self.sections:
+            print("+-------------------------------------")
+            print("| Processing section " + str(section_number))
+            print("+-------------------------------------")
+            section_text = text_io.interpolate_section_endnotes(text_io.get_section(section_number))
+
+            doc = ner.tokenize(section_text)
+            matches = ner.get_section_matches(doc)
+
+            self.matches_sequence.append(matches)
+            self.doc_lengths_sequence.append(len(doc))
+            self.print_section_matches(doc, matches)
+
+            self.create_section_graph(section_number)
+
         print_graph(self.G)
 
-    def process_section(self, section_num):
-        print("+-------------------------------------")
-        print("| Processing section " + str(section_num))
-        print("+-------------------------------------")
-        section_text = text_io.interpolate_section_endnotes(text_io.get_section(section_num))
+    def create_section_graph(self, section_number):
+        section_index = section_number - 1
+        matches = self.matches_sequence[section_index]
+        section_length = self.doc_lengths_sequence[section_index]
 
-        doc = ner.tokenize(section_text)
-        self.matcher, matches = ner.match_people(doc)
+        # 1. recognize entities
+        added_V = self.make_nodes(matches)
+        # 2. link entities.
+        added_E = self.make_edges(matches)
+        # 3. graph.
+        snapshot = GraphSnapshot(V=added_V, E=added_E, section=section_number, section_length=section_length)
+
+        self.graph_sequence.append(snapshot)
+
+    def print_section_matches(self, doc, matches):
         if DEBUG > 1:
             print("MATCHES:")
-            for m in matches:
-                print("  '{}': ({}, {})".format(
-                    self.get_match_entity(m), m[1], m[2]))
+            for match in matches:
+                print("  '{}': ({}, {})".format(match.key, match.start, match.end))
+
         missing, overlap, found = ner.find_missing_entities(doc)
         print("MISSING ENTITIES:")
         print_list(missing)
         print("FOUND ENTITIES:")
         print_list(found)
-        entity_matches = [Match(match, self.matcher, doc) for match in matches]
-        # 1. recognize entities
-        added_V = self.make_nodes(entity_matches)
-        print(added_V)
-        # 2. link entities. (rule?)
-        added_E = self.make_edges(entity_matches)
-        # 3. graph.
-        snapshot = GraphSnapshot(V=added_V, E=added_E, section=section_num, section_length=len(doc))
-        self.graph_sequence.append(snapshot)
-        return snapshot
 
-    def make_nodes(self, entity_matches):
+    def make_nodes(self, matches):
         print_debug(1, "NODES:")
-        section_people = set([match.key for match in entity_matches])
+        section_people = set([match.key for match in matches])
         new_people = section_people - self.people
         # keep node ids in same order each run by sorting here.
         for key in sorted(list(new_people)):
@@ -238,11 +248,7 @@ class Graphify:
             if aggregate:
                 if decay_weights:
                     scale = self.forgetting_curve(section_snapshot.section_length, S=stability)
-                    # print(scale)
                     self.decay_weights(g0.E, scale)
-                # print(g0.V)
-                # print(g0.E["HughSteeply"]["RemyMarathe"])
-                # print()
                 g0 = g0.merge(section_snapshot)
                 yield g0.getNXGraph()
             else:
@@ -255,9 +261,6 @@ class Graphify:
 
     def forgetting_curve(self, length, S=2):
         return math.e**(-1 * length / (10000*S))
-
-    def get_match_entity(self, match):
-        return self.matcher.vocab.strings[match[0]]
 
     def add_edge_from_matches(self, first, second):
         if first.key == second.key:
@@ -281,7 +284,7 @@ class Graphify:
                 first.start, second.start))
         return True
 
-    def make_edges(self, entity_matches):
+    def make_edges(self, matches):
         # dict for counting weights
         new_edges = defaultdict(lambda: defaultdict(int))
         # dict for tracking edge thresholds for smoothing.
@@ -289,8 +292,8 @@ class Graphify:
         edge_block_threshs = defaultdict(lambda: defaultdict(int))
         # dumbest way possible: link if within THRESHOLD tokens of eachother.
         # note: this adds 1 edges per match pair, only in one direction.
-        for i, first in enumerate(entity_matches[:-1]):
-            for second in entity_matches[i + 1:]:
+        for i, first in enumerate(matches[:-1]):
+            for second in matches[i + 1:]:
                 print_debug(3, "[Process match:{}, {}]".format(str(first), str(second)))
                 if first.key > second.key:
                     first, second = second, first
@@ -326,16 +329,28 @@ class Graphify:
         # write each section snapshot to file
         sect_path = self.data_path + '/sections'
 
-        if not os.path.exists(sect_path):
-            os.mkdir(sect_path)
+        if not os.path.exists(self.sections_path):
+            os.mkdir(self.sections_path)
 
         # write each snapshot to a file
         for snap in self.graph_sequence:
-            snap.save(sect_path)
+            snap.save(self.sections_path)
 
         # save entities hash to later determine if we need to rerun
-        with open(self.entities_hash_path, 'w') as f:
+        with open(self.cached_state_path, 'w') as f:
             json.dump(self.cache_info, f)
+
+        # save the entity matches
+        if not os.path.exists(self.matches_path):
+            os.mkdir(self.matches_path)
+
+        for i in self.sections:
+            matches = self.matches_sequence[i - 1]
+            with open(self.get_section_matches_path(i), 'w') as f:
+                json.dump(matches, f)
+
+        with open(self.document_lengths_path, 'w') as f:
+            json.dump(self.doc_lengths_sequence, f)
 
     @property
     def cache_info(self):
@@ -346,6 +361,10 @@ class Graphify:
         }
 
     @property
+    def sections_path(self):
+        return os.path.join(self.data_path, 'sections')
+
+    @property
     def aggregate_nodes_path(self):
         return os.path.join(self.data_path, 'aggregate_nodes.txt')
 
@@ -354,46 +373,73 @@ class Graphify:
         return os.path.join(self.data_path, 'aggregate_edgelist.txt')
 
     @property
-    def entities_hash_path(self):
-        return os.path.join(self.data_path, 'entities_hash.txt')
+    def cached_state_path(self):
+        return os.path.join(self.data_path, 'cached_state_path.json')
 
-    def should_reload(self):
-        entities_hash_path = self.entities_hash_path
-        if os.path.exists(entities_hash_path):
-            with open(entities_hash_path, 'r') as f:
-                old_cache_info = json.load(f)
+    @property
+    def matches_path(self):
+        return os.path.join(self.data_path, 'matches')
+
+    @property
+    def document_lengths_path(self):
+        return os.path.join(self.matches_path, 'document_lengths.json')
+
+    def get_section_matches_path(self, section_number):
+        return os.path.join(self.matches_path, str(section_number) + '-matches.json')
+
+    def should_regenerate(self):
+        """ there are two types of regenerations, 
+        1. 'all' - where the entities have changed
+        2. 'edges' - where the edges have changed
+        (we can also not need to reload at all)
+        """
+        if not os.path.exists(self.cached_state_path):
+            return 'all'
+
+        with open(self.cached_state_path, 'r') as f:
+            old_cache_info = json.load(f)
+
+        if old_cache_info['entities_hash'] != self.cache_info['entities_hash']:
+            return 'all'
+        else:
             for key, value in self.cache_info.items():
                 if old_cache_info[key] != value:
-                    return True
-            return False
-        return True
+                    return 'edges'
+
+            return 'none'
+
+        return 'all'
 
     def load(self):
         # load graph from edgelist
         # load vertices
-        self.people = set()
         self.G = nx.read_edgelist(self.aggregate_edgelist_path, nodetype=str, data=(('weight', int),))
         with open(self.aggregate_nodes_path, 'r') as f:
             for line in f:
                 node_id, key = line.split()
-                node_id = int(node_id)
                 add_node_attributes(self.G, self.entities, key)
 
                 if key not in self.people:
                     self.people.add(key)
 
         self.graph_sequence = []
-        sect_path = self.data_path + '/sections'
         for i in self.sections:
             snap = GraphSnapshot(section=i)
-            snap.load(sect_path)
+            snap.load(self.sections_path)
             self.graph_sequence.append(snap)
 
-    def print_graph_edgelist(self):
-        print("Graph edges & weights")
-        for n, nbrsdict in self.G.adjacency():
-            for nbr, eattr in nbrsdict.items():
-                print((n, nbr, eattr['weight']))
+        self.load_matches()
+
+    def load_matches(self):
+        for i in self.sections:
+            with open(self.get_section_matches_path(i), 'r') as f:
+                matches = json.load(f)
+            
+            self.matches_sequence.append([ner.Match(**match) for match in matches])
+
+        with open(self.document_lengths_path, 'r') as f:
+            self.doc_lengths_sequence = json.load(f)
+
 
 if __name__ == "__main__":
     # build a graph per section.
