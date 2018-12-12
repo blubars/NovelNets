@@ -20,8 +20,6 @@ import argparse
 import numpy as np
 import networkx as nx
 from networkx.algorithms.community import greedy_modularity_communities
-import matplotlib
-import matplotlib.pyplot as plt
 
 import algorithms as algos
 from graphify import Graphify
