@@ -143,19 +143,23 @@ def get_dynamics(chronological=True, weighted=True):
                 rows.append(row_dict)
     return rows
 
-def plot_dynamic(dynamic, weighted, booktime_data, chronological_data, yscale=None):
-    chronological_avg_degrees = [float(r[dynamic]) for r in chronological_data]
-    booktime_avg_degrees = [float(r[dynamic]) for r in booktime_data]
+def plot_dynamic(dynamic, weighted, booktime_data, chronological_data, yscale=None, ticks=None):
+    chronological_ys = [float(r[dynamic]) for r in chronological_data]
+    booktime_ys = [float(r[dynamic]) for r in booktime_data]
 
     fig = plt.figure(1)
-    plt.plot(chronological_avg_degrees, label='chronological')
-    plt.plot(booktime_avg_degrees, label='booktime')
+    plt.plot(chronological_ys, label='chronological')
+    plt.plot(booktime_ys, label='booktime')
     plt.title("{} by section, chronological and booktime".format(dynamic))
     plt.ylabel('{}'.format(dynamic))
     plt.xlabel('section index')
 
     if yscale:
         plt.yscale(yscale)
+
+    if ticks == 'integer':
+        ys = sorted(list(set([int(y) for y in chronological_ys + booktime_ys])))
+        plt.yticks(ys)
 
     plt.xlim(0, 192)
     plt.legend()
@@ -171,7 +175,7 @@ def plot_dynamics(weighted=False):
 
     plot_dynamic('avg degree', weighted, booktime_rows, chronological_rows)
     plot_dynamic('avg geodesic len', weighted, booktime_rows, chronological_rows)
-    plot_dynamic('num components', weighted, booktime_rows, chronological_rows)
+    plot_dynamic('num components', weighted, booktime_rows, chronological_rows, ticks='integer')
     plot_dynamic('largest component size', weighted, booktime_rows, chronological_rows)
     plot_dynamic('n', weighted, booktime_rows, chronological_rows)
 
@@ -196,6 +200,30 @@ def plot_n_vs_geodesic(weighted=False):
     plt.tight_layout()
 
     fname = "n_vs_geodesic-weighted_{}".format(weighted)
+    plt.savefig(os.path.join(PLOTS_PATH, fname))
+    plt.close(fig)
+
+def plot_n_vs_avg_degree(weighted=False):
+    booktime_rows = get_dynamics(chronological=False, weighted=weighted)
+    chronological_rows = get_dynamics(chronological=True, weighted=weighted)
+
+    chronological_geodesic = [float(r['avg degree']) for r in chronological_rows]
+    chronological_n = [float(r['n']) for r in chronological_rows]
+
+    booktime_geodesic = [float(r['avg degree']) for r in booktime_rows]
+    booktime_n = [float(r['n']) for r in booktime_rows]
+
+    fig = plt.figure(1)
+    plt.plot(chronological_n, chronological_geodesic, label='chronological')
+    plt.plot(booktime_n, booktime_geodesic, label='booktime')
+    plt.title("average degree by number of nodes, chronological and booktime")
+    plt.ylabel('average degree')
+    plt.xlabel('number of nodes')
+
+    plt.legend()
+    plt.tight_layout()
+
+    fname = "n_vs_avg_degree-weighted_{}".format(weighted)
     plt.savefig(os.path.join(PLOTS_PATH, fname))
     plt.close(fig)
 
@@ -285,6 +313,7 @@ if __name__ == '__main__':
     parser.add_argument('--dynamics', '-d', help="plot dynamics", action="store_true")
     parser.add_argument('--neighborhoods', '-n', help="plot neighborhoods", action="store_true")
     parser.add_argument('--n_vs_geo', '-v', help="n vs geodesic", action="store_true")
+    parser.add_argument('--n_vs_avg_degree', '-e', help="n vs avg degree", action="store_true")
     parser.add_argument('--gender', '-g', help="gender", action="store_true")
 
     args = parser.parse_args()
@@ -310,3 +339,6 @@ if __name__ == '__main__':
 
     if args.gender:
         plot_gender()
+
+    if args.n_vs_avg_degree:
+        plot_n_vs_avg_degree()

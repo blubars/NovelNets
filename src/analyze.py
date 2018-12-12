@@ -193,6 +193,8 @@ def analyze_dynamics(gg, chronological=False, weighted=False):
                     largest_component = (ci, ni)
                 num_components += 1
 
+            G = subG
+
         if weighted:
             degs = [k for (node,k) in G.degree(weight='weight')]
         else:
@@ -323,7 +325,7 @@ if __name__ == "__main__":
 
     print("Analyzing book!")
     analyze_communities(gg)
-    # analyze_dynamics(gg, chronological=args.chronological, weighted=weighted)
+    analyze_dynamics(gg, chronological=args.chronological, weighted=weighted)
     # analyze_gender(gg, weighted=weighted)
     # analyze_centralities(gg.G, weighted=weighted)
     # analyze_assortativity(gg.G)
