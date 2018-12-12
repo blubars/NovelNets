@@ -197,7 +197,7 @@ def analyze_dynamics(gg, chronological=False, weighted=True):
             .format(seq[i], n, avg_degree, avg_len, num_components))
         writer.writerow([seq[i], n, avg_degree, avg_len, num_components, largest_component_size])
     csvf.close()
-    
+
 def analyze_edge_distance_thresh():
     # Edge distance thresh impacts every part of the graph.
     # Higher the threshold, more dense and connected graph is.
@@ -232,6 +232,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     weighted = not args.unweighted
+    chronological = args.chronological
 
     print("Creating graphs!")
     gg = Graphify()

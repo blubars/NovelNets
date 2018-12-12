@@ -56,15 +56,22 @@ def plot_df(df, x_name, y_name, title, logx=False):
     plt.savefig(os.path.join(PLOTS_PATH, fname))
     plt.close(fig)
 
-def make_plots():
-    print("Saving plots to '{}'".format(ANALYSIS_PATH))
-    df = pd.read_csv(ANALYSIS_PATH + 'geodesic_vs_degree.csv')
-    plot_df(df, "avg degree", "avg geodesic len", "Attachment: Degree vs Avg Geodesic Path, By Section")
-    plot_df(df, "n", "avg geodesic len", "Attachment: Log(n) vs Avg Geodesic Path", logx=True)
-    df = pd.read_csv(ANALYSIS_PATH + 'edge_dist_analysis.csv')
-    plot_df(df, "thresh", "GC size", "Threshold choice: Giant Component Size")
-    plot_df(df, "thresh", "avg clustering", "Threshold choice: Clustering Coefficient")
-    plot_df(df, "thresh", "mean weighted degree", "Threshold choice: Weighted Mean Degree")
+def plot_attachment():
+    try:
+        df = pd.read_csv(ANALYSIS_PATH + 'geodesic_vs_degree.csv')
+        plot_df(df, "avg degree", "avg geodesic len", "Attachment: Degree vs Avg Geodesic Path, By Section")
+        plot_df(df, "n", "avg geodesic len", "Attachment: Log(n) vs Avg Geodesic Path", logx=True)
+    except:
+        print("No data for attachment")
+
+def plot_thresholds():
+    try:
+        df = pd.read_csv(ANALYSIS_PATH + 'edge_dist_analysis.csv')
+        plot_df(df, "thresh", "GC size", "Threshold choice: Giant Component Size")
+        plot_df(df, "thresh", "avg clustering", "Threshold choice: Clustering Coefficient")
+        plot_df(df, "thresh", "mean weighted degree", "Threshold choice: Weighted Mean Degree")
+    except:
+        print("No data for thresholds")
 
 def plot_neighborhood_stabilities():
     1
@@ -206,11 +213,19 @@ def plot_neighborhoods():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Plot Infinite Jest")
     parser.add_argument('--section_bars', '-s', default=False, action="store_true", help="create the section bars")
-    parser.add_argument('--make_plots', '-p', help="Make plots", action="store_true")
+    parser.add_argument('--attachment', '-a', help="Plot attachment", action="store_true")
+    parser.add_argument('--thresholds', '-t', help="Plot thresholds", action="store_true")
     parser.add_argument('--dynamics', '-d', help="plot dynamics", action="store_true")
-    parser.add_argument('--neighborhoods', '-n', help="plot dynamics", action="store_true")
+    parser.add_argument('--neighborhoods', '-n', help="plot neighborhoods", action="store_true")
 
     args = parser.parse_args()
+    print("Saving plots to '{}'".format(ANALYSIS_PATH))
+
+    if args.attachment:
+        plot_attachment()
+
+    if args.thresholds:
+        plot_thresholds()
 
     if args.section_bars:
         section_bars()
