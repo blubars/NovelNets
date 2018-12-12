@@ -1,5 +1,4 @@
 import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
@@ -10,8 +9,6 @@ from networkx.algorithms.community.quality import modularity
 ########################
 # Modularity Functions #
 ########################
-
-
 def draw_partition_graph(G, partitions):
     plt.rc('axes.formatter', useoffset=False)
     pos = nx.spring_layout(G) # positions for all nodes
@@ -119,6 +116,9 @@ def neighborhood_stabilities(gg, seq):
     previous_scenes = defaultdict(list)
 
     for current_scene, G in enumerate(gg.graph_by_sections(seq, aggregate=False)):
+        last_G = G
+
+    for current_scene, G in enumerate(gg.graph_by_sections(seq, aggregate=False)):
         current_neighbors = { n: set(G.neighbors(n)) for n in G.nodes() }
 
         for node in G.nodes():
@@ -138,7 +138,7 @@ def calculate_neighborhood_stability(previous_neighbors, current_neighbors):
     denominator = (len(previous_neighbors) * len(current_neighbors)) ** .5
 
     if not denominator:
-        denominator = 1
+        return 0
 
     return numerator / denominator
 

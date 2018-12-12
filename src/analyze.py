@@ -21,7 +21,6 @@ import numpy as np
 import networkx as nx
 from networkx.algorithms.community import greedy_modularity_communities
 import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 import algorithms as algos
@@ -32,7 +31,6 @@ import plots
 #########################################################
 # Globals
 #########################################################
-SAVE_GRAPH_PATH = '../data/graph/'
 ANALYSIS_PATH = '../data/analysis/'
 TOTAL_NUM_SECTIONS = 192
 
@@ -40,7 +38,7 @@ TOTAL_NUM_SECTIONS = 192
 # Function definitions
 #########################################################
 def get_chronological_order():
-    # read json files to extract chronological sect order
+    # read json files of chronological order
     with open("../data/chronology.json", 'r') as f:
         chronology_json = json.loads(f.read())
 
@@ -120,38 +118,21 @@ def analyze_modularity(G):
 
     print("Greedy Modularity:")
     communities = greedy_modularity_communities(G, weight="weight")
+    print(communities)
     print("Num communities:{}".format(len(communities)))
+    return communities
     #algos.draw_partition_graph(G, communities)
 
-def analyze_neighborhood(gg):
+def analyze_neighborhood(gg, chronological=False):
     print("Neighborhood stability:")
-    seq = get_section_sequence()
-    print(seq)
+    seq = get_section_sequence(chronological)
     stabilities = algos.neighborhood_stabilities(gg, seq)
 
-    print(len([x for x in stabilities.values() if len(x) > 30]))
-
-    fig = plt.figure(1)
-    for entity, vals in stabilities.items():
-        if len(vals) > 25:
-            xs = [v[1] for v in vals]
-            ys = [v[2] for v in vals]
-            plt.plot(xs, ys, label=entity)
-        
-
-    # plt.loglog(bins, cumbins)
-    plt.title("neighborhood stability by entity")
-    plt.ylabel("neighborhood stability")
-    plt.xlabel("scene index")
-    # plt.legend()
-    # plt.tight_layout()
-    # fname = "degree_distr_ccdf.pdf"
-    # plt.savefig(ANALYSIS_PATH + fname)
-    plt.show()
+    with open(os.path.join(ANALYSIS_PATH, 'neighborhood_stabilities-chronological_{}.json'.format(chronological)), 'w') as f:
+        json.dump(stabilities, f)
 
 def get_section_sequence(chronological=False):
     return get_chronological_order() if chronological else range(1, TOTAL_NUM_SECTIONS+1)
-
 
 def analyze_attachment(gg, weighted=True):
     # does degree distribution follow a power law?
@@ -166,7 +147,7 @@ def analyze_attachment(gg, weighted=True):
     plots.plot_ccdf(ks, outfile)
 
 def open_csv_file(name):
-    out_csv_name = ANALYSIS_PATH + name
+    out_csv_name = os.path.join(ANALYSIS_PATH, name)
     if not os.path.isdir(ANALYSIS_PATH):
         os.makedirs(ANALYSIS_PATH)
     try:
@@ -177,16 +158,19 @@ def open_csv_file(name):
         return None
 
 def analyze_dynamics(gg, chronological=False, weighted=True):
+    seq = get_section_sequence(chronological)
+    out_csv_name = ANALYSIS_PATH + 'dynamics-chronological_{}-weighted_{}.csv'.format(chronological, weighted)
+
     # geodesic_vs_degree
     seq = get_section_sequence(chronological)
-    csvf = open_csv_file('geodesic_vs_degree.csv')
+    csvf = open_csv_file(out_csv_name)
     if not csvf:
         return
     writer = csv.writer(csvf)
     writer.writerow(["Section", "n", "avg degree", "avg geodesic len", "num components", "largest component size"])
 
     # for each section, calculate avg degree & mean geodesic
-    for i,G in enumerate(gg.graph_by_sections(seq, aggregate=True)):
+    for i, G in enumerate(gg.graph_by_sections(seq, aggregate=True)):
         num_components = 1
         largest_component = (-1,0)
         try:
@@ -213,50 +197,7 @@ def analyze_dynamics(gg, chronological=False, weighted=True):
             .format(seq[i], n, avg_degree, avg_len, num_components))
         writer.writerow([seq[i], n, avg_degree, avg_len, num_components, largest_component_size])
     csvf.close()
-
-def display_chronologicality():
-    chronological = get_section_sequence(chronological=True)
-    booktime = get_section_sequence(chronological=False)
-
-    # Make a figure and axes with dimensions as desired.
-    fig = plt.figure(figsize=(8, 3))
-    ax1 = fig.add_axes([0.05, 0.80, 0.9, 0.15])
-    ax2 = fig.add_axes([0.05, 0.475, 0.9, 0.15])
-
-    rainbow = matplotlib.cm.rainbow(np.linspace(0, 1, 192))
-    norm = matplotlib.colors.Normalize(vmin=1, vmax=192)
-    bounds = [1, 192]
-
-    booktime = [None for _ in range(len(chronological))]
-    new_chronological = [i + 1 for i in range(len(chronological))]
-    for book, chrono in enumerate(chronological):
-        booktime[chrono - 1] = book + 1
-
-    chronological_colormap = [rainbow[i - 1] for i in new_chronological]
-
-    cb1 = matplotlib.colorbar.ColorbarBase(
-        ax1,
-        cmap=matplotlib.colors.ListedColormap(chronological_colormap),
-        norm=norm,
-        orientation='horizontal',
-        ticks=bounds,
-    )
-    cb1.set_label('chronological ordering')
-
-    booktime_colormap = [rainbow[i - 1] for i in booktime]
-
-    cb2 = matplotlib.colorbar.ColorbarBase(
-        ax2,
-        cmap=matplotlib.colors.ListedColormap(booktime_colormap),
-        norm=norm,
-        orientation='horizontal',
-        ticks=bounds,
-    )
-    cb2.set_label('book ordering')
-
-    plt.show()
-
-
+    
 def analyze_edge_distance_thresh():
     # Edge distance thresh impacts every part of the graph.
     # Higher the threshold, more dense and connected graph is.
@@ -285,26 +226,23 @@ def analyze_edge_distance_thresh():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Analyze Infinite Jest")
-    parser.add_argument('--chrono', '-c', help="Analyze book in chronological order", action="store_true")
-    parser.add_argument('--unweighted', '-u', help="Analyze book without edge weights", action="store_true")
-    parser.add_argument('--make_plots', '-p', help="Make plots", action="store_true")
+    parser.add_argument('--chronological', '-c', default=False, action="store_true", help="Analyze book in chronological order")
+    parser.add_argument('--unweighted', '-b', default=False, action="store_true", help="Analyze book as a simple undirected graph")
+
     args = parser.parse_args()
-    chronological = True if args.chrono else False
-    weighted = False if args.unweighted else True
+
+    weighted = not args.unweighted
 
     print("Creating graphs!")
     gg = Graphify()
 
     print("Analyzing book!")
-    #analyze_dynamics(gg, chronological=chronological, weighted=weighted)
-    analyze_centralities(gg.G, weighted=weighted)
-    analyze_assortativity(gg.G)
+    # analyze_dynamics(gg, chronological=args.chronological, weighted=weighted)
+    # analyze_centralities(gg.G, weighted=weighted)
+    # analyze_assortativity(gg.G)
     analyze_modularity(gg.G)
-    # analyze_neighborhood(gg)
-    #display_chronologicality()
-    analyze_attachment(gg, weighted=weighted)
 
-    if args.make_plots:
-        plots.make_plots(ANALYSIS_PATH)
-
-
+    # analyze_neighborhood(gg, chronological=False)
+    # analyze_neighborhood(gg, chronological=True)
+    # display_chronologicality()
+    # analyze_attachment(gg, weighted=weighted)
