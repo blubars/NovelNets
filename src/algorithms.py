@@ -142,3 +142,26 @@ def calculate_neighborhood_stability(previous_neighbors, current_neighbors):
 
     return numerator / denominator
 
+def calculate_modularity(adjacency, partition):
+    return sum([(e_uv(adjacency, u, u) - a_u(adjacency, u)**2) for u in partition])
+
+def degree(adjacency, node):
+    return sum(adjacency[node])
+
+def total_edges(adjacency):
+    return sum([degree(adjacency, node) for node in range(len(adjacency))]) / 2
+
+def calculate_q(adjacency, partition):
+    return sum([(e_uv(adjacency, u, u) - a_u(adjacency, u)**2) for u in partition])
+
+def delta_q(adjacency, u, v):
+    return 2 * (e_uv(adjacency, u, v) - (a_u(adjacency, u) * a_u(adjacency, v)))
+
+def e_uv(adjacency, u, v):
+    return normalize(adjacency, sum([1 for i in u for j in v if adjacency[i][j]]))
+
+def a_u(adjacency, u):
+    return normalize(adjacency, sum([degree(adjacency, i) for i in u]))
+
+def normalize(adjacency, quantity):
+    return quantity / float(2 * total_edges(adjacency))

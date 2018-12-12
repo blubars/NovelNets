@@ -22,6 +22,7 @@ import networkx as nx
 from networkx.algorithms.community import greedy_modularity_communities
 import matplotlib
 import matplotlib.pyplot as plt
+from collections import defaultdict
 
 import algorithms as algos
 from graphify import Graphify
@@ -110,7 +111,7 @@ def analyze_assortativity(G):
     print()
 
 
-def analyze_modularity(G):
+def generate_greedy_modularity_communities(G):
     print("Agglomerative Modularity:")
     # partitions, modularities = algos.agglomerative_modularity(G)
     # algos.draw_partition_graph(G, partitions)
@@ -118,10 +119,10 @@ def analyze_modularity(G):
 
     print("Greedy Modularity:")
     communities = greedy_modularity_communities(G, weight="weight")
-    print(communities)
+    # print(communities)
     print("Num communities:{}".format(len(communities)))
+
     return communities
-    #algos.draw_partition_graph(G, communities)
 
 def analyze_neighborhood(gg, chronological=False):
     print("Neighborhood stability:")
@@ -157,9 +158,9 @@ def open_csv_file(name):
         print("Failed to create csv file")
         return None
 
-def analyze_dynamics(gg, chronological=False, weighted=True):
+def analyze_dynamics(gg, chronological=False, weighted=False):
     seq = get_section_sequence(chronological)
-    out_csv_name = ANALYSIS_PATH + 'dynamics-chronological_{}-weighted_{}.csv'.format(chronological, weighted)
+    out_csv_name = 'dynamics-chronological_{}-weighted_{}.csv'.format(chronological, weighted)
 
     # geodesic_vs_degree
     seq = get_section_sequence(chronological)
@@ -174,7 +175,10 @@ def analyze_dynamics(gg, chronological=False, weighted=True):
         num_components = 1
         largest_component = (-1,0)
         try:
-            avg_len = nx.average_shortest_path_length(G, weight="weight")
+            if weighted:
+                avg_len = nx.average_shortest_path_length(G, weight="weight")
+            else:
+                avg_len = nx.average_shortest_path_length(G)
         except nx.NetworkXError:
             avg_len = 0
             num_components = 0
@@ -182,7 +186,10 @@ def analyze_dynamics(gg, chronological=False, weighted=True):
                 ni = len(C)
                 if ni > largest_component[1]:
                     subG = G.subgraph(C)
-                    avg_len = nx.average_shortest_path_length(subG, weight="weight")
+                    if weighted:
+                        avg_len = nx.average_shortest_path_length(subG, weight="weight")
+                    else:
+                        avg_len = nx.average_shortest_path_length(subG)
                     largest_component = (ci, ni)
                 num_components += 1
 
@@ -223,11 +230,88 @@ def analyze_edge_distance_thresh():
         writer.writerow([thresh, n, avg_clus, num_comp, gc_size, mean_deg, weighted_mean_deg])
     csvf.close()
 
+def analyze_gender(gg, weighted=True):
+    sequence = get_section_sequence()
+    for G in gg.graph_by_sections(sequence, aggregate=True):
+        last_G = G
+
+    degrees_by_gender = defaultdict(defaultdict(list).copy)
+
+    degrees = {
+        'unweighted' : {node: degree for node, degree in G.degree()},
+        'weighted' : {node: degree for node, degree in G.degree(weight='weight')}
+    }
+
+    for node in last_G.nodes():
+        for degree_type, degree_type_vals in degrees.items():
+            degree = degree_type_vals[node]
+
+            degrees_by_gender[degree_type]['overall'].append(degree)
+        
+            gender = G.nodes[node].get('gender')
+
+            if gender:
+                degrees_by_gender[degree_type][gender].append(degree)
+
+
+    calculated = defaultdict(dict)
+    for degree_type, degree_type_vals in degrees_by_gender.items():
+        for key, vals in degree_type_vals.items():
+            avg = sum(vals) / len(vals)
+
+            calculated[degree_type][key] = avg
+
+    with open(os.path.join(ANALYSIS_PATH, 'gender.json'), 'w') as f:
+        json.dump(calculated, f)
+
+def analyze_communities(gg):
+    sequence = get_section_sequence()
+    for G in gg.graph_by_sections(sequence, aggregate=True):
+        last_G = G
+
+    auto_communities = generate_greedy_modularity_communities(G)
+
+    labeled_communities = defaultdict(list)
+    for node in G.nodes():
+        community = G.nodes[node].get('association')
+        name = G.nodes[node]['name']
+
+        if not community:
+            community = name
+
+        labeled_communities[community].append(name)
+
+    labeled_communities = [frozenset(l) for l in labeled_communities.values()]
+    result = algos.normalized_mutual_information(auto_communities, labeled_communities)
+    print(result)
+
+    num_nodes = len(list(last_G.nodes()))
+    matrix = [[0 for _ in range(num_nodes)] for _ in range(num_nodes)]
+    unused_id = 0
+    node_ids = {}
+    for node in last_G.nodes():
+        if node_ids.get(node, -1) == -1:
+            node_ids[node] = unused_id
+            unused_id += 1
+
+        for _node in last_G.neighbors(node):
+            if node_ids.get(_node, -1) == -1:
+                node_ids[_node] = unused_id
+                unused_id += 1
+
+            matrix[node_ids[node]][node_ids[_node]] = 1
+
+    indexed_labeled_communities = []
+    for l in labeled_communities:
+        indexed_labeled_communities.append([node_ids[x] for x in l])
+
+    q = algos.calculate_modularity(matrix, indexed_labeled_communities)
+    print(q)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Analyze Infinite Jest")
     parser.add_argument('--chronological', '-c', default=False, action="store_true", help="Analyze book in chronological order")
-    parser.add_argument('--unweighted', '-b', default=False, action="store_true", help="Analyze book as a simple undirected graph")
+    parser.add_argument('--unweighted', '-u', default=False, action="store_true", help="Analyze book as a simple undirected graph")
 
     args = parser.parse_args()
 
@@ -237,10 +321,11 @@ if __name__ == "__main__":
     gg = Graphify()
 
     print("Analyzing book!")
+    analyze_communities(gg)
     # analyze_dynamics(gg, chronological=args.chronological, weighted=weighted)
+    # analyze_gender(gg, weighted=weighted)
     # analyze_centralities(gg.G, weighted=weighted)
     # analyze_assortativity(gg.G)
-    analyze_modularity(gg.G)
 
     # analyze_neighborhood(gg, chronological=False)
     # analyze_neighborhood(gg, chronological=True)

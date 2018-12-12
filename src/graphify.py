@@ -149,7 +149,7 @@ def add_node_attributes(G, entities, entity):
 
 
 class Graphify:
-    def __init__(self, edge_thresh=300, edge_repeat_thresh=50, data_path=SAVE_GRAPH_PATH, sections=range(1, 193), force_reload=False, autosave=True):
+    def __init__(self, edge_thresh=50, edge_repeat_thresh=50, data_path=SAVE_GRAPH_PATH, sections=range(1, 193), force_reload=False, autosave=True):
         self.G = nx.Graph()
         self.people = set()
         self.unused_id = 0

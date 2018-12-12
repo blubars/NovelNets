@@ -107,8 +107,7 @@ def get_dynamics(chronological=True, weighted=True):
                 rows.append(row_dict)
     return rows
 
-def plot_dynamic(dynamic, booktime_data, chronological_data, yscale=None):
-    xs = [r['index'] for r in booktime_data]
+def plot_dynamic(dynamic, weighted, booktime_data, chronological_data, yscale=None):
     chronological_avg_degrees = [float(r[dynamic]) for r in chronological_data]
     booktime_avg_degrees = [float(r[dynamic]) for r in booktime_data]
 
@@ -126,19 +125,43 @@ def plot_dynamic(dynamic, booktime_data, chronological_data, yscale=None):
     plt.legend()
     plt.tight_layout()
 
-    fname = "dynamics-{}.png".format(dynamic)
+    fname = "dynamics-{}-weighted_{}.png".format(dynamic, weighted)
     plt.savefig(os.path.join(PLOTS_PATH, fname))
     plt.close(fig)
 
-def plot_dynamics():
-    booktime_rows = get_dynamics(chronological=False)
-    chronological_rows = get_dynamics(chronological=True)
+def plot_dynamics(weighted=False):
+    booktime_rows = get_dynamics(chronological=False, weighted=False)
+    chronological_rows = get_dynamics(chronological=True, weighted=False)
 
-    plot_dynamic('avg degree', booktime_rows, chronological_rows)
-    plot_dynamic('avg geodesic len', booktime_rows, chronological_rows)
-    plot_dynamic('num components', booktime_rows, chronological_rows)
-    plot_dynamic('largest component size', booktime_rows, chronological_rows)
-    plot_dynamic('n', booktime_rows, chronological_rows)
+    plot_dynamic('avg degree', weighted, booktime_rows, chronological_rows)
+    plot_dynamic('avg geodesic len', weighted, booktime_rows, chronological_rows)
+    plot_dynamic('num components', weighted, booktime_rows, chronological_rows)
+    plot_dynamic('largest component size', weighted, booktime_rows, chronological_rows)
+    plot_dynamic('n', weighted, booktime_rows, chronological_rows)
+
+def plot_n_vs_geodesic(weighted=False):
+    booktime_rows = get_dynamics(chronological=False, weighted=weighted)
+    chronological_rows = get_dynamics(chronological=True, weighted=weighted)
+
+    chronological_geodesic = [float(r['avg geodesic len']) for r in chronological_rows]
+    chronological_n = [float(r['n']) for r in chronological_rows]
+
+    booktime_geodesic = [float(r['avg geodesic len']) for r in booktime_rows]
+    booktime_n = [float(r['n']) for r in booktime_rows]
+
+    fig = plt.figure(1)
+    plt.plot(chronological_n, chronological_geodesic, label='chronological')
+    plt.plot(booktime_n, booktime_geodesic, label='booktime')
+    plt.title("average geodesic by number of nodes, chronological and booktime")
+    plt.ylabel('average geodesic path length')
+    plt.xlabel('number of nodes')
+
+    plt.legend()
+    plt.tight_layout()
+
+    fname = "n_vs_geodesic-weighted_{}".format(weighted)
+    plt.savefig(os.path.join(PLOTS_PATH, fname))
+    plt.close(fig)
 
 def get_neighborhood_scene_stabilities(chronological):
     with open(os.path.join(ANALYSIS_PATH, 'neighborhood_stabilities-chronological_{}.json'.format(chronological)), 'r') as f:
@@ -159,6 +182,50 @@ def get_neighborhood_scene_stabilities(chronological):
 
     return avg_scene_stabilities
 
+def plot_gender():
+    with open(os.path.join(ANALYSIS_PATH, 'gender.json'), 'r') as f:
+        content = json.load(f)
+
+    n_groups = 2
+
+    women = (content['unweighted']['female'], content['weighted']['female'])
+    men = (content['unweighted']['male'], content['weighted']['male'])
+    overall = (content['unweighted']['overall'], content['weighted']['overall'])
+
+    fig, ax = plt.subplots()
+
+    index = np.arange(n_groups)
+    bar_width = 0.35
+
+    opacity = 0.4
+    error_config = {'ecolor': '0.3'}
+
+    rects1 = ax.bar(index + index * bar_width, men, bar_width,
+                    alpha=opacity, color='b',
+                    error_kw=error_config,
+                    label='male')
+
+    rects2 = ax.bar(index + bar_width + (index * bar_width), overall, bar_width,
+                    alpha=opacity, color='g',
+                    error_kw=error_config,
+                    label='overall')
+
+    rects3 = ax.bar(index + 2 * bar_width +  (index * bar_width), women, bar_width,
+                    alpha=opacity, color='r',
+                    error_kw=error_config,
+                    label='female')
+
+    ax.set_xlabel('Group')
+    ax.set_ylabel('average degree')
+    ax.set_title('average degree by gender')
+    ax.set_xticks(index + bar_width + (index * bar_width))
+    ax.set_xticklabels(('unweighted', 'weighted'))
+    ax.legend()
+
+    fig.tight_layout()
+    plt.savefig(os.path.join(PLOTS_PATH, 'gender.png'))
+
+
 def plot_neighborhoods():
     chronological_scene_stabilities = get_neighborhood_scene_stabilities(True)
     booktime_scene_stabilities = get_neighborhood_scene_stabilities(False)
@@ -171,7 +238,6 @@ def plot_neighborhoods():
     plt.xlabel("scene index")
     plt.legend()
     plt.tight_layout()
-    plt.show()
     plt.savefig(os.path.join(PLOTS_PATH, 'neighborhood.png'))
     plt.close(fig)
 
@@ -181,6 +247,8 @@ if __name__ == '__main__':
     parser.add_argument('--make_plots', '-p', help="Make plots", action="store_true")
     parser.add_argument('--dynamics', '-d', help="plot dynamics", action="store_true")
     parser.add_argument('--neighborhoods', '-n', help="plot dynamics", action="store_true")
+    parser.add_argument('--n_vs_geo', '-v', help="n vs geodesic", action="store_true")
+    parser.add_argument('--gender', '-g', help="gender", action="store_true")
 
     args = parser.parse_args()
 
@@ -188,7 +256,13 @@ if __name__ == '__main__':
         section_bars()
 
     if args.dynamics:
-        plot_dynamics()
+        plot_dynamics(weighted=False)
 
     if args.neighborhoods:
         plot_neighborhoods()
+
+    if args.n_vs_geo:
+        plot_n_vs_geodesic(weighted=False)
+
+    if args.gender:
+        plot_gender()
