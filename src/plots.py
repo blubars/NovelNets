@@ -1,3 +1,9 @@
+#! /usr/bin/env python3
+#########################################################
+# File Description:
+#   Make plots for analysis
+# Date: 11/16/18
+#########################################################
 import json
 import os
 import csv
@@ -16,14 +22,32 @@ PLOTS_PATH = '../data/plots/'
 #########################################################
 # Function definitions
 #########################################################
+def plot_ccdf(deg_seq, outfile):
+    bins = [k+1 for k in range(max(deg_seq)+1)]
+    cumbins = [0 for k in range(max(deg_seq)+1)]
+    for k in deg_seq:
+        cumbins[k] += 1
+    for i in range(len(cumbins)-2, -1, -1):
+        cumbins[i] = (cumbins[i+1] + cumbins[i])
+    for i in range(len(cumbins)):
+        cumbins[i] /= len(cumbins)
+    fig = plt.figure(1)
+    plt.loglog(bins, cumbins)
+    plt.title("Degree Distribution CCDF")
+    plt.xlabel("Degree, $k$")
+    plt.ylabel("CCDF P($x \geq X$)")
+    plt.tight_layout()
+    plt.savefig(outfile)
+    plt.close(fig)
+
 def plot_df(df, x_name, y_name, title, logx=False):
     fig = plt.figure(1)
     X = df[x_name]
     Y = df[y_name]
     plt.plot(X, Y)
     plt.title(title)
-    plt.ylabel(y_name)
-    plt.xlabel(x_name)
+    plt.ylabel(y_name.title())
+    plt.xlabel(x_name.title())
     if logx:
         plt.xscale('log')
     plt.tight_layout()
@@ -32,10 +56,22 @@ def plot_df(df, x_name, y_name, title, logx=False):
     plt.savefig(os.path.join(PLOTS_PATH, fname))
     plt.close(fig)
 
-def make_plots():
-    df = pd.read_csv(ANALYSIS_PATH + 'geodesic_vs_degree.csv')
-    plot_df(df, "avg degree", "avg geodesic len", "Attachment: Degree vs Avg Geodesic Path, By Section")
-    plot_df(df, "n", "avg geodesic len", "Attachment: Log(n) vs Avg Geodesic Path", logx=True)
+def plot_attachment():
+    try:
+        df = pd.read_csv(ANALYSIS_PATH + 'geodesic_vs_degree.csv')
+        plot_df(df, "avg degree", "avg geodesic len", "Attachment: Degree vs Avg Geodesic Path, By Section")
+        plot_df(df, "n", "avg geodesic len", "Attachment: Log(n) vs Avg Geodesic Path", logx=True)
+    except:
+        print("No data for attachment")
+
+def plot_thresholds():
+    try:
+        df = pd.read_csv(ANALYSIS_PATH + 'edge_dist_analysis.csv')
+        plot_df(df, "thresh", "GC size", "Threshold choice: Giant Component Size")
+        plot_df(df, "thresh", "avg clustering", "Threshold choice: Clustering Coefficient")
+        plot_df(df, "thresh", "mean weighted degree", "Threshold choice: Weighted Mean Degree")
+    except:
+        print("No data for thresholds")
 
 def plot_neighborhood_stabilities():
     1
@@ -44,7 +80,7 @@ def section_bars():
     chronological = analyze.get_section_sequence(chronological=True)
     booktime = analyze.get_section_sequence(chronological=False)
 
-        # Make a figure and axes with dimensions as desired.
+    # Make a figure and axes with dimensions as desired.
     fig = plt.figure(figsize=(8, 3))
     ax1 = fig.add_axes([0.05, 0.80, 0.9, 0.15])
     ax2 = fig.add_axes([0.05, 0.475, 0.9, 0.15])
@@ -244,13 +280,21 @@ def plot_neighborhoods():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Plot Infinite Jest")
     parser.add_argument('--section_bars', '-s', default=False, action="store_true", help="create the section bars")
-    parser.add_argument('--make_plots', '-p', help="Make plots", action="store_true")
+    parser.add_argument('--attachment', '-a', help="Plot attachment", action="store_true")
+    parser.add_argument('--thresholds', '-t', help="Plot thresholds", action="store_true")
     parser.add_argument('--dynamics', '-d', help="plot dynamics", action="store_true")
-    parser.add_argument('--neighborhoods', '-n', help="plot dynamics", action="store_true")
+    parser.add_argument('--neighborhoods', '-n', help="plot neighborhoods", action="store_true")
     parser.add_argument('--n_vs_geo', '-v', help="n vs geodesic", action="store_true")
     parser.add_argument('--gender', '-g', help="gender", action="store_true")
 
     args = parser.parse_args()
+    print("Saving plots to '{}'".format(ANALYSIS_PATH))
+
+    if args.attachment:
+        plot_attachment()
+
+    if args.thresholds:
+        plot_thresholds()
 
     if args.section_bars:
         section_bars()
