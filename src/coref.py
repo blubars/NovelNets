@@ -1,20 +1,18 @@
 import spacy
 from text_io import get_section
-from ner import match_people
+from ner import get_doc_matches
 
 section = get_section(1, remove_endnote_tags=True)
 nlp = spacy.load('en_coref_md')
 doc = nlp(section)
 
 match_entities = []
-matcher, matches = match_people(doc)
-print(matcher)
+matches = get_doc_matches(doc)
 
 print("MATCHES:")
-for m in matches:
-    string = matcher.vocab.strings[m[0]]
-    print(string)
-    match_entities.append(string)
+for match in matches:
+    print(match.key)
+    match_entities.append(match.key)
 
 
 print("CLUSTERS")

@@ -10,8 +10,8 @@
 # 1. read in named entities
 # 2. for each section:
 #    a. recognize entities
-#    b. link entities. (rule?)
-#    c. graph.
+#    b. link entities
+#    c. graph
 
 # Problems & ideas to improve:
 # 1. smooth weights over sections, don't count edges
@@ -58,11 +58,6 @@ def print_list(lst, indent=2):
 def print_debug(level, s):
     if DEBUG >= level:
         print(s)
-
-def print_graph(G):
-    print(len(list(G.nodes)))
-    print(len(G.edges()))
-    print()
 
 # store a snapshot of the graph in time.
 # just a collection of vertices & edges right now.
@@ -152,7 +147,6 @@ class Graphify:
     def __init__(self, edge_thresh=50, edge_repeat_thresh=50, data_path=SAVE_GRAPH_PATH, sections=range(1, 193), force_reload=False, autosave=True):
         self.G = nx.Graph()
         self.people = set()
-        self.unused_id = 0
         self.edge_threshold = edge_thresh
         self.edge_repeat_threshold = edge_repeat_thresh
         self.entities = get_entities()
@@ -197,16 +191,11 @@ class Graphify:
             print("+-------------------------------------")
             section_text = text_io.interpolate_section_endnotes(text_io.get_section(section_number))
 
-            doc = ner.tokenize(section_text)
-            matches = ner.get_section_matches(doc)
+            result = ner.recognize_text(section_text, print_results=DEBUG)
 
-            self.matches_sequence.append(matches)
-            self.doc_lengths_sequence.append(len(doc))
-            self.print_section_matches(doc, matches)
-
+            self.doc_lengths_sequence.append(result['text_length'])
+            self.matches_sequence.append(result['matches'])
             self.create_section_graph(section_number)
-
-        print_graph(self.G)
 
     def create_section_graph(self, section_number):
         section_index = section_number - 1
@@ -221,18 +210,6 @@ class Graphify:
         snapshot = GraphSnapshot(V=added_V, E=added_E, section=section_number, section_length=section_length)
 
         self.graph_sequence.append(snapshot)
-
-    def print_section_matches(self, doc, matches):
-        if DEBUG > 1:
-            print("MATCHES:")
-            for match in matches:
-                print("  '{}': ({}, {})".format(match.key, match.start, match.end))
-
-        missing, overlap, found = ner.find_missing_entities(doc)
-        print("MISSING ENTITIES:")
-        print_list(missing)
-        print("FOUND ENTITIES:")
-        print_list(found)
 
     def make_nodes(self, matches):
         print_debug(1, "NODES:")

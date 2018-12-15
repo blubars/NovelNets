@@ -9,7 +9,7 @@ from model import load_spacy
 
 class Match(dict):
     def __init__(self, key="", start=0, end=0, text=""):
-        # this is so we can json dumps on it
+        # init a dict so we can json.dump this
         dict.__init__(self, key=key, start=start, end=end, text=text)
 
         self.key = key
@@ -24,27 +24,83 @@ def on_match(matcher, doc, i, matches):
     # callback when entity pattern matched
     pass
 
-def get_section_matches(doc):
-    matcher, raw_matches = match_people(doc)
+def print_list(lst, indent=2):
+    indstr = ""
+    for i in range(indent):
+        indstr += ' '
+    for item in lst:
+        print("{}{}".format(indstr, item))
 
-    matches = []
-    for raw_match in raw_matches:
-        key = matcher.vocab.strings[raw_match[0]]
-        start = raw_match[1]
-        end = raw_match[2]
-        text = doc[start:end].text
-
-        matches.append(Match(key, start, end, text))
-
-    return matches
-
-def tokenize(raw_text):
-    # loads or is cached
+def recognize_text(text, print_results=False):
     nlp = load_spacy('en_core_web_md')
-    return nlp(raw_text)
+    doc = nlp(text)
+    matches = get_doc_matches(doc)
 
+    matched_entities = get_matched_entities(matches)
+    matched_entity_aliases = get_matched_entity_aliases(matches)
+    missed_entities = get_missed_entities(doc)
 
-def get_matcher(nlp):
+    if print_results:
+        print("MATCHED ENTITIES:")
+        print_list(matched_entities)
+        print("MATCHED ALIASES:")
+        print_list(matched_entity_aliases)
+        print("MISSED:")
+        print_list(missed_entities)
+
+    return {
+        'matches' : matches,
+        'text_length' : len(doc),
+        'found' : {
+            'entities' : matched_entities,
+            'aliases' : matched_entity_aliases,
+        },
+        'missed' : missed_entities,
+    }
+
+def get_doc_matches(doc):
+    matcher = get_matcher()
+    return [make_match(matcher, doc, _match) for _match in matcher(doc)]
+
+def get_matched_entities(matches):
+    found = {match.key for match in matches}
+    return sorted(list(found))
+
+def get_matched_entity_aliases(matches):
+    found = {"{} ({})".format(match.text, match.key) for match in matches}
+    return sorted(list(found))
+
+def get_missed_entities(doc):
+    nlp = load_spacy('en_core_web_md')
+
+    matcher = get_matcher()
+
+    missing = set()
+
+    # get auto-entity matches
+    for ent in doc.ents:
+        if ent.label_ == 'PERSON':
+            name = re.sub('[\s+|\n+|]', ' ', ent.text.strip())
+
+            # continue processing only if there's remaining characters
+            if not name:
+                continue
+
+            # the matcher will return an empty list if there is no match
+            if len(matcher(nlp(name))) == 0:
+                missing.add(name)
+
+    return sorted(list(missing))
+
+def make_match(matcher, doc, match):
+    match_id, start, end = match
+    key = matcher.vocab.strings[match_id]
+    text = doc[start:end].text
+
+    return Match(key, start, end, text)
+
+def get_matcher():
+    nlp = load_spacy('en_core_web_md')
     matcher = Matcher(nlp.vocab)
 
     entities = get_entities()
@@ -54,83 +110,3 @@ def get_matcher(nlp):
         patterns = entities[_id]['patterns']
         matcher.add(_id, None, *patterns)
     return matcher
-
-def match_people(doc):
-    # loads or is cached
-    nlp = load_spacy('en_core_web_md')
-    # use spacy Matcher to find known patterns
-    matcher = get_matcher(nlp)
-    matches = matcher(doc)
-
-    #for match_id, start, end in matches:
-    #    span = doc[start:end]
-    #    print("'{}', start:{}, end:{}".format(span.text, start, end))
-    return matcher, matches
-
-
-
-def find_missing_entities(doc):
-    # loads or is cached
-    nlp = load_spacy('en_core_web_md')
-    found = set()
-    overlap = set()
-    missing = set()
-    # get hand-labeled matches
-    hand_matcher, hand_matches = match_people(doc)
-    for match_id, start, end in hand_matches:
-        key = hand_matcher.vocab.strings[match_id] # this is dumb.
-        span = str(doc[start:end])
-        found.add(span + " (" + key + ")")
-    # get auto-entity matches
-    auto_entities = doc.ents
-    auto_people = set()
-    for ent in auto_entities:
-        if ent.label_ == 'PERSON':
-            name = re.sub('[\s+|\n+|]', ' ', ent.text.strip())
-            auto_people.add(name)
-    for token in auto_people:
-        ms = hand_matcher(nlp(token))
-        if len(ms) == 0:
-            # auto token doesn't match any known hand-labeled entity
-            if len(token):
-                # only add it if it's got length
-                missing.add(token)
-        else:
-            key = hand_matcher.vocab.strings[ms[0][0]] # this is dumb.
-            overlap.add(token + " (" + key + ")")
-    return missing, overlap, found
-
-
-def run_ner(raw_text):
-    doc = tokenize(raw_text)
-
-    # matcher = Matcher(nlp.vocab)
-    # nlp.add_pipe(matcher, before='ner')
-
-    return doc.ents
-
-def get_people(text_data):
-    people = set()
-    entities = run_ner(text_data)
-    #person_ents = [re.sub('[\s+|\n+|]', ' ', ent.text.strip()) for ent in entities if ent.label_ == 'PERSON']
-    for ent in entities:
-        if ent.label_ == 'PERSON':
-            name = re.sub('[\s+|\n+|]', ' ', ent.text.strip())
-            people.add(name)
-    return people
-
-if __name__ == "__main__":
-    section_text = ""#""get_section_text('./data/txt/sections/*.txt')
-    data = {}
-    people = set()
-    orgs = set()
-    for key, value in section_text.items():
-        entities = run_ner(value)
-        person_ents = [re.sub('[\s+|\n+|]', ' ', ent.text.strip()) for ent in entities if ent.label_ == 'PERSON']
-        org_ents = [ent.text.strip() for ent in entities if ent.label_ == 'ORGS']
-        [people.add(p) for p in person_ents]
-        [orgs.add(o) for o in org_ents]
-    data['people'] = list(people)
-    data['organizations'] = list(orgs)
-    with io.open('./data/named_entities.json', 'w', encoding='utf8') as json_file:
-        json.dump(data, json_file, sort_keys=True, indent=4, separators=(',', ': '), ensure_ascii=False)

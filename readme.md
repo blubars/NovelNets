@@ -1,5 +1,16 @@
 # Infinite Jest Nets
 
+# TODO for release:
+- move entity caching mechanism to `ner.py`
+- update entities file such that there are only aliases, no "spacy" related things
+    - eg 'ORTH'
+- set up 'book' configuration
+    - so that we have pathing/section numbers, etc
+- properly split up files by what is general/infinite jest specific
+    - eg utils...
+- idea is:
+    - entities.py is entirely independent from the rest
+
 # WebWeb Install
 Please follow the instructions for installing webweb locally via a git repo:
 https://github.com/hneutr/webweb

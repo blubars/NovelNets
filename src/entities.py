@@ -5,16 +5,17 @@ import os
 import json
 import ner
 from utils import get_entities, set_entities
+import text_io
 
 ################################################################################
 # file stuff
 ################################################################################
-def add_entity_psuedonym(entity, psuedonym):
+def add_entity_alias(entity, alias):
     entities = get_entities()
     if not entities.get(entity):
         entities[entity]['patterns'] = []
 
-    entities[entity]['patterns'].append([{"ORTH" : part } for part in psuedonym.split()])
+    entities[entity]['patterns'].append([{"ORTH" : part } for part in alias.split()])
     set_entities(entities)
 
 def add_entity_attribute(entity, attribute, value):
@@ -25,41 +26,18 @@ def add_entity_attribute(entity, attribute, value):
     entities[entity]['attributes'][attribute] = value
     set_entities(entities)
 
-def print_list(lst, indent=2):
-    indstr = ""
-    for i in range(indent):
-        indstr += ' '
-    for item in lst:
-        print("{}{}".format(indstr, item))
-
 ################################################################################
 # entity processing
 ################################################################################
 def process_section(section_num):
     print("+-------------------------------------")
-    print("| Processing section " + str(section_num))
+    print("| Processing section " + str(section_number))
     print("+-------------------------------------")
-    path = "{}infinite-jest-section-{:03d}.txt".format(get_sections_path(), section_num)
+    section_text = text_io.interpolate_section_endnotes(text_io.get_section(section_number))
 
-    with open(path, 'r') as f:
-        section_text = f.read()
+    result = ner.recognize_text(section_text, print_results=True)
 
-    doc = ner.tokenize(section_text)
-
-    matcher, matches = ner.match_people(doc)
-
-    missing, overlap, found = ner.find_missing_entities(doc)
-    found_entities = sorted(list({ matcher.vocab.strings[m[0]] for m in matches })) 
-    missing = sorted(list(missing))
-
-    print("MATCHED ENTITIES:")
-    print_list(found_entities)
-    print("FOUND ENTITIES:")
-    print_list(found)
-    print("MISSING ENTITIES:")
-    print_list(missing)
-
-    for missing_entity in missing:
+    for missing_entity in result['missed']:
         print(f"missed entity: '{missing_entity}'. is this an entity? y/n")
 
         answer = input()
@@ -69,27 +47,27 @@ def process_section(section_num):
 
     return missing
 
-def handle_missed_entity(psuedonym):
+def handle_missed_entity(alias):
     entities = get_entities()
     entity_names = sorted(list(entities.keys()))
     for i, entity in enumerate(entity_names):
         print(f"- {i}\t{entity}")
 
-    print(f"if {psuedonym} is a psuedonym of someone in the list, enter their number. Else an id to use.")
+    print(f"if {alias} is an alias of someone in the list, enter their number. Else an id to use.")
     answer = input()
 
     prompt_string = ""
     if answer.isalpha():
         entity = answer
-        prompt_string = f"add entity [{entity}] with psuedonym [{psuedonym}]? ('n' to skip)"
+        prompt_string = f"add entity [{entity}] with alias [{alias}]? ('n' to skip)"
     else:
         entity = entity_names[int(answer)]
-        prompt_string = f"add to entity [{entity}] psuedomyn [{psuedonym}]? ('n' to skip)"
+        prompt_string = f"add to entity [{entity}] psuedomyn [{alias}]? ('n' to skip)"
     
     print(prompt_string)
     answer = input()
     if answer != 'n':
-        add_entity_psuedonym(entity, psuedonym)
+        add_entity_alias(entity, alias)
 
 ################################################################################
 # attribute processing
@@ -159,7 +137,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     sections = [i for i in range(1, 193)]
-    # processed_sections = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192]
 
     # SECTION NOTES:
     # 3: * Hal is 1st person, 'I', but never picked up by NER. 
@@ -185,8 +162,6 @@ if __name__ == '__main__':
     # remove 'John' from john wayne
 
     # GlennK == Glenny Kubitz?
-    # Jennie Bash/Jennifer Belbin getting crossed?
-    # TinyEwell --> 
 
     if args.entities:
         sections_to_process = [i for i in sections if i not in processed_sections]
