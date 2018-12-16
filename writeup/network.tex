@@ -1,6 +1,8 @@
 \section{\infinitejest as a Network}
 
-There are many possible definitions of an edge in a social network: dialogue, physical interactions, sentiment. 
-We chose to present character co-mentions in the text as edges. 
-This gives us the broadest view of a book as a network of character interactions, and additionally eases the burden of natural-language parsing because we can disregard all semantic information in the interactions.
+Our network represents characters as nodes and character co-mentions as weighted edges. The more of often two characters are mentioned in proximity to each other, the greater the weight of the edge between them. Our approach gives an extremely broad view of a book as a network of character co-mentions.
+
+Our choice of representing characters as nodes is fairly standard, but it worth noting that there are many possible definitions of an edge in a social network: character interaction, be it verbal (in dialogue) or physical, or sentiment. 
+
+There are certainly drawbacks to our approach -- dynamics of power between characters are entirely omitted -- but we found it still allowed us to gain insight into narrative flow and characteristics of nodes.
 
