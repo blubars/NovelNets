@@ -20,6 +20,7 @@ from networkx.algorithms.community import greedy_modularity_communities
 import matplotlib
 import matplotlib.pyplot as plt
 from collections import defaultdict
+import random
 
 import algorithms as algos
 from graphify import Graphify
@@ -270,6 +271,86 @@ def analyze_communities(gg):
     q = algos.calculate_modularity(matrix, indexed_labeled_communities)
     print(q)
 
+def get_gender_degree_sequence(G, gender, weighted=False):
+    nodes = sorted(list(G.nodes()))
+    of_gender = [node for node in nodes if G.node[node]['gender'] == gender]
+    weight = 'weight' if weighted else None
+    return nx.degree(G, of_gender, weight=weight)
+
+def analyze_gender_by_configuration(G, weighted=False):
+    # TODO:
+    # figure out weight...
+    male_nodes_and_degree_seq = get_gender_degree_sequence(G, 'male')
+    female_nodes_and_degree_seq = get_gender_degree_sequence(G, 'female')
+    unknown_nodes_and_degree_seq = get_gender_degree_sequence(G, None)
+
+    weight = 'weight' if weighted else None
+
+    all_nodes_and_degree_seq = []
+    all_nodes_and_degree_seq += male_nodes_and_degree_seq
+    all_nodes_and_degree_seq += female_nodes_and_degree_seq 
+    all_nodes_and_degree_seq += unknown_nodes_and_degree_seq
+
+    all_degree_seq = []
+    all_nodes_seq = []
+
+    for node, degree in all_nodes_and_degree_seq:
+        all_nodes_seq.append(node)
+        all_degree_seq.append(degree)
+
+    actual_betweenness_dict = nx.betweenness_centrality(G, weight=weight)
+    actual_betweenness = [ actual_betweenness_dict[node] for node in all_nodes_seq]
+
+    number_of_nodes = len(all_degree_seq)
+
+    actual_edge_weights = defaultdict(list)
+    for (one, two), deg in nx.get_edge_attributes(G, 'weight').items():
+        actual_edge_weights[one].append(deg / 2)
+        actual_edge_weights[two].append(deg / 2)
+    
+    iterations = 100
+    config_betweenness = [[] for _ in range(number_of_nodes)]
+    for _ in range(iterations):
+        config_G = nx.configuration_model(all_degree_seq, create_using=nx.Graph)
+        print(_)
+
+        # # add weight
+        if weight:
+            # initialize the weight
+            nx.set_edge_attributes(config_G, name='weight', values=0)
+            for i, node in enumerate(all_nodes_seq):
+                actual_node_edge_weights = actual_edge_weights.get(node)
+                if actual_node_edge_weights:
+                    random.shuffle(actual_node_edge_weights)
+
+                    for j, neighbor in enumerate(config_G.neighbors(i)):
+                        config_G[i][neighbor]['weight'] += actual_node_edge_weights[j]
+
+
+        for node, betweenness in nx.betweenness_centrality(config_G, weight=weight).items():
+            config_betweenness[node].append(betweenness)
+
+    config_25th_percentile = [np.percentile(config_betweenness[i], 25) for i in range(number_of_nodes)]
+    config_50th_percentile = [np.percentile(config_betweenness[i], 50) for i in range(number_of_nodes)]
+    config_75th_percentile = [np.percentile(config_betweenness[i], 75) for i in range(number_of_nodes)]
+
+    to_write = {
+        'nodes' : all_nodes_seq,
+        'degree' : all_degree_seq,
+        'male' : len(male_nodes_and_degree_seq),
+        'female' : len(female_nodes_and_degree_seq),
+        'unknown' : len(unknown_nodes_and_degree_seq),
+        'actual' : actual_betweenness,
+        'config-25th' : config_25th_percentile,
+        'config-50th' : config_50th_percentile,
+        'config-75th' : config_75th_percentile,
+    }
+
+    with open(os.path.join(ANALYSIS_PATH, 'gender_betweennesses-weighted_{}.json'.format(weighted)), 'w') as f:
+        json.dump(to_write, f)
+
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Analyze Infinite Jest")
     parser.add_argument('--chronological', '-c', default=False, action="store_true", help="Analyze book in chronological order")
@@ -284,8 +365,9 @@ if __name__ == "__main__":
     gg = Graphify()
 
     print("Analyzing book!")
-    analyze_communities(gg)
-    analyze_dynamics(gg, chronological=args.chronological, weighted=weighted)
+    analyze_gender_by_configuration(gg.G, weighted=weighted)
+    # analyze_communities(gg)
+    # analyze_dynamics(gg, chronological=args.chronological, weighted=weighted)
     # analyze_gender(gg, weighted=weighted)
     # analyze_centralities(gg.G, weighted=weighted)
     # analyze_assortativity(gg.G)
