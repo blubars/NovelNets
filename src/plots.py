@@ -7,7 +7,6 @@
 import json
 import os
 import csv
-import analyze
 import argparse
 import matplotlib.pyplot as plt
 import matplotlib
@@ -15,6 +14,8 @@ import numpy as np
 import pandas as pd
 
 from collections import defaultdict
+
+import infinite_jest_utils
 
 ANALYSIS_PATH = '../data/analysis/'
 PLOTS_PATH = '../data/plots/'
@@ -77,8 +78,8 @@ def plot_neighborhood_stabilities():
     1
 
 def section_bars():
-    chronological = analyze.get_section_sequence(chronological=True)
-    booktime = analyze.get_section_sequence(chronological=False)
+    chronological = infinite_jest_utils.get_section_sequence(chronological=True)
+    booktime = infinite_jest_utils.get_section_sequence(chronological=False)
 
     # Make a figure and axes with dimensions as desired.
     fig = plt.figure(figsize=(8, 3))

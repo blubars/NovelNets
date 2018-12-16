@@ -42,7 +42,7 @@
 \section*{Data Processing}
 
 \subsubsection*{Data Source \& Preprocessing}
-To generate analyzable text this project utilizes an existing `.mobi' file of Infinite Jest. This file is put through a .mobi to HTML conversion to generate an HTML formatted file as well as a .mobi to raw text conversion. This enables the use of regular expressions to find and parse various text features automatically. Thus the HTML text is used to identify endnote locations such that simplified endnote tags can be inserted into the raw text file. Similarly, regular expressions are used to indentify where section breaks exist according to the section annotations given by the book Elegant Complexity \cite{carlisle_2007}. The raw text is split on these sections and saved into separate files. Likewise each endnote is saved into a separate file. In each of these files, we remove all inessential special characters (e.g. speicial quotes). As we employ the Python 3.7 standard, all text files are imported as unicode.
+To generate analyzable text this project utilizes an existing `.mobi' file of Infinite Jest. This file is put through a .mobi to HTML conversion to generate an HTML formatted file as well as a .mobi to raw text conversion. This enables the use of regular expressions to find and parse various text features automatically. Thus the HTML text is used to identify endnote locations such that simplified endnote tags can be inserted into the raw text file. Similarly, regular expressions are used to indentify where section breaks exist according to the section annotations given by the book Elegant Complexity \cite{carlisle_2007}. The raw text is split on these sections and saved into separate files. Likewise each endnote is saved into a separate file. In each of these files, we remove all inessential special characters (e.g. special quotes). As we employ the Python 3.7 standard, all text files are imported as unicode.
 
 \subsubsection*{Named Entitiy Recognition}
 
@@ -57,9 +57,7 @@ One major affront to the Matcher approach is the extensive use of pronoun corefe
 ``What should \underline{\emph{we}} do about \underline{\emph{his}} problem?"
 \end{displayquote}
 
-This exchange would be overlooked by our approach. While there are some approaches for coreference resolution at this granularity, most are trained on models not well suited for the very unstructured and informal style of David Foster Wallace's novel.  As such, the use of named entities as nodes, and our methodlogy for identifying where they exist in text, enables the generation of a co-mention network. However, such a network may not perfectly capture true latent interaction structure of the book.
-
-
+This exchange would be overlooked by our approach. While there are some approaches for coreference resolution at this granularity, most are trained on models not well suited for the very unstructured and informal style of David Foster Wallace's novel.  As such, the use of named entities as nodes, and our methodology for identifying where they exist in text, enables the generation of a co-mention network. However, such a network may not perfectly capture true latent interaction structure of the book.
 
 \section*{Network Design}
 
@@ -82,6 +80,17 @@ This exchange would be overlooked by our approach. While there are some approach
 Network nodes constitute each character identified in the set of found named entities. These were referenced against online resources to ensure proper coverage of the characters in the book. Edges in the book represent a co-mention between two entities in the text. A threshold number of tokens (words) under which the number of tokens between the mention of one entity and another determines if an edge is established. If the edge already exists, the weight is updated. The current entity $i$ is only matched with proceeding entities $j$ within this threshold. Once no match is found, the next available entity is checked for proceeding matches.
 
 The threshold number of tokens is determined by a semi-objective measure of the effect of the threshold length on the average clustering coefficient and the giant component size (see Figure \ref{fig-threshold-size}). The intuition behind the use of these metrics is that we choose the minimum threhold length required to produce a large giant component and ample enough clustering best capturing the highly connected nature of characters in the novel.  Our chosen threshold is roughly 50 tokens.
+
+\section*{Analysis}
+
+\subsubsection*{Narrative}
+
+\subsubsection*{Statics}
+
+\subsubsection*{Dynamics}
+
+\subsubsection*{Gender}
+
 
 \bibliographystyle{unsrt}
 \bibliography{references.bib}

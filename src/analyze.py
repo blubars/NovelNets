@@ -7,9 +7,6 @@
 # Date: 12/1/18
 #########################################################
 
-# TODO:
-# section 25.15 in chronology doesn't exist, currently skipping.
-
 #########################################################
 # Imports
 #########################################################
@@ -28,49 +25,16 @@ import algorithms as algos
 from graphify import Graphify
 from utils import get_sections_path
 import plots
+import infinite_jest_utils
 
 #########################################################
 # Globals
 #########################################################
 ANALYSIS_PATH = '../data/analysis/'
-TOTAL_NUM_SECTIONS = 192
 
 #########################################################
 # Function definitions
 #########################################################
-def get_chronological_order():
-    # read json files of chronological order
-    with open("../data/chronology.json", 'r') as f:
-        chronology_json = json.loads(f.read())
-
-    chapters = []
-    for entry in chronology_json:
-        entry = str(entry)
-
-        if entry.replace('.', '', 1).isdigit():
-            chapters.append(entry)
-        else:
-            continue
-
-    with open("../data/sections_to_pages.json", 'r') as f:
-        section_json = json.loads(f.read())
-
-    chapters_to_sections = {}
-    for entry in section_json:
-        chapters_to_sections[entry['ch']] = entry['section']
-        # print("{} --> {}".format(entry['ch'], entry['section']))
-
-    sections = [chapters_to_sections[chapter] for chapter in chapters]
-
-    num_sections = len(sections)
-    num_unique_sects = len(set(sections))
-    if num_sections != num_unique_sects:
-        print("WARNING: something wrong in chronological order mapping.")
-        print("Num sections:{}".format(num_sections))
-        print("Num set(sections):{}".format(num_unique_sects))
-    return sections
-
-
 def analyze_centralities(G, weighted=True):
     # centrality measures
     centralities = [
@@ -93,7 +57,6 @@ def analyze_centralities(G, weighted=True):
             print(" [{}] {}({}): {}".format(i, node_name, node_id, cent))
         print()
 
-
 def analyze_assortativity(G):
     # Degree Assortativity
     result = nx.degree_assortativity_coefficient(G, weight="weight")
@@ -112,7 +75,7 @@ def analyze_assortativity(G):
 
 
 def generate_greedy_modularity_communities(G):
-    print("Agglomerative Modularity:")
+    # print("Agglomerative Modularity:")
     # partitions, modularities = algos.agglomerative_modularity(G)
     # algos.draw_partition_graph(G, partitions)
     # algos.draw_modularity_plot(modularities)
@@ -126,14 +89,11 @@ def generate_greedy_modularity_communities(G):
 
 def analyze_neighborhood(gg, chronological=False):
     print("Neighborhood stability:")
-    seq = get_section_sequence(chronological)
+    seq = infinite_jest_utils.get_section_sequence(chronological)
     stabilities = algos.neighborhood_stabilities(gg, seq)
 
     with open(os.path.join(ANALYSIS_PATH, 'neighborhood_stabilities-chronological_{}.json'.format(chronological)), 'w') as f:
         json.dump(stabilities, f)
-
-def get_section_sequence(chronological=False):
-    return get_chronological_order() if chronological else range(1, TOTAL_NUM_SECTIONS+1)
 
 def analyze_attachment(gg, weighted=True):
     # does degree distribution follow a power law?
@@ -159,11 +119,11 @@ def open_csv_file(name):
         return None
 
 def analyze_dynamics(gg, chronological=False, weighted=False):
-    seq = get_section_sequence(chronological)
+    seq = infinite_jest_utils.get_section_sequence(chronological)
     out_csv_name = 'dynamics-chronological_{}-weighted_{}.csv'.format(chronological, weighted)
 
     # geodesic_vs_degree
-    seq = get_section_sequence(chronological)
+    seq = infinite_jest_utils.get_section_sequence(chronological)
     csvf = open_csv_file(out_csv_name)
     if not csvf:
         return
@@ -233,7 +193,7 @@ def analyze_edge_distance_thresh():
     csvf.close()
 
 def analyze_gender(gg, weighted=True):
-    sequence = get_section_sequence()
+    sequence = infinite_jest_utils.get_section_sequence()
     for G in gg.graph_by_sections(sequence, aggregate=True):
         last_G = G
 
@@ -267,7 +227,7 @@ def analyze_gender(gg, weighted=True):
         json.dump(calculated, f)
 
 def analyze_communities(gg):
-    sequence = get_section_sequence()
+    sequence = infinite_jest_utils.get_section_sequence()
     for G in gg.graph_by_sections(sequence, aggregate=True):
         last_G = G
 
