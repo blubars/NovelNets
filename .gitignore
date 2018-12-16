@@ -11,3 +11,5 @@ __pycache__
 *.synctex.gz
 *.bbl
 *.blg
+/data/facebook100/
+/writeup/writeup.pdf

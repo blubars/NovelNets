@@ -1,0 +1,64 @@
+\section{Data}
+
+\subsection{Data Source \& Preprocessing}
+
+To generate analyzable text this project utilizes an existing `.mobi' file of \infinitejest. This file is put through a `.mobi' to HTML conversion to generate an HTML formatted file as well as a `.mobi' to raw text conversion.
+
+We identified endnote locations in the HTML file using regular expressions and replaced these endnotes with a simplified endnote tag to facilitate later interpolation of the endnote text.
+
+We used \textit{Elegant Complexity} as a resource to find the page numbers of sections and then manually compiled the strings each started with.~\cite{carlisle_2007} We then used regular expressions to take these section markers and identify section breaks.
+
+We split the raw text by section and store each one in a separate file; endnotes are also stored in separate files. We remove all inessential special characters (e.g.\ special quotes). In our analyses all text files are imported as unicode.
+
+\subsection{Named Entitiy Recognition}
+
+Entity recognition and disambiguation posed a significant challenge -- there are more than 200 characters in the novel, and that aliases, pseudonyms, and nicknames are used extensively. 
+
+We utilized the Named Entity Recognition (NER) parser of the Python library SpaCy~\cite{spacy2} augmented with its own Matcher parser.
+
+We ran the the library's built in NER model on the text and compared the entities it generated against our own, incrementally build, set. We manually added aliases/pseudonyms to our set of entities based on the candidates the NER model produced. Subsequent runs of the NER model then used our hand-made entity disambiguations. This enables SpaCy to identify a large number of the pseudonyms and aliases and their locations within each section of the text.
+
+\subsection{Challenges and Considerations}
+
+\subsubsection{Pronoun Coreferences}
+One major problem with the Matcher approach is the extensive use of pronoun coreferences. We do not mitigate this.
+
+Similarly, dialog presents a challenge in identifying named entities since the identity of the speaker often is often unstated. For example, in the following quote, two characters never explicitly mention each other but are refering to the same character, Bob.
+
+\begin{displayquote}
+``\emph{\underline{I}} am really concerned about \emph{\underline{Bob}}"\\
+``\emph{\underline{I}} am concerned about \emph{\underline{him}} too."\\
+``What should \underline{\emph{we}} do about \underline{\emph{his}} problem?"
+\end{displayquote}
+
+This exchange would be overlooked by our approach. While there are some approaches for coreference resolution at this granularity, most are trained on models not well suited for the unstructured and informal style of David Foster Wallace's novel. 
+
+As such, the use of named entities as nodes, and our methodology for identifying where they exist in text, enables the generation of a co-mention network. However, such a network may not perfectly capture true latent interaction structure of the book.
+
+\subsubsection{Point of View Sections}
+Several sections in the book are written in the first person. However, as the first person ``I'' is not a named entity (in the sense of being a proper noun), our matcher will not identify the character as an entity in the scene. For example, in the second section, where Hal talks about eating mold, our matcher fails to find him.
+
+One approach would be manually annotating the sections that are in the first person point of view with their narrator. We could then replace first person pronouns with the character's name, but such an approach would need to do so only outside of dialogue.
+
+\subsubsection{Reference versus Interaction}
+Our approach makes no effort do differentiate between \textit{reference} and \textit{interaction}. This makes it a co-mention network and not one of interaction.
+
+\subsubsection{False Positives}
+We currently do not scope our entity matcher to a given section, so an alias or pseudonym for a character is applied uniformally to the whole book. For example, in the first section, Hal states:
+
+\begin{displayquote}
+I have been coached for this like a Don before a RICO hearing. 
+\end{displayquote}
+
+We match ``Don'' to Donald Gately, but in this instance, it is clear that Hal is not reffering to him. A solution would be scope entity matches to sections, but we have not done this.
+
+\subsubsection{Disambiguation}
+Our matcher has no way of differentiating between two characters with the same name. Generally, we dealt with this by not matching on that name -- for instance, `Incandenza' does not match to James, Orin, Mario, Avril, or Hal, as we are unable to determine who is being referenced. Entity scoping to sections would help, but even then, this would pose a problem.
+
+\subsubsection{Hypergraph: a single match refering to multiple characters}
+``\ldots~the Vaught twins are heading down the hall to the bathroom at the far end\ldots'' (\infinitejest, section 159) Though the Vaught twins refers obviously to Sharyn and Caryn Vaught, our matcher does not pick up an entity from this sentence, as we have not built in a method for one match indicating more than one character.
+
+\subsubsection{Pseudonyms}
+We treat pseudonyms as references to the pseudonymous individual. This is \textit{certainly} inappropriate, but seemed more appropriate to us than ignoring the reference entirely. As an example, Joelle van Dyne hosts a radio show under the pseudonym ``Madame Psychosis''; when a character mentions Madame Psychosis, we count that as a reference to Joelle van Dyne, despite the fact that the connection between the two -- Joelle van Dyne and Madame Psychosis -- is not common knowledge and is unlikely to be known to the mentioner.
+
+There are several solutions to this problem. One would be to represent pseudonyms as separate entities, but that has unappealing downsides (like failing to associate mentions of the pseudonym by those who are aware of the real entity with the real entity). Another would be to make a directed edge for certain matches, but this would require inferring the directionality of such mentions, something that cannot be done without deeper understanding of the text.

@@ -1,43 +1,35 @@
-\section{Why a Network?}
+\section{\infinitejest as a Network}
 
-There are many possible definitions of an edge in a social network: dialogue, physical interactions, sentiment. 
-We chose to present character co-mentions in the text as edges. 
-This gives us the broadest view of a book as a network of character interactions, and additionally eases the burden of natural-language parsing because we can disregard all semantic information in the interactions.
+Our network represents characters as nodes and character co-mentions as weighted edges. The more of often two characters are mentioned in proximity to each other, the greater the weight of the edge between them. Our approach gives an extremely broad view of a book as a network of character co-mentions.
 
-\subsection{Questions..questions that need answering}
+Our choice of representing characters as nodes is fairly standard, but it worth noting that there are many possible definitions of an edge in a social network: character interaction, be it verbal (in dialogue) or physical, or sentiment. 
 
-How is the narrative world structured? (static-network analysis)
-Main characters: centrality measures
-Small-world, community detection, assortativity
+There are certainly drawbacks to our approach -- dynamics of power between characters are entirely omitted -- but we found it still allowed us to gain insight into narrative flow and characteristics of nodes.
 
+\subsection{Network Design}
 
-How does the structure evolve throughout the narrative? (dynamic analysis)
-Chronological order vs. book order
-Attachment: sparsification/densification?
-Main character centralities over time
+\subsubsection{Nodes}
+Network nodes constitute characters identified in the set of found named entities. These were referenced against online resources to ensure proper coverage of the characters in the book.\cite{david_foster_wallace_wiki}
 
+\subsubsection{Edges}
+Edges in the book represent a co-mention between two entities in the text. We do not match across section breaks, and we directly interpolate endnotes into the sections in which they appear. We do not interpolate endnotes referenced in an endnote into that endnote.
 
-Why is the book structured this way?
-Chronological vs. non-chronological
-How does the structure impact the narrative?
+A threshold number of tokens (words) under which the number of tokens between the mention of one entity and another determines if an edge with weight 1 is created. If the edge already exists, the weight is incremented by 1. The current entity $i$ is only matched with proceeding entities $j$ within this threshold.
 
+The threshold number of tokens is determined by a heuristic measure of the effect of the threshold length on the average clustering coefficient and the giant component size (see Figure \ref{fig-threshold-size}). The intuition behind these metrics is to choose the minimum threshold required to produce a giant component and a clustering coefficient that captures the highly connected nature of characters in the novel. Our threshold is 50 tokens.
 
-\subsection{Related Work}
-
-A quick search shows that we are not the first to mine networks from literary works and apply network analysis techniques.
-
-In fact, there are a few interesting works which use data-driven analysis to evaluate hypotheses in literary analysis. 
-Though it doesn't use networks, Reagan et al.'s uses NLP and sentiment analysis to confirm Kurt Vonnegut's rejected Master's thesus on emotional story arcs \cite{Reagan2016}. 
-Analyzing 1,327 stories from Project Gutenberg, they find six core emotional trajectory arcs and compare modern popularity of stories for each arc evaluated by number of downloads.
-
-Several social networks have been built from narratives. 
-Alberich et al. (2002) build bipartite social network out of Marvel comic book character appearances in comic books, finding many similar characteristics to real-life scientific collaboration networks such as short distances and a power-law degree distribution tail with a cutoff \cite{2002marvel}. Notably, they find a lower clustering coefficient than expected in real networks.
-
-Bonato et al. \cite{Bonato2016} compared networks for three books: {\em Twilight} by Stephanie Meyer, {\em The Stand} by Steven King, and J.K. Rowling's {\em Harry Potter and the Goblet of Fire}. 
-They found the Chung-Lu model best fits the co-occurance networks.
-Game of Thrones and Lord of the Rings have also been similarly analyzed \cite{GOT,ribeiro2016complex}.
-
-%Meanwhile, Sack (1998) examines the emergence of global narrative structures from the local interactions of stable and unstable character triads, and discusses the implications as a generative mechanism for new story creation, particularly for dramas \cite{sack2013character}. Befriending and betrayal interactions between nodes represent an interesting potential dynamic for understanding narrative structure.
-
-\infinitejest differs from the other narratives touched on in prior works because of its complexity, supposedly wide and in-depth wordview, and its unusual (non-chronological) structure. We therefore hope to find how this artificial social network compares to real social networks and to those previously analyzed. We suspect we may see statistics more similar to real-world social networks.
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=1.\textwidth]{images/thresh_vs_avg_clustering.png}
+        \caption{Edge Threshold's effect on Clustering Coefficient}
+    \end{subfigure}
+    \\
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=1.\textwidth]{images/thresh_vs_gc_size.png}
+        \caption{Edge Threshold's effect on the size of the Giant Component}
+    \end{subfigure}
+    \caption{Determining the Edge Threshold by its effect on clustering coefficient and the size of the Giant Component.}
+    \label{fig-threshold-size}
+\end{figure}
 
