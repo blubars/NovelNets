@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import numpy as np
 import pandas as pd
+import seaborn as sns
 
 from collections import defaultdict
 
@@ -331,7 +332,8 @@ def plot_gender_betweenness(weighted=False):
         },
     }
 
-    fig = plt.figure(1)
+    # fig = plt.figure(1)
+    sns.set(color_codes=True)
 
     avgs = defaultdict(dict)
     for gender, info in gender_graphing_info.items():
@@ -348,9 +350,11 @@ def plot_gender_betweenness(weighted=False):
         avgs[gender]['diff'] = sum(diff) / len(diff)
         avgs[gender]['avg'] = sum(avg) / len(avg)
 
-        # plt.hist(diff, bins='auto', histtype='stepfilled', normed=True, stacked=True, color=info['color'])
-        plt.hist(diff, bins='auto', histtype='stepfilled', stacked=True, color=info['color'], label=gender)
-        # plt.yscale('log')
+        weights = np.ones_like(diff) / (len(diff))
+
+        plt.hist(diff, bins=20, histtype='stepfilled', stacked=True, color=info['color'], weights=weights, label=gender)
+
+    print(avgs)
 
     plt.axvline(x=0, color='k')
     plt.title("unweighted betweenness by gender compared to configuration model")
@@ -358,23 +362,9 @@ def plot_gender_betweenness(weighted=False):
     plt.xlabel("betweenness")
     plt.legend()
     plt.tight_layout()
-    plt.show()
 
-
-        # plt.plot(diff, diff, c=info['color'], label=gender)
-        # plt.plot(sub_xs, actual, c=info['color'], label=gender)
-        # plt.fill_between(sub_xs, lower, upper, edgecolor='#464646', facecolor='#464646', alpha=.2)
-
-        # plt.plot(sub_xs, diff, c=info['color'], label=gender)
-        # plt.fill_between(sub_xs, lower_diff, upper_diff, edgecolor='#464646', facecolor='#464646', alpha=.2)
-
-    # plt.axhline(y=0, color='k')
-    # plt.axvline(x=gender_graphing_info['male']['end'], color='black')
-    # plt.axvline(x=gender_graphing_info['female']['end'], color='black')
-
-    # plt.savefig(os.path.join(PLOTS_PATH, 'unweighted_betweenness_by_gender.png'))
-    # plt.close(fig)
-    plt.show()
+    plt.savefig(os.path.join(PLOTS_PATH, 'unweighted_betweenness_by_gender.png'))
+    plt.close(fig)
 
 
 if __name__ == '__main__':

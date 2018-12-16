@@ -2,7 +2,7 @@
 
 \title{Infinite Jest: An Elegant Hairball}
 \author{
-  Hunter Wapman
+  K. Hunter Wapman
   \and
   Brian Lubars
   \and
@@ -74,13 +74,39 @@ Finally, we examine the narrative structure of \infinitejest by comparing the dy
 
 \subsection{Infinite Jest Book}
 
+CHRONOLOGY
+
+Sierpinski Gasket
+
+“Certain kind of parallel lines are supposed to start converging in such a way that an "end" can be projected by the reader somewhere beyond the right frame. If no such convergence or projection occured to you, then the book's failed for you.” — DFW
+
+Endnotes
+
 \subsection{Why a Network?}
 
 There are many possible definitions of an edge in a social network: dialogue, physical interactions, sentiment. 
-We chose to present character co-occurances in the text as edges. 
+We chose to present character co-mentions in the text as edges. 
 This gives us the broadest view of a book as a network of character interactions, and additionally eases the burden of natural-language parsing because we can disregard all semantic information in the interactions.
 
 \subsection{Questions..questions that need answering}
+
+Would the book be more understandable if told in chronological order?
+
+How is the narrative world structured? (static-network analysis)
+Main characters: centrality measures
+Small-world, community detection, assortativity
+
+
+How does the structure evolve throughout the narrative? (dynamic analysis)
+Chronological order vs. book order
+Attachment: sparsification/densification?
+Main character centralities over time
+
+
+Why is the book structured this way?
+Chronological vs. non-chronological
+How does the structure impact the narrative?
+
 
 \section{Related Work}
 
@@ -111,8 +137,19 @@ To generate analyzable text this project utilizes an existing `.mobi' file of \i
 
 A major challenge with \infinitejest is the abundant use of pseudonyms and aliases of the 200+ characters in the novel. As our network uses characters as nodes, identifying named entities and their synonym coreference resolutions (not for pronouns) requires an extensive hand-engineered approach. We utilize the Named Entity Recognition (NER) parser of the Python library SpaCy \cite{spacy2} augmented with its own Matcher parser. By running the existing NER model on the text, we compare candidate entities generated from the NER parser with our own indetified character matches. Manually parsing over these results enables us to build an entity-synonym list that feeds into the Matcher in subsequent NER parses. This enables Spacy to indentify a large number of the pseudonyms and aliases and their locations within each section of the text.
 
+CREATING GRAPHS examples
+
 \subsubsection{Challenges and Considerations}
 One major affront to the Matcher approach is the extensive use of pronoun coreferences. Similarly, the extensive use of dialog presents a challenge in identifying named entities since the the identification of the speaking character is often hidden. For example, in the following quote, two characters never explicitly mention each other but are refering to the same character, Bob.
+
+Problems:
+Point of View: who is “I”?
+Reference vs Interaction
+False positives
+Disambiguation: Which John is John?
+Pseudonyms
+“Madame Psychosis” is a pseudonym of Joelle van Dyne
+Hypergraph: “one of the Vaught sisters”
 
 \begin{displayquote}
 ``\emph{\underline{I}} am really concerned about \emph{\underline{Bob}}"\\
@@ -162,8 +199,15 @@ TODO: 'logarithmically bin data and perform a linear regression of Log(P(5)) on 
 \subsubsection{Small World}
 Comparison of diameter to real social networks?
 
+\subsection{Modularity}
+
+- talk about NMI
+- talk about modularity
+
 \subsubsection{Clustering}
  - compare against config model expectations?
+
+ look at triangles, how many are closed/open, compare to expectations from a normal social network?
 
 \subsection{Gender}
 
