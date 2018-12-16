@@ -1245,7 +1245,7 @@ Computing Machinery]
 \def\acmSubmissionID#1{\def\@acmSubmissionID{#1}}
 \acmSubmissionID{}
 \def\acmISBN#1{\def\@acmISBN{#1}}
-\acmISBN{978-x-xxxx-xxxx-x/YY/MM}
+\acmISBN{}
 \def\acmDOI#1{\def\@acmDOI{#1}}
 \acmDOI{10.1145/nnnnnnn.nnnnnnn}
 \newif\if@ACM@badge
@@ -1452,7 +1452,7 @@ Computing Machinery]
   IW3C2 (International World Wide Web Conference Committee), published
   under Creative Commons CC-BY-NC-ND~4.0 License.
   \fi}
-\def\@formatdoi#1{\url{https://doi.org/#1}}
+\def\@formatdoi#1{\url{}}
 \def\copyrightyear#1{\def\@copyrightyear{#1}}
 \copyrightyear{\@acmYear}
 \def\@teaserfigures{}
