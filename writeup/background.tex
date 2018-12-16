@@ -1,0 +1,61 @@
+\section{Background}
+
+\subsection{Infinite Jest Book}
+
+CHRONOLOGY
+
+Sierpinski Gasket
+
+“Certain kind of parallel lines are supposed to start converging in such a way that an "end" can be projected by the reader somewhere beyond the right frame. If no such convergence or projection occured to you, then the book's failed for you.” — DFW
+
+Endnotes
+
+In \infinitejest, the story is split into sections which are ordered non-chronologically. 
+
+The first few sections in the book are actually the last to occur chronologically!
+
+\subsection{Why a Network?}
+
+There are many possible definitions of an edge in a social network: dialogue, physical interactions, sentiment. 
+We chose to present character co-mentions in the text as edges. 
+This gives us the broadest view of a book as a network of character interactions, and additionally eases the burden of natural-language parsing because we can disregard all semantic information in the interactions.
+
+\subsection{Questions..questions that need answering}
+
+Would the book be more understandable if told in chronological order?
+
+How is the narrative world structured? (static-network analysis)
+Main characters: centrality measures
+Small-world, community detection, assortativity
+
+
+How does the structure evolve throughout the narrative? (dynamic analysis)
+Chronological order vs. book order
+Attachment: sparsification/densification?
+Main character centralities over time
+
+
+Why is the book structured this way?
+Chronological vs. non-chronological
+How does the structure impact the narrative?
+
+
+\section{Related Work}
+
+A quick search shows that we are not the first to mine networks from literary works and apply network analysis techniques.
+
+In fact, there are a few interesting works which use data-driven analysis to evaluate hypotheses in literary analysis. 
+Though it doesn't use networks, Reagan et al.'s uses NLP and sentiment analysis to confirm Kurt Vonnegut's rejected Master's thesus on emotional story arcs \cite{Reagan2016}. 
+Analyzing 1,327 stories from Project Gutenberg, they find six core emotional trajectory arcs and compare modern popularity of stories for each arc evaluated by number of downloads.
+
+Several social networks have been built from narratives. 
+Alberich et al. (2002) build bipartite social network out of Marvel comic book character appearances in comic books, finding many similar characteristics to real-life scientific collaboration networks such as short distances and a power-law degree distribution tail with a cutoff \cite{2002marvel}. Notably, they find a lower clustering coefficient than expected in real networks.
+
+Bonato et al. \cite{Bonato2016} compared networks for three books: {\em Twilight} by Stephanie Meyer, {\em The Stand} by Steven King, and J.K. Rowling's {\em Harry Potter and the Goblet of Fire}. 
+They found the Chung-Lu model best fits the co-occurance networks.
+Game of Thrones and Lord of the Rings have also been similarly analyzed \cite{GOT,ribeiro2016complex}.
+
+%Meanwhile, Sack (1998) examines the emergence of global narrative structures from the local interactions of stable and unstable character triads, and discusses the implications as a generative mechanism for new story creation, particularly for dramas \cite{sack2013character}. Befriending and betrayal interactions between nodes represent an interesting potential dynamic for understanding narrative structure.
+
+\infinitejest differs from the other narratives touched on in prior works because of its complexity, supposedly wide and in-depth wordview, and its unusual (non-chronological) structure. We therefore hope to find how this artificial social network compares to real social networks and to those previously analyzed. We suspect we may see statistics more similar to real-world social networks.
+

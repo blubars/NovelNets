@@ -332,8 +332,7 @@ def plot_gender_betweenness(weighted=False):
         },
     }
 
-    # fig = plt.figure(1)
-    sns.set(color_codes=True)
+    fig = plt.figure(1)
 
     avgs = defaultdict(dict)
     for gender, info in gender_graphing_info.items():
@@ -356,14 +355,16 @@ def plot_gender_betweenness(weighted=False):
 
     print(avgs)
 
+    weightstring = "weighted" if weighted else "unweighted"
+
     plt.axvline(x=0, color='k')
-    plt.title("unweighted betweenness by gender compared to configuration model")
-    plt.ylabel("count of nodes")
-    plt.xlabel("betweenness")
+    plt.title("difference between actual betweenness and configuration model betweenness by gender ({})".format(weightstring))
+    plt.ylabel("probability")
+    plt.xlabel("difference between actual betweenness and configuration model betweenness")
     plt.legend()
     plt.tight_layout()
 
-    plt.savefig(os.path.join(PLOTS_PATH, 'unweighted_betweenness_by_gender.png'))
+    plt.savefig(os.path.join(PLOTS_PATH, 'gender_betweenness_by_gender.png'))
     plt.close(fig)
 
 

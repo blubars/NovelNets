@@ -329,7 +329,7 @@ def analyze_gender_by_configuration(G, weighted=False):
         for node, betweenness in nx.betweenness_centrality(config_G, weight=weight).items():
             config_betweenness[node].append(betweenness)
 
-        config_clustering.append(nx.average_clustering(config_G))
+        config_clustering.append(nx.transitivity(config_G))
 
     config_25th_percentile = [np.percentile(config_betweenness[i], 25) for i in range(number_of_nodes)]
     config_50th_percentile = [np.percentile(config_betweenness[i], 50) for i in range(number_of_nodes)]
@@ -345,7 +345,8 @@ def analyze_gender_by_configuration(G, weighted=False):
         'config-25th' : config_25th_percentile,
         'config-50th' : config_50th_percentile,
         'config-75th' : config_75th_percentile,
-        'clustering' : sum(config_clustering) / len(config_clustering),
+        'clustering-config' : sum(config_clustering) / iterations,
+        'clustering-actual' : nx.transitivity(G),
     }
 
     with open(os.path.join(ANALYSIS_PATH, 'gender_betweennesses-weighted_{}.json'.format(weighted)), 'w') as f:
