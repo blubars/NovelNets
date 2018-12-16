@@ -12,6 +12,10 @@ $$P(k) \sim k^{-\tau}10^{-k/c}$$
 TODO: 'logarithmically bin data and perform a linear regression of Log(P(5)) on log(r) to get the power law fit
 
 \subsubsection{Assortativity}
+We see an unweighted degree assortative mixing coefficient of -0.0945.
+Degree assortative networks typically reflect core-periphery structures, where a dense core of highly-connected nodes is surrounded by successively less-dense periphery nodes. Degree disassortative networks, on the other hand, are more stars with high-degree nodes connected to low-degree. 
+According to Newman in {\em Networks}, social networks are unusual in that they typically have a positive degree assortativity \cite{NewmanBook}. 
+Therefore it is strange for us to see disassortative mixing by degree in \infinitejest, possibly indicating more of a star-like structure or fewer community structures than real-world social networks.
 
 \subsubsection{Small World}
 Comparison of diameter to real social networks?
@@ -22,9 +26,14 @@ Comparison of diameter to real social networks?
 - talk about modularity
 
 \subsubsection{Clustering}
- - compare against config model expectations?
+Using the transitivity definition of clustering coefficient, we can examine the fraction of closed triads.
+$$ C = \frac{\text{(number of triangles)} \cdot 3}{\text{number of connected triples}} $$
 
- look at triangles, how many are closed/open, compare to expectations from a normal social network?
+This metric disregards the edge weights, looking only at connections between characters. We find $C = 0.3930$, reflecting the relatively dense connections -- perhaps within communities such as the Tennis Academy or Halfway House -- as opposed to a tree-like structure rooted at the highest-degree (main) characters.
+
+We can compare the clustering coefficient against the configuration model to determine if this effect is due to the degree sequence alone or perhaps reflects a conscious author choice. We find configuration model we get an average local clustering coefficient of 0$.1728$, vs $0.3930$ in the book. 
+
+TODO: how does this compare to real social networks?
 
 \subsection{Gender}
 
