@@ -64,8 +64,9 @@ if __name__ == "__main__":
             graph.add_nodes_from(pair)
         graph.add_edges_from(data)
         trans, diamter, degree_assort = run_analysis(graph)
-        analyzed.append((name, trans, diamter, degree_assort))
-    with open('"../data/facebook_metric.csv"', 'w', newline='') as csvfile:
+        analyzed.append((name, trans, diamter, degree_assort, size))
+    with open("../data/facebook_metrics.csv", 'w') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
+        writer.writerow(["Name", "Transitivity", "Diameter", "Degree Assorativity", "Network Size"])
         for entry in analyzed:
             writer.writerow(entry)
