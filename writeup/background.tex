@@ -31,3 +31,15 @@ The book's structure is ostensibly based on a Sierpinski Gasket, a triangular fr
 \subsubsection{Endnotes}
 
 The book uses endnotes extensively to convey additional information of varying degrees of relevance. The gamut of information can run from multi-page mini-stories containing important narrative information (\infinitejest, endnote 304) to ``No clue.'' (\infinitejest, endnote 216). Endnotes can reference other endnotes (\infinitejest, endnote 45), and can themselves have endnotes (\infinitejest, endnotes 388). These present a challenge both for the reader and for our approach to generating the network.
+
+\subsection{Related Work}
+
+We are not the first to mine networks from literature or to apply data-driven techniques to evaluate a hypothesis.
+
+Reagan et al.\ use NLP and sentiment to analyze 1,327 stories from Project Gutenberg in an effort to confirm Kurt Vonnegut's rejected Master's thesis categorizing story arcs into six types by emotion; they indeed find six core emotional trajectories, and they use the number of downloads of stories with each archetypal arc-type to evaluate each type's popularity~\cite{Reagan2016}.
+
+Alberich et al. (2002) build bipartite social network out of Marvel comic book character appearances in comic books, finding many similar characteristics to real-life scientific collaboration networks such as short distances and a power-law degree distribution tail with a cutoff~\cite{2002marvel}. Notably, they find a lower clustering coefficient than expected in real networks.
+
+Bonato et al.~\cite{Bonato2016} compared networks for three books: \textit{Twilight}, by Stephanie Meyer, \textit{The Stand} by Steven King, and J.K. Rowling's \textit{Harry Potter and the Goblet of Fire}. They found the Chung-Lu model best fits the co-occurance networks. Game of Thrones and Lord of the Rings have also been similarly analyzed~\cite{GOT,ribeiro2016complex}.
+
+\infinitejest differs from the narratives explored in prior works due its unorthodox narrative structure, the sheer number of characters, and the stylistic diversity of its prose.
