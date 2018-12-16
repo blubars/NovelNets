@@ -291,15 +291,13 @@ def analyze_gender_by_configuration(G, weighted=False):
     all_nodes_and_degree_seq += female_nodes_and_degree_seq 
     all_nodes_and_degree_seq += unknown_nodes_and_degree_seq
 
-    all_degree_seq = []
-    all_nodes_seq = []
+    all_nodes_seq, all_degree_seq = zip(*all_nodes_and_degree_seq)
 
-    for node, degree in all_nodes_and_degree_seq:
-        all_nodes_seq.append(node)
-        all_degree_seq.append(degree)
-
-    actual_betweenness_dict = nx.betweenness_centrality(G, weight=weight)
-    actual_betweenness = [ actual_betweenness_dict[node] for node in all_nodes_seq]
+    if weight:
+        actual_betweenness_dict = nx.betweenness_centrality(G, weight=weight)
+        actual_betweenness = [ actual_betweenness_dict[node] for node in all_nodes_seq]
+    else:
+        actual_betweenness = []
 
     number_of_nodes = len(all_degree_seq)
 
@@ -310,6 +308,7 @@ def analyze_gender_by_configuration(G, weighted=False):
     
     iterations = 100
     config_betweenness = [[] for _ in range(number_of_nodes)]
+    config_clustering = []
     for _ in range(iterations):
         config_G = nx.configuration_model(all_degree_seq, create_using=nx.Graph)
         print(_)
@@ -330,6 +329,8 @@ def analyze_gender_by_configuration(G, weighted=False):
         for node, betweenness in nx.betweenness_centrality(config_G, weight=weight).items():
             config_betweenness[node].append(betweenness)
 
+        config_clustering.append(nx.average_clustering(config_G))
+
     config_25th_percentile = [np.percentile(config_betweenness[i], 25) for i in range(number_of_nodes)]
     config_50th_percentile = [np.percentile(config_betweenness[i], 50) for i in range(number_of_nodes)]
     config_75th_percentile = [np.percentile(config_betweenness[i], 75) for i in range(number_of_nodes)]
@@ -344,6 +345,7 @@ def analyze_gender_by_configuration(G, weighted=False):
         'config-25th' : config_25th_percentile,
         'config-50th' : config_50th_percentile,
         'config-75th' : config_75th_percentile,
+        'clustering' : sum(config_clustering) / len(config_clustering),
     }
 
     with open(os.path.join(ANALYSIS_PATH, 'gender_betweennesses-weighted_{}.json'.format(weighted)), 'w') as f:
