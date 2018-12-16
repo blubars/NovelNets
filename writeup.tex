@@ -88,7 +88,7 @@ Game of Thrones and Lord of the Rings have also been similarly analyzed \cite{GO
 \section*{Data Processing}
 
 \subsubsection*{Data Source \& Preprocessing}
-To generate analyzable text this project utilizes an existing `.mobi' file of \infinitejest. This file is put through a .mobi to HTML conversion to generate an HTML formatted file as well as a .mobi to raw text conversion. This enables the use of regular expressions to find and parse various text features automatically. Thus the HTML text is used to identify endnote locations such that simplified endnote tags can be inserted into the raw text file. Similarly, regular expressions are used to indentify where section breaks exist according to the section annotations given by the book Elegant Complexity \cite{carlisle_2007}. The raw text is split on these sections and saved into separate files. Likewise each endnote is saved into a separate file. In each of these files, we remove all inessential special characters (e.g. speicial quotes). As we employ the Python 3.7 standard, all text files are imported as unicode.
+To generate analyzable text this project utilizes an existing `.mobi' file of \infinitejest. This file is put through a .mobi to HTML conversion to generate an HTML formatted file as well as a .mobi to raw text conversion. This enables the use of regular expressions to find and parse various text features automatically. Thus the HTML text is used to identify endnote locations such that simplified endnote tags can be inserted into the raw text file. Similarly, regular expressions are used to indentify where section breaks exist according to the section annotations given by the book Elegant Complexity \cite{carlisle_2007}. The raw text is split on these sections and saved into separate files. Likewise each endnote is saved into a separate file. In each of these files, we remove all inessential special characters (e.g. special quotes). As we employ the Python 3.7 standard, all text files are imported as unicode.
 
 \subsubsection*{Named Entitiy Recognition}
 
@@ -103,7 +103,7 @@ One major affront to the Matcher approach is the extensive use of pronoun corefe
 ``What should \underline{\emph{we}} do about \underline{\emph{his}} problem?"
 \end{displayquote}
 
-This exchange would be overlooked by our approach. While there are some approaches for coreference resolution at this granularity, most are trained on models not well suited for the very unstructured and informal style of David Foster Wallace's novel.  As such, the use of named entities as nodes, and our methodlogy for identifying where they exist in text, enables the generation of a co-mention network. However, such a network may not perfectly capture true latent interaction structure of the book.
+This exchange would be overlooked by our approach. While there are some approaches for coreference resolution at this granularity, most are trained on models not well suited for the very unstructured and informal style of David Foster Wallace's novel. As such, the use of named entities as nodes, and our methodology for identifying where they exist in text, enables the generation of a co-mention network. However, such a network may not perfectly capture true latent interaction structure of the book.
 
 \section*{Network Design}
 
@@ -127,11 +127,14 @@ Network nodes constitute each character identified in the set of found named ent
 
 The threshold number of tokens is determined by a semi-objective measure of the effect of the threshold length on the average clustering coefficient and the giant component size (see Figure \ref{fig-threshold-size}). The intuition behind the use of these metrics is that we choose the minimum threhold length required to produce a large giant component and ample enough clustering best capturing the highly connected nature of characters in the novel.  Our chosen threshold is roughly 50 tokens.
 
-\section{Results}
-\subsection{Complete Network}
+\section*{Analysis}
+
+\subsection*{Narrative}
+
+\subsection*{Statics}
 Average Degree
 
-\subsection{Degree Distribution}
+\subsubsection{Degree Distribution}
 Power law? 
 $$P(k) \sim k^{-\tau}$$
 $$P(k) \sim k^{-\tau}10^{-k/c}$$
@@ -145,13 +148,18 @@ Clustering
 
 TODO: 'logarithmically bin data and perform a linear regression of Log(P(5)) on log(r) to get the power law fit
 
-\subsection{Dynamic Growing Network}
 
-\section{Future Work}
+\subsection*{Dynamics}
+
+\subsection*{Gender}
+
+\section*{Future Work}
 
 Given more time and resources, there are several interesting questions to explore. We only ran our analysis with a single book, but it would be interesting to compare character interaction networks within and between different genres. For example, given a few dozen books, we could start to determine how \infinitejest's character network structure compare to other post-modern works, or how postmodern works differ from others like mysteries, historical fiction, fantasy, or short stories.
 
 It would also be interesting to note if we can structurally identify common narrative techniques or plot devices -- for example, the climax, backstories, cliffhangers, plot twists, or stories-within-stories.
+
+\section*{Conclusion}
 
 \bibliographystyle{unsrt}
 \bibliography{references.bib}

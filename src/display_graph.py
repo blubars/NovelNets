@@ -2,7 +2,7 @@ from webweb.webweb import webweb
 import argparse
 
 from graphify import Graphify
-from analyze import get_section_sequence, generate_greedy_modularity_communities
+import infinite_jest_utils
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -21,19 +21,11 @@ if __name__ == '__main__':
     # web.display.w = 600
     # web.display.h = 600
 
-    section_sequence = get_section_sequence(chronological=False)
-
+    section_sequence = infinite_jest_utils.get_section_sequence(chronological=False)
     for G in gg.graph_by_sections(section_sequence, aggregate=True, decay_weights=True, stability=40):
-        communities = generate_greedy_modularity_communities(G)
-
-        for i, community_set in enumerate(communities):
-            community_label = 'community {}'.format(i)
-            for node in community_set:
-                G.nodes[node]['community'] = community_label
-
         web.networks.infinite_jest.add_frame_from_networkx_graph(G)
 
-    section_sequence = get_section_sequence(chronological=True)
+    section_sequence = infinite_jest_utils.get_section_sequence(chronological=True)
     for G in gg.graph_by_sections(section_sequence, aggregate=True, decay_weights=True, stability=40):
         web.networks.infinite_jest_chronological.add_frame_from_networkx_graph(G)
 

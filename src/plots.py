@@ -7,7 +7,6 @@
 import json
 import os
 import csv
-import analyze
 import argparse
 import matplotlib.pyplot as plt
 import matplotlib
@@ -15,6 +14,8 @@ import numpy as np
 import pandas as pd
 
 from collections import defaultdict
+
+import infinite_jest_utils
 
 ANALYSIS_PATH = '../data/analysis/'
 PLOTS_PATH = '../data/plots/'
@@ -77,8 +78,8 @@ def plot_neighborhood_stabilities():
     1
 
 def section_bars():
-    chronological = analyze.get_section_sequence(chronological=True)
-    booktime = analyze.get_section_sequence(chronological=False)
+    chronological = infinite_jest_utils.get_section_sequence(chronological=True)
+    booktime = infinite_jest_utils.get_section_sequence(chronological=False)
 
     # Make a figure and axes with dimensions as desired.
     fig = plt.figure(figsize=(8, 3))
@@ -305,6 +306,77 @@ def plot_neighborhoods():
     plt.savefig(os.path.join(PLOTS_PATH, 'neighborhood.png'))
     plt.close(fig)
 
+
+def plot_gender_betweenness(weighted=False):
+    with open(os.path.join(ANALYSIS_PATH, 'gender_betweennesses-weighted_{}.json'.format(weighted)), 'r') as f:
+        content = json.load(f)
+
+    xs = [i for i in range(len(content['actual']))]
+
+    gender_graphing_info = {
+        'male' : {
+            'color' : 'red',
+            'start' : 0,
+            'end' : content['male'],
+        },
+        'female' : {
+            'color' : 'blue',
+            'start' : content['male'],
+            'end' : content['male'] + content['female'],
+        },
+        'unknown' : {
+            'color' : 'green',
+            'start' : content['male'] + content['female'],
+            'end' : len(content['actual']),
+        },
+    }
+
+    fig = plt.figure(1)
+
+    avgs = defaultdict(dict)
+    for gender, info in gender_graphing_info.items():
+        lower = content['config-25th'][info['start']:info['end']]
+        upper = content['config-75th'][info['start']:info['end']]
+        actual = content['actual'][info['start']:info['end']]
+        avg = content['config-50th'][info['start']:info['end']]
+        sub_xs = xs[info['start']:info['end']]
+
+        diff = [act - avg[i] for i, act in enumerate(actual)]
+        lower_diff = [act - lower[i] for i, act in enumerate(actual)]
+        upper_diff = [act - upper[i] for i, act in enumerate(actual)]
+
+        avgs[gender]['diff'] = sum(diff) / len(diff)
+        avgs[gender]['avg'] = sum(avg) / len(avg)
+
+        # plt.hist(diff, bins='auto', histtype='stepfilled', normed=True, stacked=True, color=info['color'])
+        plt.hist(diff, bins='auto', histtype='stepfilled', stacked=True, color=info['color'], label=gender)
+        # plt.yscale('log')
+
+    plt.axvline(x=0, color='k')
+    plt.title("unweighted betweenness by gender compared to configuration model")
+    plt.ylabel("count of nodes")
+    plt.xlabel("betweenness")
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
+
+        # plt.plot(diff, diff, c=info['color'], label=gender)
+        # plt.plot(sub_xs, actual, c=info['color'], label=gender)
+        # plt.fill_between(sub_xs, lower, upper, edgecolor='#464646', facecolor='#464646', alpha=.2)
+
+        # plt.plot(sub_xs, diff, c=info['color'], label=gender)
+        # plt.fill_between(sub_xs, lower_diff, upper_diff, edgecolor='#464646', facecolor='#464646', alpha=.2)
+
+    # plt.axhline(y=0, color='k')
+    # plt.axvline(x=gender_graphing_info['male']['end'], color='black')
+    # plt.axvline(x=gender_graphing_info['female']['end'], color='black')
+
+    # plt.savefig(os.path.join(PLOTS_PATH, 'unweighted_betweenness_by_gender.png'))
+    # plt.close(fig)
+    plt.show()
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Plot Infinite Jest")
     parser.add_argument('--section_bars', '-s', default=False, action="store_true", help="create the section bars")
@@ -315,6 +387,7 @@ if __name__ == '__main__':
     parser.add_argument('--n_vs_geo', '-v', help="n vs geodesic", action="store_true")
     parser.add_argument('--n_vs_avg_degree', '-e', help="n vs avg degree", action="store_true")
     parser.add_argument('--gender', '-g', help="gender", action="store_true")
+    parser.add_argument('--gender_betweenness', '-b', help="gender betweenness", action="store_true")
 
     args = parser.parse_args()
     print("Saving plots to '{}'".format(ANALYSIS_PATH))
@@ -342,3 +415,6 @@ if __name__ == '__main__':
 
     if args.n_vs_avg_degree:
         plot_n_vs_avg_degree()
+
+    if args.gender_betweenness:
+        plot_gender_betweenness(True)

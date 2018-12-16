@@ -7,9 +7,6 @@
 # Date: 12/1/18
 #########################################################
 
-# TODO:
-# section 25.15 in chronology doesn't exist, currently skipping.
-
 #########################################################
 # Imports
 #########################################################
@@ -23,54 +20,22 @@ from networkx.algorithms.community import greedy_modularity_communities
 import matplotlib
 import matplotlib.pyplot as plt
 from collections import defaultdict
+import random
 
 import algorithms as algos
 from graphify import Graphify
 from utils import get_sections_path
 import plots
+import infinite_jest_utils
 
 #########################################################
 # Globals
 #########################################################
 ANALYSIS_PATH = '../data/analysis/'
-TOTAL_NUM_SECTIONS = 192
 
 #########################################################
 # Function definitions
 #########################################################
-def get_chronological_order():
-    # read json files of chronological order
-    with open("../data/chronology.json", 'r') as f:
-        chronology_json = json.loads(f.read())
-
-    chapters = []
-    for entry in chronology_json:
-        entry = str(entry)
-
-        if entry.replace('.', '', 1).isdigit():
-            chapters.append(entry)
-        else:
-            continue
-
-    with open("../data/sections_to_pages.json", 'r') as f:
-        section_json = json.loads(f.read())
-
-    chapters_to_sections = {}
-    for entry in section_json:
-        chapters_to_sections[entry['ch']] = entry['section']
-        # print("{} --> {}".format(entry['ch'], entry['section']))
-
-    sections = [chapters_to_sections[chapter] for chapter in chapters]
-
-    num_sections = len(sections)
-    num_unique_sects = len(set(sections))
-    if num_sections != num_unique_sects:
-        print("WARNING: something wrong in chronological order mapping.")
-        print("Num sections:{}".format(num_sections))
-        print("Num set(sections):{}".format(num_unique_sects))
-    return sections
-
-
 def analyze_centralities(G, weighted=True):
     # centrality measures
     centralities = [
@@ -93,7 +58,6 @@ def analyze_centralities(G, weighted=True):
             print(" [{}] {}({}): {}".format(i, node_name, node_id, cent))
         print()
 
-
 def analyze_assortativity(G):
     # Degree Assortativity
     result = nx.degree_assortativity_coefficient(G, weight="weight")
@@ -112,7 +76,7 @@ def analyze_assortativity(G):
 
 
 def generate_greedy_modularity_communities(G):
-    print("Agglomerative Modularity:")
+    # print("Agglomerative Modularity:")
     # partitions, modularities = algos.agglomerative_modularity(G)
     # algos.draw_partition_graph(G, partitions)
     # algos.draw_modularity_plot(modularities)
@@ -126,14 +90,11 @@ def generate_greedy_modularity_communities(G):
 
 def analyze_neighborhood(gg, chronological=False):
     print("Neighborhood stability:")
-    seq = get_section_sequence(chronological)
+    seq = infinite_jest_utils.get_section_sequence(chronological)
     stabilities = algos.neighborhood_stabilities(gg, seq)
 
     with open(os.path.join(ANALYSIS_PATH, 'neighborhood_stabilities-chronological_{}.json'.format(chronological)), 'w') as f:
         json.dump(stabilities, f)
-
-def get_section_sequence(chronological=False):
-    return get_chronological_order() if chronological else range(1, TOTAL_NUM_SECTIONS+1)
 
 def analyze_attachment(gg, weighted=True):
     # does degree distribution follow a power law?
@@ -159,11 +120,11 @@ def open_csv_file(name):
         return None
 
 def analyze_dynamics(gg, chronological=False, weighted=False):
-    seq = get_section_sequence(chronological)
+    seq = infinite_jest_utils.get_section_sequence(chronological)
     out_csv_name = 'dynamics-chronological_{}-weighted_{}.csv'.format(chronological, weighted)
 
     # geodesic_vs_degree
-    seq = get_section_sequence(chronological)
+    seq = infinite_jest_utils.get_section_sequence(chronological)
     csvf = open_csv_file(out_csv_name)
     if not csvf:
         return
@@ -233,7 +194,7 @@ def analyze_edge_distance_thresh():
     csvf.close()
 
 def analyze_gender(gg, weighted=True):
-    sequence = get_section_sequence()
+    sequence = infinite_jest_utils.get_section_sequence()
     for G in gg.graph_by_sections(sequence, aggregate=True):
         last_G = G
 
@@ -267,7 +228,7 @@ def analyze_gender(gg, weighted=True):
         json.dump(calculated, f)
 
 def analyze_communities(gg):
-    sequence = get_section_sequence()
+    sequence = infinite_jest_utils.get_section_sequence()
     for G in gg.graph_by_sections(sequence, aggregate=True):
         last_G = G
 
@@ -310,6 +271,86 @@ def analyze_communities(gg):
     q = algos.calculate_modularity(matrix, indexed_labeled_communities)
     print(q)
 
+def get_gender_degree_sequence(G, gender, weighted=False):
+    nodes = sorted(list(G.nodes()))
+    of_gender = [node for node in nodes if G.node[node]['gender'] == gender]
+    weight = 'weight' if weighted else None
+    return nx.degree(G, of_gender, weight=weight)
+
+def analyze_gender_by_configuration(G, weighted=False):
+    # TODO:
+    # figure out weight...
+    male_nodes_and_degree_seq = get_gender_degree_sequence(G, 'male')
+    female_nodes_and_degree_seq = get_gender_degree_sequence(G, 'female')
+    unknown_nodes_and_degree_seq = get_gender_degree_sequence(G, None)
+
+    weight = 'weight' if weighted else None
+
+    all_nodes_and_degree_seq = []
+    all_nodes_and_degree_seq += male_nodes_and_degree_seq
+    all_nodes_and_degree_seq += female_nodes_and_degree_seq 
+    all_nodes_and_degree_seq += unknown_nodes_and_degree_seq
+
+    all_degree_seq = []
+    all_nodes_seq = []
+
+    for node, degree in all_nodes_and_degree_seq:
+        all_nodes_seq.append(node)
+        all_degree_seq.append(degree)
+
+    actual_betweenness_dict = nx.betweenness_centrality(G, weight=weight)
+    actual_betweenness = [ actual_betweenness_dict[node] for node in all_nodes_seq]
+
+    number_of_nodes = len(all_degree_seq)
+
+    actual_edge_weights = defaultdict(list)
+    for (one, two), deg in nx.get_edge_attributes(G, 'weight').items():
+        actual_edge_weights[one].append(deg / 2)
+        actual_edge_weights[two].append(deg / 2)
+    
+    iterations = 100
+    config_betweenness = [[] for _ in range(number_of_nodes)]
+    for _ in range(iterations):
+        config_G = nx.configuration_model(all_degree_seq, create_using=nx.Graph)
+        print(_)
+
+        # # add weight
+        if weight:
+            # initialize the weight
+            nx.set_edge_attributes(config_G, name='weight', values=0)
+            for i, node in enumerate(all_nodes_seq):
+                actual_node_edge_weights = actual_edge_weights.get(node)
+                if actual_node_edge_weights:
+                    random.shuffle(actual_node_edge_weights)
+
+                    for j, neighbor in enumerate(config_G.neighbors(i)):
+                        config_G[i][neighbor]['weight'] += actual_node_edge_weights[j]
+
+
+        for node, betweenness in nx.betweenness_centrality(config_G, weight=weight).items():
+            config_betweenness[node].append(betweenness)
+
+    config_25th_percentile = [np.percentile(config_betweenness[i], 25) for i in range(number_of_nodes)]
+    config_50th_percentile = [np.percentile(config_betweenness[i], 50) for i in range(number_of_nodes)]
+    config_75th_percentile = [np.percentile(config_betweenness[i], 75) for i in range(number_of_nodes)]
+
+    to_write = {
+        'nodes' : all_nodes_seq,
+        'degree' : all_degree_seq,
+        'male' : len(male_nodes_and_degree_seq),
+        'female' : len(female_nodes_and_degree_seq),
+        'unknown' : len(unknown_nodes_and_degree_seq),
+        'actual' : actual_betweenness,
+        'config-25th' : config_25th_percentile,
+        'config-50th' : config_50th_percentile,
+        'config-75th' : config_75th_percentile,
+    }
+
+    with open(os.path.join(ANALYSIS_PATH, 'gender_betweennesses-weighted_{}.json'.format(weighted)), 'w') as f:
+        json.dump(to_write, f)
+
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Analyze Infinite Jest")
     parser.add_argument('--chronological', '-c', default=False, action="store_true", help="Analyze book in chronological order")
@@ -324,8 +365,9 @@ if __name__ == "__main__":
     gg = Graphify()
 
     print("Analyzing book!")
-    analyze_communities(gg)
-    analyze_dynamics(gg, chronological=args.chronological, weighted=weighted)
+    analyze_gender_by_configuration(gg.G, weighted=weighted)
+    # analyze_communities(gg)
+    # analyze_dynamics(gg, chronological=args.chronological, weighted=weighted)
     # analyze_gender(gg, weighted=weighted)
     # analyze_centralities(gg.G, weighted=weighted)
     # analyze_assortativity(gg.G)

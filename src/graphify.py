@@ -33,11 +33,12 @@ from copy import deepcopy
 import networkx as nx
 import json
 import math
+
 from utils import get_entities, get_entities_hash
 import text_io
 import ner
 import sys
-from pprint import pprint
+
 #########################################################
 # Globals
 #########################################################
@@ -47,14 +48,6 @@ DEBUG = 1
 #########################################################
 # Function definitions
 #########################################################
-# util to print list w/ indentation
-def print_list(lst, indent=2):
-    indstr = ""
-    for i in range(indent):
-        indstr += ' '
-    for item in lst:
-        print("{}{}".format(indstr, item))
-
 def print_debug(level, s):
     if DEBUG >= level:
         print(s)
