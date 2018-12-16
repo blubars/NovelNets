@@ -10,6 +10,12 @@
     - eg utils...
 - idea is:
     - entities.py is entirely independent from the rest
+    - book file is:
+        - list of content directories
+        - possibly a text function
+            - can be overridden
+    - must figure out how to handle interpolation of endnotes/etc
+        - in terms of matches
 
 # WebWeb Install
 Please follow the instructions for installing webweb locally via a git repo:
@@ -38,21 +44,20 @@ https://github.com/hneutr/webweb
         - perhaps try varying definition of discrete time: sections/pages/tokens
 
 ## Other:
-    - Coreference resolution
-    - start adding entity attributes
-    - CENTRAL QUESTIONS:
-      - why is the book structured this way?
-      - does the graph's structure reflect common knowledge about the book?
-          - e.g. criticisms: gender power imbalance
-    - ANALYSIS to address above questions:
-      - Centralities: main characters
-      - Assortativity: degree, gender, age
-          - modularity: community structures
-      - Dynamics: 
-          - graph avg degree vs mean geodesic path per section
-            - compare chronological vs authored order
-          - compare dynamics across different windows & smoothing?
-      - momentum -- what causes it?
+- Coreference resolution
+- CENTRAL QUESTIONS:
+    - why is the book structured this way?
+    - does the graph's structure reflect common knowledge about the book?
+        - e.g. criticisms: gender power imbalance
+- ANALYSIS to address above questions:
+    - Centralities: main characters
+    - Assortativity: degree, gender, age
+        - modularity: community structures
+    - Dynamics: 
+        - graph avg degree vs mean geodesic path per section
+        - compare chronological vs authored order
+        - compare dynamics across different windows & smoothing?
+    - momentum -- what causes it?
 
 # Done!
 Analyses:
