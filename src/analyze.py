@@ -108,6 +108,18 @@ def analyze_attachment(gg, weighted=True):
     outfile = ANALYSIS_PATH + "degree_distr_ccdf.pdf"
     plots.plot_ccdf(ks, outfile)
 
+
+def analyze_gender_attachments(gg, weighted=True):
+    weight = 'weight' if weighted else None
+    male_seq = sorted((k for (node,k) in gg.G.degree(weight=weight) if gg.G.nodes[node].get('gender') == 'male'), reverse=True)
+    female_seq = sorted((k for (node,k) in gg.G.degree(weight=weight) if gg.G.nodes[node].get('gender') == 'female'), reverse=True)
+    unknown_seq = sorted((k for (node,k) in gg.G.degree(weight=weight) if gg.G.nodes[node].get('gender', None) == None), reverse=True)
+
+    weight_string = 'Weighted' if weighted else 'Unweighted'
+
+    outfile = ANALYSIS_PATH + "degree_distr_ccdf_gender_weighted-{}.pdf".format(weight_string)
+    plots.plot_gender_ccdf(male_seq, female_seq, unknown_seq, outfile, weight_string)
+
 def open_csv_file(name):
     out_csv_name = os.path.join(ANALYSIS_PATH, name)
     if not os.path.isdir(ANALYSIS_PATH):
@@ -293,11 +305,8 @@ def analyze_gender_by_configuration(G, weighted=False):
 
     all_nodes_seq, all_degree_seq = zip(*all_nodes_and_degree_seq)
 
-    if weight:
-        actual_betweenness_dict = nx.betweenness_centrality(G, weight=weight)
-        actual_betweenness = [ actual_betweenness_dict[node] for node in all_nodes_seq]
-    else:
-        actual_betweenness = []
+    actual_betweenness_dict = nx.betweenness_centrality(G, weight=weight)
+    actual_betweenness = [ actual_betweenness_dict[node] for node in all_nodes_seq]
 
     number_of_nodes = len(all_degree_seq)
 
@@ -368,7 +377,8 @@ if __name__ == "__main__":
     gg = Graphify()
 
     print("Analyzing book!")
-    analyze_gender_by_configuration(gg.G, weighted=weighted)
+    # analyze_gender_by_configuration(gg.G, weighted=weighted)
+    analyze_gender_attachments(gg, weighted=weighted)
     # analyze_communities(gg)
     # analyze_dynamics(gg, chronological=args.chronological, weighted=weighted)
     # analyze_gender(gg, weighted=weighted)
