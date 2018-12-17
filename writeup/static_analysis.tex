@@ -2,26 +2,25 @@
 
 \subsection{Statistics}
 
-\subsubsection{Small World}
+\subsection{Small World}
 At the book's end, the largest component has 224 nodes and the diameter is 5.
 Since $ln(224) = 5.41$, we see that this network does indeed display the small world property, similar to real-world social networks.
 
-\subsubsection{Degree Distribution}
+\subsection{Degree Distribution}
 
-\begin{figure*}[t]
+\begin{figure}[ht]
     \centering
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=1.\textwidth]{images/unweighted_degree_distr_ccdf.pdf}
         \caption{Unweighted degree distribution.}
     \end{subfigure}
-    ~
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=1.\textwidth]{images/weighted_degree_distr_ccdf.pdf}
         \caption{Weighted degree distribution.}
     \end{subfigure}
     \caption{Degree distributions on a log-log scale. Though we do observe a heavy tail, we do not see a power law.}
     \label{fig:degree_distr}
-\end{figure*}
+\end{figure}
 
 The degree distributions for the weighted and unweighted networks are shown as a CCDF in Figure \ref{fig:degree_distr}. We see a heavy tail like we might expect from many real-world networks, but neither appear to show a power law in the tail. 
 
@@ -35,7 +34,7 @@ Perhaps main characters are introduced in the beginning, and the book does not c
 
 The average degree is 13.31 and the average weighted degree is 55.95
 
-\subsubsection{Assortativity}
+\subsection{Assortativity}
 We see an unweighted degree assortative mixing coefficient of -0.0945.
 Degree assortative networks typically reflect core-periphery structures, where a dense core of highly-connected nodes is surrounded by successively less-dense periphery nodes. Degree disassortative networks, on the other hand, are more stars with high-degree nodes connected to low-degree. 
 According to Newman in {\em Networks}, social networks are unusual in that they typically have a positive degree assortativity \cite{NewmanBook}. 
@@ -46,7 +45,7 @@ Therefore it is strange for us to see disassortative mixing by degree in \infini
 - talk about NMI
 - talk about modularity
 
-\subsubsection{Clustering}
+\subsection{Clustering}
 Using the transitivity definition of clustering coefficient, we can examine the fraction of closed triads.
 $$ C = \frac{\text{(number of triangles)} \cdot 3}{\text{number of connected triples}} $$
 
