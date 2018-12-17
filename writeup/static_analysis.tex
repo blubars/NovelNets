@@ -9,12 +9,12 @@ Since $ln(224) = 5.41$, we see that this network does indeed display the small w
 \begin{figure}[ht]
     \centering
     \begin{subfigure}{0.4\textwidth}
-        \includegraphics[width=1.\textwidth]{images/unweighted_degree_distr_ccdf.pdf}
-        \caption{Unweighted degree distribution.}
-    \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=1.\textwidth]{images/weighted_degree_distr_ccdf.pdf}
         \caption{Weighted degree distribution.}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=1.\textwidth]{images/unweighted_degree_distr_ccdf.pdf}
+        \caption{Unweighted degree distribution.}
     \end{subfigure}
     \caption{Degree distributions on a log-log scale. Though we do observe a heavy tail, we do not see a power law.}
     \label{fig:degree_distr}
@@ -81,4 +81,45 @@ To examine gender assortativity, we labeled all of the characters with a gender 
 This is somewhat expected from the narrative structure, because Hal is a teenager and all of the men board together in the Tennis Academy.
 
 \subsection{Gender}
+
+\infinitejest has received significant criticism for its treatment of women.\cite{hayes-brady_2017} We found $144$ male entities, $58$ female entities, and $27$ entities of indeterminate gender or whose gender was unknown; there are nearly two-and-a-half times as many men as women.
+
+\subsubsection{Average Degree}
+Figure~\ref{average-node-degree-by-gender} shows the difference in average degree by gender. Average unweighted degree can be seen as a rough approximation for the expected connectedness of a character. Average weighted degree can be seen as a rough approximation of the expected strength of a character's relationships. There is a difference between the average unweighted degrees of men and women, but it far less striking than the difference between their average weighted degrees. 
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=.4 \textwidth]{images/gender_degrees.png}
+    \caption{weighted and unweighted average node degree by gender}
+    \label{average-node-degree-by-gender}
+\end{figure}
+
+\subsubsection{Betweenness}
+To explore gender bias in character betweennesses, we ran 100 simulations configuration model using the book's degree sequence, averaging the resulting betweennesses by character. Figure~\ref{difference-in-betweenness} plots a histogram of the differences between the book's betweennesses and our estimates. It shows that, independent of gender, most characters have a significantly lower betweenness in the book than the simulations would lead us to expect, but that several characters in the book have wildly higher betweennesses. It is worth noting that no characters with an indeterminate gender, or whose genders were unknown, had a significantly higher betweenness than expected.
+
+Our findings on the whole indicate that there are several male and female characters who have a priviliged position in the network. Unsurprisingly, these privileged characters are all important: Donald Gately, Joelle van Dyne, Avril Incandenza, and Hal Incandenza are among them. A high betweenness seems like a reasonable consequence of narrative attention.
+   
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=.4 \textwidth]{images/gender_betweenness_by_gender.png}
+    \caption{difference in book's betweennesses and those expected under the configuration model, by gender}
+    \label{difference-in-betweenness}
+\end{figure}
+
+\subsubsection{Degree Sequence}
+ 
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=1.\textwidth]{images/degree_distr_ccdf_gender_weighted-Weighted.pdf}
+        \caption{Weighted degree distribution by gender}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=1.\textwidth]{images/degree_distr_ccdf_gender_weighted-Unweighted.pdf}
+        \caption{Unweighted degree distribution by gender}
+    \end{subfigure}
+    \caption{Degree distributions by gender on a log-log scale.}
+    \label{fig:degree_distr}
+\end{figure}
 

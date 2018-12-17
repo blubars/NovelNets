@@ -42,6 +42,32 @@ def plot_ccdf(deg_seq, outfile):
     plt.savefig(outfile)
     plt.close(fig)
 
+def get_bins_and_cumbins(deg_seq):
+    bins = [k+1 for k in range(max(deg_seq)+1)]
+    cumbins = [0 for k in range(max(deg_seq)+1)]
+    for k in deg_seq:
+        cumbins[k] += 1
+    for i in range(len(cumbins)-2, -1, -1):
+        cumbins[i] = (cumbins[i+1] + cumbins[i])
+    for i in range(len(cumbins)):
+        cumbins[i] /= len(cumbins)
+
+    return bins, cumbins
+
+def plot_gender_ccdf(male_seq, female_seq, unknown_seq, outfile, weighted):
+    for seq, label, color in [(male_seq, 'male', 'blue'), (female_seq, 'female', 'red'), (unknown_seq, 'unknown', 'green')]:
+        bins, cumbins = get_bins_and_cumbins(seq)
+        plt.loglog(bins, cumbins, c=color, label=label)
+
+    plt.title("{} Degree Distribution CCDF".format(weighted))
+    plt.xlabel("{} Degree, $k$".format(weighted))
+    plt.ylabel("CCDF P($x \geq X$)")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(outfile)
+    plt.close()
+
+
 def plot_df(df, x_name, y_name, title, logx=False):
     fig = plt.figure(1)
     X = df[x_name]
@@ -316,12 +342,12 @@ def plot_gender_betweenness(weighted=False):
 
     gender_graphing_info = {
         'male' : {
-            'color' : 'red',
+            'color' : 'blue',
             'start' : 0,
             'end' : content['male'],
         },
         'female' : {
-            'color' : 'blue',
+            'color' : 'red',
             'start' : content['male'],
             'end' : content['male'] + content['female'],
         },
@@ -333,7 +359,6 @@ def plot_gender_betweenness(weighted=False):
     }
 
     fig = plt.figure(1)
-
     avgs = defaultdict(dict)
     for gender, info in gender_graphing_info.items():
         lower = content['config-25th'][info['start']:info['end']]
@@ -358,9 +383,9 @@ def plot_gender_betweenness(weighted=False):
     weightstring = "weighted" if weighted else "unweighted"
 
     plt.axvline(x=0, color='k')
-    plt.title("difference between actual betweenness and configuration model betweenness by gender ({})".format(weightstring))
+    plt.title("difference of book betweenness and configuration model betweenness\n by gender")
     plt.ylabel("probability")
-    plt.xlabel("difference between actual betweenness and configuration model betweenness")
+    plt.xlabel("difference of book betweenness and configuration model betweenness")
     plt.legend()
     plt.tight_layout()
 
