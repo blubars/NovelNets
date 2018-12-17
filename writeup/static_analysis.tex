@@ -1,7 +1,5 @@
 \section{Static-Network Analysis}
 
-\subsection{Statistics}
-
 \subsection{Small World}
 At the book's end, the largest component has 224 nodes and the diameter is 5.
 Since $ln(224) = 5.41$, we see that this network does indeed display the small world property, similar to real-world social networks.
@@ -34,17 +32,6 @@ Perhaps main characters are introduced in the beginning, and the book does not c
 
 The average degree is 13.31 and the average weighted degree is 55.95
 
-\subsection{Assortativity}
-We see an unweighted degree assortative mixing coefficient of -0.0945.
-Degree assortative networks typically reflect core-periphery structures, where a dense core of highly-connected nodes is surrounded by successively less-dense periphery nodes. Degree disassortative networks, on the other hand, are more stars with high-degree nodes connected to low-degree. 
-According to Newman in {\em Networks}, social networks are unusual in that they typically have a positive degree assortativity \cite{NewmanBook}. 
-Therefore it is strange for us to see disassortative mixing by degree in \infinitejest, possibly indicating more of a star-like structure or fewer community structures than real-world social networks.
-
-\subsection{Modularity}
-
-- talk about NMI
-- talk about modularity
-
 \subsection{Clustering}
 Using the transitivity definition of clustering coefficient, we can examine the fraction of closed triads.
 $$ C = \frac{\text{(number of triangles)} \cdot 3}{\text{number of connected triples}} $$
@@ -54,6 +41,44 @@ This metric disregards the edge weights, looking only at connections between cha
 We can compare the clustering coefficient against the configuration model to determine if this effect is due to the degree sequence alone or perhaps reflects a conscious author choice. We find configuration model we get an average local clustering coefficient of 0$.1728$, vs $0.3930$ in the book. 
 
 TODO: how does this compare to real social networks?
+
+\subsection{Modularity}
+The book has three main communities: the Tennis Academy, the Ennet House, and the Wheelchair Assassins. The modularity of these hand-labeled communities is 0.291, calculated according to the following equation:
+
+$$Q = \frac{1}{2m}\sum_{ij} \left(A_{ij} - \frac{k_ik_j}{2m} \right) \delta(c_i,c_j) = \sum_u e_{uu} - a_u $$
+
+The greedy modularity maximization algorithm successfully recovers all three communities, though it places some high-degree nodes like Hal into their own community. Still, the hierarchically the detected communities have high agreement with the labeled communities, with a Normalized Mutual Information (NMI) of 0.605.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=1.\textwidth]{images/labeled_community_with_labels.png}
+        \caption{Hand-labeled communities.}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=1.\textwidth]{images/greedy_community.png}
+        \caption{Communities detected by greedy modularity maximization.}
+    \end{subfigure}
+    \caption{The agglomerative greedy approach to modularity maximization recovered the hand-labeled communities.}
+    \label{fig:modularity}
+\end{figure}
+
+The labeled communities and detected communities are visible in Figure \ref{fig:modularity}.
+
+\subsection{Assortativity}
+Since the network has clear community structure, we can begin to ask if characters in the network are associated with other characters according to certain attribute similarities. We examine gender assortativity and degree assortativity.
+
+\subsubsection{Degree Assortativity}
+We see an unweighted degree assortative mixing coefficient of -0.0945.
+Degree assortative networks typically reflect core-periphery structures, where a dense core of highly-connected nodes is surrounded by successively less-dense periphery nodes. Degree disassortative networks, on the other hand, are more stars with high-degree nodes connected to low-degree. 
+
+According to Newman in {\em Networks}, social networks are unusual in that they typically have a positive degree assortativity \cite{NewmanBook}. 
+Therefore it is strange for us to see disassortative mixing by degree in \infinitejest, possibly indicating more of a star-like structure or fewer community structures than real-world social networks.
+
+\subsubsection{Gender Assortativity}
+To examine gender assortativity, we labeled all of the characters with a gender attribute where the gender was clear from the text. Of 229 nodes, we did not assign a label to 27 of them. We found the assortativity to be 0.858, indicating positive assortative mixing by gender: genders of the same type are more likely to co-occur in this text. 
+
+This is somewhat expected from the narrative structure, because Hal is a teenager and all of the men board together in the Tennis Academy.
 
 \subsection{Gender}
 
