@@ -12,7 +12,7 @@ There are certainly drawbacks to our approach -- dynamics of power between chara
 Network nodes constitute characters identified in the set of found named entities. These were referenced against online resources to ensure proper coverage of the characters in the book.\cite{david_foster_wallace_wiki}
 
 \subsubsection{Edges}
-Edges in the book represent a co-mention between two entities in the text. We do not match across section breaks, and we directly interpolate endnotes into the sections in which they appear. We do not interpolate endnotes referenced in an endnote into that endnote.
+An edge represents a co-mention relationship between two entities in the text. Edges will not be created across section breaks, and we directly interpolate endnotes into the sections in which they appear. If an endnote references another endnote, we do not interpolate that referenced endnote into the refering endnote. We do interpolate the endnotes of endnotes into the endnote they refer to.
 
 A threshold number of tokens (words) under which the number of tokens between the mention of one entity and another determines if an edge with weight 1 is created. If the edge already exists, the weight is incremented by 1. The current entity $i$ is only matched with proceeding entities $j$ within this threshold.
 
