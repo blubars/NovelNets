@@ -33,3 +33,11 @@ The threshold number of tokens is determined by a heuristic measure of the effec
     \label{fig-threshold-size}
 \end{figure}
 
+\subsubsection{Section as Snapshots and Modeling Recency}
+In order to make comparisons between the book's ordering of events ('booktime') and the chronological ordering, we constructed a timelapse of graph snapshots that represents the aggregate graph structure up to the current section in the given ordering. Regardless of the ordering, the graph at the end of each sequence is identical. To model the differences in exposure to narratives and characters between the two orderings, we add a mechanism to decay the weights of the graph. Whenever a section is applied to the cumulative network, that section's weights are passed through a decay function orginially developed by psychologist Hermann Ebinghaus dubbed a `forgetting curve'. This curve is as follows:
+
+\begin{equation}
+    R = e^{\frac{-t}{(10000*s)}}
+\end{equation}
+
+Here $R$ represents the memory retention. $t$ represents the time (the number of tokens in the section). $s$ represents memory stability. The exponent is scaled by $\frac{1}{10000}$ to ensure reasonable memory retention values between $0$ and $1$. This approach enables us build a rough model the decaying memory of a reader to the narrative and character exposure differences between `chronological' and `booktime' section orderings.
