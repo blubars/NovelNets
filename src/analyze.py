@@ -223,10 +223,12 @@ def analyze_gender(gg, weighted=True):
 
             degrees_by_gender[degree_type]['overall'].append(degree)
         
-            gender = G.nodes[node].get('gender')
+            gender = G.nodes[node].get('gender', 'unknown')
 
-            if gender:
-                degrees_by_gender[degree_type][gender].append(degree)
+            if gender == None:
+                gender = 'unknown'
+
+            degrees_by_gender[degree_type][gender].append(degree)
 
 
     calculated = defaultdict(dict)
@@ -378,10 +380,10 @@ if __name__ == "__main__":
 
     print("Analyzing book!")
     # analyze_gender_by_configuration(gg.G, weighted=weighted)
-    analyze_gender_attachments(gg, weighted=weighted)
+    # analyze_gender_attachments(gg, weighted=weighted)
     # analyze_communities(gg)
     # analyze_dynamics(gg, chronological=args.chronological, weighted=weighted)
-    # analyze_gender(gg, weighted=weighted)
+    analyze_gender(gg, weighted=weighted)
     # analyze_centralities(gg.G, weighted=weighted)
     # analyze_assortativity(gg.G)
 

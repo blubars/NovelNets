@@ -1,20 +1,16 @@
 \section{\infinitejest as a Network}
 
-Our network represents characters as nodes and character co-mentions as weighted edges. The more of often two characters are mentioned in proximity to each other, the greater the weight of the edge between them. Our approach gives an extremely broad view of a book as a network of character co-mentions.
+Our network represents characters as nodes and character co-mentions as weighted edges. The more often two characters are mentioned in proximity to each other, the greater the weight of the edge between them. Our approach gives an extremely broad view of a book as a network of character co-mentions.
 
 Our choice of representing characters as nodes is fairly standard, but it worth noting that there are many possible definitions of an edge in a social network: character interaction, be it verbal (in dialogue) or physical, or sentiment. 
 
 There are certainly drawbacks to our approach -- dynamics of power between characters are entirely omitted -- but we found it still allowed us to gain insight into narrative flow and characteristics of nodes.
 
-\subsection{Network Design}
-
-\subsubsection{Nodes}
+\subsection{Nodes}
 Network nodes constitute characters identified in the set of found named entities. These were referenced against online resources to ensure proper coverage of the characters in the book.\cite{david_foster_wallace_wiki}
 
-\subsubsection{Edges}
-An edge represents a co-mention relationship between two entities in the text. Edges will not be created across section breaks, and we directly interpolate endnotes into the sections in which they appear. If an endnote references another endnote, we do not interpolate that referenced endnote into the refering endnote. We do interpolate the endnotes of endnotes into the endnote they refer to.
-
-A threshold number of tokens (words) under which the number of tokens between the mention of one entity and another determines if an edge with weight 1 is created. If the edge already exists, the weight is incremented by 1. The current entity $i$ is only matched with proceeding entities $j$ within this threshold.
+\subsection{Edges}
+An edge represents a co-mention relationship between two entities in the text. A threshold number of tokens (words) under which the number of tokens between the mention of one entity and another determines if an edge with weight 1 is created. If the edge already exists, the weight is incremented by 1. The current entity $i$ is only matched with proceeding entities $j$ within this threshold.
 
 The threshold number of tokens is determined by a heuristic measure of the effect of the threshold length on the average clustering coefficient and the giant component size (see Figure \ref{fig-threshold-size}). The intuition behind these metrics is to choose the minimum threshold required to produce a giant component and a clustering coefficient that captures the highly connected nature of characters in the novel. Our threshold is 50 tokens.
 
@@ -33,11 +29,14 @@ The threshold number of tokens is determined by a heuristic measure of the effec
     \label{fig-threshold-size}
 \end{figure}
 
+\subsubsection{Text Treatment}
+Edges are not created across section breaks. Endnotes are directly interpolated into the section they are referenced in. If an endnote (the \textit{referring} endnote) refers to another endnote (the \textit{referred} endnote), the referred endnote is not interpolated into the referring endnote.
+
 \subsubsection{Section as Snapshots and Modeling Recency}
-In order to make comparisons between the book's ordering of events ('booktime') and the chronological ordering, we constructed a timelapse of graph snapshots that represents the aggregate graph structure up to the current section in the given ordering. Regardless of the ordering, the graph at the end of each sequence is identical. To model the differences in exposure to narratives and characters between the two orderings, we add a mechanism to decay the weights of the graph. Whenever a section is applied to the cumulative network, that section's weights are passed through a decay function orginially developed by psychologist Hermann Ebinghaus dubbed a `forgetting curve'. This curve is as follows:
+To comparison the book's ordering of events ('booktime') and the chronological ordering, we construct a timelapse of graph snapshots representing the aggregate graph structure up to the current section in the given ordering. Regardless of the ordering, the graph at the end of each sequence is identical. We add a mechanism to decay the weights of the graph in an effort to model the differences in exposure to narratives and characters between the two orderings. Whenever a section is applied to the cumulative network, that section's weights are passed through a decay function orginially developed by psychologist Hermann Ebinghaus dubbed a `forgetting curve'. This curve is as follows:
 
 \begin{equation}
     R = e^{\frac{-t}{(10000*s)}}
 \end{equation}
 
-Here $R$ represents the memory retention. $t$ represents the time (the number of tokens in the section). $s$ represents memory stability. The exponent is scaled by $\frac{1}{10000}$ to ensure reasonable memory retention values between $0$ and $1$. This approach enables us build a rough model the decaying memory of a reader to the narrative and character exposure differences between `chronological' and `booktime' section orderings.
+$R$ represents the memory retention; $t$ represents the time (the number of tokens in the section); $s$ represents memory stability; the exponent is scaled by $\frac{1}{10000}$ to ensure reasonable memory retention values between $0$ and $1$. The approach is a rough model of the decaying memory of a reader and helps highlight differences in exposure to narrative events and characters in the `chronological' and `booktime' section orderings.

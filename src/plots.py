@@ -282,7 +282,7 @@ def plot_gender():
 
     women = (content['unweighted']['female'], content['weighted']['female'])
     men = (content['unweighted']['male'], content['weighted']['male'])
-    overall = (content['unweighted']['overall'], content['weighted']['overall'])
+    unknown = (content['unweighted']['unknown'], content['weighted']['unknown'])
 
     fig, ax = plt.subplots()
 
@@ -297,15 +297,15 @@ def plot_gender():
                     error_kw=error_config,
                     label='male')
 
-    rects2 = ax.bar(index + bar_width + (index * bar_width), overall, bar_width,
-                    alpha=opacity, color='g',
-                    error_kw=error_config,
-                    label='overall')
-
-    rects3 = ax.bar(index + 2 * bar_width +  (index * bar_width), women, bar_width,
+    rects2 = ax.bar(index + bar_width + (index * bar_width), women, bar_width,
                     alpha=opacity, color='r',
                     error_kw=error_config,
                     label='female')
+
+    rects3 = ax.bar(index + 2 * bar_width +  (index * bar_width), unknown, bar_width,
+                    alpha=opacity, color='g',
+                    error_kw=error_config,
+                    label='unknown')
 
     ax.set_xlabel('Group')
     ax.set_ylabel('average degree')
