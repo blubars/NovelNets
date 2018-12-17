@@ -40,7 +40,7 @@ This metric disregards the edge weights, looking only at connections between cha
 
 We can compare the clustering coefficient against the configuration model to determine if this effect is due to the degree sequence alone or perhaps reflects a conscious author choice. We find configuration model we get an average local clustering coefficient of 0$.1728$, vs $0.3930$ in the book. 
 
-TODO: how does this compare to real social networks?
+For further (admittedly unscientific) reference, we calculated the transitivity for 5 of the smallest networks in the FB100. Admittedly those networks were larger than this book ($n=769$ to $1659$), but we found the clustering coefficient for them to be 0.2403, so on the same order of our results.
 
 \subsection{Modularity}
 The book has three main communities: the Tennis Academy, the Ennet House, and the Wheelchair Assassins. The modularity of these hand-labeled communities is 0.291, calculated according to the following equation:
@@ -76,9 +76,38 @@ According to Newman in {\em Networks}, social networks are unusual in that they 
 Therefore it is strange for us to see disassortative mixing by degree in \infinitejest, possibly indicating more of a star-like structure or fewer community structures than real-world social networks.
 
 \subsubsection{Gender Assortativity}
-To examine gender assortativity, we labeled all of the characters with a gender attribute where the gender was clear from the text. Of 229 nodes, we did not assign a label to 27 of them. We found the assortativity to be 0.858, indicating positive assortative mixing by gender: genders of the same type are more likely to co-occur in this text. 
+To examine gender assortativity, we labeled all of the characters with a gender attribute where the gender was clear from the text. Of 229 nodes, we did not assign a label to 27 of them. We found the assortativity to be 0.0858, indicating positive assortative mixing by gender: genders of the same type are more likely to co-occur in this text. 
 
 This is somewhat expected from the narrative structure, because Hal is a teenager and all of the men board together in the Tennis Academy.
+
+\subsection{Centralities}
+
+\begin{table}[]
+\begin{tabular}{@{}lllll@{}}
+\toprule
+ & \multicolumn{4}{c}{\textbf{Centralities}} \\ \midrule
+ & \multicolumn{2}{l}{\textbf{Degree}}  & \multicolumn{2}{l}{\textbf{Betweenness}} \\ \midrule
+\textbf{1} & Hal Incandenza   & 0.382 & Donald Gately   & 0.259 \\ \midrule
+\textbf{2} & Donald Gately    & 0.311 & Hal Incandenza  & 0.140 \\ \midrule
+\textbf{3} & Avril Incandenza & 0.294 & Joelle Van Dyne & 0.079 \\ \midrule
+\textbf{4} & Aubrey DeLint    & 0.268 & Charles Tavis   & 0.065 \\ \midrule
+\textbf{5} & Gerhardt Schtitt & 0.250 & Remy Marathe    & 0.056 \\ \midrule
+\textbf{6} & Michael Pemulis  & 0.246 & John Wayne       & 0.051 \\ \midrule
+\textbf{7} & Charles Tavis    & 0.232 & Gerhardt Schtitt & 0.049 \\ \midrule
+\textbf{8} & James Incandenza & 0.215 & Michael Pemulis  & 0.048 \\ \toprule
+\end{tabular}
+    \caption{Top degree and betweenness centralities.}
+    \label{tab:centralities}
+
+\end{table}
+
+Centralities answer the question of the most ``important'' vertices in the graph. Since we are analyzing \infinitejest, the question becomes which are the most important characters in the book. There are of course many contexts we could analyze importance from. To most closely align with the concept of main characters in books, we suspect simple degree centrality gives the best answer, since main characters tend to be mentioned more. 
+
+However one could make an argument that in a novel with lots of moving parts, the most important characters might be the ones which connect disparate parts of the plot together and help drive it forward. In that respect, betweenness centrality shines. In \infinitejest, Don and Joelle are the only characters with significant interactions in both communities. Don also has interactions with the Wheelchair Assassins.
+
+The top eight characters under degree and betweenness centralities can be found in Table \ref{tab:centralities}.
+
+
 
 \subsection{Gender}
 
