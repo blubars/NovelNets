@@ -1,12 +1,16 @@
-\section{Conclusion}
-
-Our analysis demonstrates the feasibility of the naive entity co-mention method for creating networks from books. Well-known network analysis techniques are able to recover community structures and to identify important characters from the networeks our method produces. we plan to open source our entity annotation tool, as well as our dynamic network generator, to facilitate further work in this area on texts.
-
 \section{Future Work}
 
-There are several interesting questions to explore. We only ran our analysis with a single book, but it would be interesting to compare character interaction networks within and between different genres. For example, given a few dozen books, we could start to determine how \infinitejest's character network structure compare to other postmodern works, or how postmodern works differ from others like mysteries, historical fiction, fantasy, or short stories.
+Mechanically, all problems in \ref{challenges-and-considerations} would be worth solving. 
 
-It would also be interesting to note if we can structurally identify common narrative techniques or plot devices -- for example, the climax, backstories, cliffhangers, plot twists, or stories-within-stories.
+We examine a single book, but comparisons of networks within and across genres would be worthwhile, too. It would be interesting to see how \infinitejest's structure compares to other postmodern (or post-postmodern) works, and also to see how postmodern works compare to works in other genres, like mystery, historical fiction, science fiction, or fantasy.
+
+It would also be interesting to see whether common narrative techniques or plot devices -- climaxes, cliffhangers, plot twists, flashbacks, stories-within-stories -- could be identified by the structure of a network, perhaps by way of change point detection.
+
+\section{Conclusion}
+
+We find that many aspects of \infinitejest's network structure mirror real-world social networks, but that there are other ways -- like its gender bias and degree distribution -- that it does not. We also find significant quantititive support for the idea that the non-linear ordering of the book is easier to understand than the chronological one.
+
+We demonstrate the feasibility of using a naive entity co-mention method to create growing networks from books. Well-known network analysis techniques are able to recover community structures and to identify important characters from the networks our method produces. We will open source both our entity annotation tool and our dynamic network generator to facilitate further work in this area. We also will also make our \infinitejest entity set public.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references.bib}

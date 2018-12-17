@@ -18,7 +18,7 @@ We utilize the Named Entity Recognition (NER) parser of the Python library SpaCy
 
 To create a set of entities, we ran the the library's built in NER model on the text and compared the entities it generated against our own, incrementally built, set. We manually added aliases/pseudonyms to our set of entities based on the candidates the NER model produced. Subsequent runs of the NER model then used our hand-made entity disambiguations. This enables SpaCy to identify a large number of the pseudonyms and aliases and their locations within each section of the text.
 
-\subsection{Challenges and Considerations}
+\subsection{Challenges and Considerations} \label{challenges-and-considerations}
 
 \subsubsection{Pronoun Coreferences}
 One major problem with the Matcher approach is the extensive use of pronoun coreferences. We do not mitigate this.
