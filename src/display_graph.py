@@ -23,10 +23,10 @@ if __name__ == '__main__':
 
     section_sequence = infinite_jest_utils.get_section_sequence(chronological=False)
     for G in gg.graph_by_sections(section_sequence, aggregate=True, decay_weights=True, stability=40):
-        web.networks.infinite_jest.add_frame_from_networkx_graph(G)
+        web.networks.infinite_jest.add_layer_from_networkx_graph(G)
 
     section_sequence = infinite_jest_utils.get_section_sequence(chronological=True)
     for G in gg.graph_by_sections(section_sequence, aggregate=True, decay_weights=True, stability=40):
-        web.networks.infinite_jest_chronological.add_frame_from_networkx_graph(G)
+        web.networks.infinite_jest_chronological.add_layer_from_networkx_graph(G)
 
     web.draw()
