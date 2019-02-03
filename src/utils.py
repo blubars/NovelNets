@@ -4,28 +4,6 @@ import re
 import glob
 import errno
 import json
-import hashlib
-
-
-def get_entities_hash():
-    with open(get_entities_path(), 'rb') as f:
-        data = f.read()
-    entities_hash = hashlib.md5(data).hexdigest()
-    return entities_hash
-
-def get_entities():
-    with open(get_entities_path(), 'r') as f:
-        return json.load(f)
-
-def set_entities(entities):
-    with open(get_entities_path(), 'w') as f:
-        json.dump(entities, f, indent=4, sort_keys=True)
-    
-def get_sections_path():
-    return '../data/current/sections/'
-
-def get_entities_path():
-    return '../data/entities.json'
 
 
 def path_leaf(path):

@@ -28,16 +28,16 @@
 # Imports
 #########################################################
 import os
+import sys
 from collections import defaultdict
 from copy import deepcopy
 import networkx as nx
 import json
 import math
 
-from utils import get_entities, get_entities_hash
 import text_io
 import ner
-import sys
+from entities import EntityIO
 
 #########################################################
 # Globals
@@ -113,9 +113,8 @@ class GraphSnapshot:
             self.E = data["edges"]
             self.V = set(data["nodes"])
 
-    def getNXGraph(self):
+    def getNXGraph(self, entities):
         G = nx.Graph()
-        entities = get_entities()
 
         for entity in self.V:
             add_node_attributes(G, entities, entity)
@@ -137,23 +136,24 @@ def add_node_attributes(G, entities, entity):
 
 
 class Graphify:
-    def __init__(self, edge_thresh=50, edge_repeat_thresh=50, data_path=SAVE_GRAPH_PATH, sections=range(1, 193), force_reload=False, autosave=True):
+    def __init__(self, textIO, entityIO, edge_thresh=50, edge_repeat_thresh=50, data_path=SAVE_GRAPH_PATH, sections=range(1, 193), force_reload=False, autosave=True):
         self.G = nx.Graph()
         self.people = set()
         self.edge_threshold = edge_thresh
         self.edge_repeat_threshold = edge_repeat_thresh
-        self.entities = get_entities()
+        self.data_path = data_path
+        self.textIO = textIO
+        self.entityIO = entityIO
+        self.entities = self.entityIO.get_entities()
 
         self.sections = sections
 
         # list of snapshots
-        self.graph_sequence = [] 
+        self.graph_sequence = []
 
         # list of list of matches
         self.matches_sequence = []
         self.doc_lengths_sequence = []
-
-        self.data_path = data_path
 
         # either load from saved state or regenerate.
         state_changed = self.restore_state(force_reload)
@@ -182,9 +182,10 @@ class Graphify:
             print("+-------------------------------------")
             print("| Processing section " + str(section_number))
             print("+-------------------------------------")
-            section_text = text_io.interpolate_section_endnotes(text_io.get_section(section_number))
+            section_text = self.textIO.interpolate_section_endnotes(self.textIO.get_section(section_number))
 
-            result = ner.recognize_text(section_text, print_results=DEBUG)
+            ner_matcher = ner.NERMatcher(self.entityIO)
+            result = ner_matcher.recognize_text(section_text, print_results=DEBUG)
 
             self.doc_lengths_sequence.append(result['text_length'])
             self.matches_sequence.append(result['matches'])
@@ -217,6 +218,7 @@ class Graphify:
         return section_people
 
     def graph_by_sections(self, sequence, aggregate=False, decay_weights=False, stability=10):
+        entities = self.entityIO.get_entities()
         g0 = GraphSnapshot()
         for section_num in sequence:
             section_snapshot = self.graph_sequence[section_num-1]
@@ -225,9 +227,9 @@ class Graphify:
                     scale = self.forgetting_curve(section_snapshot.section_length, S=stability)
                     self.decay_weights(g0.E, scale)
                 g0 = g0.merge(section_snapshot)
-                yield g0.getNXGraph()
+                yield g0.getNXGraph(entities)
             else:
-                yield section_snapshot.getNXGraph()
+                yield section_snapshot.getNXGraph(entities)
 
     def decay_weights(self, edges, scale):
         for k1, innerdict in edges.items():
@@ -332,7 +334,7 @@ class Graphify:
         return {
             'edge_threshold' : self.edge_threshold,
             'edge_repeat_threshold' : self.edge_repeat_threshold,
-            'entities_hash' : get_entities_hash(),
+            'entities_hash' : self.entityIO.get_entities_hash(),
         }
 
     @property
@@ -349,7 +351,7 @@ class Graphify:
 
     @property
     def cached_state_path(self):
-        return os.path.join(self.data_path, 'cached_state_path.json')
+        return os.path.join(self.data_path, 'cached_state.json')
 
     @property
     def matches_path(self):
@@ -416,6 +418,3 @@ class Graphify:
             self.doc_lengths_sequence = json.load(f)
 
 
-if __name__ == "__main__":
-    # build a graph per section.
-    gg = Graphify()

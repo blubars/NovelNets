@@ -1,8 +1,20 @@
-from webweb.webweb import webweb
+from webweb import Web
 import argparse
 
 from graphify import Graphify
 import infinite_jest_utils
+
+def display_with_webweb(graph, section_sequence):
+    print("Displaying graph using webweb...")
+    web = Web(title='book')
+    web.display.colorBy = 'degree'
+    web.display.sizeBy = 'degree'
+    web.display.l = 60
+    web.display.c = 120
+    web.display.scaleLinkWidth = True
+    for G in graph.graph_by_sections(section_sequence, aggregate=True, decay_weights=True, stability=40):
+        web.networks.book.add_layer(nx_G=G)
+    web.show()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

@@ -1,9 +1,10 @@
 import spacy
 import json
+import sys
 import re
 import io
+import os
 from spacy.matcher import Matcher
-from utils import get_entities
 import io
 from model import load_spacy
 
@@ -20,93 +21,99 @@ class Match(dict):
     def __str__(self):
         return "'{}': {}, {}".format(self.text, self.start, self.end)
 
-def on_match(matcher, doc, i, matches):
-    # callback when entity pattern matched
-    pass
+class NERMatcher:
+    """ Run NER on input text. Relies on EntityIO class for
+        reading/writing saved entities from previous disambiguation """
+    def __init__(self, entityIO):
+        self.entityIO = entityIO
 
-def print_list(lst, indent=2):
-    indstr = ""
-    for i in range(indent):
-        indstr += ' '
-    for item in lst:
-        print("{}{}".format(indstr, item))
+    def on_match(self, matcher, doc, i, matches):
+        # callback when entity pattern matched
+        pass
 
-def recognize_text(text, print_results=False):
-    nlp = load_spacy('en_core_web_md')
-    doc = nlp(text)
-    matches = get_doc_matches(doc)
+    def print_list(self, lst, indent=2):
+        indstr = ""
+        for i in range(indent):
+            indstr += ' '
+        for item in lst:
+            print("{}{}".format(indstr, item))
 
-    matched_entities = get_matched_entities(matches)
-    matched_entity_aliases = get_matched_entity_aliases(matches)
-    missed_entities = get_missed_entities(doc)
+    def recognize_text(self, text, print_results=False):
+        nlp = load_spacy('en_core_web_md')
+        doc = nlp(text)
+        matches = self.get_doc_matches(doc)
 
-    if print_results:
-        print("MATCHED ENTITIES:")
-        print_list(matched_entities)
-        print("MATCHED ALIASES:")
-        print_list(matched_entity_aliases)
-        print("MISSED:")
-        print_list(missed_entities)
+        matched_entities = self.get_matched_entities(matches)
+        matched_entity_aliases = self.get_matched_entity_aliases(matches)
+        missed_entities = self.get_missed_entities(doc)
 
-    return {
-        'matches' : matches,
-        'text_length' : len(doc),
-        'found' : {
-            'entities' : matched_entities,
-            'aliases' : matched_entity_aliases,
-        },
-        'missed' : missed_entities,
-    }
+        if print_results:
+            print("MATCHED ENTITIES:")
+            self.print_list(matched_entities)
+            print("MATCHED ALIASES:")
+            self.print_list(matched_entity_aliases)
+            print("MISSED:")
+            self.print_list(missed_entities)
 
-def get_doc_matches(doc):
-    matcher = get_matcher()
-    return [make_match(matcher, doc, _match) for _match in matcher(doc)]
+        return {
+            'matches' : matches,
+            'text_length' : len(doc),
+            'found' : {
+                'entities' : matched_entities,
+                'aliases' : matched_entity_aliases,
+            },
+            'missed' : missed_entities,
+        }
 
-def get_matched_entities(matches):
-    found = {match.key for match in matches}
-    return sorted(list(found))
+    def get_doc_matches(self, doc):
+        matcher = self.get_matcher()
+        return [self.make_match(matcher, doc, _match) for _match in matcher(doc)]
 
-def get_matched_entity_aliases(matches):
-    found = {"{} ({})".format(match.text, match.key) for match in matches}
-    return sorted(list(found))
+    def get_matched_entities(self, matches):
+        found = {match.key for match in matches}
+        return sorted(list(found))
 
-def get_missed_entities(doc):
-    nlp = load_spacy('en_core_web_md')
+    def get_matched_entity_aliases(self, matches):
+        found = {"{} ({})".format(match.text, match.key) for match in matches}
+        return sorted(list(found))
 
-    matcher = get_matcher()
+    def get_missed_entities(self, doc):
+        nlp = load_spacy('en_core_web_md')
 
-    missing = set()
+        matcher = self.get_matcher()
 
-    # get auto-entity matches
-    for ent in doc.ents:
-        if ent.label_ == 'PERSON':
-            name = re.sub('[\s+|\n+|]', ' ', ent.text.strip())
+        missing = set()
 
-            # continue processing only if there's remaining characters
-            if not name:
-                continue
+        # get auto-entity matches
+        for ent in doc.ents:
+            if ent.label_ == 'PERSON':
+                name = re.sub('[\s+|\n+|]', ' ', ent.text.strip())
 
-            # the matcher will return an empty list if there is no match
-            if len(matcher(nlp(name))) == 0:
-                missing.add(name)
+                # continue processing only if there's remaining characters
+                if not name:
+                    continue
 
-    return sorted(list(missing))
+                # the matcher will return an empty list if there is no match
+                if len(matcher(nlp(name))) == 0:
+                    missing.add(name)
 
-def make_match(matcher, doc, match):
-    match_id, start, end = match
-    key = matcher.vocab.strings[match_id]
-    text = doc[start:end].text
+        return sorted(list(missing))
 
-    return Match(key, start, end, text)
+    def make_match(self, matcher, doc, match):
+        match_id, start, end = match
+        key = matcher.vocab.strings[match_id]
+        text = doc[start:end].text
 
-def get_matcher():
-    nlp = load_spacy('en_core_web_md')
-    matcher = Matcher(nlp.vocab)
+        return Match(key, start, end, text)
 
-    entities = get_entities()
+    def get_matcher(self):
+        nlp = load_spacy('en_core_web_md')
+        matcher = Matcher(nlp.vocab)
 
-    # load from above hand-made patterns
-    for _id in entities.keys():
-        patterns = entities[_id]['patterns']
-        matcher.add(_id, None, *patterns)
-    return matcher
+        entities = self.entityIO.get_entities()
+
+        # load from above hand-made patterns
+        for _id in entities.keys():
+            patterns = entities[_id]['patterns']
+            matcher.add(_id, None, *patterns)
+        return matcher

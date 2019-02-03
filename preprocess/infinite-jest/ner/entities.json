@@ -1,0 +1,6459 @@
+{
+    "AbuKenal": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Abu"
+                },
+                {
+                    "ORTH": "Kenal"
+                }
+            ]
+        ]
+    },
+    "AimeeMiddletonLaw": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Aimee"
+                },
+                {
+                    "ORTH": "Middleton-Law"
+                }
+            ]
+        ]
+    },
+    "AlfonsoPariasCarbo": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Alfonso"
+                },
+                {
+                    "ORTH": "Parias-Carbo"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Alfonso"
+                },
+                {
+                    "ORTH": "P.-C."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Alfonso"
+                },
+                {
+                    "ORTH": "Parias-Carbo"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Alfonso"
+                },
+                {
+                    "ORTH": "Parias-Carbo"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Alfonso"
+                }
+            ]
+        ]
+    },
+    "AliceMoore": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Alice"
+                },
+                {
+                    "ORTH": "Moore"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lateral"
+                },
+                {
+                    "ORTH": "Alice's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "L."
+                },
+                {
+                    "ORTH": "A."
+                },
+                {
+                    "ORTH": "Moore"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lateral"
+                },
+                {
+                    "ORTH": "Alice"
+                }
+            ]
+        ]
+    },
+    "AmyJohnson": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Amy"
+                },
+                {
+                    "ORTH": "J."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Amy"
+                }
+            ]
+        ]
+    },
+    "AnnKittenplan": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ann"
+                },
+                {
+                    "ORTH": "Kittenplan"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kittenplan"
+                }
+            ]
+        ]
+    },
+    "AnnieParrot": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Annie"
+                },
+                {
+                    "ORTH": "Parrot"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Annie"
+                },
+                {
+                    "ORTH": "P."
+                }
+            ]
+        ]
+    },
+    "AntonDucette": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Anton"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Anton"
+                },
+                {
+                    "ORTH": "Doucette"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Anton"
+                },
+                {
+                    "ORTH": "Doucette's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Doucette"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Booger"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Anton"
+                },
+                {
+                    "ORTH": "('Booger')"
+                },
+                {
+                    "ORTH": "Ducette"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Boog"
+                }
+            ]
+        ]
+    },
+    "AprilCortelyu": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Cortelyu"
+                }
+            ]
+        ]
+    },
+    "AubreyDeLint": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "mr"
+                },
+                {
+                    "LOWER": "a"
+                },
+                {
+                    "ORTH": "deLint"
+                }
+            ],
+            [
+                {
+                    "LOWER": "mr"
+                },
+                {
+                    "ORTH": "deLint"
+                }
+            ],
+            [
+                {
+                    "LOWER": "aubrey"
+                },
+                {
+                    "LOWER": "f"
+                },
+                {
+                    "LOWER": "delint"
+                }
+            ],
+            [
+                {
+                    "LOWER": "aubrey"
+                },
+                {
+                    "LOWER": "delint"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Aubrey"
+                }
+            ],
+            [
+                {
+                    "ORTH": "deLint"
+                }
+            ]
+        ]
+    },
+    "AudernTallatKelpsa": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "A.T.P."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Audern"
+                },
+                {
+                    "ORTH": "Tallat-Kelpsa's"
+                },
+                {
+                    "ORTH": "E.T.A."
+                }
+            ]
+        ]
+    },
+    "AvrilIncandenza": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "avril"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "LOWER": "avril"
+                },
+                {
+                    "ORTH": "I."
+                }
+            ],
+            [
+                {
+                    "LOWER": "avril"
+                }
+            ],
+            [
+                {
+                    "LOWER": "the"
+                },
+                {
+                    "ORTH": "Moms"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Moms"
+                }
+            ]
+        ]
+    },
+    "Balbalis": {
+        "attributes": {
+            "association": "AFR",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Balbalis"
+                }
+            ]
+        ]
+    },
+    "BarryLoach": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Loach"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Barry"
+                }
+            ]
+        ]
+    },
+    "Beausoleil": {
+        "attributes": {
+            "association": "AFR",
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Beausoleil"
+                }
+            ]
+        ]
+    },
+    "BernadetteLongley": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bernadette"
+                },
+                {
+                    "ORTH": "Longley"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Longley"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bernadette"
+                },
+                {
+                    "ORTH": "Long-ley"
+                }
+            ]
+        ]
+    },
+    "BernardMakulic": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bernard"
+                },
+                {
+                    "ORTH": "Makulic"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Makulic"
+                }
+            ]
+        ]
+    },
+    "BertraundAntitoi": {
+        "attributes": {
+            "association": "Antitoi",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bertraund"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bertraund"
+                },
+                {
+                    "ORTH": "Antitoi"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Betraund"
+                },
+                {
+                    "ORTH": "Antitoi"
+                }
+            ]
+        ]
+    },
+    "BinnieBuckman": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Binnie"
+                },
+                {
+                    "ORTH": "Buckman"
+                }
+            ]
+        ]
+    },
+    "BobbyC": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bobby"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bobby"
+                },
+                {
+                    "ORTH": "C"
+                }
+            ]
+        ]
+    },
+    "BradAnderson": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Brad"
+                },
+                {
+                    "ORTH": "Anderson"
+                }
+            ]
+        ]
+    },
+    "BrianvanVleck": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Brian"
+                },
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "Vleck"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Van"
+                },
+                {
+                    "ORTH": "Vleck"
+                }
+            ],
+            [
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "Vleck"
+                }
+            ]
+        ]
+    },
+    "BridgetBoone": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bridget"
+                },
+                {
+                    "ORTH": "C."
+                },
+                {
+                    "ORTH": "Boone"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Boone"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bridget"
+                }
+            ]
+        ]
+    },
+    "BruceGreen": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bruce"
+                },
+                {
+                    "ORTH": "Green"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bruce"
+                },
+                {
+                    "ORTH": "G."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Brucie"
+                },
+                {
+                    "ORTH": "Green"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Brucie"
+                },
+                {
+                    "ORTH": "Green's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Brucie"
+                },
+                {
+                    "ORTH": "G."
+                }
+            ]
+        ]
+    },
+    "BudO": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Bud"
+                },
+                {
+                    "ORTH": "O."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bud"
+                },
+                {
+                    "ORTH": "O.'d"
+                }
+            ]
+        ]
+    },
+    "BurtSmith": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Burt"
+                },
+                {
+                    "ORTH": "F."
+                },
+                {
+                    "ORTH": "Smith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Burt"
+                },
+                {
+                    "ORTH": "F."
+                },
+                {
+                    "ORTH": "Smith's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Burt"
+                },
+                {
+                    "ORTH": "F.S."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Burt"
+                },
+                {
+                    "ORTH": "F.S.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Burt"
+                },
+                {
+                    "ORTH": "Smith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Burt"
+                }
+            ]
+        ]
+    },
+    "CalvinThrust": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Calvin"
+                },
+                {
+                    "ORTH": "Thrust"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Calvin"
+                },
+                {
+                    "ORTH": "T."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Calvin"
+                }
+            ]
+        ]
+    },
+    "CarlWhale": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Carl"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Carl"
+                },
+                {
+                    "ORTH": "Whale"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mobes"
+                }
+            ]
+        ]
+    },
+    "CarolSpodek": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Spodek"
+                }
+            ]
+        ]
+    },
+    "CarynVaught": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Caryn"
+                }
+            ]
+        ]
+    },
+    "ChandlerFoss": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Chandler"
+                },
+                {
+                    "ORTH": "Foss"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Chandler"
+                },
+                {
+                    "ORTH": "F."
+                }
+            ]
+        ]
+    },
+    "CharlesTavis": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "uncle"
+                },
+                {
+                    "LOWER": "charles"
+                }
+            ],
+            [
+                {
+                    "LOWER": "charles"
+                },
+                {
+                    "LOWER": "tavis"
+                }
+            ],
+            [
+                {
+                    "LOWER": "tavis"
+                }
+            ],
+            [
+                {
+                    "ORTH": "C.T."
+                }
+            ],
+            [
+                {
+                    "ORTH": "C. T."
+                }
+            ],
+            [
+                {
+                    "ORTH": "C.T"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Charles"
+                },
+                {
+                    "ORTH": "Tavises"
+                }
+            ]
+        ]
+    },
+    "CharltonHeston": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Charlton"
+                },
+                {
+                    "ORTH": "Heston"
+                }
+            ]
+        ]
+    },
+    "ChartlotteTreat": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Charlotte"
+                },
+                {
+                    "ORTH": "Treat"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Charlotte"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Charlotte"
+                },
+                {
+                    "ORTH": "T."
+                }
+            ]
+        ]
+    },
+    "ChipSweeny": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Sweeny"
+                }
+            ]
+        ]
+    },
+    "Clenette": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Clenette"
+                }
+            ]
+        ]
+    },
+    "CliffordPendleton": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Clifford"
+                },
+                {
+                    "ORTH": "Pendleton"
+                }
+            ]
+        ]
+    },
+    "CoachWhite": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "coach"
+                },
+                {
+                    "LOWER": "white"
+                }
+            ],
+            [
+                {
+                    "LOWER": "kirk"
+                },
+                {
+                    "LOWER": "white"
+                }
+            ],
+            [
+                {
+                    "LOWER": "kirk"
+                }
+            ]
+        ]
+    },
+    "ColumbusEpps": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Columbus"
+                },
+                {
+                    "ORTH": "Epps"
+                }
+            ]
+        ]
+    },
+    "CorbettThorp": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Corbett"
+                },
+                {
+                    "ORTH": "Thorp's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Corbett"
+                },
+                {
+                    "ORTH": "Thorp's"
+                },
+                {
+                    "ORTH": "'"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Corbett"
+                },
+                {
+                    "ORTH": "Thorp"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thorp"
+                }
+            ]
+        ]
+    },
+    "CosgroveWatt": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Cosgrove"
+                },
+                {
+                    "ORTH": "Watt"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Watt"
+                }
+            ]
+        ]
+    },
+    "CraigBurda": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Craig"
+                },
+                {
+                    "ORTH": "Burda"
+                }
+            ]
+        ]
+    },
+    "CrosbyBaum": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Baum"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Crosby"
+                },
+                {
+                    "ORTH": "Baum"
+                }
+            ]
+        ]
+    },
+    "DanielleSteenbok": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Danielle"
+                },
+                {
+                    "ORTH": "Steenbok"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Danielle"
+                },
+                {
+                    "ORTH": "Steen"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Danielle"
+                },
+                {
+                    "ORTH": "S."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Danielle"
+                },
+                {
+                    "ORTH": "S.'d"
+                }
+            ]
+        ]
+    },
+    "DaveHarde": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Harde"
+                }
+            ],
+            [
+                {
+                    "ORTH": "F."
+                },
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "V.'"
+                }
+            ],
+            [
+                {
+                    "ORTH": "F."
+                },
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "V."
+                }
+            ]
+        ]
+    },
+    "DavidKrone": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "David"
+                },
+                {
+                    "ORTH": "K."
+                }
+            ],
+            [
+                {
+                    "ORTH": "David"
+                },
+                {
+                    "ORTH": "Krone"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dave"
+                },
+                {
+                    "ORTH": "K."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dave"
+                },
+                {
+                    "ORTH": "K.'s"
+                }
+            ]
+        ]
+    },
+    "DavidWiere": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "David"
+                },
+                {
+                    "ORTH": "Wiere"
+                }
+            ]
+        ]
+    },
+    "DeanOfAcademicAffairs": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dean of Academic Affairs"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Academic"
+                },
+                {
+                    "ORTH": "Affairs"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dean"
+                },
+                {
+                    "LOWER": "at"
+                },
+                {
+                    "LOWER": "center"
+                }
+            ],
+            [
+                {
+                    "LOWER": "middle"
+                },
+                {
+                    "ORTH": "Dean"
+                }
+            ]
+        ]
+    },
+    "DeanOfAdmissions": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dean"
+                },
+                {
+                    "LOWER": "at"
+                },
+                {
+                    "LOWER": "left"
+                }
+            ],
+            [
+                {
+                    "LOWER": "yellow"
+                },
+                {
+                    "LOWER": "dean"
+                }
+            ],
+            [
+                {
+                    "LOWER": "dean"
+                },
+                {
+                    "LOWER": "sawyer"
+                }
+            ]
+        ]
+    },
+    "DeanOfAthleticAffairs": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dean of Athletic Affairs"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Athletic"
+                },
+                {
+                    "ORTH": "Affairs"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Athletics"
+                }
+            ]
+        ]
+    },
+    "DennisVanDerMeer": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "der"
+                },
+                {
+                    "ORTH": "Meer"
+                }
+            ]
+        ]
+    },
+    "Desjardins": {
+        "attributes": {
+            "association": "AFR",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Desjardins"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Desjardin"
+                }
+            ]
+        ]
+    },
+    "DianePrins": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Diane"
+                },
+                {
+                    "ORTH": "Prins"
+                }
+            ]
+        ]
+    },
+    "DidiNeaves": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Didi"
+                },
+                {
+                    "ORTH": "N."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Didi"
+                },
+                {
+                    "ORTH": "Neaves"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Didi"
+                }
+            ]
+        ]
+    },
+    "DirectorOfComposition": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Director"
+                },
+                {
+                    "LOWER": "of"
+                },
+                {
+                    "ORTH": "Composition"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dir"
+                },
+                {
+                    "LOWER": "of"
+                },
+                {
+                    "ORTH": "Comp"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Director"
+                },
+                {
+                    "LOWER": "of"
+                },
+                {
+                    "ORTH": "Comp"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Comp"
+                },
+                {
+                    "ORTH": "Director"
+                }
+            ]
+        ]
+    },
+    "DisneyRLeith": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Disney"
+                },
+                {
+                    "ORTH": "R."
+                },
+                {
+                    "ORTH": "Leith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Leith"
+                }
+            ]
+        ]
+    },
+    "DoloresEpps": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "dolores"
+                },
+                {
+                    "LOWER": "epps"
+                }
+            ]
+        ]
+    },
+    "DoloresRusk": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dolores"
+                },
+                {
+                    "ORTH": "Rusk"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dr."
+                },
+                {
+                    "ORTH": "Rusk"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Rusk"
+                }
+            ]
+        ]
+    },
+    "DonaldGately": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Don"
+                }
+            ],
+            [
+                {
+                    "LOWER": "donald"
+                },
+                {
+                    "LOWER": "gately"
+                }
+            ],
+            [
+                {
+                    "LOWER": "donald"
+                }
+            ],
+            [
+                {
+                    "ORTH": "D. W. Gately"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don Gately"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don Gately's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "W."
+                },
+                {
+                    "ORTH": "Gately"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don"
+                },
+                {
+                    "ORTH": "Gately"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don"
+                },
+                {
+                    "ORTH": "Gately's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gately"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gately'd"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gately'll"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bim"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don"
+                },
+                {
+                    "ORTH": "G."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Don'd"
+                }
+            ],
+            [
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "W."
+                },
+                {
+                    "ORTH": "GATELY"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bimmy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "W."
+                }
+            ],
+            [
+                {
+                    "ORTH": "G.'d"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bimster"
+                }
+            ],
+            [
+                {
+                    "ORTH": "the"
+                },
+                {
+                    "ORTH": "G-Man's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Donny"
+                }
+            ]
+        ]
+    },
+    "DonnieStott": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Donnie"
+                },
+                {
+                    "ORTH": "Stott"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Donni"
+                }
+            ]
+        ]
+    },
+    "DrPressburger": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Pressburger"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Prissburger"
+                }
+            ]
+        ]
+    },
+    "DwayneGlynn": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Doony"
+                },
+                {
+                    "ORTH": "Glynn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Glynn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Doonster"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Doony"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Doon"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Doonulater"
+                }
+            ]
+        ]
+    },
+    "DwightFlechette": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dwight"
+                },
+                {
+                    "ORTH": "Flechette"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Flechette"
+                }
+            ]
+        ]
+    },
+    "Dymphna": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Dymphna"
+                }
+            ]
+        ]
+    },
+    "EZeggarelli": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Zeggarelli"
+                }
+            ]
+        ]
+    },
+    "EightiesBill": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "E.B.'d"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eighties"
+                },
+                {
+                    "ORTH": "Bill"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eighties"
+                },
+                {
+                    "ORTH": "Bill's"
+                }
+            ]
+        ]
+    },
+    "EliotKornspan": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Eliot"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eliot"
+                },
+                {
+                    "ORTH": "Kornspan"
+                }
+            ]
+        ]
+    },
+    "EmilMinty": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Yrstruly"
+                }
+            ],
+            [
+                {
+                    "ORTH": "yrstrulys"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Emil"
+                },
+                {
+                    "ORTH": "Minty"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Minty"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Emil"
+                }
+            ]
+        ]
+    },
+    "EricClipperton": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Clipper-ton"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Clipperton"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eric"
+                },
+                {
+                    "ORTH": "Clipperton"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Clipperton'll"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Clippertons"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eric"
+                }
+            ]
+        ]
+    },
+    "EricaSiress": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Erica"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Erica"
+                },
+                {
+                    "ORTH": "Siress"
+                }
+            ]
+        ]
+    },
+    "ErnestFeaster": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ernest"
+                },
+                {
+                    "ORTH": "Feaster"
+                }
+            ]
+        ]
+    },
+    "EstebanReyne": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Esteban"
+                },
+                {
+                    "ORTH": "Reynes's"
+                }
+            ]
+        ]
+    },
+    "EugeneFackelmann": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "G."
+                },
+                {
+                    "ORTH": "Fackelmann"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Fackelmann"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gene"
+                },
+                {
+                    "ORTH": "Fackelmann"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gene"
+                },
+                {
+                    "ORTH": "Fackelmann's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Faxman"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Faxter"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Faxula"
+                }
+            ]
+        ]
+    },
+    "EugenioMartinez": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gene"
+                },
+                {
+                    "ORTH": "M."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eugenio"
+                },
+                {
+                    "ORTH": "M."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eugenio"
+                },
+                {
+                    "ORTH": "Martinez"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eugenio'd"
+                }
+            ]
+        ]
+    },
+    "EvanIngersoll": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Evan"
+                },
+                {
+                    "ORTH": "Ingersoll"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Inger-soll"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Inger-soll's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "IngersolPs"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Inger-soll"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Inger-soll's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Evan"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ingersoll"
+                }
+            ]
+        ]
+    },
+    "FelicityZweig": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "A-3"
+                },
+                {
+                    "ORTH": "Felicity"
+                },
+                {
+                    "ORTH": "Zweig"
+                }
+            ]
+        ]
+    },
+    "Flottman": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Flottman"
+                }
+            ]
+        ]
+    },
+    "FrancisGehaney": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Francis"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gehaney"
+                }
+            ],
+            [
+                {
+                    "ORTH": "F.F."
+                }
+            ]
+        ]
+    },
+    "FrannieUnwin": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Frannie"
+                },
+                {
+                    "ORTH": "Unwin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Fran"
+                },
+                {
+                    "ORTH": "Unwin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Fran"
+                },
+                {
+                    "ORTH": "Unwin's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Frances"
+                },
+                {
+                    "ORTH": "L."
+                },
+                {
+                    "ORTH": "Unwin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Unwin"
+                }
+            ]
+        ]
+    },
+    "GaryCarty": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gary"
+                },
+                {
+                    "ORTH": "Carty"
+                }
+            ]
+        ]
+    },
+    "GavinDiehl": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Diehl"
+                }
+            ]
+        ]
+    },
+    "GeoffreyDay": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "G."
+                },
+                {
+                    "ORTH": "Day"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Geoffrey"
+                },
+                {
+                    "ORTH": "D."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Geoffrey"
+                },
+                {
+                    "ORTH": "Day"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Geoff"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Geoffrey"
+                }
+            ]
+        ]
+    },
+    "GeorgeBush": {
+        "attributes": {
+            "association": "USA",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "G."
+                },
+                {
+                    "ORTH": "Bush"
+                }
+            ]
+        ]
+    },
+    "GeraldFord": {
+        "attributes": {
+            "association": "USA",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "G."
+                },
+                {
+                    "ORTH": "Ford"
+                }
+            ]
+        ]
+    },
+    "GertraudMarathe": {
+        "attributes": {
+            "association": "AFR",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gertraud"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gertraude"
+                }
+            ]
+        ]
+    },
+    "GlennK": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Flagger"
+                },
+                {
+                    "ORTH": "Glenn"
+                },
+                {
+                    "ORTH": "K.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Glenn"
+                },
+                {
+                    "ORTH": "K."
+                }
+            ]
+        ]
+    },
+    "GlennyKubitz": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Glenny"
+                },
+                {
+                    "ORTH": "Kubitz"
+                }
+            ]
+        ]
+    },
+    "GrahamRader": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Graham"
+                },
+                {
+                    "ORTH": "Rader"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Rader"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Graham"
+                },
+                {
+                    "ORTH": "('Yard-guard')"
+                },
+                {
+                    "ORTH": "Rader"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Graham"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Yardguard"
+                }
+            ]
+        ]
+    },
+    "GregChubb": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "5-man"
+                },
+                {
+                    "ORTH": "R."
+                },
+                {
+                    "ORTH": "Greg"
+                },
+                {
+                    "ORTH": "Chubb"
+                }
+            ]
+        ]
+    },
+    "GretchenHolt": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gretchen"
+                },
+                {
+                    "ORTH": "Holt"
+                }
+            ]
+        ]
+    },
+    "GuglielmoRedondo": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Guglielmo"
+                },
+                {
+                    "ORTH": "Redondo's"
+                }
+            ]
+        ]
+    },
+    "GuillaumeDuPlessis": {
+        "attributes": {
+            "association": "AFR",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "DuPlessis"
+                }
+            ]
+        ]
+    },
+    "GuntherNell": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Nell"
+                }
+            ]
+        ]
+    },
+    "GwendineOShay": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gwendine"
+                },
+                {
+                    "ORTH": "O'Shay"
+                }
+            ],
+            [
+                {
+                    "ORTH": "O'Shay"
+                }
+            ]
+        ]
+    },
+    "HalIncandenza": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "hal"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "LOWER": "hal"
+                }
+            ],
+            [
+                {
+                    "LOWER": "harold"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "LOWER": "harold"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Halorama"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Halster"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hallie"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hal\u00c3\u00adie"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hal'd"
+                }
+            ]
+        ]
+    },
+    "HankHoyne": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Hank"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hank"
+                },
+                {
+                    "ORTH": "Hoyne"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Henri"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hoyne"
+                }
+            ]
+        ]
+    },
+    "Harv": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Harv"
+                }
+            ]
+        ]
+    },
+    "HesterThrale": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Hester"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hester"
+                },
+                {
+                    "ORTH": "Thrale"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thrale"
+                }
+            ]
+        ]
+    },
+    "Hopman": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Hopman"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jenny"
+                },
+                {
+                    "ORTH": "B."
+                }
+            ]
+        ]
+    },
+    "HughSteeply": {
+        "attributes": {
+            "association": "USA",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Hugh"
+                },
+                {
+                    "ORTH": "Steeply"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Hugh"
+                },
+                {
+                    "ORTH": "Steeply"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Steeply"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Helen"
+                }
+            ],
+            [
+                {
+                    "ORTH": "HELEN"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hugh"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Steepley"
+                }
+            ]
+        ]
+    },
+    "IdrisArslanian": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Idris"
+                },
+                {
+                    "ORTH": "Arslanian"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Idris"
+                },
+                {
+                    "ORTH": "Arslanian's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Idris"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ars"
+                }
+            ]
+        ]
+    },
+    "JackJ": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jack"
+                },
+                {
+                    "ORTH": "J."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jack"
+                },
+                {
+                    "ORTH": "J.'s"
+                }
+            ]
+        ]
+    },
+    "JackKemp": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Kemp"
+                }
+            ]
+        ]
+    },
+    "JamesIncandenza": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Himself"
+                }
+            ],
+            [
+                {
+                    "ORTH": "James"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "ORTH": "James"
+                }
+            ],
+            [
+                {
+                    "ORTH": "James"
+                },
+                {
+                    "ORTH": "O."
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "ORTH": "JAMES"
+                },
+                {
+                    "ORTH": "O."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jimbo"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jim"
+                },
+                {
+                    "ORTH": "Incandenza"
+                }
+            ],
+            [
+                {
+                    "ORTH": "el"
+                },
+                {
+                    "ORTH": "Storko's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "O."
+                },
+                {
+                    "ORTH": "Incandenza"
+                }
+            ]
+        ]
+    },
+    "JeffWax": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jeff"
+                },
+                {
+                    "ORTH": "Wax"
+                }
+            ]
+        ]
+    },
+    "JeffreyJosephPenn": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jeff"
+                },
+                {
+                    "ORTH": "Penn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "Penn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "Penn's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jeffrey"
+                },
+                {
+                    "ORTH": "Joseph"
+                },
+                {
+                    "ORTH": "Penn"
+                }
+            ]
+        ]
+    },
+    "JennieBash": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jennie"
+                },
+                {
+                    "ORTH": "Bash"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bash"
+                }
+            ]
+        ]
+    },
+    "JenniferBelbin": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Belbin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Jennifer"
+                }
+            ]
+        ]
+    },
+    "JessicaPearlberg": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jessica"
+                },
+                {
+                    "ORTH": "Pearlberg"
+                }
+            ]
+        ]
+    },
+    "JamesStruck": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jim"
+                },
+                {
+                    "ORTH": "Struck"
+                }
+            ],
+            [
+                {
+                    "ORTH": "James"
+                },
+                {
+                    "ORTH": "Struck"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Struck"
+                }
+            ]
+        ]
+    },
+    "JimTroeltsch": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jim"
+                },
+                {
+                    "ORTH": "Troeltsch"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Troeltsch"
+                }
+            ]
+        ]
+    },
+    "JoeLonVanDyne": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Joe"
+                },
+                {
+                    "ORTH": "Lon"
+                },
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "Dyne"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Joe"
+                },
+                {
+                    "ORTH": "Lon's"
+                }
+            ]
+        ]
+    },
+    "JoelleVanDyne": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "joelle"
+                },
+                {
+                    "LOWER": "van"
+                },
+                {
+                    "LOWER": "dyne"
+                }
+            ],
+            [
+                {
+                    "LOWER": "joelle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Madame"
+                },
+                {
+                    "ORTH": "Psychosis"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Madame"
+                },
+                {
+                    "ORTH": "Psy-chosis's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Madame"
+                },
+                {
+                    "ORTH": "P."
+                }
+            ],
+            [
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "Dyne"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Madame"
+                },
+                {
+                    "ORTH": "P.G.O.A.T."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Joel"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Joelle'd"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Madame"
+                },
+                {
+                    "ORTH": "Psy-chosis's"
+                }
+            ]
+        ]
+    },
+    "JohnWayne": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Wayne"
+                }
+            ],
+            [
+                {
+                    "ORTH": "John"
+                },
+                {
+                    "ORTH": "('N.R.')"
+                },
+                {
+                    "ORTH": "Wayne"
+                }
+            ],
+            [
+                {
+                    "ORTH": "J.W."
+                }
+            ],
+            [
+                {
+                    "ORTH": "John"
+                }
+            ]
+        ]
+    },
+    "JohnetteFoltz": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Johnette"
+                },
+                {
+                    "ORTH": "Foltz"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Foltz"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Johnette"
+                }
+            ]
+        ]
+    },
+    "JohnnyGentle": {
+        "attributes": {
+            "association": "USA",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "J."
+                },
+                {
+                    "ORTH": "Gentle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gentle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "J.G."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Johnny"
+                }
+            ],
+            [
+                {
+                    "ORTH": "J.G.F.C."
+                }
+            ],
+            [
+                {
+                    "ORTH": "GENTLE"
+                }
+            ]
+        ]
+    },
+    "JoleneCriess": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Jolene"
+                },
+                {
+                    "ORTH": "Criess"
+                }
+            ]
+        ]
+    },
+    "JoshGopnik": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gopnik"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Josh"
+                },
+                {
+                    "ORTH": "Gopnik"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gop"
+                }
+            ]
+        ]
+    },
+    "Joubet": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Joubet"
+                }
+            ]
+        ]
+    },
+    "KateGompert": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Gompert"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kate"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kate"
+                },
+                {
+                    "ORTH": "Gom-pert"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kate"
+                },
+                {
+                    "ORTH": "Gompert"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kate"
+                },
+                {
+                    "ORTH": "Gompert's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Katherine"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Katherine"
+                },
+                {
+                    "ORTH": "A."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Katherine"
+                },
+                {
+                    "ORTH": "Ann"
+                },
+                {
+                    "ORTH": "Gompert"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Katherine"
+                },
+                {
+                    "ORTH": "Gompert"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Katharine"
+                }
+            ]
+        ]
+    },
+    "KeithFreer": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Keith"
+                },
+                {
+                    "ORTH": "Freer"
+                }
+            ],
+            [
+                {
+                    "ORTH": "K."
+                },
+                {
+                    "ORTH": "Freer"
+                }
+            ],
+            [
+                {
+                    "ORTH": "K."
+                },
+                {
+                    "ORTH": "B."
+                },
+                {
+                    "ORTH": "Freer"
+                }
+            ]
+        ]
+    },
+    "KenErdedy": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Erdedy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Erdedy'd"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ken"
+                },
+                {
+                    "ORTH": "E."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Airdaddy"
+                }
+            ]
+        ]
+    },
+    "Kenkle": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kenkle"
+                }
+            ]
+        ]
+    },
+    "KentBlott": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Blott"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kent"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kent"
+                },
+                {
+                    "ORTH": "Blott"
+                }
+            ],
+            [
+                {
+                    "ORTH": "K.B."
+                }
+            ]
+        ]
+    },
+    "KevinBain": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kev"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kevin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kevin"
+                },
+                {
+                    "ORTH": "Kevin"
+                },
+                {
+                    "ORTH": "Kevin"
+                },
+                {
+                    "ORTH": "Kevin"
+                },
+                {
+                    "ORTH": "Kevin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kevin"
+                },
+                {
+                    "ORTH": "keens"
+                }
+            ]
+        ]
+    },
+    "KieranMcKenna": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kieran"
+                },
+                {
+                    "ORTH": "McKenna"
+                }
+            ],
+            [
+                {
+                    "ORTH": "K."
+                },
+                {
+                    "ORTH": "McKenna"
+                }
+            ],
+            [
+                {
+                    "ORTH": "McKenna"
+                }
+            ]
+        ]
+    },
+    "KikiPfefferblit": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kiki"
+                },
+                {
+                    "ORTH": "Pfefferblit"
+                }
+            ]
+        ]
+    },
+    "KyleCoyle": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kyle"
+                },
+                {
+                    "ORTH": "D."
+                },
+                {
+                    "ORTH": "Coyle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Coyle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "K.D.C."
+                }
+            ]
+        ]
+    },
+    "LaMontChu": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Chu"
+                }
+            ],
+            [
+                {
+                    "ORTH": "La-Mont"
+                }
+            ],
+            [
+                {
+                    "ORTH": "LaMont"
+                }
+            ]
+        ]
+    },
+    "LadyDelphina": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Delphinas"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lady"
+                },
+                {
+                    "ORTH": "Delphina"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Delphina"
+                }
+            ]
+        ]
+    },
+    "Lendl": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lendl"
+                }
+            ]
+        ]
+    },
+    "Lolasister": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lolasister"
+                }
+            ]
+        ]
+    },
+    "Lopate": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lopate"
+                }
+            ]
+        ]
+    },
+    "LucienAntitoi": {
+        "attributes": {
+            "association": "Antitoi",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lucien"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lucien"
+                },
+                {
+                    "ORTH": "Antitoi"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lucien"
+                },
+                {
+                    "ORTH": "Antitoi's"
+                }
+            ]
+        ]
+    },
+    "LumRiney": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lum"
+                },
+                {
+                    "ORTH": "Riney"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lum"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Riney"
+                }
+            ]
+        ]
+    },
+    "LuriaPerec": {
+        "attributes": {
+            "association": "AFR",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Luria"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Luria"
+                },
+                {
+                    "ORTH": "Perec"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lur\u00c3\u00ada"
+                }
+            ]
+        ]
+    },
+    "Lyle": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Lyle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lyles"
+                }
+            ]
+        ]
+    },
+    "MBroullime": {
+        "attributes": {
+            "association": "AFR",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Brull\u00c3\u00ae"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Broull\u00c3"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Broull\u00c3\u00ae"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Broull\u00eeme"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Brull\u00eeme"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Broull\u00eeme"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Brull\u00eeme"
+                }
+            ]
+        ]
+    },
+    "MFortier": {
+        "attributes": {
+            "association": "AFR",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Fortier"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Fortier"
+                }
+            ]
+        ]
+    },
+    "MarilynNg": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Marilyn"
+                },
+                {
+                    "ORTH": "Ng"
+                }
+            ]
+        ]
+    },
+    "MarioIncandenza": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "mario"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "LOWER": "mario"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Booboo"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Incandenza"
+                }
+            ]
+        ]
+    },
+    "MarlonBain": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Marlon"
+                },
+                {
+                    "ORTH": "Bain"
+                }
+            ]
+        ]
+    },
+    "MarlonBrando": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Marlon"
+                },
+                {
+                    "ORTH": "Brando"
+                }
+            ]
+        ]
+    },
+    "MaryEstherThode": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Mary"
+                },
+                {
+                    "ORTH": "Esther"
+                },
+                {
+                    "ORTH": "Thode"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thode"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mary"
+                },
+                {
+                    "ORTH": "Esther's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "THODE"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mary"
+                },
+                {
+                    "ORTH": "Esther"
+                }
+            ]
+        ]
+    },
+    "MattyPemulis": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Matty"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Matty'd"
+                }
+            ]
+        ]
+    },
+    "MaureenHooley": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "HOOLEY"
+                }
+            ],
+            [
+                {
+                    "ORTH": "MAUREEN"
+                },
+                {
+                    "ORTH": "HOOLEY"
+                }
+            ]
+        ]
+    },
+    "MaureenN": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Maureen"
+                },
+                {
+                    "ORTH": "N."
+                }
+            ]
+        ]
+    },
+    "MauryKlamkin": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "maury"
+                },
+                {
+                    "LOWER": "klamkin"
+                }
+            ],
+            [
+                {
+                    "LOWER": "maury"
+                }
+            ],
+            [
+                {
+                    "LOWER": "klamkin"
+                }
+            ]
+        ]
+    },
+    "MedicalAttache": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "medical"
+                },
+                {
+                    "LOWER": "attach\u00e9"
+                }
+            ]
+        ]
+    },
+    "Melinda": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Melinda"
+                }
+            ]
+        ]
+    },
+    "MichaelChang": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Chang"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Michael"
+                },
+                {
+                    "ORTH": "Chang"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Michael"
+                },
+                {
+                    "ORTH": "Chang's"
+                }
+            ]
+        ]
+    },
+    "MichaelPemulis": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Michael"
+                },
+                {
+                    "ORTH": "Pemulis"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pemulis"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Peemster"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Michael"
+                },
+                {
+                    "ORTH": "Penisless"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M.M.P."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mickey"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Micky"
+                }
+            ]
+        ]
+    },
+    "MildredBonk": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Mildred"
+                },
+                {
+                    "ORTH": "Bonk"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mildred"
+                },
+                {
+                    "ORTH": "L."
+                },
+                {
+                    "ORTH": "Bonk"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Mildred"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Bonkesque"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Bonk"
+                }
+            ]
+        ]
+    },
+    "MilesPenn": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Miles"
+                },
+                {
+                    "ORTH": "Penn"
+                }
+            ]
+        ]
+    },
+    "MiriamPricket": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Pricket"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Miriam"
+                },
+                {
+                    "ORTH": "Prickett"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Prickett"
+                }
+            ]
+        ]
+    },
+    "MollyNotkin": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Molly"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Molly"
+                },
+                {
+                    "ORTH": "Notkin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Molly"
+                },
+                {
+                    "ORTH": "Notkin's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Notkin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Cantrell"
+                }
+            ]
+        ]
+    },
+    "MonaGhent": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Mona"
+                },
+                {
+                    "ORTH": "Ghent"
+                }
+            ]
+        ]
+    },
+    "MorrisHanley": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Morris"
+                },
+                {
+                    "ORTH": "H.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Morris"
+                },
+                {
+                    "ORTH": "H.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Morris"
+                },
+                {
+                    "ORTH": "Hanley"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Morris"
+                },
+                {
+                    "ORTH": "H."
+                }
+            ]
+        ]
+    },
+    "MrsClarke": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Clarke"
+                }
+            ]
+        ]
+    },
+    "PamHeath": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Heath"
+                }
+            ]
+        ]
+    },
+    "MrsWaite": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Waite"
+                }
+            ]
+        ]
+    },
+    "NateMillisJohnson": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Nate"
+                },
+                {
+                    "ORTH": "Millis-Johnson"
+                }
+            ]
+        ]
+    },
+    "NeilHartigan": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Neil"
+                },
+                {
+                    "ORTH": "Hartigan"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Neil"
+                },
+                {
+                    "ORTH": "Hart\u00c3\u00adgan"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Hartigan"
+                }
+            ]
+        ]
+    },
+    "NickBollettieri": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Nick"
+                },
+                {
+                    "ORTH": "Bollettieri"
+                }
+            ]
+        ]
+    },
+    "OrinIncandenza": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "orin"
+                },
+                {
+                    "LOWER": "incandenza"
+                }
+            ],
+            [
+                {
+                    "LOWER": "orin"
+                }
+            ]
+        ]
+    },
+    "OrthoStice": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Stice"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ortho"
+                },
+                {
+                    "LOWER": "('the"
+                },
+                {
+                    "LOWER": "darkness')"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Slice"
+                }
+            ],
+            [
+                {
+                    "ORTH": "STICE"
+                }
+            ],
+            [
+                {
+                    "ORTH": "The"
+                },
+                {
+                    "ORTH": "Darkness"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Orth"
+                }
+            ],
+            [
+                {
+                    "ORTH": "The"
+                },
+                {
+                    "ORTH": "Dark's"
+                }
+            ]
+        ]
+    },
+    "OtisPLord": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Otis"
+                },
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "Lord"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Lord"
+                }
+            ],
+            [
+                {
+                    "ORTH": "O."
+                },
+                {
+                    "ORTH": "Lord"
+                }
+            ],
+            [
+                {
+                    "ORTH": "O."
+                },
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "Lord"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Otis"
+                },
+                {
+                    "ORTH": "Lord"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Petropulator"
+                }
+            ]
+        ]
+    },
+    "OttoBrandt": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Brandt"
+                }
+            ]
+        ]
+    },
+    "PTomVeals": {
+        "attributes": {
+            "association": "USA",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "Tom"
+                },
+                {
+                    "ORTH": "Veals"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Veals"
+                }
+            ],
+            [
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "TOM"
+                },
+                {
+                    "ORTH": "VEALS"
+                }
+            ],
+            [
+                {
+                    "ORTH": "VEALS"
+                }
+            ]
+        ]
+    },
+    "PaisleySteinkamp": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Paisley"
+                },
+                {
+                    "ORTH": "Steinkamp"
+                }
+            ]
+        ]
+    },
+    "PamelaHoffmanJeep": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "P.H.-J.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "H.-J."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "P.H.-J."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pamela"
+                },
+                {
+                    "ORTH": "Hoffman-Jeep's"
+                }
+            ]
+        ]
+    },
+    "PatriciaMontesian": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "PATRICIA"
+                },
+                {
+                    "ORTH": "MONTESIAN"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pat"
+                }
+            ]
+        ]
+    },
+    "PaulShaw": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Paul"
+                },
+                {
+                    "ORTH": "Shaw"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Shaw"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tall"
+                },
+                {
+                    "ORTH": "Paul"
+                },
+                {
+                    "ORTH": "Shaw"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tall"
+                },
+                {
+                    "ORTH": "Paul"
+                }
+            ]
+        ]
+    },
+    "PeterBeak": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Peter"
+                },
+                {
+                    "ORTH": "Beak"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Peter"
+                },
+                {
+                    "ORTH": "Beak"
+                }
+            ]
+        ]
+    },
+    "Peterson": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Peterson"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Sleepy"
+                },
+                {
+                    "ORTH": "T.P."
+                }
+            ],
+            [
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "Peterson"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Sleepster"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Timmy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Sleepy"
+                },
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "P."
+                }
+            ]
+        ]
+    },
+    "PetropolisKahn": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Petropolis"
+                },
+                {
+                    "ORTH": "Kahn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kahn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Pe-tropolis"
+                },
+                {
+                    "ORTH": "Kahn"
+                }
+            ],
+            [
+                {
+                    "ORTH": "W.M."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Petropolis"
+                }
+            ]
+        ]
+    },
+    "PhilipTraub": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Philip"
+                },
+                {
+                    "ORTH": "Traub"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Traub"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Phil"
+                }
+            ]
+        ]
+    },
+    "PhillipTSmothergill": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Smothergill"
+                }
+            ]
+        ]
+    },
+    "PoorTonyKrause": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Poor"
+                },
+                {
+                    "ORTH": "Tony"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tony"
+                },
+                {
+                    "ORTH": "Krause"
+                }
+            ],
+            [
+                {
+                    "ORTH": "P."
+                },
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "Krause"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Krause"
+                }
+            ],
+            [
+                {
+                    "ORTH": "P.T."
+                }
+            ]
+        ]
+    },
+    "PrinceQ---------": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Prince"
+                },
+                {
+                    "ORTH": "Q---------"
+                }
+            ],
+            [
+                {
+                    "LOWER": "minister"
+                },
+                {
+                    "LOWER": "of"
+                },
+                {
+                    "LOWER": "home"
+                },
+                {
+                    "LOWER": "entertainment"
+                }
+            ]
+        ]
+    },
+    "RandyLenz": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "randy"
+                },
+                {
+                    "LOWER": "lenz"
+                }
+            ],
+            [
+                {
+                    "LOWER": "randy"
+                }
+            ],
+            [
+                {
+                    "LOWER": "lenz"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Randall"
+                },
+                {
+                    "ORTH": "L.'s"
+                }
+            ]
+        ]
+    },
+    "ReeseEquus": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Eckwus"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Equus"
+                },
+                {
+                    "ORTH": "Reese"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Equus"
+                }
+            ]
+        ]
+    },
+    "ReevesMainwaring": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Reeves"
+                },
+                {
+                    "ORTH": "Mainwaring"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Reeves"
+                },
+                {
+                    "ORTH": "Mainwaring's"
+                }
+            ]
+        ]
+    },
+    "Reginald": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Reginald"
+                }
+            ]
+        ]
+    },
+    "RemyMarathe": {
+        "attributes": {
+            "association": "AFR",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Marathe"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Mar-athe's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ramy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "R\u00e9my"
+                }
+            ]
+        ]
+    },
+    "RikDunkel": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Rik"
+                },
+                {
+                    "ORTH": "Dunkel"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Dunkel"
+                }
+            ],
+            [
+                {
+                    "ORTH": "R."
+                },
+                {
+                    "ORTH": "Dunkel"
+                }
+            ]
+        ]
+    },
+    "RobertF": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Robert"
+                },
+                {
+                    "ORTH": "F."
+                }
+            ]
+        ]
+    },
+    "RodneyTineJr": {
+        "attributes": {
+            "association": "USA",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "R."
+                },
+                {
+                    "ORTH": "TINE"
+                },
+                {
+                    "ORTH": "JR"
+                }
+            ],
+            [
+                {
+                    "ORTH": "RODNEY"
+                },
+                {
+                    "ORTH": "TINE"
+                },
+                {
+                    "ORTH": "SR"
+                }
+            ]
+        ]
+    },
+    "RodneyTineSr": {
+        "attributes": {
+            "association": "USA",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Tine"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Rod"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Rodney"
+                },
+                {
+                    "ORTH": "Tine"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tine"
+                }
+            ],
+            [
+                {
+                    "ORTH": "M."
+                },
+                {
+                    "ORTH": "Rodney"
+                },
+                {
+                    "ORTH": "'"
+                }
+            ]
+        ]
+    },
+    "RossReat": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Reat"
+                }
+            ]
+        ]
+    },
+    "RoyTony": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Roy"
+                },
+                {
+                    "ORTH": "Tony"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Roy"
+                },
+                {
+                    "ORTH": "Tonys'"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Roy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Roy-Tony"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Yo"
+                },
+                {
+                    "ORTH": "Roy"
+                },
+                {
+                    "ORTH": "T."
+                }
+            ]
+        ]
+    },
+    "RuthVanCleve": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ruth"
+                },
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "Cleve"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ruth"
+                }
+            ]
+        ]
+    },
+    "RutherfordKeck": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Keck"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Rutherford"
+                },
+                {
+                    "ORTH": "Keck"
+                }
+            ]
+        ]
+    },
+    "SJohnson": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "S."
+                },
+                {
+                    "ORTH": "Johnson"
+                }
+            ],
+            [
+                {
+                    "ORTH": "S."
+                },
+                {
+                    "ORTH": "Johnson's"
+                }
+            ],
+            [
+                {
+                    "ORTH": "S.J."
+                }
+            ]
+        ]
+    },
+    "GerhardtSchtitt": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "gerhardt"
+                },
+                {
+                    "LOWER": "schtitt"
+                }
+            ],
+            [
+                {
+                    "LOWER": "schtitt"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Gerhardt"
+                }
+            ]
+        ]
+    },
+    "SharynVaught": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Sharyn"
+                },
+                {
+                    "ORTH": "Vaught"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Sharyn"
+                }
+            ]
+        ]
+    },
+    "ShelbyVanDerMerwe": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Shelby"
+                },
+                {
+                    "ORTH": "van"
+                },
+                {
+                    "ORTH": "der"
+                }
+            ]
+        ]
+    },
+    "ShoshanaAbram": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Shoshana"
+                },
+                {
+                    "ORTH": "Abram's"
+                }
+            ]
+        ]
+    },
+    "SixtiesBob": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Sixties"
+                },
+                {
+                    "ORTH": "Bob"
+                }
+            ]
+        ]
+    },
+    "SomaRichardsonLevyOByrneChawaf": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Soma"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Soma"
+                },
+                {
+                    "ORTH": "R.-L.-O."
+                },
+                {
+                    "ORTH": "Chawaf's"
+                }
+            ]
+        ]
+    },
+    "StanSmith": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Stan"
+                },
+                {
+                    "ORTH": "Smith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stan"
+                },
+                {
+                    "ORTH": "Smith's"
+                }
+            ]
+        ]
+    },
+    "StavrosLobokulas": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Stavros"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stavros"
+                },
+                {
+                    "ORTH": "L."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stavros"
+                },
+                {
+                    "ORTH": "Lobokulas"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stavros"
+                },
+                {
+                    "ORTH": "Lobokulas's"
+                }
+            ]
+        ]
+    },
+    "StephenWagenknecht": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Wagen-knecht"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stephan"
+                },
+                {
+                    "ORTH": "Wagenknecht"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Wagen-knecht"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Wagenknecht"
+                }
+            ]
+        ]
+    },
+    "StokelyMcNair": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Darkstar"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kely"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Stokely"
+                }
+            ],
+            [
+                {
+                    "ORTH": "McNair"
+                }
+            ]
+        ]
+    },
+    "SusanTCheese": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Susan"
+                },
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "Cheese"
+                }
+            ],
+            [
+                {
+                    "ORTH": "S."
+                },
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "Cheese"
+                }
+            ]
+        ]
+    },
+    "TamaraN": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tamara"
+                },
+                {
+                    "ORTH": "N."
+                }
+            ]
+        ]
+    },
+    "TammiTaylorBing": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tammi"
+                },
+                {
+                    "ORTH": "Taylor-Bing"
+                }
+            ]
+        ]
+    },
+    "TapioMartti": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tapio"
+                },
+                {
+                    "ORTH": "Martti"
+                }
+            ]
+        ]
+    },
+    "Tassigny": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tassigny"
+                }
+            ]
+        ]
+    },
+    "TawniKondo": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tawni"
+                },
+                {
+                    "ORTH": "Kondo"
+                }
+            ]
+        ]
+    },
+    "TedSchacht": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ted"
+                },
+                {
+                    "ORTH": "Schacht"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Schacht"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Teddy"
+                }
+            ]
+        ]
+    },
+    "TexWatson": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tex"
+                },
+                {
+                    "ORTH": "Watson"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Watson"
+                }
+            ]
+        ]
+    },
+    "TheWraith": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "the"
+                },
+                {
+                    "ORTH": "Wraith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "The"
+                },
+                {
+                    "ORTH": "Wraith"
+                }
+            ],
+            [
+                {
+                    "ORTH": "the"
+                },
+                {
+                    "ORTH": "wraith"
+                }
+            ]
+        ]
+    },
+    "ThierryPoutrincourt": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Thierry"
+                },
+                {
+                    "ORTH": "Poutrincourt"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thierry"
+                },
+                {
+                    "ORTH": "Poutrincourt's"
+                },
+                {
+                    "ORTH": "'"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thierry"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Poutrincourt"
+                }
+            ]
+        ]
+    },
+    "TinaEcht": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tina"
+                },
+                {
+                    "ORTH": "Echt"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Echt"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tina"
+                }
+            ]
+        ]
+    },
+    "Tingley": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tingley"
+                }
+            ]
+        ]
+    },
+    "TinyEwell": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ewell"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tiny"
+                },
+                {
+                    "ORTH": "E."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tiny"
+                },
+                {
+                    "ORTH": "E.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Eldred"
+                }
+            ]
+        ]
+    },
+    "ToddPossalthwaite": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Possalthwaite"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Todd"
+                },
+                {
+                    "ORTH": "('Postal-Weight')"
+                },
+                {
+                    "ORTH": "Possalthwaite"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Todd"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Todder"
+                }
+            ]
+        ]
+    },
+    "TomFlatto": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Flatto"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Thomas"
+                },
+                {
+                    "ORTH": "M."
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tom"
+                },
+                {
+                    "ORTH": "Flatto's"
+                }
+            ]
+        ]
+    },
+    "TommyDoocey": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tommy"
+                },
+                {
+                    "ORTH": "Doocey"
+                }
+            ],
+            [
+                {
+                    "ORTH": "T."
+                },
+                {
+                    "ORTH": "Doocy"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tommy"
+                },
+                {
+                    "ORTH": "D.'s"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Tommy"
+                },
+                {
+                    "ORTH": "Doocy'd"
+                }
+            ]
+        ]
+    },
+    "TommyS": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tommy"
+                },
+                {
+                    "ORTH": "S."
+                }
+            ]
+        ]
+    },
+    "TonyNwangi": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tony"
+                },
+                {
+                    "ORTH": "Nwangi"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Nwangi"
+                }
+            ]
+        ]
+    },
+    "Tooty": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Tooty"
+                }
+            ]
+        ]
+    },
+    "TrentKite": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Kite"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Kite'd"
+                }
+            ]
+        ]
+    },
+    "TrevorAxford": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Trevor"
+                },
+                {
+                    "ORTH": "Axford"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Axford"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Axhandle"
+                }
+            ],
+            [
+                {
+                    "ORTH": "A-4"
+                },
+                {
+                    "ORTH": "Trevor"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Trevor"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ax-ford"
+                }
+            ]
+        ]
+    },
+    "USSMillicentKent": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Millicent"
+                }
+            ],
+            [
+                {
+                    "ORTH": "U.S.S.M.K."
+                }
+            ]
+        ]
+    },
+    "UrquhartOgilvie": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "OGILVIE"
+                }
+            ],
+            [
+                {
+                    "ORTH": "OGILVIE"
+                },
+                {
+                    "ORTH": "POINTED"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Ogilvie"
+                }
+            ]
+        ]
+    },
+    "VilleDillard": {
+        "attributes": {
+            "association": null,
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Ville"
+                },
+                {
+                    "ORTH": "Dillard"
+                }
+            ]
+        ]
+    },
+    "VinnieNucci": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Nucci"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Nooch"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Vinnie"
+                },
+                {
+                    "ORTH": "Nucci"
+                }
+            ],
+            [
+                {
+                    "ORTH": "V."
+                },
+                {
+                    "ORTH": "Nucc\u00c3\u00ad"
+                }
+            ]
+        ]
+    },
+    "Virgilio": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Virgilio"
+                }
+            ]
+        ]
+    },
+    "WadeMcDade": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "McDade"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Wade"
+                }
+            ]
+        ]
+    },
+    "Wardine": {
+        "attributes": {
+            "association": null,
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "LOWER": "wardine"
+                }
+            ]
+        ]
+    },
+    "WhitySorkin": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Whity"
+                },
+                {
+                    "ORTH": "Sorkin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Sorkin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Whitey"
+                },
+                {
+                    "ORTH": "Sorkin"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Whitey"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Whitey"
+                },
+                {
+                    "ORTH": "Sor-kin"
+                }
+            ]
+        ]
+    },
+    "Yardley": {
+        "attributes": {
+            "association": "EnfieldTennisAcademy",
+            "gender": null
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Yardley"
+                }
+            ]
+        ]
+    },
+    "YolandaWillis": {
+        "attributes": {
+            "association": "EnnetHouse",
+            "gender": "female"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Yolanda"
+                }
+            ],
+            [
+                {
+                    "ORTH": "Willis"
+                }
+            ]
+        ]
+    },
+    "ZoltanCsikzentmihalyi": {
+        "attributes": {
+            "association": null,
+            "gender": "male"
+        },
+        "patterns": [
+            [
+                {
+                    "ORTH": "Zoltan"
+                },
+                {
+                    "ORTH": "Csikzentmihalyi"
+                }
+            ]
+        ]
+    }
+}
