@@ -19,7 +19,8 @@ from display_graph import display_with_webweb
 
 class BookProcesser:
     def __init__(self, book_path, book_title=None, preprocess_path=None, graph_path=None):
-        self.base_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..")
+        #self.base_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..")
+        self.base_path = "."
         self.raw_book_path = book_path
         self.preprocess_path = preprocess_path
         self.graph_path = graph_path
@@ -93,6 +94,7 @@ class BookProcesser:
         print("+-------------------------------------")
         # is book already split into sections?
         section_dir = self.get_section_path()
+        print(section_dir)
         if os.path.isdir(section_dir):
             # already pre-processed.
             self.sections = self.enumerate_sections(section_dir)
@@ -141,12 +143,18 @@ class BookProcesser:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Turn a book into a graph!")
-    parser.add_argument('book', help="Location of book. Raw txt/mobi.")
+    parser.add_argument('--book', '-b', help="Location of book. Raw txt/mobi.", default=None)
     parser.add_argument('--title', '-t', help="Title of book. If omitted, will be inferred from book file name", default=None)
     parser.add_argument('--preprocess_dir', '-p', help="Location of preprocessed book. Should contain a sections dir, with book split into individual sections", default=None)
     parser.add_argument('--save_dir', '-s', help="Directory to save cache & output data", default=None)
 
     args = parser.parse_args()
+    if args.book is None:
+        if args.title is None:
+            print("Error: please include either book or title argument")
+            sys.exit(1)
+        else:
+            args.book = args.title
 
     reader = BookProcesser(
             book_path=args.book, 
